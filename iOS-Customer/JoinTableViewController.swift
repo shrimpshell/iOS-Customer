@@ -9,82 +9,102 @@
 import UIKit
 
 class JoinTableViewController: UITableViewController {
-
+    
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var rePasswordField: UITextField!
+    @IBOutlet weak var genderSegmented: UISegmentedControl!
+    @IBOutlet weak var birthdayLable: UILabel!
+    @IBOutlet weak var birthdayDatePicker: UIDatePicker!
+    @IBOutlet weak var phoneField: UIView!
+    @IBOutlet weak var addressField: UITextField!
+    
+    let birthdayTitle = IndexPath(row: 0, section: 5)
+    
+    var birthdayShow = false {
+        didSet {
+            birthdayDatePicker.isHidden = !birthdayShow
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+   
+    //Gender Select
+    @IBAction func genderTypeChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            let gender = "female"
+        case 1:
+            let gender = "male"
+            
+        default:
+            break
+        }
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    
+    //BirthdayPicker Hidden Change
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath {
+        case birthdayTitle:
+            tableView.beginUpdates()
+            birthdayShow = !birthdayShow
+            tableView.endUpdates()
+            
+        default:
+            break
+        }
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    //Birthday Heigh Change
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let birthdayPickerIndexPath = IndexPath(row: 1, section: 5)
+        if indexPath == birthdayPickerIndexPath{
+            if birthdayShow {
+                return 216.0
+            } else {
+                return 0.0
+            }
+        }
+        return 44.0
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    //Birthday
+    
+    @IBAction func birthdayPicker(_ sender: UIDatePicker) {
+        let date = sender.date
+        let  formateer = DateFormatter()
+        formateer.dateFormat = "yyyy/MM/dd"
+        let dateString = formateer.string(from: date)
+        birthdayLable.text = dateString
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "蝦殼飯店", message: "取消註冊", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "確定", style: .destructive){
+            (action) in
+            self.performSegue(withIdentifier: "HomePage", sender: self)
+//            let home = Ho
+//            self.present(home, animated: true, completion: nil)
+        }
+        let cancel = UIAlertAction(title: "取消", style: .default)
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        
+        present(alert, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
+   
+    
+    
 
 }

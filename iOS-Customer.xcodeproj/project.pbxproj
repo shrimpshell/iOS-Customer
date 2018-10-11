@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78AB9499216E13F100045C95 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB9498216E13F100045C95 /* LogInViewController.swift */; };
+		78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */; };
+		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
+		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
 		78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */; };
 		D13405A42166699300E72B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A32166699300E72B67 /* AppDelegate.swift */; };
-		D13405A62166699300E72B67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A52166699300E72B67 /* ViewController.swift */; };
+		D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A52166699300E72B67 /* HomePageViewController.swift */; };
 		D13405A92166699300E72B67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405A72166699300E72B67 /* Main.storyboard */; };
 		D13405AB2166699500E72B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D13405AA2166699500E72B67 /* Assets.xcassets */; };
 		D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405AC2166699500E72B67 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78AB9498216E13F100045C95 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
+		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
 		D13405A02166699300E72B67 /* iOS-Customer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Customer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13405A32166699300E72B67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D13405A52166699300E72B67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D13405A52166699300E72B67 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		D13405A82166699300E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D13405AA2166699500E72B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D13405AD2166699500E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +45,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78AB949E216E28B700045C95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78AB949C216E286C00045C95 /* Rating.swift */,
+				78AB94A0216E2A7900045C95 /* Customer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		78AB949F216E28FD00045C95 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
+				D13405A52166699300E72B67 /* HomePageViewController.swift */,
+				78AB9498216E13F100045C95 /* LogInViewController.swift */,
+				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
 		D13405972166699300E72B67 = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +84,10 @@
 		D13405A22166699300E72B67 /* iOS-Customer */ = {
 			isa = PBXGroup;
 			children = (
+				78AB949F216E28FD00045C95 /* Control */,
+				78AB949E216E28B700045C95 /* Model */,
 				D13405A32166699300E72B67 /* AppDelegate.swift */,
-				D13405A52166699300E72B67 /* ViewController.swift */,
 				D13405A72166699300E72B67 /* Main.storyboard */,
-				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
 				D13405AA2166699500E72B67 /* Assets.xcassets */,
 				D13405AC2166699500E72B67 /* LaunchScreen.storyboard */,
 				D13405AF2166699500E72B67 /* Info.plist */,
@@ -138,9 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */,
+				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
+				78AB9499216E13F100045C95 /* LogInViewController.swift in Sources */,
 				78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */,
-				D13405A62166699300E72B67 /* ViewController.swift in Sources */,
+				D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
+				78AB949D216E286C00045C95 /* Rating.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

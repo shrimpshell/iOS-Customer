@@ -62,6 +62,7 @@ class JoinTableViewController: UITableViewController {
         default:
             break
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     //Birthday Heigh Change
@@ -91,7 +92,11 @@ class JoinTableViewController: UITableViewController {
         let alert = UIAlertController(title: "蝦殼飯店", message: "取消註冊", preferredStyle: .alert)
         let ok = UIAlertAction(title: "確定", style: .destructive){
             (action) in
-            self.performSegue(withIdentifier: "HomePage", sender: self)
+            
+            
+//            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let homePage = mainStoryboard.instantiateViewController(withIdentifier: "HomePage")
+//            self.navigationController?.pushViewController(homePage, animated: true)
 //            let home = Ho
 //            self.present(home, animated: true, completion: nil)
         }

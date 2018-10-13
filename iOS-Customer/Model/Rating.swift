@@ -8,13 +8,23 @@
 
 import Foundation
 
-struct Rating {     //不確定要用struct還是用class
-    let idRating: Int
-    let ratingStar: Float
-    let time: String
-    let opinion: String
-    let review: String
-    let idRoomReservation: Int
+class Rating {     //不確定要用struct還是用class
+    var idRating: Int
+    var ratingStar: Float
+    var time: String
+    var opinion: String
+    var review: String
+    var idRoomReservation: Int
+    
+    init(idRating: Int, ratingStar: Float, time: String, opinion: String, review: String, idRoomReservation: Int) {
+        self.idRating = idRating
+        self.ratingStar = ratingStar
+        self.time = time
+        self.opinion = opinion
+        self.review = review
+        self.idRoomReservation = idRoomReservation
+        
+    }
 }
 
 

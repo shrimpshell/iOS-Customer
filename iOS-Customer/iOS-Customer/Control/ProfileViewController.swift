@@ -63,12 +63,13 @@ class ProfileViewController: UIViewController {
                     self.showAlert(message: "帳號或密碼不正確，請重新輸入")
                     return customerTask.getCustomerInfo(["action": "findById", "IdCustomer": ""])
                 }
-                self.idCustomerLabel.text = "\(idCustomer)"
+                
                 print("idCustomer: \(idCustomer)")
+                self.idCustomerLabel.text = "\(idCustomer)"
                 return customerTask.getCustomerInfo(customerProfile)
             }.done { (customer) in
-//                if let customer = customer
-                if self.idCustomer != 0 {
+                self.customer = customer
+                if customer?.idCustomer != 0 {
                 self.isLogin = true
                 } else {
                     self.showAlert(message: "帳號或密碼不正確 \n請重新輸入")

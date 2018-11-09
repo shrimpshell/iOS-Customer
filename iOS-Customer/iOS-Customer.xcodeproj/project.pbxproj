@@ -14,11 +14,14 @@
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
 		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
 		78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */; };
+		D12394E421940A7D001F6E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405A72166699300E72B67 /* Main.storyboard */; };
 		D13405A42166699300E72B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A32166699300E72B67 /* AppDelegate.swift */; };
 		D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A52166699300E72B67 /* HomePageViewController.swift */; };
-		D13405A92166699300E72B67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405A72166699300E72B67 /* Main.storyboard */; };
 		D13405AB2166699500E72B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D13405AA2166699500E72B67 /* Assets.xcassets */; };
 		D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405AC2166699500E72B67 /* LaunchScreen.storyboard */; };
+		D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E2421941466002E065A /* RoomOrderTableViewController.swift */; };
+		D1918E272194153A002E065A /* OrderRoomDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E262194153A002E065A /* OrderRoomDetail.swift */; };
+		D1918E2921951426002E065A /* RoomOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E2821951426002E065A /* RoomOrderDetailViewController.swift */; };
 		D76C7F7D6E8B8BF07E7B5BC8 /* Pods_iOS_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB724A95E3AF927AE6FDE13F /* Pods_iOS_Customer.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,9 @@
 		D13405AA2166699500E72B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D13405AD2166699500E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D13405AF2166699500E72B67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1918E2421941466002E065A /* RoomOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOrderTableViewController.swift; sourceTree = "<group>"; };
+		D1918E262194153A002E065A /* OrderRoomDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRoomDetail.swift; sourceTree = "<group>"; };
+		D1918E2821951426002E065A /* RoomOrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOrderDetailViewController.swift; sourceTree = "<group>"; };
 		FB724A95E3AF927AE6FDE13F /* Pods_iOS_Customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -69,6 +75,7 @@
 				7857F5712192B2EE00641030 /* Common.swift */,
 				78AB949C216E286C00045C95 /* Rating.swift */,
 				78AB94A0216E2A7900045C95 /* Customer.swift */,
+				D1918E262194153A002E065A /* OrderRoomDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -80,6 +87,8 @@
 				D13405A52166699300E72B67 /* HomePageViewController.swift */,
 				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
 				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
+				D1918E2421941466002E065A /* RoomOrderTableViewController.swift */,
+				D1918E2821951426002E065A /* RoomOrderDetailViewController.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -185,9 +194,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D12394E421940A7D001F6E98 /* Main.storyboard in Resources */,
 				D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */,
 				D13405AB2166699500E72B67 /* Assets.xcassets in Resources */,
-				D13405A92166699300E72B67 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +255,10 @@
 				78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */,
 				78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */,
 				D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */,
+				D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
+				D1918E2921951426002E065A /* RoomOrderDetailViewController.swift in Sources */,
+				D1918E272194153A002E065A /* OrderRoomDetail.swift in Sources */,
 				78AB949D216E286C00045C95 /* Rating.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

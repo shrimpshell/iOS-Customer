@@ -13,6 +13,8 @@ class ProfileViewController: UIViewController {
     var customer: Customer?
     var idCustomer: Int = 0
     var isLogin = false
+    var orderRoomDetails: [OrderRoomDetail]?
+    var orderInstantDetails: [OrderInstantDetail]?
 
     @IBOutlet weak var profilePageView: UIScrollView!
     @IBOutlet weak var loginPageView: UIScrollView!
@@ -34,12 +36,20 @@ class ProfileViewController: UIViewController {
         userlogin()
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier, identifier == "toOrderList" {
+            let NAVController = segue.destination as? UINavigationController
+            let tableViewController = NAVController?.viewControllers.first as! RoomOrderTableViewController
+            tableViewController.orders = self.orderRoomDetails!
+            tableViewController.instants = self.orderInstantDetails!
+        }
+    }
 
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         let customerTask = CustomerAuth()
-        var email: String = loginEmailText.text!
-        var password: String = loginPasswordText.text!
+        let orderDetails = OrderRoomDB()
+        let email: String = loginEmailText.text!
+        let password: String = loginPasswordText.text!
         guard email.count != 0 && password.count != 0 else {
             let alertController = UIAlertController(title: "蝦殼大飯店", message: "帳號或密碼不可留空", preferredStyle: UIAlertController.Style.alert)
             alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
@@ -48,38 +58,36 @@ class ProfileViewController: UIViewController {
             return
         }
         
-        let customerExist = ["action": "userExist", "email": email] as [String : String]
         let customerValid =  ["action": "userValid", "email": email, "password": password] as [String : String]
-        customerTask.isValidUser(customerExist).then { (isValid) -> Promise<String> in
-            guard isValid == "true" else {
-                self.showAlert(message: "帳號不存在")
-                return customerTask.isCorrectUser(["action": "userValid", "email": "", "password": ""])
-            }
-            
-             return customerTask.isCorrectUser(customerValid)
-            }.then { (idCustomer) -> Promise<Customer?> in
+        customerTask.isCorrectUser(customerValid).then { (idCustomer) -> Promise<Customer?> in
                 let customerProfile = ["action": "findById", "IdCustomer": idCustomer] as [String : String]
                 guard idCustomer.count > 0 || idCustomer != "0" || (Int(idCustomer) != nil)  else {
                     self.showAlert(message: "帳號或密碼不正確，請重新輸入")
-                    return customerTask.getCustomerInfo(["action": "findById", "IdCustomer": ""])
+                    return customerTask.getCustomerInfo(["action": "findById", "IdCustomer": "0"])
                 }
-                
-                print("idCustomer: \(idCustomer)")
+                self.idCustomer = Int(idCustomer)!
                 self.idCustomerLabel.text = "\(idCustomer)"
                 return customerTask.getCustomerInfo(customerProfile)
-            }.done { (customer) in
-                self.customer = customer
-                if customer?.idCustomer != 0 {
-                self.isLogin = true
-                } else {
+            }.then { (customer) -> Promise<[OrderRoomDetail]> in
+                guard let customer = customer else {
                     self.showAlert(message: "帳號或密碼不正確 \n請重新輸入")
+                    return orderDetails.getRoomPayDetailById(["":""])
+                }
+                if customer.idCustomer != 0 {
+                    self.isLogin = true
                 }
                 self.userlogin()
-                print(": \(customer)")
-                self.nameCustomer.text = customer?.name
-                self.emailCustomer.text = customer?.email
-                self.phoneCustomer.text = customer?.phone
-                
+                self.nameCustomer.text = customer.name
+                self.emailCustomer.text = customer.email
+                self.phoneCustomer.text = customer.phone
+                let parameters = ["action":"getRoomPayDetailById", "idCustomer":"\(self.idCustomer)"]
+                return orderDetails.getRoomPayDetailById(parameters)
+            }.then { rooms -> Promise<[OrderInstantDetail]> in
+                self.orderRoomDetails = rooms
+                let parameters = ["action":"getInstantPayDetail", "idCustomer":"\(self.idCustomer)"]
+                return orderDetails.getInstantPayDetail(parameters)
+            }.done { instants in
+                self.orderInstantDetails = instants
             }.catch { (error) in
                 assertionFailure("Login Error: \(error)")
         }

@@ -675,16 +675,29 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5t-5W-3eN">
+                                        <rect key="frame" x="238" y="310" width="41" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="評論"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obc-gW-BrI">
+                                        <rect key="frame" x="189" y="310" width="41" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="入住"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="dVS-rY-N4A" secondAttribute="trailing" constant="16" id="1t3-RA-1M5"/>
                                     <constraint firstItem="bqE-SZ-CfP" firstAttribute="top" secondItem="dVS-rY-N4A" secondAttribute="bottom" constant="7.5" id="6rR-CC-hgF"/>
                                     <constraint firstItem="0XK-ak-wjE" firstAttribute="top" secondItem="00v-N7-tqC" secondAttribute="bottom" constant="8" id="9nK-I6-8yI"/>
+                                    <constraint firstAttribute="bottom" secondItem="B5t-5W-3eN" secondAttribute="bottom" constant="8" id="Bfr-cB-jku"/>
                                     <constraint firstItem="xj7-y6-JGX" firstAttribute="leading" secondItem="hni-FJ-GfV" secondAttribute="leading" constant="16" id="Eef-z9-NqP"/>
                                     <constraint firstItem="dVS-rY-N4A" firstAttribute="top" secondItem="xj7-y6-JGX" secondAttribute="bottom" constant="7.5" id="F5Z-bl-9Ca"/>
                                     <constraint firstItem="00v-N7-tqC" firstAttribute="top" secondItem="hni-FJ-GfV" secondAttribute="top" constant="8" id="L0B-cn-xUa"/>
                                     <constraint firstItem="xj7-y6-JGX" firstAttribute="top" secondItem="0XK-ak-wjE" secondAttribute="bottom" constant="21" id="LZk-3g-Fld"/>
+                                    <constraint firstAttribute="trailing" secondItem="B5t-5W-3eN" secondAttribute="trailing" constant="16" id="UUJ-xv-BwF"/>
                                     <constraint firstItem="dVS-rY-N4A" firstAttribute="leading" secondItem="hni-FJ-GfV" secondAttribute="leading" constant="16" id="ZQH-rQ-JTh"/>
                                     <constraint firstItem="2cs-Fk-wcu" firstAttribute="leading" secondItem="hni-FJ-GfV" secondAttribute="leading" constant="16" id="aoO-t6-lPu"/>
                                     <constraint firstAttribute="trailing" secondItem="bqE-SZ-CfP" secondAttribute="trailing" constant="16" id="clR-f3-REW"/>
@@ -734,9 +747,11 @@
                     </view>
                     <connections>
                         <outlet property="amountLabel" destination="TBe-bb-JpU" id="lcm-R2-sSy"/>
+                        <outlet property="checkStatusButton" destination="Obc-gW-BrI" id="VqM-3Z-z3U"/>
                         <outlet property="checkinLabel" destination="0XK-ak-wjE" id="U5t-x6-UFS"/>
                         <outlet property="discountLabel" destination="bqE-SZ-CfP" id="TqD-ql-44y"/>
                         <outlet property="instantLabel" destination="dVS-rY-N4A" id="4OL-X1-8H0"/>
+                        <outlet property="rateBUtton" destination="B5t-5W-3eN" id="s8T-T7-tEu"/>
                         <outlet property="roomGroupLabel" destination="00v-N7-tqC" id="vbF-th-elb"/>
                         <outlet property="roomsLabel" destination="xj7-y6-JGX" id="nOj-Mz-wNz"/>
                     </connections>

@@ -19,12 +19,31 @@ class RoomOrderDetailViewController: UIViewController {
     @IBOutlet weak var instantLabel: UILabel!
     @IBOutlet weak var discountLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var rateBUtton: UIButton!
+    @IBOutlet weak var checkStatusButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         showRoomDetails()
         showInstantDetails()
+        if let rooms = rooms, rooms[0].roomReservationStatus != "3" {
+            switch rooms[0].roomReservationStatus {
+            case "2":
+                print("2")
+                rateBUtton.isHidden = true
+                checkStatusButton.isHidden = true
+            case "1":
+                print("1")
+                rateBUtton.isHidden = true
+                checkStatusButton.setTitle("退房", for: .normal)
+            default:
+                print("0")
+                rateBUtton.isHidden = true
+            }
+        } else {
+            checkStatusButton.isHidden = true
+        }
         self.amountLabel.text = "總金額：\(amount)"
     }
 

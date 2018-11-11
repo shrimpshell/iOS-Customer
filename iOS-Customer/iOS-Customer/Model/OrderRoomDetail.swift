@@ -101,4 +101,29 @@ struct OrderRoomDB {
             }.resume()
         }
     }
+    
+    func updateRoomReservationStatusById(_ params: [String: String]) -> Promise<String> {
+        let completeURL = SERVER_URL + SERVLET
+        let url = URL.init(string: completeURL)
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.httpBody = try? JSONSerialization.data(withJSONObject: params)
+        var status: String = ""
+        
+        return Promise { result in
+            URLSession.shared.dataTask(with: request) {
+                (data, response, error) in
+                guard let data = data, error == nil else {
+                    return result.reject(error!)
+                }
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 { // check for http errors
+                    return result.reject("Status: \(httpStatus.statusCode)" as! Error)
+                }
+                
+                let id = String(data: data, encoding: .utf8)
+                status = String(describing: id!)
+                return result.resolve(status, nil)
+                }.resume()
+        }
+    }
 }

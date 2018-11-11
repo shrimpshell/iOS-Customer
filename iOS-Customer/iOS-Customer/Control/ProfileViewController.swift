@@ -12,8 +12,8 @@ import PromiseKit
 class ProfileViewController: UIViewController {
     var customer: Customer?
     var idCustomer: Int = 0
-    var isLogin = false
-
+    var isLogin = false    // false = 顯示登入頁面， true = 顯示會員頁面
+    
     @IBOutlet weak var profilePageView: UIScrollView!
     @IBOutlet weak var loginPageView: UIScrollView!
     @IBOutlet weak var logInView: UIScrollView!
@@ -35,16 +35,14 @@ class ProfileViewController: UIViewController {
     }
     
     
-
+    
+    
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         let customerTask = CustomerAuth()
         var email: String = loginEmailText.text!
         var password: String = loginPasswordText.text!
         guard email.count != 0 && password.count != 0 else {
-            let alertController = UIAlertController(title: "蝦殼大飯店", message: "帳號或密碼不可留空", preferredStyle: UIAlertController.Style.alert)
-            alertController.addAction(UIAlertAction(title: "確定", style: UIAlertAction.Style.default,handler: nil))
-            
-            self.present(alertController, animated: true, completion: nil)
+            self.showAlert(message: "帳號或密碼不可空白")
             return
         }
         
@@ -56,7 +54,7 @@ class ProfileViewController: UIViewController {
                 return customerTask.isCorrectUser(["action": "userValid", "email": "", "password": ""])
             }
             
-             return customerTask.isCorrectUser(customerValid)
+            return customerTask.isCorrectUser(customerValid)
             }.then { (idCustomer) -> Promise<Customer?> in
                 let customerProfile = ["action": "findById", "IdCustomer": idCustomer] as [String : String]
                 guard idCustomer.count > 0 || idCustomer != "0" || (Int(idCustomer) != nil)  else {
@@ -64,21 +62,21 @@ class ProfileViewController: UIViewController {
                     return customerTask.getCustomerInfo(["action": "findById", "IdCustomer": ""])
                 }
                 
-                print("idCustomer: \(idCustomer)")
-                self.idCustomerLabel.text = "\(idCustomer)"
                 return customerTask.getCustomerInfo(customerProfile)
             }.done { (customer) in
-                self.customer = customer
-                if customer?.idCustomer != 0 {
-                self.isLogin = true
-                } else {
+                guard let customer = customer else {
                     self.showAlert(message: "帳號或密碼不正確 \n請重新輸入")
+                    return
                 }
+                print("idCustomerInfo: \(customer.idCustomer)")
+                self.customer = customer
+                self.isLogin = true
                 self.userlogin()
-                print(": \(customer)")
-                self.nameCustomer.text = customer?.name
-                self.emailCustomer.text = customer?.email
-                self.phoneCustomer.text = customer?.phone
+                print("self.customer: \(self.customer)")
+                self.idCustomerLabel.text = "\(customer.idCustomer)"
+                self.nameCustomer.text = customer.name
+                self.emailCustomer.text = customer.email
+                self.phoneCustomer.text = customer.phone
                 
             }.catch { (error) in
                 assertionFailure("Login Error: \(error)")
@@ -92,6 +90,7 @@ class ProfileViewController: UIViewController {
             titleNavigationItem.title = "會員資料"
             settingBarButtonItem.title = "Setting"
             settingBarButtonItem.isEnabled = true
+            
         } else {
             titleNavigationItem.title = ""
             profilePageView.isHidden = true
@@ -99,4 +98,29 @@ class ProfileViewController: UIViewController {
             settingBarButtonItem.isEnabled = false
         }
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let customer = self.customer else {
+            return
+        }
+        switch segue.identifier {
+        case "toRatingList":
+            let ratingListPage = segue.destination as! RatingListTableViewController
+            ratingListPage.customer = customer
+            
+        case "toReceiptList":
+            let receiptListPage = segue.destination as! ReceiptTableViewController
+            receiptListPage.customer = customer
+            
+        default:
+            break
+        }
+    }
+        
+    
+    @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue){
+        
+    }
+    
 }

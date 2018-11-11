@@ -61,7 +61,7 @@
                                         <rect key="frame" x="64" y="405" width="53" height="30"/>
                                         <state key="normal" title="Receipt"/>
                                         <connections>
-                                            <segue destination="imT-fT-DLU" kind="show" id="M9q-tx-MJW"/>
+                                            <segue destination="imT-fT-DLU" kind="show" identifier="toReceiptList" id="M9q-tx-MJW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqV-Kd-7ua">
@@ -104,6 +104,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1t-3D-zQ0">
+                                        <rect key="frame" x="211" y="405" width="44" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Rating"/>
+                                        <connections>
+                                            <segue destination="UR5-u5-Mp4" kind="show" identifier="toRatingList" id="y4w-xk-KBK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="XvL-r8-1dn" firstAttribute="leading" secondItem="7Yy-d7-nKU" secondAttribute="leading" constant="168" id="1LQ-19-Wd0"/>
@@ -157,7 +165,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="9ng-AT-kfY" kind="presentation" id="Zau-wh-oNF"/>
+                                            <segue destination="9ng-AT-kfY" kind="presentation" identifier="Join Page" id="Zau-wh-oNF"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="aa@gmail.com" borderStyle="roundedRect" placeholder="請輸入帳號" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zUr-Cn-V2H">
@@ -252,22 +260,125 @@
             </objects>
             <point key="canvasLocation" x="1556" y="1127.5862068965519"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Rating List Table View Controller-->
         <scene sceneID="pgk-cS-YTE">
             <objects>
-                <tableViewController id="UR5-u5-Mp4" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zXo-lY-ixu">
+                <tableViewController id="UR5-u5-Mp4" customClass="RatingListTableViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zXo-lY-ixu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hJM-p4-AUw">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ratingCell" id="hJM-p4-AUw" customClass="RatingDetailTableViewCell" customModule="iOS_Customer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hJM-p4-AUw" id="P4g-Kx-nxr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccv-nI-ddE">
+                                            <rect key="frame" x="10" y="0.0" width="355" height="199.5"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-ha-gQJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="199.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="訂單編號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nq8-9g-C6y">
+                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xQK-ta-oD8" customClass="CosmosView" customModule="Cosmos">
+                                                            <rect key="frame" x="0.0" y="22" width="147" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                                                    <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                                                    <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                                                    <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                                                    <integer key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>
+                                                                <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="GoldStarEmpty"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="評論內容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxC-ke-OAM">
+                                                            <rect key="frame" x="0.0" y="58" width="252" height="55"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1234567" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yag-WO-Z5R">
+                                                            <rect key="frame" x="62" y="0.0" width="54" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="回覆內容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kud-PM-Rik">
+                                                            <rect key="frame" x="0.0" y="145" width="252" height="46"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="商家回覆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wd-Cm-RTY">
+                                                            <rect key="frame" x="0.0" y="121" width="54" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="260" id="uCD-TN-VQS"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bB-dI-aJI">
+                                                    <rect key="frame" x="260" y="0.0" width="95" height="199.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="留言日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVs-Km-uYs">
+                                                            <rect key="frame" x="21" y="20" width="53.5" height="119.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="gVs-Km-uYs" firstAttribute="centerX" secondItem="7bB-dI-aJI" secondAttribute="centerX" id="0Xp-PX-6fF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="gVs-Km-uYs" secondAttribute="bottom" constant="60" id="im3-5W-MCr"/>
+                                                        <constraint firstItem="gVs-Km-uYs" firstAttribute="top" secondItem="7bB-dI-aJI" secondAttribute="top" constant="20" id="yRB-R7-Dwe"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ccv-nI-ddE" firstAttribute="top" secondItem="P4g-Kx-nxr" secondAttribute="top" id="IWG-zd-KwN"/>
+                                        <constraint firstAttribute="trailing" secondItem="ccv-nI-ddE" secondAttribute="trailing" constant="10" id="LtK-br-ehl"/>
+                                        <constraint firstItem="ccv-nI-ddE" firstAttribute="leading" secondItem="P4g-Kx-nxr" secondAttribute="leading" constant="10" id="fRZ-r6-Yhz"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cosmosView" destination="xQK-ta-oD8" id="fuW-0g-bem"/>
+                                    <outlet property="idRoomReservationLabel" destination="Yag-WO-Z5R" id="Q4B-3L-uc7"/>
+                                    <outlet property="opinionLabel" destination="mxC-ke-OAM" id="5Dq-9R-kCx"/>
+                                    <outlet property="reviewLabel" destination="kud-PM-Rik" id="2HS-TU-2pU"/>
+                                    <outlet property="timeLabel" destination="gVs-Km-uYs" id="fFR-jK-ukH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -278,7 +389,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztS-2O-b6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2329" y="1978"/>
+            <point key="canvasLocation" x="2328.8000000000002" y="1977.6611694152925"/>
         </scene>
         <!--註冊會員-->
         <scene sceneID="H6X-lH-5j2">
@@ -329,6 +440,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                    <connections>
+                                                        <action selector="emailExistCheck:" destination="eYn-bM-RTx" eventType="editingDidEnd" id="ovI-LJ-L0k"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -408,9 +522,6 @@
                                                         <segment title="Female"/>
                                                         <segment title="Male"/>
                                                     </segments>
-                                                    <connections>
-                                                        <action selector="genderTypeChanged:" destination="eYn-bM-RTx" eventType="valueChanged" id="eSK-2W-ZLQ"/>
-                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -482,7 +593,7 @@
                                                     <rect key="frame" x="16" y="11" width="343" height="22"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next" textContentType="tel"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -528,7 +639,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="註冊會員" id="WPx-cd-jtz">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GsW-tb-hDw"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GsW-tb-hDw">
+                            <connections>
+                                <action selector="cancelButton:" destination="eYn-bM-RTx" id="VS5-5T-5fo"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Join" id="2vn-tm-D09">
                             <connections>
                                 <action selector="joinButton:" destination="eYn-bM-RTx" id="Z5Z-Tg-PP3"/>
@@ -543,11 +658,14 @@
                         <outlet property="genderSegmented" destination="JDB-zl-c3k" id="jMO-4T-i0r"/>
                         <outlet property="nameField" destination="9k4-R1-XQh" id="pQg-ee-8Ol"/>
                         <outlet property="passwordField" destination="sfz-Cc-JYG" id="Kbn-R0-qfr"/>
-                        <outlet property="phoneField" destination="ZD0-no-XBj" id="zGY-ZA-eVz"/>
+                        <outlet property="phoneField" destination="Aqh-9E-IuR" id="8hL-Kd-pNa"/>
                         <outlet property="rePasswordField" destination="r2M-1q-63P" id="7Lz-Mw-dhd"/>
+                        <segue destination="dUf-dx-4xg" kind="unwind" identifier="goToHomePage" unwindAction="unwindToHomePage:" id="KGD-kQ-w0E"/>
+                        <segue destination="dUf-dx-4xg" kind="unwind" identifier="goToProfilePage" unwindAction="unwindToProfilePage:" id="Zt7-FZ-UZG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSK-ca-CTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dUf-dx-4xg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3404" y="855.9220389805098"/>
         </scene>
@@ -820,10 +938,10 @@
             </objects>
             <point key="canvasLocation" x="1116" y="2798.9505247376314"/>
         </scene>
-        <!--View Controller-->
+        <!--Rating View Controller-->
         <scene sceneID="8pj-pa-GZP">
             <objects>
-                <viewController id="lA2-I0-4zv" sceneMemberID="viewController">
+                <viewController id="lA2-I0-4zv" customClass="RatingViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0rC-5e-gKK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -912,7 +1030,7 @@
         <!--會員資料-->
         <scene sceneID="pW6-jP-p0u">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="prF-qt-Yqh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfilePage" automaticallyAdjustsScrollViewInsets="NO" id="prF-qt-Yqh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="會員資料" image="profile" selectedImage="profile_selected" id="C6y-Zk-Jy6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HIW-3r-tqd">
@@ -948,6 +1066,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GoldStar" width="53" height="51"/>
+        <image name="GoldStarEmpty" width="53" height="51"/>
         <image name="calendar" width="25" height="28.5"/>
         <image name="calendar_selected" width="25" height="28.5"/>
         <image name="customer_detail_background" width="455" height="717"/>
@@ -957,4 +1077,7 @@
         <image name="profile" width="25" height="25"/>
         <image name="profile_selected" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="y4w-xk-KBK"/>
+    </inferredMetricsTieBreakers>
 </document>

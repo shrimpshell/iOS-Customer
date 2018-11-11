@@ -10,6 +10,8 @@ import UIKit
 
 class ReceiptTableViewController: UITableViewController {
     
+    var customer: Customer?
+    
     //Table下拉後更新
     let reFreshControl = UIRefreshControl()
 

@@ -11,23 +11,36 @@ import PromiseKit
 
 struct Customer: Codable {
     var idCustomer: Int
-    //var customerID: String
+    var customerID: String? = nil
     var name: String
     var email: String
     var password: String
-    //var gender: String
+    var gender: String? = nil
     var birthday: String
     var phone: String
     var address: String
     var discount: Int
+    
+    init(idCustomer: Int, customerID: String, name: String, email: String, password: String, gender: String, birthday: String, phone: String, address: String, discount: Int) {
+        self.idCustomer = idCustomer
+        self.customerID = customerID
+        self.name = name
+        self.email = email
+        self.password = password
+        self.gender = gender
+        self.birthday = birthday
+        self.phone = phone
+        self.address = address
+        self.discount = discount
+    }
 
     enum CodingKeys: String, CodingKey {
         case idCustomer = "IdCustomer"
-        //case customerID = "CustomerID"
+        case customerID = "CustomerID"
         case name = "Name"
         case email = "Email"
         case password = "Password"
-        //case gender = "Gender"
+        case gender = "Gender"
         case birthday = "Birthday"
         case phone = "Phone"
         case address = "Address"
@@ -60,11 +73,12 @@ struct Customer: Codable {
                 }
             }
         
-        func joinCustomer (_ params: [String: String]) -> Promise<String> {
+        func joinCustomer (_ params: [String:Any]) -> Promise<String> {
             let completeURL = SERVER_URL + SERVLET
             let url = URL.init(string: completeURL)
             var request = URLRequest(url: url!)
-            var isCustomerJoin = "false"
+            var idCustomer = "0"
+            request.httpMethod = "POST"
             request.httpBody = try? JSONSerialization.data(withJSONObject: params)
             
             return Promise { result in
@@ -78,8 +92,8 @@ struct Customer: Codable {
                     }
                     
                     let validResult = String(data: data, encoding: .utf8)
-                    isCustomerJoin = String(describing: validResult!)
-                    return result.resolve(isCustomerJoin, nil)
+                    idCustomer = String(describing: validResult!)
+                    return result.resolve(idCustomer, nil)
                     }.resume()
                 }
             }

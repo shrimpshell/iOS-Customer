@@ -17,14 +17,48 @@ class RatingDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var opinionLabel: UILabel!
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
+    @IBOutlet weak var reviewNameLabel: UILabel!
     var rating: Rating? {
         didSet {
-            idRoomReservationLabel.text = "\(rating?.idRoomReservation)"
-            ratingStar.rating = Double((rating?.ratingStar)!)
-            opinionLabel.text = rating?.opinion
-            reviewLabel.text = rating?.review
-            timeLabel.text = rating?.time
+            
+            guard  let idRoomReservation = rating?.idRoomReservation else {
+                print("Rating idRoomReservation is nil")
+                return
+            }
+            if rating?.idRoomReservation != nil {
+                idRoomReservationLabel.text = "\(idRoomReservation)"
+            } else {
+                idRoomReservationLabel.text = ""
+            }
+            
+            if rating?.ratingStar != nil {
+                ratingStar.rating = Double((rating?.ratingStar)!)
+            } else {
+                ratingStar.rating = 0
+            }
+            
+            if rating?.opinion != nil {
+                opinionLabel.text = rating?.opinion
+            } else {
+                opinionLabel.isHidden = true
+            }
+         
+            if rating?.review != nil {
+                reviewLabel.text = rating?.review
+            } else {
+                reviewLabel.isHidden = true
+                reviewNameLabel.isHidden = true
+            }
+            
+            if rating?.time != nil {
+                timeLabel.text = rating?.time
+            } else {
+                timeLabel.isHidden = true
+            }
+           
+            
+            
+          
             
             
         }

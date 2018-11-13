@@ -10,16 +10,26 @@ import UIKit
 
 class RatingListTableViewController: UITableViewController {
     
+    @IBOutlet var ratingListTableView: UITableView!
+    
+    var refreshAction = UIRefreshControl()
     var ratingItem = [Rating]()
     var customer: Customer?
-    let ratingAuth = RatingAuth.shared
+    let ratingAuth = DownloadAuth.shared
     
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    refreshRatingList()
+        pullToRefresh()
+        refreshRatingList()
+    }
+    
+    //下拉轉圈圈更新
+    func pullToRefresh() {
+        refreshAction.addTarget(self, action: #selector(RatingListTableViewController.refreshRatingList), for: .valueChanged)
+        ratingListTableView.refreshControl = refreshAction
     }
     
     // 把TabBar藏起來
@@ -49,6 +59,7 @@ class RatingListTableViewController: UITableViewController {
         return cell
     }
     
+    @objc
     func refreshRatingList() {
         guard  let idCustomer = customer?.idCustomer else {
            print("idCustomer 解包錯誤")
@@ -71,21 +82,20 @@ class RatingListTableViewController: UITableViewController {
                     return
             }
             let decoder = JSONDecoder()
-            guard let resultObject = try? decoder.decode(RetriveResult.self, from: jsonData) else {
+            guard let resultObject = try? decoder.decode([Rating].self, from: jsonData) else {
                 print("Fail to decoder jsonData.")
                 return
             }
             print("resultObject: \(resultObject)")
-            guard let ratings = resultObject.ratings, !ratings.isEmpty else {
-                print("friends is nil or empty.")
-                return
-            }
-           
-            self.ratingItem = ratings
+            
+            
+            self.ratingItem = resultObject
+            
+            //更新TableView內容
              self.tableView.reloadData()
+            
+            //讓轉圈圈消失
+             self.refreshAction.endRefreshing()
         }
-    }
-    struct RetriveResult: Codable {
-        var ratings: [Rating]?
     }
 }

@@ -12,17 +12,22 @@ import Alamofire
 
 let ACTION = "action"
 let ID_CUSTOMER = "IdCustomer"
+let CUSTOMER_KEY = "customer"
 let RESULT_KEY = "result"
 let DATA_KEY = "data"
 
+
 typealias DoneHandler = (_ result:[Any]?, _ error: Error?) -> Void
 
-struct RatingAuth {
-    static let SERVER_URL = "http://192.168.50.105:8080/ShellService"
+struct DownloadAuth {
+    //static let SERVER_URL = "http://192.168.1.2:8080/ShellService"
+   static let SERVER_URL = "http://192.168.50.105:8080/ShellService"
     let RATING_SERVLET = SERVER_URL + "/RatingServlet"
+    let CUSTOMER_SERVLET = SERVER_URL + "/CustomerServlet"
     
     
-    static let shared = RatingAuth()
+    
+    static let shared = DownloadAuth()
     
     private init(){
     }
@@ -32,6 +37,18 @@ struct RatingAuth {
                                                                  ID_CUSTOMER: idCustomer]
         doPost(urlString: RATING_SERVLET, parameters: parameters, completion: completion)
         
+    }
+    
+    func getCustomerInfoById(idCustomer: Int, completion: @escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION: "findById",
+                                          ID_CUSTOMER: idCustomer]
+        doPost(urlString: CUSTOMER_SERVLET, parameters: parameters, completion: completion)
+    }
+    
+    func editCustomerInfo(customer: Customer, completion: @escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION: "update",
+                                                                CUSTOMER_KEY: customer.dictionaryRepresentation]
+         doPost(urlString: CUSTOMER_SERVLET, parameters: parameters, completion: completion)
     }
     
     fileprivate func doPost(urlString: String,

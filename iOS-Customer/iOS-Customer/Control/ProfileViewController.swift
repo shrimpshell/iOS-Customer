@@ -36,7 +36,7 @@ class ProfileViewController: UIViewController {
     
     
     
-    
+    //登入，取得server資料
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         let customerTask = CustomerAuth()
         var email: String = loginEmailText.text!
@@ -73,7 +73,11 @@ class ProfileViewController: UIViewController {
                 self.isLogin = true
                 self.userlogin()
                 print("self.customer: \(self.customer)")
-                self.idCustomerLabel.text = "\(customer.idCustomer)"
+                guard let idCustomer = customer.idCustomer else {
+                    print("會員頁面idCustomer解包錯誤")
+                    return
+                }
+                self.idCustomerLabel.text = "\(idCustomer)"
                 self.nameCustomer.text = customer.name
                 self.emailCustomer.text = customer.email
                 self.phoneCustomer.text = customer.phone
@@ -83,6 +87,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    //使用isLogin切換會員頁面與登入頁面
     func userlogin() {
         if  isLogin == true {
             loginPageView.isHidden = true
@@ -92,6 +97,7 @@ class ProfileViewController: UIViewController {
             settingBarButtonItem.isEnabled = true
             
         } else {
+            loginPageView.isHidden = false
             titleNavigationItem.title = ""
             profilePageView.isHidden = true
             settingBarButtonItem.title = ""
@@ -99,6 +105,13 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    //登出
+    @IBAction func logOutBtnPressed(_ sender: UIButton) {
+        idCustomer = 0
+        isLogin = false
+        userlogin()
+        print("Log Out")
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let customer = self.customer else {
@@ -112,6 +125,10 @@ class ProfileViewController: UIViewController {
         case "toReceiptList":
             let receiptListPage = segue.destination as! ReceiptTableViewController
             receiptListPage.customer = customer
+            
+            case "toEditingPage":
+            let editingPage = segue.destination as! EditingTableViewController
+            editingPage.customer = customer
             
         default:
             break

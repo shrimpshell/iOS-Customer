@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		781DEB522198095A00AED03E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781DEB512198095A00AED03E /* Download.swift */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
+		785867342199C083007220F4 /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785867332199C083007220F4 /* EditingTableViewController.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
 		78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB9498216E13F100045C95 /* ProfileViewController.swift */; };
 		78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		781DEB512198095A00AED03E /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		785867332199C083007220F4 /* EditingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		78AB9498216E13F100045C95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */,
 				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
 				78C3261D21953300008F4B0A /* RatingListTableViewController.swift */,
+				785867332199C083007220F4 /* EditingTableViewController.swift */,
 				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
 			);
 			path = Control;
@@ -253,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				785867342199C083007220F4 /* EditingTableViewController.swift in Sources */,
 				78C3261E21953300008F4B0A /* RatingListTableViewController.swift in Sources */,
 				78C32622219580CC008F4B0A /* RatingDetailTableViewCell.swift in Sources */,
 				788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */,

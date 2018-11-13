@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 struct Customer: Codable {
-    var idCustomer: Int
+    var idCustomer: Int? = nil
     var customerID: String? = nil
     var name: String
     var email: String
@@ -19,9 +19,24 @@ struct Customer: Codable {
     var birthday: String
     var phone: String
     var address: String
-    var discount: Int
+    var discount: Int? = nil
+   
+    var dictionaryRepresentation: [String: Any] {
+        return [
+            "IdCustomer": idCustomer ?? 0,
+            "CustomerID": customerID ?? "",
+            "Name": name,
+            "Email": email,
+            "Password": password,
+            "Gender": gender ?? "",
+            "Birthday": birthday,
+            "Phone": phone,
+            "Address": address,
+            "discount": discount ?? 0
+        ]
+    }
     
-    init(idCustomer: Int, customerID: String, name: String, email: String, password: String, gender: String, birthday: String, phone: String, address: String, discount: Int) {
+    init(idCustomer: Int? = nil, customerID: String, name: String, email: String, password: String, gender: String? = nil, birthday: String, phone: String, address: String, discount: Int? = nil) {
         self.idCustomer = idCustomer
         self.customerID = customerID
         self.name = name
@@ -32,7 +47,9 @@ struct Customer: Codable {
         self.phone = phone
         self.address = address
         self.discount = discount
+
     }
+
 
     enum CodingKeys: String, CodingKey {
         case idCustomer = "IdCustomer"

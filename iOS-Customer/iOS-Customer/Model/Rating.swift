@@ -19,7 +19,7 @@ struct Rating: Codable {
     var idRoomReservation: Int
     var name: String? = nil
     
-    init(idCustomer: Int, idRating: Int, ratingStar: Float, time: String, opinion: String, review: String, idRoomReservation: Int) {
+    init(idCustomer: Int, idRating: Int? = nil, ratingStar: Float, time: String, opinion: String, review: String? = nil, idRoomReservation: Int) {
         self.idCustomer = idCustomer
         self.idRating = idRating
         self.ratingStar = ratingStar

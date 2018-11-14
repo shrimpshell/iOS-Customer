@@ -14,6 +14,8 @@ class EditingTableViewController: UITableViewController {
     var customer: Customer?
     var phone: String = ""
     let customerAuth = DownloadAuth.shared
+    let customerTask = CustomerAuth()
+    
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailLabel: UILabel!
@@ -67,16 +69,30 @@ class EditingTableViewController: UITableViewController {
         }
 
         let editCustomer = Customer(idCustomer: idCustomer, customerID: email!, name: name!, email: email!, password: password!, birthday: birthday!, phone: phone, address: address!)
+        customer = editCustomer
         print("editCustomer: \(editCustomer)")
-        
-        customerAuth.editCustomerInfo(customer: editCustomer) { (result, error) in
-            if let error = error {
-                print("Editing customerInfo update error\(error)")
-                return
+        let editCustomerData = try! JSONEncoder().encode(editCustomer)
+        let customerString = String(data: editCustomerData, encoding: .utf8)
+        let joinCustomer = ["action": "update", "customer": customerString] as! [String:Any]
+        customerTask.joinCustomer(joinCustomer).done {
+            (result) in
+            if result != "0" {
+                print("會員資料修改成功 \(result)")
+                self.performSegue(withIdentifier: "goToProfilePage", sender: self.checkEditing)
+                
+            } else {
+                self.showAlert(message: "會員資料修改失敗")
             }
-            print("Uptade new customerInfo is OK: \(result)")
+        
+//        customerAuth.editCustomerInfo(customer: editCustomer) { (result, error) in
+//            if let error = error {
+//                print("Editing customerInfo update error\(error)")
+//                return
+//            }
+//            print("Uptade new customerInfo is OK: \(result)")
+//        }
         }
-        self.performSegue(withIdentifier: "goToProfilePage", sender: checkEditing)
+       
     }
     
     
@@ -97,7 +113,7 @@ class EditingTableViewController: UITableViewController {
         if phone.count < 10 {
             showAlert(message: "手機號碼輸入錯誤，\n請再輸入一次")
             phoneField.text = ""
-    }
+        }
     }
     
     func showCustomerInfo() {
@@ -110,5 +126,18 @@ class EditingTableViewController: UITableViewController {
         addressField.text = customer?.address
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       guard let customer = self.customer else {
+            return
+        }
+        
+        switch segue.identifier {
+        case "toProfilePage":
+            let profilePage = segue.destination as! ProfileViewController
+            profilePage.editPageInfo = customer
+            print("editPageCustomer: \(customer)")
+        default:
+            break
+        }
+    }
 }

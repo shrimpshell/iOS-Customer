@@ -20,6 +20,7 @@ struct Customer: Codable {
     var phone: String
     var address: String
     var discount: Int? = nil
+    
    
     var dictionaryRepresentation: [String: Any] {
         return [
@@ -32,7 +33,7 @@ struct Customer: Codable {
             "Birthday": birthday,
             "Phone": phone,
             "Address": address,
-            "discount": discount ?? 0
+            "discount": discount ?? 0,
         ]
     }
     
@@ -114,6 +115,31 @@ struct Customer: Codable {
                     }.resume()
                 }
             }
+        
+        func updateCustomerInfo(_ params: [String:Any]) -> Promise<String> {
+            let completeURL = SERVER_URL + SERVLET
+            let url = URL.init(string: completeURL)
+            var request = URLRequest(url: url!)
+            var editingResult = "0"
+            request.httpMethod = "POST"
+            request.httpBody = try? JSONSerialization.data(withJSONObject: params)
+            
+            return Promise { result in
+                URLSession.shared.dataTask(with: request) {
+                    (data, response, error) in
+                    guard let data = data, error == nil else {
+                        return result.reject(error!)
+                    }
+                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for
+                        return result.reject("Status: \(httpStatus.statusCode)" as! Error)
+                    }
+                    
+                    let validResult = String(data: data, encoding: .utf8)
+                    editingResult = String(describing: validResult!)
+                    return result.resolve(editingResult, nil)
+                    }.resume()
+            }
+        }
         
         func isValidUser(_ params: [String: String]) -> Promise<String> {
             let completeURL = SERVER_URL + SERVLET

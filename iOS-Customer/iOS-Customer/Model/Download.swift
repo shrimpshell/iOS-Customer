@@ -17,11 +17,11 @@ let RESULT_KEY = "result"
 let DATA_KEY = "data"
 
 
-typealias DoneHandler = (_ result:[Any]?, _ error: Error?) -> Void
+typealias DoneHandler = (_ result: Any?, _ error: Error?) -> Void
 
 struct DownloadAuth {
     //static let SERVER_URL = "http://192.168.1.2:8080/ShellService"
-   static let SERVER_URL = "http://192.168.50.105:8080/ShellService"
+    static let SERVER_URL = "http://192.168.50.105:8080/ShellService"
     let RATING_SERVLET = SERVER_URL + "/RatingServlet"
     let CUSTOMER_SERVLET = SERVER_URL + "/CustomerServlet"
     
@@ -47,7 +47,7 @@ struct DownloadAuth {
     
     func editCustomerInfo(customer: Customer, completion: @escaping DoneHandler) {
         let parameters: [String : Any] = [ACTION: "update",
-                                                                CUSTOMER_KEY: customer.dictionaryRepresentation]
+                                                                CUSTOMER_KEY: customer]
          doPost(urlString: CUSTOMER_SERVLET, parameters: parameters, completion: completion)
     }
     
@@ -65,12 +65,12 @@ struct DownloadAuth {
             switch response.result {
             case .success(let json):
                 print("Get success response: \(json)")
-                guard let finalJson = json as? [ Any] else {
-                    let error = NSError(domain: "Invalid JSON object.", code:-1, userInfo: nil)
-                    completion(nil, error)
-                    return
-                }
-                completion(finalJson, nil)
+//                guard let finalJson = json as? [ Any] else {
+//                    let error = NSError(domain: "Invalid JSON object.", code:-1, userInfo: nil)
+//                    completion(nil, error)
+//                    return
+//                }
+                completion(json, nil)
             case .failure(let error):
                 print("Server respond error: \(error)")
                 completion(nil, error)

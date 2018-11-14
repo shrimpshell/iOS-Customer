@@ -10,9 +10,12 @@ import UIKit
 import PromiseKit
 
 class ProfileViewController: UIViewController {
+    let TAG = "ProfileViewController"
     var customer: Customer?
     var idCustomer: Int = 0
     var isLogin = false    // false = 顯示登入頁面， true = 顯示會員頁面
+    var editPageInfo: Customer?
+    let customerAuth = DownloadAuth.shared
     
     @IBOutlet weak var profilePageView: UIScrollView!
     @IBOutlet weak var loginPageView: UIScrollView!
@@ -32,8 +35,18 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userlogin()
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = false
+        
+        if isLogin == true {
+            showCustomerInfo()
+        }
+        
+    }
     
     
     //登入，取得server資料
@@ -87,6 +100,45 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    func showCustomerInfo() {
+        guard let idCustomer = customer?.idCustomer else {
+            print("idCustomer 解包錯誤")
+            return
+        }
+        customerAuth.getCustomerInfoById(idCustomer: idCustomer) { (result, error) in
+            if let error = error {
+                print("Customer Info download error: \(error)")
+                return
+            }
+            guard let result = result else {
+                print("result is nil.")
+                return
+            }
+            print("Retrive customer Info is OK.")
+            
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
+                else  {
+                    printHelper.println(tag: self.TAG, line: #line, "Fail to generate jsonData.")
+                    return
+            }
+            let decoder = JSONDecoder()
+            guard let resultObject = try? decoder.decode(Customer.self, from: jsonData) else {
+                printHelper.println(tag: self.TAG, line: #line, "Fail to decoder jsonData.")
+                return
+            }
+            print("resultObject: \(resultObject)")
+            self.customer = resultObject
+            guard let reFreshidCustmoer = self.customer?.idCustomer else {
+                printHelper.println(tag: self.TAG, line: #line, "idCustomer解包錯誤")
+                return
+            }
+            self.idCustomerLabel.text = "\(reFreshidCustmoer)"
+            self.nameCustomer.text = self.customer?.name
+            self.emailCustomer.text = self.customer?.email
+            self.phoneCustomer.text = self.customer?.phone
+        }
+    }
+    
     //使用isLogin切換會員頁面與登入頁面
     func userlogin() {
         if  isLogin == true {
@@ -104,6 +156,7 @@ class ProfileViewController: UIViewController {
             settingBarButtonItem.isEnabled = false
         }
     }
+    
     
     //登出
     @IBAction func logOutBtnPressed(_ sender: UIButton) {

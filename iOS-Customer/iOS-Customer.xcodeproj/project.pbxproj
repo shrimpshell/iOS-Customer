@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		781DEB522198095A00AED03E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781DEB512198095A00AED03E /* Download.swift */; };
+		78390532219BFC740059BC5B /* printHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* printHelper.swift */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
 		785867342199C083007220F4 /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785867332199C083007220F4 /* EditingTableViewController.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		781DEB512198095A00AED03E /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		78390531219BFC740059BC5B /* printHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = printHelper.swift; sourceTree = "<group>"; };
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		785867332199C083007220F4 /* EditingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				788AE3A82193DD7C008B3C0F /* Alert.swift */,
 				7857F5712192B2EE00641030 /* Common.swift */,
 				78AB949C216E286C00045C95 /* Rating.swift */,
+				78390531219BFC740059BC5B /* printHelper.swift */,
 				781DEB512198095A00AED03E /* Download.swift */,
 				78AB94A0216E2A7900045C95 /* Customer.swift */,
 			);
@@ -261,6 +264,7 @@
 				78C32622219580CC008F4B0A /* RatingDetailTableViewCell.swift in Sources */,
 				788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */,
 				78C3261C21953299008F4B0A /* RatingViewController.swift in Sources */,
+				78390532219BFC740059BC5B /* printHelper.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
 				78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,

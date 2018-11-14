@@ -875,39 +875,12 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="hOq-fY-Jna"/>
                         <segue destination="prF-qt-Yqh" kind="relationship" relationship="viewControllers" id="0Uu-VY-ezf"/>
-                        <segue destination="LRX-dV-doW" kind="relationship" relationship="viewControllers" id="Sv3-pS-HPS"/>
+                        <segue destination="OQP-tb-X7P" kind="relationship" relationship="viewControllers" id="Sv3-pS-HPS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfE-hp-B8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
-        </scene>
-        <!--Booking-->
-        <scene sceneID="Gqx-jX-Iae">
-            <objects>
-                <viewController title="Booking" id="LRX-dV-doW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aih-33-xjw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_detail_background" translatesAutoresizingMaskIntoConstraints="NO" id="2Ca-ca-WCC">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Y9x-P4-oTd" firstAttribute="bottom" secondItem="2Ca-ca-WCC" secondAttribute="bottom" id="0Dt-ql-zYL"/>
-                            <constraint firstAttribute="trailing" secondItem="2Ca-ca-WCC" secondAttribute="trailing" id="5ox-hJ-rB9"/>
-                            <constraint firstItem="2Ca-ca-WCC" firstAttribute="top" secondItem="Y9x-P4-oTd" secondAttribute="top" id="PG8-bP-RLh"/>
-                            <constraint firstItem="2Ca-ca-WCC" firstAttribute="leading" secondItem="Y9x-P4-oTd" secondAttribute="leading" id="UeN-lM-PtS"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Y9x-P4-oTd"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="預約" image="calendar" selectedImage="calendar_selected" id="Zad-eA-N9z"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T2S-74-TS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-380" y="1129"/>
         </scene>
         <!--會員資料-->
         <scene sceneID="pW6-jP-p0u">
@@ -946,10 +919,18 @@
             </objects>
             <point key="canvasLocation" x="2464.8000000000002" y="855.9220389805098"/>
         </scene>
+        <!--booking-->
+        <scene sceneID="Fru-i0-wTa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Booking" referencedIdentifier="booking" id="OQP-tb-X7P" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="2EA-F5-Cff"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rlq-Ds-Ouh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-380" y="1129"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="calendar" width="25" height="28.5"/>
-        <image name="calendar_selected" width="25" height="28.5"/>
         <image name="customer_detail_background" width="455" height="717"/>
         <image name="customer_global_background" width="360" height="511"/>
         <image name="home" width="25" height="25"/>

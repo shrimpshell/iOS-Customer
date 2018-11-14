@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BF72A0E2194A37E00ED8C77 /* BookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF72A0D2194A37E00ED8C77 /* BookingTableViewController.swift */; };
+		2BF72A142194AD3700ED8C77 /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF72A132194AD3700ED8C77 /* Booking.storyboard */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
 		78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB9498216E13F100045C95 /* ProfileViewController.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BF72A0D2194A37E00ED8C77 /* BookingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewController.swift; sourceTree = "<group>"; };
+		2BF72A132194AD3700ED8C77 /* Booking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Booking.storyboard; sourceTree = "<group>"; };
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		78AB9498216E13F100045C95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 				D13405A52166699300E72B67 /* HomePageViewController.swift */,
 				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
 				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
+				2BF72A0D2194A37E00ED8C77 /* BookingTableViewController.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 				78AB949E216E28B700045C95 /* Model */,
 				D13405A32166699300E72B67 /* AppDelegate.swift */,
 				D13405A72166699300E72B67 /* Main.storyboard */,
+				2BF72A132194AD3700ED8C77 /* Booking.storyboard */,
 				D13405AA2166699500E72B67 /* Assets.xcassets */,
 				D13405AC2166699500E72B67 /* LaunchScreen.storyboard */,
 				D13405AF2166699500E72B67 /* Info.plist */,
@@ -187,6 +193,7 @@
 			files = (
 				D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */,
 				D13405AB2166699500E72B67 /* Assets.xcassets in Resources */,
+				2BF72A142194AD3700ED8C77 /* Booking.storyboard in Resources */,
 				D13405A92166699300E72B67 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,11 +227,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +252,7 @@
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
 				78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
+				2BF72A0E2194A37E00ED8C77 /* BookingTableViewController.swift in Sources */,
 				78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */,
 				78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */,
 				D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */,

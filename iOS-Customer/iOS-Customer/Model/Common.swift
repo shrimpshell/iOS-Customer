@@ -9,6 +9,7 @@
 import Foundation
 
 struct Common {
-//    static let SERVER_URL: String = "http://192.168.50.46:8080/ShellService"
-    static let SERVER_URL: String = "http://192.168.50.105:8080/ShellService"
+   static let SERVER_URL: String = "http://192.168.50.105:8080/ShellService"
+    //static let SERVER_URL: String = "http://192.168.1.2:8080/ShellService"
+    
 }

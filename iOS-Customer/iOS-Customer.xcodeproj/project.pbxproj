@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		781DEB522198095A00AED03E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781DEB512198095A00AED03E /* Download.swift */; };
+		78390532219BFC740059BC5B /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* PrintHelper.swift */; };
+		78390534219C14770059BC5B /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390533219C14770059BC5B /* AllRatingsTableViewController.swift */; };
+		78390536219C153B0059BC5B /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
+		785867342199C083007220F4 /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785867332199C083007220F4 /* EditingTableViewController.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
 		78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB9498216E13F100045C95 /* ProfileViewController.swift */; };
 		78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */; };
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
 		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
+		78C3261C21953299008F4B0A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3261B21953299008F4B0A /* RatingViewController.swift */; };
+		78C3261E21953300008F4B0A /* RatingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3261D21953300008F4B0A /* RatingListTableViewController.swift */; };
+		78C32622219580CC008F4B0A /* RatingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */; };
 		78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */; };
 		D13405A42166699300E72B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A32166699300E72B67 /* AppDelegate.swift */; };
 		D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A52166699300E72B67 /* HomePageViewController.swift */; };
@@ -23,12 +31,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		781DEB512198095A00AED03E /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		78390531219BFC740059BC5B /* PrintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintHelper.swift; sourceTree = "<group>"; };
+		78390533219C14770059BC5B /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
+		78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		785867332199C083007220F4 /* EditingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		78AB9498216E13F100045C95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
 		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		78C3261B21953299008F4B0A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		78C3261D21953300008F4B0A /* RatingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingListTableViewController.swift; sourceTree = "<group>"; };
+		78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDetailTableViewCell.swift; sourceTree = "<group>"; };
 		78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
 		9F2DEE62D08AECFEBE061A2D /* Pods-iOS-Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		CE792F163EAE41DB92E4F2F7 /* Pods-iOS-Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,12 +78,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		78AB949E216E28B700045C95 /* Model */ = {
+		78390537219C155E0059BC5B /* ProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
+				785867332199C083007220F4 /* EditingTableViewController.swift */,
+				78C3261B21953299008F4B0A /* RatingViewController.swift */,
+				78C3261D21953300008F4B0A /* RatingListTableViewController.swift */,
+				78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */,
+				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
+				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
+			);
+			path = ProfilePage;
+			sourceTree = "<group>";
+		};
+		78390538219C15910059BC5B /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				D13405A52166699300E72B67 /* HomePageViewController.swift */,
+				78390533219C14770059BC5B /* AllRatingsTableViewController.swift */,
+				78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		78390539219C15BF0059BC5B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				788AE3A82193DD7C008B3C0F /* Alert.swift */,
+				78390531219BFC740059BC5B /* PrintHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		78AB949E216E28B700045C95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78390539219C15BF0059BC5B /* Helper */,
 				7857F5712192B2EE00641030 /* Common.swift */,
 				78AB949C216E286C00045C95 /* Rating.swift */,
+				781DEB512198095A00AED03E /* Download.swift */,
 				78AB94A0216E2A7900045C95 /* Customer.swift */,
 			);
 			path = Model;
@@ -76,10 +126,8 @@
 		78AB949F216E28FD00045C95 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
-				D13405A52166699300E72B67 /* HomePageViewController.swift */,
-				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
-				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
+				78390538219C15910059BC5B /* HomePage */,
+				78390537219C155E0059BC5B /* ProfilePage */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -114,10 +162,10 @@
 		D13405A22166699300E72B67 /* iOS-Customer */ = {
 			isa = PBXGroup;
 			children = (
+				D13405A72166699300E72B67 /* Main.storyboard */,
 				78AB949F216E28FD00045C95 /* Control */,
 				78AB949E216E28B700045C95 /* Model */,
 				D13405A32166699300E72B67 /* AppDelegate.swift */,
-				D13405A72166699300E72B67 /* Main.storyboard */,
 				D13405AA2166699500E72B67 /* Assets.xcassets */,
 				D13405AC2166699500E72B67 /* LaunchScreen.storyboard */,
 				D13405AF2166699500E72B67 /* Info.plist */,
@@ -220,11 +268,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +289,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				785867342199C083007220F4 /* EditingTableViewController.swift in Sources */,
+				78C3261E21953300008F4B0A /* RatingListTableViewController.swift in Sources */,
+				78C32622219580CC008F4B0A /* RatingDetailTableViewCell.swift in Sources */,
 				788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */,
+				78C3261C21953299008F4B0A /* RatingViewController.swift in Sources */,
+				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
+				78390536219C153B0059BC5B /* AllRatingsTableViewCell.swift in Sources */,
+				78390534219C14770059BC5B /* AllRatingsTableViewController.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
 				78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
@@ -248,6 +305,7 @@
 				D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
 				78AB949D216E286C00045C95 /* Rating.swift in Sources */,
+				781DEB522198095A00AED03E /* Download.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,6 +39,11 @@ struct DownloadAuth {
         
     }
     
+    func getAllCustomerRatings(completion: @escaping DoneHandler) {
+         let parameters: [String : Any] = [ACTION: "getAll"]
+        doPost(urlString: RATING_SERVLET, parameters: parameters, completion: completion)
+    }
+    
     func getCustomerInfoById(idCustomer: Int, completion: @escaping DoneHandler) {
         let parameters: [String : Any] = [ACTION: "findById",
                                           ID_CUSTOMER: idCustomer]
@@ -65,11 +70,6 @@ struct DownloadAuth {
             switch response.result {
             case .success(let json):
                 print("Get success response: \(json)")
-//                guard let finalJson = json as? [ Any] else {
-//                    let error = NSError(domain: "Invalid JSON object.", code:-1, userInfo: nil)
-//                    completion(nil, error)
-//                    return
-//                }
                 completion(json, nil)
             case .failure(let error):
                 print("Server respond error: \(error)")

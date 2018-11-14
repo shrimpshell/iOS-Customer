@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		781DEB522198095A00AED03E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781DEB512198095A00AED03E /* Download.swift */; };
-		78390532219BFC740059BC5B /* printHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* printHelper.swift */; };
+		78390532219BFC740059BC5B /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* PrintHelper.swift */; };
+		78390534219C14770059BC5B /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390533219C14770059BC5B /* AllRatingsTableViewController.swift */; };
+		78390536219C153B0059BC5B /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
 		785867342199C083007220F4 /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785867332199C083007220F4 /* EditingTableViewController.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
@@ -30,7 +32,9 @@
 
 /* Begin PBXFileReference section */
 		781DEB512198095A00AED03E /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
-		78390531219BFC740059BC5B /* printHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = printHelper.swift; sourceTree = "<group>"; };
+		78390531219BFC740059BC5B /* PrintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintHelper.swift; sourceTree = "<group>"; };
+		78390533219C14770059BC5B /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
+		78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		785867332199C083007220F4 /* EditingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -74,13 +78,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		78AB949E216E28B700045C95 /* Model */ = {
+		78390537219C155E0059BC5B /* ProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
+				785867332199C083007220F4 /* EditingTableViewController.swift */,
+				78C3261B21953299008F4B0A /* RatingViewController.swift */,
+				78C3261D21953300008F4B0A /* RatingListTableViewController.swift */,
+				78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */,
+				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
+				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
+			);
+			path = ProfilePage;
+			sourceTree = "<group>";
+		};
+		78390538219C15910059BC5B /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				D13405A52166699300E72B67 /* HomePageViewController.swift */,
+				78390533219C14770059BC5B /* AllRatingsTableViewController.swift */,
+				78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		78390539219C15BF0059BC5B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				788AE3A82193DD7C008B3C0F /* Alert.swift */,
+				78390531219BFC740059BC5B /* PrintHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		78AB949E216E28B700045C95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78390539219C15BF0059BC5B /* Helper */,
 				7857F5712192B2EE00641030 /* Common.swift */,
 				78AB949C216E286C00045C95 /* Rating.swift */,
-				78390531219BFC740059BC5B /* printHelper.swift */,
 				781DEB512198095A00AED03E /* Download.swift */,
 				78AB94A0216E2A7900045C95 /* Customer.swift */,
 			);
@@ -90,14 +126,8 @@
 		78AB949F216E28FD00045C95 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				78C3261B21953299008F4B0A /* RatingViewController.swift */,
-				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
-				D13405A52166699300E72B67 /* HomePageViewController.swift */,
-				78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */,
-				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
-				78C3261D21953300008F4B0A /* RatingListTableViewController.swift */,
-				785867332199C083007220F4 /* EditingTableViewController.swift */,
-				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
+				78390538219C15910059BC5B /* HomePage */,
+				78390537219C155E0059BC5B /* ProfilePage */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -264,7 +294,9 @@
 				78C32622219580CC008F4B0A /* RatingDetailTableViewCell.swift in Sources */,
 				788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */,
 				78C3261C21953299008F4B0A /* RatingViewController.swift in Sources */,
-				78390532219BFC740059BC5B /* printHelper.swift in Sources */,
+				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
+				78390536219C153B0059BC5B /* AllRatingsTableViewCell.swift in Sources */,
+				78390534219C14770059BC5B /* AllRatingsTableViewController.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
 				78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,

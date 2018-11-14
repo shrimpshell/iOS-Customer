@@ -12,6 +12,7 @@ class RatingListTableViewController: UITableViewController {
     
     @IBOutlet var ratingListTableView: UITableView!
     
+    let TAG = "RatingListTableViewController"
     var refreshAction = UIRefreshControl()
     var ratingItem = [Rating]()
     var customer: Customer?

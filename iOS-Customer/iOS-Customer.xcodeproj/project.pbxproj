@@ -9,18 +9,12 @@
 /* Begin PBXBuildFile section */
 		781DEB522198095A00AED03E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781DEB512198095A00AED03E /* Download.swift */; };
 		78390532219BFC740059BC5B /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* PrintHelper.swift */; };
-		78390534219C14770059BC5B /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390533219C14770059BC5B /* AllRatingsTableViewController.swift */; };
-		78390536219C153B0059BC5B /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
-		785867342199C083007220F4 /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785867332199C083007220F4 /* EditingTableViewController.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
 		78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB9498216E13F100045C95 /* ProfileViewController.swift */; };
 		78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */; };
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
 		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
-		78C3261C21953299008F4B0A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3261B21953299008F4B0A /* RatingViewController.swift */; };
-		78C3261E21953300008F4B0A /* RatingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3261D21953300008F4B0A /* RatingListTableViewController.swift */; };
-		78C32622219580CC008F4B0A /* RatingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */; };
 		78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */; };
 		D12394E421940A7D001F6E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405A72166699300E72B67 /* Main.storyboard */; };
 		D13405A42166699300E72B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A32166699300E72B67 /* AppDelegate.swift */; };
@@ -42,18 +36,12 @@
 /* Begin PBXFileReference section */
 		781DEB512198095A00AED03E /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		78390531219BFC740059BC5B /* PrintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintHelper.swift; sourceTree = "<group>"; };
-		78390533219C14770059BC5B /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
-		78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		785867332199C083007220F4 /* EditingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		78AB9498216E13F100045C95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptTableViewController.swift; path = "/Users/hsinhwang/git/iOS-Customer/iOS-Customer/iOS-Customer/Control/ProfilePage/ReceiptTableViewController.swift"; sourceTree = "<absolute>"; };
 		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
-		78C3261B21953299008F4B0A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
-		78C3261D21953300008F4B0A /* RatingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingListTableViewController.swift; sourceTree = "<group>"; };
-		78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDetailTableViewCell.swift; sourceTree = "<group>"; };
 		78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
 		9F2DEE62D08AECFEBE061A2D /* Pods-iOS-Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		CE792F163EAE41DB92E4F2F7 /* Pods-iOS-Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,7 +132,6 @@
 				D13405A12166699300E72B67 /* Products */,
 				BF0071D7DF6F5C2D74EC17FA /* Pods */,
 				2B5C5DFC965823ECF3BBB8F7 /* Frameworks */,
-				D149C7D7219D09FD00FDF92E /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,19 +155,6 @@
 				D13405AF2166699500E72B67 /* Info.plist */,
 			);
 			path = "iOS-Customer";
-			sourceTree = "<group>";
-		};
-		D149C7D7219D09FD00FDF92E /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				785867332199C083007220F4 /* EditingTableViewController.swift */,
-				78C3261D21953300008F4B0A /* RatingListTableViewController.swift */,
-				78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */,
-				78C3261B21953299008F4B0A /* RatingViewController.swift */,
-				78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */,
-				78390533219C14770059BC5B /* AllRatingsTableViewController.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		D149C7E5219D135800FDF92E /* HomePage */ = {
@@ -332,14 +306,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				785867342199C083007220F4 /* EditingTableViewController.swift in Sources */,
-				78C3261E21953300008F4B0A /* RatingListTableViewController.swift in Sources */,
-				78C32622219580CC008F4B0A /* RatingDetailTableViewCell.swift in Sources */,
 				788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */,
-				78C3261C21953299008F4B0A /* RatingViewController.swift in Sources */,
 				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
-				78390536219C153B0059BC5B /* AllRatingsTableViewCell.swift in Sources */,
-				78390534219C14770059BC5B /* AllRatingsTableViewController.swift in Sources */,
 				D149C7E3219D111D00FDF92E /* AllRatingsTableViewCell.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
 				D149C7DF219D110800FDF92E /* RatingViewController.swift in Sources */,

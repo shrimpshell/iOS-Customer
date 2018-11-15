@@ -142,6 +142,19 @@ class RoomOrderTableViewController: UITableViewController {
     }
     
     @IBAction func unwindToRoomOrderTableView(_ segue: UIStoryboardSegue){
-        
+        print("enter unwind")
+        guard let roomOrderDetailView = segue.source as? RoomOrderDetailViewController, let rooms = roomOrderDetailView.rooms else {
+            print("error")
+            return
+        }
+        print(self.detailDictionary)
+        for (index, _) in self.detailDictionary.enumerated() {
+            if self.detailDictionary[index].id == rooms[0].roomGroup {
+                self.detailDictionary[index].orderRoomDetails = rooms
+                break
+            }
+        }
+        self.refactorData()
+        self.tableView.reloadData()
     }
 }

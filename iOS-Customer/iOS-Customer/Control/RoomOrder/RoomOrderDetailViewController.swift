@@ -46,6 +46,19 @@ class RoomOrderDetailViewController: UIViewController {
         }
         self.amountLabel.text = "總金額：\(amount)"
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let rooms = self.rooms {
+//            let roomOrderTableView = segue.destination as! RoomOrderTableViewController
+//            let roomGroup = rooms[0].roomGroup
+//            for (index, _) in roomOrderTableView.detailDictionary.enumerated() {
+//                if roomOrderTableView.detailDictionary[index].id == roomGroup {
+//                    roomOrderTableView.detailDictionary[index].orderRoomDetails = rooms
+//                    break
+//                }
+//            }
+//        }
+    }
 
     private func showRoomDetails() {
         guard let rooms = self.rooms else {
@@ -68,4 +81,38 @@ class RoomOrderDetailViewController: UIViewController {
             amount = amount + Int(instant.instantPrice!)!
         }
     }
+    
+    private func updateRooms(status: String) {
+        guard let rooms = self.rooms else {
+            return
+        }
+        for (index, _) in rooms.enumerated() {
+            self.rooms![index].roomReservationStatus = status
+        }
+    }
+    
+    @IBAction func checkStatusBUttonPressed(_ sender: UIButton) {
+        guard let buttonTitle = sender.title(for: .normal), let rooms = self.rooms else {
+            return
+        }
+        let orderRoomDB = OrderRoomDB()
+        let roomGroup = rooms[0].roomGroup
+        let roomReservationStatus = buttonTitle == "入住" ? "1" : "2"
+        let parameters =  ["action":"updateRoomReservationStatusById", "roomGroup":roomGroup, "roomReservationStatus": roomReservationStatus] as [String : String]
+        
+        orderRoomDB.updateRoomReservationStatusById(parameters).done { (result) in
+            guard result == "1" else {
+                print("fail to update")
+                return
+            }
+            
+            if buttonTitle == "退房" {
+                self.checkStatusButton.isHidden = true
+                return
+            }
+            self.updateRooms(status: roomReservationStatus)
+            self.checkStatusButton.setTitle("退房", for: .normal)
+        }
+    }
+    
 }

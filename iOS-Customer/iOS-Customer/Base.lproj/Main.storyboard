@@ -194,14 +194,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-V0-19N">
-                                        <rect key="frame" x="219" y="405" width="62" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="訂房紀錄"/>
-                                        <connections>
-                                            <segue destination="CJC-XX-8Ff" kind="show" identifier="toOrderList" id="Lbp-XG-cvX"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1t-3D-zQ0">
                                         <rect key="frame" x="211" y="405" width="44" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -216,6 +208,14 @@
                                         <state key="normal" title="登出"/>
                                         <connections>
                                             <action selector="logOutBtnPressed:" destination="QEA-SG-bAS" eventType="touchUpInside" id="tn5-6C-oTW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-V0-19N">
+                                        <rect key="frame" x="132" y="453" width="62" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="訂房紀錄"/>
+                                        <connections>
+                                            <segue destination="CJC-XX-8Ff" kind="show" identifier="toOrderList" id="Lbp-XG-cvX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -909,6 +909,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="入住"/>
+                                        <connections>
+                                            <action selector="checkStatusBUttonPressed:" destination="LET-g6-eph" eventType="touchUpInside" id="xFx-ZX-FVq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -939,7 +942,7 @@
                                     <navigationItem title="訂房紀錄" id="OBg-Nm-IWC">
                                         <barButtonItem key="leftBarButtonItem" title="上一頁" id="P2E-Yg-pDS">
                                             <connections>
-                                                <segue destination="JKx-ZG-TdY" kind="unwind" identifier="toPayDetailTable" unwindAction="unwindToRoomOrderTableView:" id="QKJ-rX-gJT"/>
+                                                <segue destination="cbA-V4-0rT" kind="unwind" unwindAction="unwindToRoomOrderTableView:" id="dvs-Ao-mui"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -981,7 +984,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIh-2i-brA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="JKx-ZG-TdY" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="cbA-V4-0rT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5231" y="2078"/>
         </scene>

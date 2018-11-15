@@ -25,7 +25,7 @@
 		D149C7DC219D110800FDF92E /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7D8219D110800FDF92E /* EditingTableViewController.swift */; };
 		D149C7DD219D110800FDF92E /* RatingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7D9219D110800FDF92E /* RatingDetailTableViewCell.swift */; };
 		D149C7DE219D110800FDF92E /* RatingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7DA219D110800FDF92E /* RatingListTableViewController.swift */; };
-		D149C7DF219D110800FDF92E /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7DB219D110800FDF92E /* RatingViewController.swift */; };
+		D149C7DF219D110800FDF92E /* WritingRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7DB219D110800FDF92E /* WritingRatingViewController.swift */; };
 		D149C7E2219D111D00FDF92E /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7E0219D111C00FDF92E /* AllRatingsTableViewController.swift */; };
 		D149C7E3219D111D00FDF92E /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7E1219D111C00FDF92E /* AllRatingsTableViewCell.swift */; };
 		D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E2421941466002E065A /* RoomOrderTableViewController.swift */; };
@@ -40,7 +40,7 @@
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		78AB9498216E13F100045C95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptTableViewController.swift; path = "/Users/hsinhwang/git/iOS-Customer/iOS-Customer/iOS-Customer/Control/ProfilePage/ReceiptTableViewController.swift"; sourceTree = "<absolute>"; };
+		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptTableViewController.swift; path = "/Users/unalee/Desktop/Android PG/iOS App/iOS-Customer/iOS-Customer/Control/ProfilePage/ReceiptTableViewController.swift"; sourceTree = "<absolute>"; };
 		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		D12CAED8219D4CC40035446C /* RoomOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RoomOrder.storyboard; sourceTree = "<group>"; };
 		D13405A02166699300E72B67 /* iOS-Customer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Customer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13405A32166699300E72B67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D13405A52166699300E72B67 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = "/Users/hsinhwang/git/iOS-Customer/iOS-Customer/iOS-Customer/Control/HomePage/HomePageViewController.swift"; sourceTree = "<absolute>"; };
+		D13405A52166699300E72B67 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = "/Users/unalee/Desktop/Android PG/iOS App/iOS-Customer/iOS-Customer/Control/HomePage/HomePageViewController.swift"; sourceTree = "<absolute>"; };
 		D13405A82166699300E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D13405AA2166699500E72B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D13405AD2166699500E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		D149C7D8219D110800FDF92E /* EditingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
 		D149C7D9219D110800FDF92E /* RatingDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDetailTableViewCell.swift; sourceTree = "<group>"; };
 		D149C7DA219D110800FDF92E /* RatingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingListTableViewController.swift; sourceTree = "<group>"; };
-		D149C7DB219D110800FDF92E /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		D149C7DB219D110800FDF92E /* WritingRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingRatingViewController.swift; sourceTree = "<group>"; };
 		D149C7E0219D111C00FDF92E /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
 		D149C7E1219D111C00FDF92E /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
 		D1918E2421941466002E065A /* RoomOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOrderTableViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +86,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-
 		78390539219C15BF0059BC5B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +184,7 @@
 				D149C7D8219D110800FDF92E /* EditingTableViewController.swift */,
 				D149C7D9219D110800FDF92E /* RatingDetailTableViewCell.swift */,
 				D149C7DA219D110800FDF92E /* RatingListTableViewController.swift */,
-				D149C7DB219D110800FDF92E /* RatingViewController.swift */,
+				D149C7DB219D110800FDF92E /* WritingRatingViewController.swift */,
 				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
 				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
 				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
@@ -323,10 +322,9 @@
 				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
 				D149C7E3219D111D00FDF92E /* AllRatingsTableViewCell.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
-				D149C7DF219D110800FDF92E /* RatingViewController.swift in Sources */,
+				D149C7DF219D110800FDF92E /* WritingRatingViewController.swift in Sources */,
 				D149C7DE219D110800FDF92E /* RatingListTableViewController.swift in Sources */,
 				78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */,
-				78BC9625219D4752005DBD6A /* AllRatingDetailViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
 				D149C7E2219D111D00FDF92E /* AllRatingsTableViewController.swift in Sources */,
 				78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */,

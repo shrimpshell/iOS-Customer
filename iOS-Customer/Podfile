@@ -10,5 +10,6 @@ target 'iOS-Customer' do
   # Pods for iOS-Customer
   pod 'Alamofire'
   pod 'PromiseKit'
+  pod 'Cosmos'
   
 end

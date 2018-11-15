@@ -1668,7 +1668,7 @@
                 <exit id="U1f-oE-E1Z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3717.5999999999999" y="-313.49325337331339"/>
-=======
+
         <!--RoomOrder-->
         <scene sceneID="p8s-zw-Ksq">
             <objects>
@@ -1676,7 +1676,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8y-uT-jbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3254" y="2078"/>
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
         </scene>
     </scenes>
     <resources>

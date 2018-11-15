@@ -39,8 +39,8 @@ struct DownloadAuth {
         
     }
     
-    func getAllCustomerRatings(completion: @escaping DoneHandler) {
-         let parameters: [String : Any] = [ACTION: "getAll"]
+    func getAllCustomerRatings(key: String, completion: @escaping DoneHandler) {
+         let parameters: [String : Any] = [ACTION: key]
         doPost(urlString: RATING_SERVLET, parameters: parameters, completion: completion)
     }
     

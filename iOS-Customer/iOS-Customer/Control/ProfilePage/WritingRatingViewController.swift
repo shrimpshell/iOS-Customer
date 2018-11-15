@@ -8,7 +8,13 @@
 
 import UIKit
 
-class RatingViewController: UIViewController {
+class WritingRatingViewController: UIViewController {
+    let TAG = "WritingRatingViewController"
+    
+    var customer: Customer?
+    let ratingAuth = DownloadAuth.shared
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,16 @@ class RatingViewController: UIViewController {
     }
     
     
-   
+    @IBAction func sendRatingBtnPressed(_ sender: UIBarButtonItem) {
+        
+        //取得當前時間
+        let now: Date = Date()
+        let dateFormat: DateFormatter = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd"
+        let dateString: String = dateFormat.string(from: now)
+        print("“現在時間：\(dateString)”")
+    }
+    
     @IBAction func cancelBtnPressed(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "蝦殼飯店", message: "取消撰寫", preferredStyle: .alert)
         let ok = UIAlertAction(title: "確定", style: .destructive){

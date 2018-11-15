@@ -25,20 +25,18 @@ class RoomOrderDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print(rooms)
         showRoomDetails()
         showInstantDetails()
         if let rooms = rooms, rooms[0].roomReservationStatus != "3" {
             switch rooms[0].roomReservationStatus {
             case "2":
-                print("2")
                 rateBUtton.isHidden = true
                 checkStatusButton.isHidden = true
             case "1":
-                print("1")
                 rateBUtton.isHidden = true
                 checkStatusButton.setTitle("退房", for: .normal)
             default:
-                print("0")
                 rateBUtton.isHidden = true
             }
         } else {
@@ -48,16 +46,7 @@ class RoomOrderDetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let rooms = self.rooms {
-//            let roomOrderTableView = segue.destination as! RoomOrderTableViewController
-//            let roomGroup = rooms[0].roomGroup
-//            for (index, _) in roomOrderTableView.detailDictionary.enumerated() {
-//                if roomOrderTableView.detailDictionary[index].id == roomGroup {
-//                    roomOrderTableView.detailDictionary[index].orderRoomDetails = rooms
-//                    break
-//                }
-//            }
-//        }
+        clearAllDetails()
     }
 
     private func showRoomDetails() {
@@ -70,6 +59,15 @@ class RoomOrderDetailViewController: UIViewController {
             self.roomsLabel.text = self.roomsLabel.text! + "\(room.roomTypeName) x \(room.roomQuantity)\n"
             amount = amount + Int(room.price)!
         }
+    }
+    
+    private func clearAllDetails() {
+        self.roomGroupLabel.text = ""
+        self.checkinLabel.text = ""
+        self.roomsLabel.text = ""
+        self.instantLabel.text = ""
+        self.discountLabel.text = ""
+        self.amountLabel.text = ""
     }
     
     private func showInstantDetails() {
@@ -101,16 +99,17 @@ class RoomOrderDetailViewController: UIViewController {
         let parameters =  ["action":"updateRoomReservationStatusById", "roomGroup":roomGroup, "roomReservationStatus": roomReservationStatus] as [String : String]
         
         orderRoomDB.updateRoomReservationStatusById(parameters).done { (result) in
-            guard result == "1" else {
+            guard result != "0" else {
                 print("fail to update")
                 return
             }
+            
+            self.updateRooms(status: roomReservationStatus)
             
             if buttonTitle == "退房" {
                 self.checkStatusButton.isHidden = true
                 return
             }
-            self.updateRooms(status: roomReservationStatus)
             self.checkStatusButton.setTitle("退房", for: .normal)
         }
     }

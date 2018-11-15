@@ -63,6 +63,8 @@ class RoomOrderTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.targetRooms.removeAll()
+        self.targetInstants.removeAll()
         self.targetRooms = detailDictionary[indexPath.row].orderRoomDetails
         self.targetInstants = detailDictionary[indexPath.row].orderInstantDetails
         self.performSegue(withIdentifier: "toDetailPage", sender: nil)
@@ -142,19 +144,16 @@ class RoomOrderTableViewController: UITableViewController {
     }
     
     @IBAction func unwindToRoomOrderTableView(_ segue: UIStoryboardSegue){
-        print("enter unwind")
         guard let roomOrderDetailView = segue.source as? RoomOrderDetailViewController, let rooms = roomOrderDetailView.rooms else {
             print("error")
             return
         }
-        print(self.detailDictionary)
         for (index, _) in self.detailDictionary.enumerated() {
             if self.detailDictionary[index].id == rooms[0].roomGroup {
                 self.detailDictionary[index].orderRoomDetails = rooms
                 break
             }
         }
-        self.refactorData()
         self.tableView.reloadData()
     }
 }

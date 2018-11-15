@@ -210,6 +210,14 @@
                                             <action selector="logOutBtnPressed:" destination="QEA-SG-bAS" eventType="touchUpInside" id="tn5-6C-oTW"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-V0-19N">
+                                        <rect key="frame" x="132" y="453" width="62" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="訂房紀錄"/>
+                                        <connections>
+                                            <segue destination="NqS-7c-zRR" kind="show" identifier="toOrderList" id="Lbp-XG-cvX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="XvL-r8-1dn" firstAttribute="leading" secondItem="7Yy-d7-nKU" secondAttribute="leading" constant="168" id="1LQ-19-Wd0"/>
@@ -1034,7 +1042,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zN-lu-TJW" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6zN-lu-TJW" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="90" y="84" width="195" height="35"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -1072,10 +1080,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtd-kf-eeM">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wtd-kf-eeM">
                                 <rect key="frame" x="25" y="144" width="325" height="488"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dak-iq-Olk">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dak-iq-Olk">
                                         <rect key="frame" x="10" y="10" width="305" height="468"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1455,6 +1463,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4JL-xc-MBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="132.68365817091455"/>
+        </scene>
+        <!--RoomOrder-->
+        <scene sceneID="p8s-zw-Ksq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RoomOrder" id="NqS-7c-zRR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r8y-uT-jbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3254" y="2078"/>
         </scene>
     </scenes>
     <resources>

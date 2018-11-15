@@ -836,7 +836,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eol-1N-xp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6n4-1U-JvP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4313" y="1554"/>
+            <point key="canvasLocation" x="4286" y="2078"/>
         </scene>
         <!--Room Order Detail View Controller-->
         <scene sceneID="dh9-KN-w4Y">
@@ -983,7 +983,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIh-2i-brA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JKx-ZG-TdY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5285.6000000000004" y="1553.9730134932536"/>
+            <point key="canvasLocation" x="5231" y="2078"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xsx-wL-lS5">
@@ -999,25 +999,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="af3-xM-F0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3223" y="1554"/>
-        </scene>
-        <!--Title-->
-        <scene sceneID="tec-Rk-S3Z">
-            <objects>
-                <viewController id="fIO-Gs-xEG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TG8-Mu-fkD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="zM1-0J-2h4"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="bnZ-hf-HXh">
-                        <barButtonItem key="rightBarButtonItem" title="OK" id="T3I-bS-T6W"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ywK-xw-dRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4473" y="824"/>
+            <point key="canvasLocation" x="3254" y="2078"/>
         </scene>
         <!--Receipt Table View Controller-->
         <scene sceneID="c0P-nz-yby">
@@ -1278,7 +1260,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zN-lu-TJW" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6zN-lu-TJW" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="90" y="84" width="195" height="35"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -1316,10 +1298,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtd-kf-eeM">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wtd-kf-eeM">
                                 <rect key="frame" x="25" y="144" width="325" height="488"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dak-iq-Olk">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dak-iq-Olk">
                                         <rect key="frame" x="10" y="10" width="305" height="468"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>

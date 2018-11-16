@@ -22,7 +22,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePageView: UIScrollView!
     @IBOutlet weak var loginPageView: UIScrollView!
     @IBOutlet weak var logInView: UIScrollView!
-    @IBOutlet weak var settingBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var loginEmailText: UITextField!
     @IBOutlet weak var loginPasswordText: UITextField!
     @IBOutlet weak var nameCustomer: UILabel!
@@ -31,6 +30,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailCustomer: UILabel!
     @IBOutlet weak var phoneCustomer: UILabel!
     @IBOutlet weak var titleNavigationItem: UINavigationItem!
+    @IBOutlet weak var settingItemBtn: UIBarButtonItem!
+    
     
     //var idCustomer: Int? = nil
     
@@ -101,6 +102,7 @@ class ProfileViewController: UIViewController {
     }
     
     func showCustomerInfo() {
+        let customerTask = CustomerAuth()
         guard let idCustomer = customer?.idCustomer else {
             print("idCustomer 解包錯誤")
             return
@@ -136,30 +138,43 @@ class ProfileViewController: UIViewController {
             self.nameCustomer.text = self.customer?.name
             self.emailCustomer.text = self.customer?.email
             self.phoneCustomer.text = self.customer?.phone
+            }
+        
+        let getCustomerImage: [String : Any] = ["action": "getImage", "IdCustomer": idCustomer]
+  customerTask.getCustomerImage(getCustomerImage).done { (data) in
+             if (data?.count)! > 0 {
+                DispatchQueue.main.async() {
+                    self.imageCustomer.image = UIImage(data: data!)
+                }
+            }
+        }.catch { (error) in
+            assertionFailure("CheckoutTableViewController Error: \(error)")
         }
     }
     
     //使用isLogin切換會員頁面與登入頁面
     func userlogin() {
         if  isLogin == true {
+            navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
+            navigationItem.rightBarButtonItem?.isEnabled = true
             loginPageView.isHidden = true
             profilePageView.isHidden = false
             titleNavigationItem.title = "會員資料"
-            settingBarButtonItem.title = "Setting"
-            settingBarButtonItem.isEnabled = true
         } else {
             loginPageView.isHidden = false
             titleNavigationItem.title = ""
             profilePageView.isHidden = true
-            settingBarButtonItem.title = ""
-            settingBarButtonItem.isEnabled = false
+            navigationItem.rightBarButtonItem?.image = nil
+            navigationItem.rightBarButtonItem?.isEnabled = false
+            
         }
     }
     
     
     //登出
     @IBAction func logOutBtnPressed(_ sender: UIButton) {
-        idCustomer = 0
+        //idCustomer = 0
+        customer = nil
         isLogin = false
         userlogin()
         print("Log Out")

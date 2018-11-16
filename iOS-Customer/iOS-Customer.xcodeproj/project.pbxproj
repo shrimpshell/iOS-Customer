@@ -15,6 +15,7 @@
 		78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */; };
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
 		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
+		78BC9627219D6B33005DBD6A /* AllRatingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC9626219D6B33005DBD6A /* AllRatingDetailViewController.swift */; };
 		78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */; };
 		D12394E421940A7D001F6E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405A72166699300E72B67 /* Main.storyboard */; };
 		D12CAED9219D4CC40035446C /* RoomOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12CAED8219D4CC40035446C /* RoomOrder.storyboard */; };
@@ -43,6 +44,7 @@
 		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptTableViewController.swift; path = "/Users/unalee/Desktop/Android PG/iOS App/iOS-Customer/iOS-Customer/Control/ProfilePage/ReceiptTableViewController.swift"; sourceTree = "<absolute>"; };
 		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		78BC9626219D6B33005DBD6A /* AllRatingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingDetailViewController.swift; sourceTree = "<group>"; };
 		78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
 		9F2DEE62D08AECFEBE061A2D /* Pods-iOS-Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		CE792F163EAE41DB92E4F2F7 /* Pods-iOS-Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		D149C7E5219D135800FDF92E /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				78BC9626219D6B33005DBD6A /* AllRatingDetailViewController.swift */,
 				D149C7E1219D111C00FDF92E /* AllRatingsTableViewCell.swift */,
 				D149C7E0219D111C00FDF92E /* AllRatingsTableViewController.swift */,
 				D13405A52166699300E72B67 /* HomePageViewController.swift */,
@@ -325,6 +328,7 @@
 				D149C7DF219D110800FDF92E /* WritingRatingViewController.swift in Sources */,
 				D149C7DE219D110800FDF92E /* RatingListTableViewController.swift in Sources */,
 				78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */,
+				78BC9627219D6B33005DBD6A /* AllRatingDetailViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
 				D149C7E2219D111D00FDF92E /* AllRatingsTableViewController.swift in Sources */,
 				78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */,

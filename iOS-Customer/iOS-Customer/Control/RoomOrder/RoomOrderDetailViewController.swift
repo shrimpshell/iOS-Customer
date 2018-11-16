@@ -25,7 +25,6 @@ class RoomOrderDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(rooms)
         showRoomDetails()
         showInstantDetails()
         if let rooms = rooms, rooms[0].roomReservationStatus != "3" {
@@ -46,7 +45,9 @@ class RoomOrderDetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        clearAllDetails()
+        if segue.identifier == "toTableView" {
+            clearAllDetails()
+        }
     }
 
     private func showRoomDetails() {
@@ -114,4 +115,16 @@ class RoomOrderDetailViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToDetailPage(_ segue: UIStoryboardSegue) {
+        switch segue.identifier {
+        case "submitDetail":
+            print("submit")
+            break
+        case "cancelDetail":
+            print("cancel")
+            break
+        default:
+            print("did notthing")
+        }
+    }
 }

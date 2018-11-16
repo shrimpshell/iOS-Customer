@@ -795,9 +795,6 @@
                             <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="給予評論"/>
-                            <connections>
-                                <segue destination="lA2-I0-4zv" kind="showDetail" id="JzV-qK-TBu"/>
-                            </connections>
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="r1A-aQ-rw8">
@@ -1033,105 +1030,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZR-s8-mPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116" y="2798.9505247376314"/>
-        </scene>
-        <!--Rating View Controller-->
-        <scene sceneID="8pj-pa-GZP">
-            <objects>
-                <viewController id="lA2-I0-4zv" customClass="RatingViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0rC-5e-gKK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6zN-lu-TJW" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="90" y="84" width="195" height="35"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                        <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                        <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
-                                        <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="GoldStarEmpty"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                        <real key="value" value="35"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5s9-lK-KI5">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="撰寫評論" id="Ed8-iN-g7v">
-                                        <barButtonItem key="leftBarButtonItem" title="取消" id="05A-MK-JiX">
-                                            <connections>
-                                                <action selector="cancelBtnPressed:" destination="lA2-I0-4zv" id="aVA-s8-qzl"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="送出" id="kFa-2d-a33"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wtd-kf-eeM">
-                                <rect key="frame" x="25" y="144" width="325" height="488"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dak-iq-Olk">
-                                        <rect key="frame" x="10" y="10" width="305" height="468"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.85041906597650585" green="0.85041906597650585" blue="0.85041906597650585" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Dak-iq-Olk" secondAttribute="bottom" constant="10" id="64x-ag-nXV"/>
-                                    <constraint firstItem="Dak-iq-Olk" firstAttribute="leading" secondItem="wtd-kf-eeM" secondAttribute="leading" constant="10" id="SJJ-5e-35U"/>
-                                    <constraint firstAttribute="trailing" secondItem="Dak-iq-Olk" secondAttribute="trailing" constant="10" id="Xu0-lS-BEr"/>
-                                    <constraint firstItem="Dak-iq-Olk" firstAttribute="top" secondItem="wtd-kf-eeM" secondAttribute="top" constant="10" id="jRS-Ie-4Rb"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="EzT-Qg-0It" firstAttribute="bottom" secondItem="wtd-kf-eeM" secondAttribute="bottom" constant="35" id="07f-rg-KFQ"/>
-                            <constraint firstItem="6zN-lu-TJW" firstAttribute="centerX" secondItem="5s9-lK-KI5" secondAttribute="centerX" id="Eir-Uh-PTv"/>
-                            <constraint firstItem="5s9-lK-KI5" firstAttribute="leading" secondItem="0rC-5e-gKK" secondAttribute="leading" id="N0N-BT-vrY"/>
-                            <constraint firstItem="6zN-lu-TJW" firstAttribute="centerX" secondItem="wtd-kf-eeM" secondAttribute="centerX" id="ODs-NT-bIL"/>
-                            <constraint firstItem="wtd-kf-eeM" firstAttribute="top" secondItem="6zN-lu-TJW" secondAttribute="bottom" constant="25" id="VH4-X5-ngK"/>
-                            <constraint firstItem="6zN-lu-TJW" firstAttribute="top" secondItem="5s9-lK-KI5" secondAttribute="bottom" constant="20" id="ZiT-ZE-u7J"/>
-                            <constraint firstItem="6zN-lu-TJW" firstAttribute="top" secondItem="0rC-5e-gKK" secondAttribute="top" constant="84" id="cBv-eJ-H4V"/>
-                            <constraint firstItem="wtd-kf-eeM" firstAttribute="centerX" secondItem="0rC-5e-gKK" secondAttribute="centerX" id="fTq-Dc-e0o"/>
-                            <constraint firstItem="wtd-kf-eeM" firstAttribute="leading" secondItem="EzT-Qg-0It" secondAttribute="leading" constant="25" id="nuE-Rd-RO8"/>
-                            <constraint firstItem="EzT-Qg-0It" firstAttribute="trailing" secondItem="wtd-kf-eeM" secondAttribute="trailing" constant="25" id="zsN-Xr-sRl"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="EzT-Qg-0It"/>
-                    </view>
-                    <connections>
-                        <segue destination="8zV-LM-xTA" kind="unwind" identifier="toReceiptList" unwindAction="unwindToReceiptListPage:" id="kd2-Ln-lhN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="66N-Jk-PBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="8zV-LM-xTA" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1936.8" y="2798.9505247376314"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7bF-PQ-OGB">

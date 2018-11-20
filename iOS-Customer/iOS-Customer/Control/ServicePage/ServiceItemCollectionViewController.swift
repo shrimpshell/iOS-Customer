@@ -9,10 +9,10 @@
 import UIKit
 
 private let reuseIdentifier = "Cell"
+var payDetailInfo = [OrderRoomDetail]()
 
 class ServiceItemCollectionViewController: UICollectionViewController {
     
-    var payDetailInfo = [OrderRoomDetail]()
     var customer: Customer?
     let arrayItemImages = ["icon_dinling","icon_traffic","icon_room_service"]
     let arrayItemLabels = ["點餐服務","接送服務","房務服務"]
@@ -54,6 +54,7 @@ class ServiceItemCollectionViewController: UICollectionViewController {
                 return
             }
             
+            targetVC.customer = customer
             targetVC.targetIndex = selectedIndexPath.row
         
         }
@@ -156,10 +157,8 @@ class ServiceItemCollectionViewController: UICollectionViewController {
            
             for userDetail in resultObject {
                 if userDetail.roomReservationStatus == "1" {
-                    self.payDetailInfo.append(userDetail)
+                    payDetailInfo.append(userDetail)
                 }
-                print("Debug userDetail >>> \(self.payDetailInfo)")
-                
             }
             self.updateUserServiceStatus()
         }

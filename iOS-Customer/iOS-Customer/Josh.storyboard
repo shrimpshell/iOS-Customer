@@ -79,7 +79,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epl-ey-wAw">
-                                            <rect key="frame" x="10" y="10" width="355" height="129.5"/>
+                                            <rect key="frame" x="10" y="10" width="355" height="130"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="數量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYZ-ED-K6J">
                                                     <rect key="frame" x="112" y="85" width="84" height="30"/>
@@ -139,11 +139,6 @@
                                 <segue destination="jt5-yH-Qzx" kind="unwind" unwindAction="unwindToServiceItemPage:" id="Hpo-LW-Pwa"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="3GH-OU-zEZ">
-                            <connections>
-                                <action selector="getUserOrderDetail:" destination="gg8-wt-gXL" id="wTT-rJ-gSk"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1q2-yT-Iqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -168,7 +163,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clu-ka-2C6">
-                                            <rect key="frame" x="10" y="10" width="355" height="130"/>
+                                            <rect key="frame" x="10" y="10" width="355" height="130.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HW9-Ty-i1k">
                                                     <rect key="frame" x="15" y="15" width="100" height="100"/>

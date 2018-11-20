@@ -12,7 +12,7 @@ import PromiseKit
 class ItemDetailTableViewController: UITableViewController {
     
     let download = DownloadAuth.shared
-    
+    var customer: Customer?
     
     var targetIndex: Int = -1
     
@@ -145,19 +145,16 @@ class ItemDetailTableViewController: UITableViewController {
         let alert = UIAlertController(title: "確定送出需求嗎？", message: "服務需求無誤嗎？", preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default) { (action) in
             
-            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: 8, roomNumber: "503")
-            
-            print("Debug 3 >>> \(instant)")
+            guard self.serviceQuantity != nil else {
+                self.showAlert(title: "沒有輸入正確數量", message: "請再重新輸入")
+                return
+            }
            
-//            self.download.updateStatus(idInstantDetail: instant.idInstantDetail, status: instant.status) { (result, error) in
-//                if let error = error {
-//                    print("Send text error: \(error)")
-//                    return
-//                }
-//                print("Send text OK: \(result!)")
-//            }
             
-
+            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: 1, roomNumber: (payDetailInfo.first?.roomNumber)!)
+            
+            
+            // 新增物件到 server 端，必先要把物件轉成 String
             let instantData = try! JSONEncoder().encode(instant)
             let instantString = String(data: instantData, encoding: .utf8)
             self.download.insertInstant(instant: instantString!) { (result, error) in
@@ -166,7 +163,10 @@ class ItemDetailTableViewController: UITableViewController {
                     return
                 }
                 print("Send text OK: \(result!)")
+                self.showAlert(title: "已成功送出需求", message: "馬上為您服務")
             }
+            
+            
 
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default)
@@ -177,11 +177,6 @@ class ItemDetailTableViewController: UITableViewController {
      
     }
     
-    @IBAction func getUserOrderDetail(_ sender: UIBarButtonItem) {
-    
-       
-        
-    }
     
     
 

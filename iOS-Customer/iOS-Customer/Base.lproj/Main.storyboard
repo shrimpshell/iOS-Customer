@@ -160,6 +160,9 @@
                                             <constraint firstAttribute="width" constant="51" id="5ao-DN-UPQ"/>
                                         </constraints>
                                         <state key="normal" title="Service"/>
+                                        <connections>
+                                            <segue destination="thQ-U8-QyH" kind="showDetail" identifier="toInstantServicePage" id="0HF-yN-CTm"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvL-r8-1dn">
                                         <rect key="frame" x="168" y="80" width="39" height="25"/>
@@ -495,7 +498,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztS-2O-b6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328.8000000000002" y="1977.6611694152925"/>
+            <point key="canvasLocation" x="1556" y="1978"/>
         </scene>
         <!--註冊會員-->
         <scene sceneID="H6X-lH-5j2">
@@ -812,7 +815,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0c9-fq-SIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1556" y="1978"/>
+            <point key="canvasLocation" x="617" y="1978"/>
         </scene>
         <!--Receipt Detail-->
         <scene sceneID="ySL-Vx-EA4">
@@ -1024,7 +1027,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZR-s8-mPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="2798.9505247376314"/>
+            <point key="canvasLocation" x="617" y="2799"/>
         </scene>
         <!--Rating View Controller-->
         <scene sceneID="8pj-pa-GZP">
@@ -1034,7 +1037,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zN-lu-TJW" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6zN-lu-TJW" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="90" y="84" width="195" height="35"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -1072,10 +1075,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtd-kf-eeM">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wtd-kf-eeM">
                                 <rect key="frame" x="25" y="144" width="325" height="488"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dak-iq-Olk">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dak-iq-Olk">
                                         <rect key="frame" x="10" y="10" width="305" height="468"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1123,7 +1126,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66N-Jk-PBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8zV-LM-xTA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1936.8" y="2798.9505247376314"/>
+            <point key="canvasLocation" x="1556" y="2799"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7bF-PQ-OGB">
@@ -1455,6 +1458,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4JL-xc-MBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="132.68365817091455"/>
+        </scene>
+        <!--Josh-->
+        <scene sceneID="n3S-wF-BBH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Josh" id="thQ-U8-QyH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Dx-Kt-OuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2869.5999999999999" y="2122.4887556221893"/>
         </scene>
     </scenes>
     <resources>

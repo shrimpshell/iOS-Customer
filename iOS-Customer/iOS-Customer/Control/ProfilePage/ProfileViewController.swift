@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController {
     let TAG = "ProfileViewController"
     var customer: Customer?
     var idCustomer: Int = 0
-    var isLogin = false    // false = 顯示登入頁面， true = 顯示會員頁面
+    var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
     var editPageInfo: Customer?
     let customerAuth = DownloadAuth.shared
     
@@ -178,11 +178,13 @@ class ProfileViewController: UIViewController {
         case "toReceiptList":
             let receiptListPage = segue.destination as! ReceiptTableViewController
             receiptListPage.customer = customer
-            
-            case "toEditingPage":
+        
+        case "toEditingPage":
             let editingPage = segue.destination as! EditingTableViewController
             editingPage.customer = customer
-            
+        case "toinstantServicePage":
+            let instantServicePage = segue.destination as! ServiceItemCollectionViewController
+            instantServicePage.customer = customer
         default:
             break
         }

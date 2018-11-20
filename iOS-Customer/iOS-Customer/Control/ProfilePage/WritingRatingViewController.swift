@@ -52,5 +52,19 @@ class WritingRatingViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+   
+//    @IBAction func cancelBtnPressed(_ sender: UIBarButtonItem) {
+//        let alert = UIAlertController(title: "蝦殼飯店", message: "取消撰寫", preferredStyle: .alert)
+//        let ok = UIAlertAction(title: "確定", style: .destructive){
+//            (action) in
+//            self.performSegue(withIdentifier: "toReceiptList", sender: action)
+//        }
+//        let cancel = UIAlertAction(title: "取消", style: .default)
+//        alert.addAction(cancel)
+//        alert.addAction(ok)
+//
+//        present(alert, animated: true, completion: nil)
+//    }
+
     
 }

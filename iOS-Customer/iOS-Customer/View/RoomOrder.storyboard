@@ -129,6 +129,9 @@
                                         <rect key="frame" x="238" y="310" width="41" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="評論"/>
+                                        <connections>
+                                            <segue destination="WgC-Hh-sRh" kind="show" id="cvv-ra-CJr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obc-gW-BrI">
                                         <rect key="frame" x="189" y="310" width="41" height="36"/>
@@ -168,7 +171,7 @@
                                     <navigationItem title="訂房紀錄" id="OBg-Nm-IWC">
                                         <barButtonItem key="leftBarButtonItem" title="上一頁" id="P2E-Yg-pDS">
                                             <connections>
-                                                <segue destination="cbA-V4-0rT" kind="unwind" unwindAction="unwindToRoomOrderTableView:" id="dvs-Ao-mui"/>
+                                                <segue destination="cbA-V4-0rT" kind="unwind" identifier="toTableView" unwindAction="unwindToRoomOrderTableView:" id="dvs-Ao-mui"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -230,8 +233,110 @@
             </objects>
             <point key="canvasLocation" x="3254" y="2078"/>
         </scene>
+        <!--Rating View Controller-->
+        <scene sceneID="Mfz-sk-Jim">
+            <objects>
+                <viewController id="WgC-Hh-sRh" customClass="RatingViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TGf-1Y-bGe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1Z-wv-3Fn" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="90" y="84" width="195" height="35"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                        <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                        <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="GoldStarEmpty"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dbh-EG-m4V">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="撰寫評論" id="DFn-Qa-mkC">
+                                        <barButtonItem key="leftBarButtonItem" title="取消" id="dYf-Bu-3we">
+                                            <connections>
+                                                <segue destination="4R3-zK-UcZ" kind="unwind" identifier="cancelDetail" unwindAction="unwindToDetailPage:" id="9ID-AH-E6p"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="送出" id="AN9-wN-BWj">
+                                            <connections>
+                                                <segue destination="4R3-zK-UcZ" kind="unwind" identifier="submitDetail" unwindAction="unwindToDetailPage:" id="uK1-Pw-LZs"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mq8-0q-Ahf">
+                                <rect key="frame" x="25" y="144" width="325" height="488"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ptP-VB-rJZ">
+                                        <rect key="frame" x="10" y="10" width="305" height="468"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85041906599999995" green="0.85041906599999995" blue="0.85041906599999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="ptP-VB-rJZ" firstAttribute="leading" secondItem="Mq8-0q-Ahf" secondAttribute="leading" constant="10" id="GB4-Ug-Yat"/>
+                                    <constraint firstAttribute="trailing" secondItem="ptP-VB-rJZ" secondAttribute="trailing" constant="10" id="N5e-HC-cnk"/>
+                                    <constraint firstAttribute="bottom" secondItem="ptP-VB-rJZ" secondAttribute="bottom" constant="10" id="QH1-Pu-aHd"/>
+                                    <constraint firstItem="ptP-VB-rJZ" firstAttribute="top" secondItem="Mq8-0q-Ahf" secondAttribute="top" constant="10" id="pRc-hC-ETs"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vst-7n-mXy" firstAttribute="bottom" secondItem="Mq8-0q-Ahf" secondAttribute="bottom" constant="35" id="4SX-9v-u6d"/>
+                            <constraint firstItem="Mq8-0q-Ahf" firstAttribute="leading" secondItem="Vst-7n-mXy" secondAttribute="leading" constant="25" id="JoL-jC-BaW"/>
+                            <constraint firstItem="Vst-7n-mXy" firstAttribute="trailing" secondItem="Mq8-0q-Ahf" secondAttribute="trailing" constant="25" id="hVc-6d-r1e"/>
+                            <constraint firstItem="Mq8-0q-Ahf" firstAttribute="top" secondItem="K1Z-wv-3Fn" secondAttribute="bottom" constant="25" id="hwz-W1-cFv"/>
+                            <constraint firstItem="K1Z-wv-3Fn" firstAttribute="centerX" secondItem="Dbh-EG-m4V" secondAttribute="centerX" id="kqC-XB-ERp"/>
+                            <constraint firstItem="Dbh-EG-m4V" firstAttribute="leading" secondItem="TGf-1Y-bGe" secondAttribute="leading" id="lxf-4o-17a"/>
+                            <constraint firstItem="K1Z-wv-3Fn" firstAttribute="centerX" secondItem="Mq8-0q-Ahf" secondAttribute="centerX" id="nVw-eG-cPy"/>
+                            <constraint firstItem="Mq8-0q-Ahf" firstAttribute="centerX" secondItem="TGf-1Y-bGe" secondAttribute="centerX" id="quF-cu-2ie"/>
+                            <constraint firstItem="K1Z-wv-3Fn" firstAttribute="top" secondItem="Dbh-EG-m4V" secondAttribute="bottom" constant="20" id="ufK-Wb-D6T"/>
+                            <constraint firstItem="K1Z-wv-3Fn" firstAttribute="top" secondItem="TGf-1Y-bGe" secondAttribute="top" constant="84" id="xvM-nk-rvb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vst-7n-mXy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LcS-aK-Re1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4R3-zK-UcZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6271" y="2078"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="GoldStar" width="53" height="51"/>
+        <image name="GoldStarEmpty" width="53" height="51"/>
         <image name="customer_detail_background" width="455" height="717"/>
     </resources>
 </document>

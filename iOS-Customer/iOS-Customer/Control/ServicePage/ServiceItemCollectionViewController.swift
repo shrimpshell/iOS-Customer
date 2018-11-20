@@ -12,7 +12,7 @@ private let reuseIdentifier = "Cell"
 
 class ServiceItemCollectionViewController: UICollectionViewController {
     
-    var payDetailInfo = [PayDetail]()
+    var payDetailInfo = [OrderRoomDetail]()
     var customer: Customer?
     let arrayItemImages = ["icon_dinling","icon_traffic","icon_room_service"]
     let arrayItemLabels = ["點餐服務","接送服務","房務服務"]
@@ -29,6 +29,7 @@ class ServiceItemCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
         getUserRoomNumberForInstant()
+        
         
         
     }
@@ -101,22 +102,22 @@ class ServiceItemCollectionViewController: UICollectionViewController {
     func updateUserServiceStatus() {
         download.getCustomerStatus(roomNumber: (payDetailInfo.first?.roomNumber)!) { (result, error) in
             if let error = error {
-                print("RetriveMessages error: \(error)")
+                print("updateUserServiceStatus error: \(error)")
                 return
             }
             guard let result = result else {
                 print("result is nil.")
                 return
             }
-            print("Retrive customer Info is OK.")
-            // Decode as [MessageItem]. 解碼下載下來的 json
+            print("updateUserServiceStatus Info is OK.")
+            // Decode as [Instant]. 解碼下載下來的 json
             guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
-                print("Fail to generate jsonData.")
+                print("updateUserServiceStatus Fail to generate jsonData.")
                 return
             }
             let decoder = JSONDecoder()
             guard let resultObject = try? decoder.decode([Instant].self, from: jsonData) else {
-                print("Fail to decode jsonData.")
+                print("updateUserServiceStatus Fail to decode jsonData.")
                 return
             }
             print("resultObject: \(resultObject)")
@@ -133,22 +134,22 @@ class ServiceItemCollectionViewController: UICollectionViewController {
         }
         download.getUserRoomNumber(idCustomer: String(customer)) { (result, error) in
             if let error = error {
-                print("RetriveMessages error: \(error)")
+                print("getUserRoomNumberForInstant error: \(error)")
                 return
             }
             guard let result = result else {
-                print("result is nil.")
+                print("getUserRoomNumberForInstant result is nil.")
                 return
             }
-            print("Retrive customer Info is OK.")
-            // Decode as [MessageItem]. 解碼下載下來的 json
+            print("getUserRoomNumberForInstant Info is OK.")
+            // Decode as [PayDetail]. 解碼下載下來的 json
             guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
-                print("Fail to generate jsonData.")
+                print("getUserRoomNumberForInstant Fail to generate jsonData.")
                 return
             }
             let decoder = JSONDecoder()
-            guard let resultObject = try? decoder.decode([PayDetail].self, from: jsonData) else {
-                print("Fail to decode jsonData.")
+            guard let resultObject = try? decoder.decode([OrderRoomDetail].self, from: jsonData) else {
+                print("getUserRoomNumberForInstant Fail to decode jsonData.")
                 return
             }
             print("resultObject: \(resultObject)")

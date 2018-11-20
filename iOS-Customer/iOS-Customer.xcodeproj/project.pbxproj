@@ -10,12 +10,12 @@
 		72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7261595F219DA6E100EB43FB /* ServiceStatusTableViewController.swift */; };
 		72615962219DA77100EB43FB /* ServiceStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615961219DA77100EB43FB /* ServiceStatusTableViewCell.swift */; };
 		72615964219DB3C000EB43FB /* Instant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615963219DB3C000EB43FB /* Instant.swift */; };
+		729527B221A3EE8200E9E839 /* OrderRoomDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */; };
 		72D917C2219D142A0008D90C /* Josh.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72D917C1219D142A0008D90C /* Josh.storyboard */; };
 		72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917C4219D185E0008D90C /* ServiceItemCollectionViewController.swift */; };
 		72D917C7219D188A0008D90C /* ServiceItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917C6219D188A0008D90C /* ServiceItemCollectionViewCell.swift */; };
 		72D917C9219D1AA90008D90C /* ItemDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917C8219D1AA90008D90C /* ItemDetailTableViewController.swift */; };
 		72D917CB219D26110008D90C /* ItemDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917CA219D26110008D90C /* ItemDetailTableViewCell.swift */; };
-		72F849E821A2ECC90025A31C /* PayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F849E721A2ECC90025A31C /* PayDetail.swift */; };
 		781DEB522198095A00AED03E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781DEB512198095A00AED03E /* Download.swift */; };
 		78390532219BFC740059BC5B /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* PrintHelper.swift */; };
 		78390534219C14770059BC5B /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390533219C14770059BC5B /* AllRatingsTableViewController.swift */; };
@@ -43,12 +43,12 @@
 		7261595F219DA6E100EB43FB /* ServiceStatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatusTableViewController.swift; sourceTree = "<group>"; };
 		72615961219DA77100EB43FB /* ServiceStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatusTableViewCell.swift; sourceTree = "<group>"; };
 		72615963219DB3C000EB43FB /* Instant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instant.swift; sourceTree = "<group>"; };
+		729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRoomDetail.swift; sourceTree = "<group>"; };
 		72D917C1219D142A0008D90C /* Josh.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Josh.storyboard; sourceTree = "<group>"; };
 		72D917C4219D185E0008D90C /* ServiceItemCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItemCollectionViewController.swift; sourceTree = "<group>"; };
 		72D917C6219D188A0008D90C /* ServiceItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		72D917C8219D1AA90008D90C /* ItemDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewController.swift; sourceTree = "<group>"; };
 		72D917CA219D26110008D90C /* ItemDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewCell.swift; sourceTree = "<group>"; };
-		72F849E721A2ECC90025A31C /* PayDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDetail.swift; sourceTree = "<group>"; };
 		781DEB512198095A00AED03E /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		78390531219BFC740059BC5B /* PrintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintHelper.swift; sourceTree = "<group>"; };
 		78390533219C14770059BC5B /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				78390539219C15BF0059BC5B /* Helper */,
 				7857F5712192B2EE00641030 /* Common.swift */,
 				78AB949C216E286C00045C95 /* Rating.swift */,
-				72F849E721A2ECC90025A31C /* PayDetail.swift */,
+				729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */,
 				72615963219DB3C000EB43FB /* Instant.swift */,
 				781DEB512198095A00AED03E /* Download.swift */,
 				78AB94A0216E2A7900045C95 /* Customer.swift */,
@@ -342,11 +342,11 @@
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
 				78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */,
 				78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */,
-				72F849E821A2ECC90025A31C /* PayDetail.swift in Sources */,
 				72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */,
 				72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */,
 				D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
+				729527B221A3EE8200E9E839 /* OrderRoomDetail.swift in Sources */,
 				78AB949D216E286C00045C95 /* Rating.swift in Sources */,
 				72D917CB219D26110008D90C /* ItemDetailTableViewCell.swift in Sources */,
 				781DEB522198095A00AED03E /* Download.swift in Sources */,

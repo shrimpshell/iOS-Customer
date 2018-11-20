@@ -28,8 +28,8 @@ typealias DoneHandler = (_ result: Any?, _ error: Error?) -> Void
 
 
 struct DownloadAuth {
-    static let SERVER_URL = "http://192.168.1.106:8080/ShellService"
-    //static let SERVER_URL = "http://192.168.50.124:8080/ShellService"
+    //static let SERVER_URL = "http://192.168.1.106:8080/ShellService"
+    static let SERVER_URL = "http://192.168.50.124:8080/ShellService"
     let RATING_SERVLET = SERVER_URL + "/RatingServlet"
     let CUSTOMER_SERVLET = SERVER_URL + "/CustomerServlet"
     let INSTANT_SERVLET = SERVER_URL + "/InstantServlet"
@@ -99,7 +99,7 @@ struct DownloadAuth {
     
     // get user roomNumber
     func getUserRoomNumber(idCustomer: String, completion: @escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION: "getRoomPayDetailById", ID_CUSTOMER_KEY: idCustomer]
+        let parameters: [String : Any] = [ACTION: "getUserRoomNumber", ID_CUSTOMER_KEY: idCustomer]
         
         doPost(urlString: PAYDETAIL_SERVLET, parameters: parameters, completion: completion)
     }

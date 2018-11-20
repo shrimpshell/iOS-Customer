@@ -182,9 +182,13 @@ class ProfileViewController: UIViewController {
         case "toEditingPage":
             let editingPage = segue.destination as! EditingTableViewController
             editingPage.customer = customer
-        case "toinstantServicePage":
-            let instantServicePage = segue.destination as! ServiceItemCollectionViewController
-            instantServicePage.customer = customer
+        
+        case "toInstantServicePage":
+            let tabBarVC = segue.destination as! UITabBarController
+            let nivagationVC = tabBarVC.viewControllers![0] as! UINavigationController
+            let instantServiceVC = nivagationVC.topViewController as! ServiceItemCollectionViewController
+            instantServiceVC.customer = customer
+        
         default:
             break
         }

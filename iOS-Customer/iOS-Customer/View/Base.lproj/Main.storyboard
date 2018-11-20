@@ -49,7 +49,6 @@
         <!--顧客評價-->
         <scene sceneID="Fym-s9-tXO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KRW-Pa-Ado" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="wZ6-ug-8Yl" customClass="AllRatingsTableViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="145" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oon-Fi-tQ8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -139,6 +138,7 @@
                         <outlet property="allCustomerRatiingsTableView" destination="oon-Fi-tQ8" id="5du-Po-W9H"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KRW-Pa-Ado" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2893.5999999999999" y="-312.59370314842579"/>
         </scene>
@@ -167,12 +167,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nda-a0-ygQ">
-                                        <rect key="frame" x="112.5" y="130" width="150" height="150"/>
+                                        <rect key="frame" x="112.5" y="120" width="150" height="170"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="3EI-Ws-wvj"/>
-                                            <constraint firstAttribute="width" constant="150" id="8cN-2M-J69"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="DPb-M5-9Bi"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="mUh-Tg-pcw"/>
+                                            <constraint firstAttribute="width" constant="150" id="D7V-Wu-YdA"/>
+                                            <constraint firstAttribute="height" constant="170" id="zDv-Mh-4Rr"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ur0-qa-ZRy">
@@ -229,19 +227,28 @@
                                             <action selector="logOutBtnPressed:" destination="QEA-SG-bAS" eventType="touchUpInside" id="tn5-6C-oTW"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iA2-SF-cBA">
+                                        <rect key="frame" x="113" y="120" width="150" height="170"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="cm200"/>
+                                        <connections>
+                                            <action selector="chungPicBtnPressed:" destination="QEA-SG-bAS" eventType="touchUpInside" id="BE9-eb-1z4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Ur0-qa-ZRy" firstAttribute="top" secondItem="nda-a0-ygQ" secondAttribute="bottom" constant="30" id="8P8-G2-wwj"/>
+                                    <constraint firstItem="Ur0-qa-ZRy" firstAttribute="top" secondItem="nda-a0-ygQ" secondAttribute="bottom" constant="20" id="2BK-Vb-MXt"/>
+                                    <constraint firstAttribute="trailing" secondItem="nda-a0-ygQ" secondAttribute="trailing" constant="112.5" id="2Ly-Kn-cEY"/>
                                     <constraint firstAttribute="trailing" secondItem="oBA-sH-7Dc" secondAttribute="trailing" constant="55" id="GJx-GG-NTM"/>
                                     <constraint firstItem="XvL-r8-1dn" firstAttribute="top" secondItem="7Yy-d7-nKU" secondAttribute="top" constant="65" id="NBY-Wn-alL"/>
                                     <constraint firstItem="XvL-r8-1dn" firstAttribute="centerX" secondItem="7Yy-d7-nKU" secondAttribute="centerX" id="VGT-n2-PfO"/>
                                     <constraint firstItem="oBA-sH-7Dc" firstAttribute="top" secondItem="Ur0-qa-ZRy" secondAttribute="bottom" constant="40" id="Wka-cM-TF8"/>
+                                    <constraint firstItem="nda-a0-ygQ" firstAttribute="top" secondItem="XvL-r8-1dn" secondAttribute="bottom" constant="30" id="YKa-gA-gdv"/>
                                     <constraint firstItem="Ur0-qa-ZRy" firstAttribute="leading" secondItem="7Yy-d7-nKU" secondAttribute="leading" constant="100" id="aO4-uQ-FSj"/>
                                     <constraint firstItem="Ur0-qa-ZRy" firstAttribute="centerX" secondItem="7Yy-d7-nKU" secondAttribute="centerX" id="dOX-tl-622"/>
                                     <constraint firstItem="oBA-sH-7Dc" firstAttribute="leading" secondItem="7Yy-d7-nKU" secondAttribute="leading" constant="55" id="lGB-vU-XIp"/>
                                     <constraint firstItem="oBA-sH-7Dc" firstAttribute="centerX" secondItem="7Yy-d7-nKU" secondAttribute="centerX" id="qJh-ko-Dyf"/>
-                                    <constraint firstItem="nda-a0-ygQ" firstAttribute="centerX" secondItem="7Yy-d7-nKU" secondAttribute="centerX" id="rq0-Ec-2CY"/>
-                                    <constraint firstItem="nda-a0-ygQ" firstAttribute="top" secondItem="XvL-r8-1dn" secondAttribute="bottom" constant="40" id="std-RZ-AB4"/>
+                                    <constraint firstItem="nda-a0-ygQ" firstAttribute="leading" secondItem="7Yy-d7-nKU" secondAttribute="leading" constant="112.5" id="sYe-j6-UfS"/>
                                     <constraint firstAttribute="trailing" secondItem="Ur0-qa-ZRy" secondAttribute="trailing" constant="100" id="wb0-97-SkT"/>
                                 </constraints>
                             </scrollView>
@@ -870,9 +877,11 @@
                             <constraint firstItem="6zN-lu-TJW" firstAttribute="centerX" secondItem="5s9-lK-KI5" secondAttribute="centerX" id="Eir-Uh-PTv"/>
                             <constraint firstItem="5s9-lK-KI5" firstAttribute="leading" secondItem="0rC-5e-gKK" secondAttribute="leading" id="N0N-BT-vrY"/>
                             <constraint firstItem="6zN-lu-TJW" firstAttribute="centerX" secondItem="wtd-kf-eeM" secondAttribute="centerX" id="ODs-NT-bIL"/>
+                            <constraint firstItem="wtd-kf-eeM" firstAttribute="top" secondItem="0rC-5e-gKK" secondAttribute="top" constant="144" id="Tgh-xo-yfe"/>
                             <constraint firstItem="wtd-kf-eeM" firstAttribute="top" secondItem="6zN-lu-TJW" secondAttribute="bottom" constant="25" id="VH4-X5-ngK"/>
                             <constraint firstItem="6zN-lu-TJW" firstAttribute="top" secondItem="5s9-lK-KI5" secondAttribute="bottom" constant="20" id="ZiT-ZE-u7J"/>
                             <constraint firstItem="6zN-lu-TJW" firstAttribute="top" secondItem="0rC-5e-gKK" secondAttribute="top" constant="84" id="cBv-eJ-H4V"/>
+                            <constraint firstItem="6zN-lu-TJW" firstAttribute="leading" secondItem="EzT-Qg-0It" secondAttribute="leading" constant="90" id="dcL-Lv-4f3"/>
                             <constraint firstItem="wtd-kf-eeM" firstAttribute="centerX" secondItem="0rC-5e-gKK" secondAttribute="centerX" id="fTq-Dc-e0o"/>
                             <constraint firstItem="wtd-kf-eeM" firstAttribute="leading" secondItem="EzT-Qg-0It" secondAttribute="leading" constant="25" id="nuE-Rd-RO8"/>
                             <constraint firstItem="EzT-Qg-0It" firstAttribute="trailing" secondItem="wtd-kf-eeM" secondAttribute="trailing" constant="25" id="zsN-Xr-sRl"/>
@@ -1222,8 +1231,6 @@
         <!--All Rating Detail View Controller-->
         <scene sceneID="PcE-vf-qcE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qse-v4-v9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="U1f-oE-E1Z" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController id="hvu-nm-6AV" customClass="AllRatingDetailViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7HQ-tX-h1n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1329,7 +1336,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k3W-ik-jwl" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3W-ik-jwl" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="24" y="131" width="145" height="25"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -1348,7 +1355,7 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="view:k3W-ik-jwl:value"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="1C67089F-5C6D-4EBB-B805-F507BE854947"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="B8F3DB34-1909-4DCA-986E-EE65FD5F9438"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                         <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
@@ -1396,6 +1403,8 @@
                         <segue destination="U1f-oE-E1Z" kind="unwind" identifier="toReceiptList" unwindAction="unwindToReceiptListPage:" id="Nam-yr-Lg1"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qse-v4-v9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="U1f-oE-E1Z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3717.5999999999999" y="-313.49325337331339"/>
         </scene>
@@ -1409,7 +1418,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1C67089F-5C6D-4EBB-B805-F507BE854947" width="53" height="51">
+        <image name="B8F3DB34-1909-4DCA-986E-EE65FD5F9438" width="53" height="51">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGaWpYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QGAcI
 ExQbICElJi0wNTg5PkFCRU9XW19jZlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFn
@@ -4203,6 +4212,7 @@ BgACiwsAAAAAAAAEAQAAAAAAAABtAAAAAAAAAAAAAAAAAAKLDQ
         <image name="GoldStarEmpty" width="53" height="51"/>
         <image name="calendar" width="25" height="28.5"/>
         <image name="calendar_selected" width="25" height="28.5"/>
+        <image name="cm200" width="202" height="202"/>
         <image name="customer_detail_background" width="455" height="717"/>
         <image name="down" width="68" height="42"/>
         <image name="home" width="25" height="25"/>

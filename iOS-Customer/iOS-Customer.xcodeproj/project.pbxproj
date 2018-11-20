@@ -11,6 +11,7 @@
 		78390532219BFC740059BC5B /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* PrintHelper.swift */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
+		78955BAD219EAF6A0092FD42 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */; };
 		78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB9498216E13F100045C95 /* ProfileViewController.swift */; };
 		78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */; };
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
@@ -40,6 +41,7 @@
 		78390531219BFC740059BC5B /* PrintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintHelper.swift; sourceTree = "<group>"; };
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		78AB9498216E13F100045C95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptTableViewController.swift; path = "/Users/unalee/Desktop/Android PG/iOS App/iOS-Customer/iOS-Customer/Control/ProfilePage/ReceiptTableViewController.swift"; sourceTree = "<absolute>"; };
 		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		78390539219C15BF0059BC5B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */,
 				788AE3A82193DD7C008B3C0F /* Alert.swift */,
 				78390531219BFC740059BC5B /* PrintHelper.swift */,
 			);
@@ -159,10 +162,10 @@
 		D13405A22166699300E72B67 /* iOS-Customer */ = {
 			isa = PBXGroup;
 			children = (
+				D13405A32166699300E72B67 /* AppDelegate.swift */,
 				D12CAED7219D4BED0035446C /* View */,
 				78AB949F216E28FD00045C95 /* Control */,
 				78AB949E216E28B700045C95 /* Model */,
-				D13405A32166699300E72B67 /* AppDelegate.swift */,
 				D13405AA2166699500E72B67 /* Assets.xcassets */,
 				D13405AC2166699500E72B67 /* LaunchScreen.storyboard */,
 				D13405AF2166699500E72B67 /* Info.plist */,
@@ -336,6 +339,7 @@
 				D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */,
 				D149C7DC219D110800FDF92E /* EditingTableViewController.swift in Sources */,
 				D149C7DD219D110800FDF92E /* RatingDetailTableViewCell.swift in Sources */,
+				78955BAD219EAF6A0092FD42 /* UIImage+Resize.swift in Sources */,
 				D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
 				D1918E2921951426002E065A /* RoomOrderDetailViewController.swift in Sources */,

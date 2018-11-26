@@ -8,7 +8,7 @@
 
 import UIKit
 
-var instantDetailInfo = [Instant]()
+
 
 class ServiceStatusTableViewController: UITableViewController {
 
@@ -20,16 +20,11 @@ class ServiceStatusTableViewController: UITableViewController {
     var arrayInstantQuantity: [String] = []
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+    override func viewWillAppear(_ animated: Bool) {
         self.tableView.allowsSelection = false
+        
+        
+        print("Debug instantDetailInfo 2 >>> \(instantDetailInfo)")
         
         for status in instantDetailInfo {
             switch status.status {
@@ -37,19 +32,24 @@ class ServiceStatusTableViewController: UITableViewController {
                 self.arrayInstantStatus.append("icon_unfinish")
             case 2:
                 self.arrayInstantStatus.append("icon_playing")
-            default:
+            case 3:
                 self.arrayInstantStatus.append("icon_finish")
+            default:
+                break
             }
+            print("Debug \(arrayInstantStatus)")
         }
-       
+        
         for service in instantDetailInfo {
             switch service.idInstantService {
             case 1:
                 self.arrayInstantService.append("清潔服務")
             case 2:
                 self.arrayInstantService.append("房務服務")
-            default:
+            case 3:
                 self.arrayInstantService.append("餐點服務")
+            default:
+                break
             }
         }
         
@@ -73,20 +73,42 @@ class ServiceStatusTableViewController: UITableViewController {
                 self.arrayInstantType.append("洗衣服務")
             case 9:
                 self.arrayInstantType.append("枕頭備品")
-            default:
+            case 10:
                 self.arrayInstantType.append("盥洗用具")
+            default:
+                break
             }
         }
         
         for quantity in instantDetailInfo {
             self.arrayInstantQuantity.append(String(quantity.quantity))
         }
-       
         
+        tableView.reloadData()
         
     }
-
     
+    override func viewWillDisappear(_ animated: Bool) {
+        arrayInstantStatus.removeAll()
+        arrayInstantType.removeAll()
+        arrayInstantService.removeAll()
+        arrayInstantQuantity.removeAll()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+       
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+    }
+    
+    
+
 
     // MARK: - Table view data source
 
@@ -110,7 +132,6 @@ class ServiceStatusTableViewController: UITableViewController {
         cell.statusLabelForInstantService.text = arrayInstantService[indexPath.row]
         cell.statusLabelForServiceType.text = arrayInstantType[indexPath.row]
         cell.statusLabelForCount.text = arrayInstantQuantity[indexPath.row]
-        
     
         return cell
     }

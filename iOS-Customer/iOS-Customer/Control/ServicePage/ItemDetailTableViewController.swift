@@ -104,39 +104,46 @@ class ItemDetailTableViewController: UITableViewController {
         switch targetIndex {
         case 0:
             serviceName = itemLabelForDinling[indexPath.row].description
-            serviceInstantService = 1
         case 1:
             serviceName = itemLabelForTraffic[indexPath.row].description
-            serviceInstantService = 2
         default:
             serviceName = itemLabelForRoomService[indexPath.row].description
-            serviceInstantService = 3
         }
         
         
         switch serviceName {
         case "A餐":
             serviceType = 1
+            serviceInstantService = 3
         case "B餐":
             serviceType = 2
+            serviceInstantService = 3
         case "C餐":
             serviceType = 3
+            serviceInstantService = 3
         case "機場接送":
             serviceType = 4
+            serviceInstantService = 2
         case "車站接送":
             serviceType = 5
+            serviceInstantService = 2
         case "高鐵接送":
             serviceType = 6
+            serviceInstantService = 2
         case "清潔房間":
             serviceType = 7
+            serviceInstantService = 1
         case "洗衣服務":
             serviceType = 8
+            serviceInstantService = 2
         case "枕頭備品":
             serviceType = 9
+            serviceInstantService = 2
         case "盥洗用具":
             serviceType = 10
+            serviceInstantService = 2
         default:
-            return
+            break
         }
         
         serviceQuantity = Int(cell.itemTextField.text!)
@@ -151,7 +158,7 @@ class ItemDetailTableViewController: UITableViewController {
             }
            
             
-            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: 1, roomNumber: (payDetailInfo.first?.roomNumber)!)
+            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: (payDetailInfo.first?.idRoomStatus)!, roomNumber: (payDetailInfo.first?.roomNumber)!)
             
             
             // 新增物件到 server 端，必先要把物件轉成 String
@@ -159,10 +166,10 @@ class ItemDetailTableViewController: UITableViewController {
             let instantString = String(data: instantData, encoding: .utf8)
             self.download.insertInstant(instant: instantString!) { (result, error) in
                 if let error = error {
-                    print("Send text error: \(error)")
+                    print("InsertInstant text error: \(error)")
                     return
                 }
-                print("Send text OK: \(result!)")
+                print("InsertInstant text OK: \(result!)")
                 self.showAlert(title: "已成功送出需求", message: "馬上為您服務")
             }
             

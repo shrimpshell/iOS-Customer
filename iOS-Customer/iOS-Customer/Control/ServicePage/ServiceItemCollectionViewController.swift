@@ -10,6 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 var payDetailInfo = [OrderRoomDetail]()
+var instantDetailInfo = [Instant]()
 
 class ServiceItemCollectionViewController: UICollectionViewController {
     
@@ -17,10 +18,14 @@ class ServiceItemCollectionViewController: UICollectionViewController {
     let arrayItemImages = ["icon_dinling","icon_traffic","icon_room_service"]
     let arrayItemLabels = ["點餐服務","接送服務","房務服務"]
     let download = DownloadAuth.shared
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getUserRoomNumberForInstant()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,12 +33,9 @@ class ServiceItemCollectionViewController: UICollectionViewController {
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-        getUserRoomNumberForInstant()
-        
-        
-        
+    
     }
-
+    
     
     // MARK: - Navigation
 
@@ -56,8 +58,8 @@ class ServiceItemCollectionViewController: UICollectionViewController {
             
             targetVC.customer = customer
             targetVC.targetIndex = selectedIndexPath.row
-        
         }
+        
     }
     
 
@@ -96,7 +98,6 @@ class ServiceItemCollectionViewController: UICollectionViewController {
     
     @IBAction func unwindToServiceItemPage(_ Segue: UIStoryboardSegue) {
         
-        
     }
 
     // get user service status
@@ -121,9 +122,10 @@ class ServiceItemCollectionViewController: UICollectionViewController {
                 print("updateUserServiceStatus Fail to decode jsonData.")
                 return
             }
-            print("resultObject: \(resultObject)")
+            print("updateUserServiceStatus resultObject: \(resultObject)")
             
             instantDetailInfo = resultObject
+            print("Debug instantDetailInfo >>> \(instantDetailInfo)")
             
         }
     }
@@ -153,7 +155,7 @@ class ServiceItemCollectionViewController: UICollectionViewController {
                 print("getUserRoomNumberForInstant Fail to decode jsonData.")
                 return
             }
-            print("resultObject: \(resultObject)")
+            print("getUserRoomNumberForInstant resultObject: \(resultObject)")
            
             for userDetail in resultObject {
                 if userDetail.roomReservationStatus == "1" {

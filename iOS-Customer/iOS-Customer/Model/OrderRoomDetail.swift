@@ -11,9 +11,11 @@ import Foundation
 struct OrderRoomDetail: Codable {
     var roomNumber: String
     var roomReservationStatus: String
+    var idRoomStatus: Int
     
     enum CodingKeys: String, CodingKey {
         case roomNumber = "roomNumber"
         case roomReservationStatus = "roomReservationStatus"
+        case idRoomStatus = "idRoomStatus"
     }
 }

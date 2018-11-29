@@ -8,14 +8,19 @@
 
 import UIKit
 import PromiseKit
+import Starscream
 
-class ProfileViewController: UIViewController {
+
+class ProfileViewController: UIViewController, WebSocketDelegate {
+    
     let TAG = "ProfileViewController"
     var customer: Customer?
     var idCustomer: Int = 0
     var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
     var editPageInfo: Customer?
     let customerAuth = DownloadAuth.shared
+    var socket: WebSocket!
+   
     
     @IBOutlet weak var profilePageView: UIScrollView!
     @IBOutlet weak var loginPageView: UIScrollView!
@@ -34,7 +39,13 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(socketConnect), name: .notificationConnectName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(socketDisConnect), name: .notificationDisConnectName, object: nil)
+        
         userlogin()
+        
+       
         
     }
     
@@ -46,6 +57,14 @@ class ProfileViewController: UIViewController {
             showCustomerInfo()
         }
         
+        
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if isLogin == false {
+            socketDisConnect()
+        }
     }
     
     
@@ -95,6 +114,11 @@ class ProfileViewController: UIViewController {
                 self.emailCustomer.text = customer.email
                 self.phoneCustomer.text = customer.phone
                 
+                guard let userId = self.customer?.idCustomer?.description else {
+                    return
+                }
+                self.socketConnect(userId: userId, groupId: "0")
+                
             }.catch { (error) in
                 assertionFailure("Login Error: \(error)")
         }
@@ -136,6 +160,7 @@ class ProfileViewController: UIViewController {
             self.nameCustomer.text = self.customer?.name
             self.emailCustomer.text = self.customer?.email
             self.phoneCustomer.text = self.customer?.phone
+            
         }
     }
     
@@ -188,15 +213,48 @@ class ProfileViewController: UIViewController {
             let nivagationVC = tabBarVC.viewControllers![0] as! UINavigationController
             let instantServiceVC = nivagationVC.topViewController as! ServiceItemCollectionViewController
             instantServiceVC.customer = customer
-        
+    
         default:
             break
         }
     }
         
     
-    @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue){
+    @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue) {
         
     }
     
+    @objc func socketConnect(userId: String, groupId: String) {
+        socket = WebSocket(url: URL(string: Common.SOCKET_URL + userId + "/" + groupId)!)
+        socket.delegate = self
+        socket.connect()
+    }
+    
+    @objc func socketDisConnect() {
+        socket.disconnect()
+    }
+    
+    
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("ProfileView websocket is connected")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("ProfileView websocket is disconnected: \(error!.localizedDescription)")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("ProfileView got some text: \(text)")
+        instantNotifications(text: text)
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("ProfileView got some data: \(data.count)")
+    }
+    
+}
+
+extension Notification.Name {
+    static let notificationConnectName = Notification.Name("socketConnect")
+    static let notificationDisConnectName = Notification.Name("socketdisConnect")
 }

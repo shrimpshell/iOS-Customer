@@ -7,24 +7,30 @@
 //
 
 import UIKit
+import Starscream
+import UserNotifications
 
 private let reuseIdentifier = "Cell"
-var payDetailInfo = [OrderRoomDetail]()
-var instantDetailInfo = [Instant]()
 
-class ServiceItemCollectionViewController: UICollectionViewController {
+var customerInt: Int?
+
+
+class ServiceItemCollectionViewController: UICollectionViewController, WebSocketDelegate {
+    
     
     var customer: Customer?
     let arrayItemImages = ["icon_dinling","icon_traffic","icon_room_service"]
     let arrayItemLabels = ["點餐服務","接送服務","房務服務"]
     let download = DownloadAuth.shared
+    var instantDetailInfo = [Instant]()
+    var payDetailInfo = [OrderRoomDetail]()
+    var socket: WebSocket!
     
-    override func viewWillAppear(_ animated: Bool) {
-        getUserRoomNumberForInstant()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,7 +39,29 @@ class ServiceItemCollectionViewController: UICollectionViewController {
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+
+        NotificationCenter.default.post(name: .notificationDisConnectName, object: nil)
+        
+        customerInt = customer?.idCustomer
+        
+        guard let userId = customerInt?.description else {
+            return
+        }
+        socketConnect(userId: userId, groupId: "0")
+
+        getUserRoomNumberForInstant()
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if socket.isConnected {
+            socket.disconnect()
+            NotificationCenter.default.post(name: .notificationConnectName, object: nil)
+        }
     }
     
     
@@ -55,10 +83,11 @@ class ServiceItemCollectionViewController: UICollectionViewController {
                 assertionFailure("Fail to get DetailTableViewController.")
                 return
             }
-            
-            targetVC.customer = customer
+        
+            targetVC.payDetailInfo = payDetailInfo
             targetVC.targetIndex = selectedIndexPath.row
-        }
+        
+        } 
         
     }
     
@@ -124,14 +153,14 @@ class ServiceItemCollectionViewController: UICollectionViewController {
             }
             print("updateUserServiceStatus resultObject: \(resultObject)")
             
-            instantDetailInfo = resultObject
-            print("Debug instantDetailInfo >>> \(instantDetailInfo)")
+            self.instantDetailInfo = resultObject
+           
             
         }
     }
     
     func getUserRoomNumberForInstant() {
-        guard let customer = customer?.idCustomer else {
+        guard let customer = customerInt else {
             assertionFailure("error")
             return
         }
@@ -156,15 +185,39 @@ class ServiceItemCollectionViewController: UICollectionViewController {
                 return
             }
             print("getUserRoomNumberForInstant resultObject: \(resultObject)")
-           
+            
             for userDetail in resultObject {
                 if userDetail.roomReservationStatus == "1" {
-                    payDetailInfo.append(userDetail)
+                    self.payDetailInfo.append(userDetail)
                 }
             }
             self.updateUserServiceStatus()
         }
     }
+    
+    func socketConnect(userId: String, groupId: String) {
+        socket = WebSocket(url: URL(string: Common.SOCKET_URL + userId + "/" + groupId)!)
+        socket.delegate = self
+        socket.connect()
+    }
+    
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("Item websocket is connected")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("Item websocket is disconnected: \(error!.localizedDescription)")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("Item got some text: \(text)")
+       
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("Item got some data: \(data.count)")
+    }
+    
 
     // MARK: UICollectionViewDelegate
 
@@ -196,5 +249,10 @@ class ServiceItemCollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    
+    
+    
 
 }
+

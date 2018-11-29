@@ -7,16 +7,26 @@
 //
 
 import UIKit
+import UserNotifications
+import Starscream
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Instant Notifications
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { (grant, error) in
+            print("User grant the permission: " + (grant ? "Yes" : "No"))
+        }
+        
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -41,6 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+   
+    
 }
+
+
 

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import UserNotifications
+import Starscream
 
 extension UIViewController {
     
@@ -16,4 +18,22 @@ extension UIViewController {
         alert.addAction(ok)
         present(alert, animated: true)
     }
+    
+    func instantNotifications(text: String) {
+        if UIApplication.shared.applicationState == .active {
+          
+            
+        } else {
+            let center = UNUserNotificationCenter.current()
+            let content = UNMutableNotificationContent()
+            content.title = "test"
+            content.body = "test"
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
+            let request = UNNotificationRequest(identifier: "alert", content: content, trigger: trigger)
+            center.add(request) { (error) in
+            }
+        }
+    }
+    
 }

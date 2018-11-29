@@ -7,24 +7,65 @@
 //
 
 import UIKit
+import Starscream
+import UserNotifications
 
 
 
-class ServiceStatusTableViewController: UITableViewController {
+class ServiceStatusTableViewController: UITableViewController, WebSocketDelegate {
 
     let download = DownloadAuth.shared
-    
     var arrayInstantStatus: [String] = []
     var arrayInstantService: [String] = []
     var arrayInstantType: [String] = []
     var arrayInstantQuantity: [String] = []
-    
+    var instantDetailInfo = [Instant]()
+    var payDetailInfo = [OrderRoomDetail]()
+    var socket: WebSocket!
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.allowsSelection = false
         
+        NotificationCenter.default.post(name: .notificationDisConnectName, object: nil)
+       
+        guard let userId = customerInt?.description else {
+            return
+        }
         
-        print("Debug instantDetailInfo 2 >>> \(instantDetailInfo)")
+        socketConnect(userId: userId, groupId: "0")
+        
+        getUserRoomNumberForInstant()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if socket.isConnected {
+            socketDisConnect()
+            NotificationCenter.default.post(name: .notificationConnectName, object: nil)
+        }
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+       
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+    }
+    
+    
+    func setCell() {
+        
+        arrayInstantStatus.removeAll()
+        arrayInstantType.removeAll()
+        arrayInstantService.removeAll()
+        arrayInstantQuantity.removeAll()
+        
         
         for status in instantDetailInfo {
             switch status.status {
@@ -37,7 +78,6 @@ class ServiceStatusTableViewController: UITableViewController {
             default:
                 break
             }
-            print("Debug \(arrayInstantStatus)")
         }
         
         for service in instantDetailInfo {
@@ -84,27 +124,8 @@ class ServiceStatusTableViewController: UITableViewController {
             self.arrayInstantQuantity.append(String(quantity.quantity))
         }
         
+        print("Debug >>> setCell")
         tableView.reloadData()
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        arrayInstantStatus.removeAll()
-        arrayInstantType.removeAll()
-        arrayInstantService.removeAll()
-        arrayInstantQuantity.removeAll()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-       
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
     }
     
     
@@ -141,8 +162,111 @@ class ServiceStatusTableViewController: UITableViewController {
         return 150
     }
     
+    // get user service status
+    func updateUserServiceStatus() {
+        download.getCustomerStatus(roomNumber: (payDetailInfo.first?.roomNumber)!) { (result, error) in
+            if let error = error {
+                print("updateUserServiceStatus error: \(error)")
+                return
+            }
+            guard let result = result else {
+                print("result is nil.")
+                return
+            }
+            print("updateUserServiceStatus Info is OK.")
+            // Decode as [Instant]. 解碼下載下來的 json
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
+                print("updateUserServiceStatus Fail to generate jsonData.")
+                return
+            }
+            let decoder = JSONDecoder()
+            guard let resultObject = try? decoder.decode([Instant].self, from: jsonData) else {
+                print("updateUserServiceStatus Fail to decode jsonData.")
+                return
+            }
+            print("updateUserServiceStatus resultObject: \(resultObject)")
+            
+            self.instantDetailInfo = resultObject
+            print("Debug >>> instantDetailInfo  \(self.instantDetailInfo)")
+            
+            self.setCell()
+        }
+    }
     
+    func getUserRoomNumberForInstant() {
+        guard let customer = customerInt else {
+            assertionFailure("error")
+            return
+        }
+        download.getUserRoomNumber(idCustomer: String(customer)) { (result, error) in
+            if let error = error {
+                print("getUserRoomNumberForInstant error: \(error)")
+                return
+            }
+            guard let result = result else {
+                print("getUserRoomNumberForInstant result is nil.")
+                return
+            }
+            print("getUserRoomNumberForInstant Info is OK.")
+            // Decode as [PayDetail]. 解碼下載下來的 json
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
+                print("getUserRoomNumberForInstant Fail to generate jsonData.")
+                return
+            }
+            let decoder = JSONDecoder()
+            guard let resultObject = try? decoder.decode([OrderRoomDetail].self, from: jsonData) else {
+                print("getUserRoomNumberForInstant Fail to decode jsonData.")
+                return
+            }
+            print("getUserRoomNumberForInstant resultObject: \(resultObject)")
+            
+            for userDetail in resultObject {
+                if userDetail.roomReservationStatus == "1" {
+                    self.payDetailInfo.append(userDetail)
+                }
+            }
+            self.updateUserServiceStatus()
+        }
+    }
     
+    func showLocalNotification(_ message: Socket) {
+        
+            getUserRoomNumberForInstant()
+        
+        
+    }
+        
+    
+    func socketConnect(userId: String, groupId: String) {
+        socket = WebSocket(url: URL(string: Common.SOCKET_URL + userId + "/" + groupId)!)
+        socket.delegate = self
+        socket.connect()
+    }
+    
+    func socketDisConnect() {
+        socket.disconnect()
+    }
+    
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("Status websocket is connected")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("Status websocket is disconnected: \(error!.localizedDescription)")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("Status got some text: \(text)")
+        let decoder = JSONDecoder()
+        let jsonData = text.data(using: String.Encoding.utf8, allowLossyConversion: true)!
+        let message = try! decoder.decode(Socket.self, from: jsonData)
+        
+        showLocalNotification(message)
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("Status got some data: \(data.count)")
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -187,5 +311,9 @@ class ServiceStatusTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    
 
 }

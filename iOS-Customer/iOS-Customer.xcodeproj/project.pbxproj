@@ -11,6 +11,7 @@
 		72615962219DA77100EB43FB /* ServiceStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615961219DA77100EB43FB /* ServiceStatusTableViewCell.swift */; };
 		72615964219DB3C000EB43FB /* Instant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615963219DB3C000EB43FB /* Instant.swift */; };
 		729527B221A3EE8200E9E839 /* OrderRoomDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */; };
+		72C35FB521AE753C006BD1A7 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C35FB421AE753C006BD1A7 /* Socket.swift */; };
 		72D917C2219D142A0008D90C /* Josh.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72D917C1219D142A0008D90C /* Josh.storyboard */; };
 		72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917C4219D185E0008D90C /* ServiceItemCollectionViewController.swift */; };
 		72D917C7219D188A0008D90C /* ServiceItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917C6219D188A0008D90C /* ServiceItemCollectionViewCell.swift */; };
@@ -43,7 +44,9 @@
 		7261595F219DA6E100EB43FB /* ServiceStatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatusTableViewController.swift; sourceTree = "<group>"; };
 		72615961219DA77100EB43FB /* ServiceStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatusTableViewCell.swift; sourceTree = "<group>"; };
 		72615963219DB3C000EB43FB /* Instant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instant.swift; sourceTree = "<group>"; };
+		726302A521AFEDE3006A8A1D /* iOS-Customer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS-Customer.entitlements"; sourceTree = "<group>"; };
 		729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRoomDetail.swift; sourceTree = "<group>"; };
+		72C35FB421AE753C006BD1A7 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		72D917C1219D142A0008D90C /* Josh.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Josh.storyboard; sourceTree = "<group>"; };
 		72D917C4219D185E0008D90C /* ServiceItemCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItemCollectionViewController.swift; sourceTree = "<group>"; };
 		72D917C6219D188A0008D90C /* ServiceItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -148,6 +151,7 @@
 				78390539219C15BF0059BC5B /* Helper */,
 				7857F5712192B2EE00641030 /* Common.swift */,
 				78AB949C216E286C00045C95 /* Rating.swift */,
+				72C35FB421AE753C006BD1A7 /* Socket.swift */,
 				729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */,
 				72615963219DB3C000EB43FB /* Instant.swift */,
 				781DEB512198095A00AED03E /* Download.swift */,
@@ -196,6 +200,7 @@
 		D13405A22166699300E72B67 /* iOS-Customer */ = {
 			isa = PBXGroup;
 			children = (
+				726302A521AFEDE3006A8A1D /* iOS-Customer.entitlements */,
 				72D917C1219D142A0008D90C /* Josh.storyboard */,
 				D13405A72166699300E72B67 /* Main.storyboard */,
 				78AB949F216E28FD00045C95 /* Control */,
@@ -242,6 +247,14 @@
 				TargetAttributes = {
 					D134059F2166699300E72B67 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -306,12 +319,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -345,6 +360,7 @@
 				72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */,
 				72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */,
 				D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */,
+				72C35FB521AE753C006BD1A7 /* Socket.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
 				729527B221A3EE8200E9E839 /* OrderRoomDetail.swift in Sources */,
 				78AB949D216E286C00045C95 /* Rating.swift in Sources */,
@@ -496,6 +512,7 @@
 			baseConfigurationReference = 9F2DEE62D08AECFEBE061A2D /* Pods-iOS-Customer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "iOS-Customer/iOS-Customer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DW35N2WN73;
 				INFOPLIST_FILE = "iOS-Customer/Info.plist";
@@ -515,6 +532,7 @@
 			baseConfigurationReference = CE792F163EAE41DB92E4F2F7 /* Pods-iOS-Customer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "iOS-Customer/iOS-Customer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DW35N2WN73;
 				INFOPLIST_FILE = "iOS-Customer/Info.plist";

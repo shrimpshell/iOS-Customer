@@ -114,6 +114,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="itemTextFiledBtn:" destination="rqr-Cp-QP3" eventType="editingDidEnd" id="D4C-aa-Atj"/>
+                                                        <outlet property="delegate" destination="gg8-wt-gXL" id="pDK-I7-KZg"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>

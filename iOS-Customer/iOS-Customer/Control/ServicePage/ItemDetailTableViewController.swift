@@ -8,13 +8,13 @@
 
 import UIKit
 import PromiseKit
+import Starscream
 
-class ItemDetailTableViewController: UITableViewController {
-    
+class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate, WebSocketDelegate {
+   
     let download = DownloadAuth.shared
-    var customer: Customer?
-    
     var targetIndex: Int = -1
+    var payDetailInfo = [OrderRoomDetail]()
     
     let itemImageForDinling = ["icon_dinling_a","icon_dinling_b","icon_dinling_c"]
     let itemLabelForDinling = ["A餐","B餐","C餐"]
@@ -23,22 +23,39 @@ class ItemDetailTableViewController: UITableViewController {
     let itemImageForRoomService = ["icon_room_service_clean","icon_room_service_washing","icon_room_service_gotoroom","icon_room_service_gotoroom"]
     let itemLabelForRoomService = ["清潔房間","洗衣服務","枕頭備品","盥洗用具"]
     var itemCount: Int = -1
-    
+    var serviceName: String = ""
     var serviceType: Int?
     var serviceQuantity: Int?
     var serviceInstantService: Int?
     var idRoomStatus: Int? = nil
+    var socket: WebSocket!
+    
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+        NotificationCenter.default.post(name: .notificationDisConnectName, object: nil)
+        
+        guard let userId = customerInt?.description else {
+            return
+        }
+        socketConnect(userId: userId, groupId: "0")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if socket.isConnected {
+            socket.disconnect()
+            NotificationCenter.default.post(name: .notificationConnectName, object: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-     
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
         
         switch targetIndex {
         case 0:
@@ -47,8 +64,6 @@ class ItemDetailTableViewController: UITableViewController {
             itemCount = itemImageForTraffic.count
         default:
             itemCount = itemImageForRoomService.count
-            
-        
         }
     }
 
@@ -99,17 +114,18 @@ class ItemDetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ItemDetailTableViewCell
-        let serviceName: String
+        
         
         switch targetIndex {
         case 0:
             serviceName = itemLabelForDinling[indexPath.row].description
         case 1:
             serviceName = itemLabelForTraffic[indexPath.row].description
-        default:
+        case 2:
             serviceName = itemLabelForRoomService[indexPath.row].description
+        default:
+            break
         }
-        
         
         switch serviceName {
         case "A餐":
@@ -148,6 +164,16 @@ class ItemDetailTableViewController: UITableViewController {
         
         serviceQuantity = Int(cell.itemTextField.text!)
         
+        guard let senderId = customerInt?.description, let receiverId = serviceInstantService?.description else {
+            return
+        }
+        
+        
+        let socketMessage = Socket(senderId: senderId , receiverId: receiverId, senderGroupId: "0", receiverGroupId: receiverId , serviceId: serviceInstantService!, instantNumber: 0)
+        let socketData = try! JSONEncoder().encode(socketMessage)
+        let socketString = String(data: socketData, encoding: .utf8)!
+        
+        
         
         let alert = UIAlertController(title: "確定送出需求嗎？", message: "服務需求無誤嗎？", preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -156,9 +182,9 @@ class ItemDetailTableViewController: UITableViewController {
                 self.showAlert(title: "沒有輸入正確數量", message: "請再重新輸入")
                 return
             }
-           
+        
+            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: (self.payDetailInfo.first?.idRoomStatus)!, roomNumber: (self.payDetailInfo.first?.roomNumber)!)
             
-            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: (payDetailInfo.first?.idRoomStatus)!, roomNumber: (payDetailInfo.first?.roomNumber)!)
             
             
             // 新增物件到 server 端，必先要把物件轉成 String
@@ -171,21 +197,49 @@ class ItemDetailTableViewController: UITableViewController {
                 }
                 print("InsertInstant text OK: \(result!)")
                 self.showAlert(title: "已成功送出需求", message: "馬上為您服務")
+                self.tableView.reloadData()
+                self.socket.write(string: socketString)
             }
             
-            
-
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default)
         alert.addAction(ok)
         alert.addAction(cancel)
         present(alert, animated: true)
+        self.tableView.reloadData()
         
-     
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     
-    
+
+    func socketConnect(userId: String, groupId: String) {
+        socket = WebSocket(url: URL(string: Common.SOCKET_URL + userId + "/" + groupId)!)
+        socket.delegate = self
+        socket.connect()
+    }
+
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("ItemDetail websocket is connected")
+    }
+
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("ItemDetail websocket is disconnected: \(error!.localizedDescription)")
+    }
+
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("ItemDetail got some text: \(text)")
+
+    }
+
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("ItemDetail got some data: \(data.count)")
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -224,7 +278,7 @@ class ItemDetailTableViewController: UITableViewController {
 
     
     // MARK: - Navigation
-
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -232,9 +286,7 @@ class ItemDetailTableViewController: UITableViewController {
         
         
     }
-    
+    */
 
-    
-   
     
 }

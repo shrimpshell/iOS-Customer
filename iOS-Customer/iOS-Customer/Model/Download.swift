@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 
 
+
 let ACTION = "action"
 let ID_CUSTOMER = "IdCustomer"
 let CUSTOMER_KEY = "customer"
@@ -105,8 +106,6 @@ struct DownloadAuth {
     
     
     
-    
-    
     fileprivate func doPost(urlString: String,
                             parameters: [String: Any],
                             completion: @escaping DoneHandler) {
@@ -126,10 +125,9 @@ struct DownloadAuth {
                 print("Server respond error: \(error)")
                 completion(nil, error)
             }
-        }
+            
+    }
     
     
-    
-    
-   
 }
+

@@ -8,16 +8,21 @@
 
 import UIKit
 import PromiseKit
+import Starscream
+
 
 class ProfileViewController: UIViewController {
+    
     let TAG = "ProfileViewController"
     var customer: Customer?
     var idCustomer: Int = 0
-    var isLogin = false    // false = 顯示登入頁面， true = 顯示會員頁面
+    var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
     var editPageInfo: Customer?
     let customerAuth = DownloadAuth.shared
     var orderRoomDetails: [OrderRoomDetail]?
     var orderInstantDetails: [OrderInstantDetail]?
+    
+   
     
     @IBOutlet weak var profilePageView: UIScrollView!
     @IBOutlet weak var loginPageView: UIScrollView!
@@ -36,6 +41,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         userlogin()
         
     }
@@ -48,6 +54,12 @@ class ProfileViewController: UIViewController {
             showCustomerInfo()
         }
         
+        
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+       
     }
     
     
@@ -136,6 +148,7 @@ class ProfileViewController: UIViewController {
             self.nameCustomer.text = self.customer?.name
             self.emailCustomer.text = self.customer?.email
             self.phoneCustomer.text = self.customer?.phone
+            
         }
     }
     
@@ -182,17 +195,27 @@ class ProfileViewController: UIViewController {
         case "toReceiptList":
             let receiptListPage = segue.destination as! ReceiptTableViewController
             receiptListPage.customer = customer
-            
-            case "toEditingPage":
+        
+        case "toEditingPage":
             let editingPage = segue.destination as! EditingTableViewController
             editingPage.customer = customer
-            
+        
+        case "toInstantServicePage":
+            let tabBarVC = segue.destination as! UITabBarController
+            let nivagationVC = tabBarVC.viewControllers![0] as! UINavigationController
+            let instantServiceVC = nivagationVC.topViewController as! ServiceItemCollectionViewController
+            instantServiceVC.customer = customer
+    
         default:
             break
         }
     }
         
     
+<<<<<<< HEAD
+    @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue) {
+        
+=======
     @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue){
         switch segue.identifier {
         case "toProfilePage":
@@ -204,6 +227,10 @@ class ProfileViewController: UIViewController {
         default:
             break
         }
+>>>>>>> develop
     }
     
+   
+    
 }
+

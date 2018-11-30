@@ -14,7 +14,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
    
     let download = DownloadAuth.shared
     var targetIndex: Int = -1
-    var payDetailInfo = [OrderRoomDetail]()
+    var payDetailInfo = [OrderRoomDetailForSocket]()
     
     let itemImageForDinling = ["icon_dinling_a","icon_dinling_b","icon_dinling_c"]
     let itemLabelForDinling = ["A餐","B餐","C餐"]

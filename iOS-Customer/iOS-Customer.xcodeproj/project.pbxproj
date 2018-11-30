@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */; };
+		7230157A21B0F8F400FD89D7 /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */; };
+		7230157B21B0F8F400FD89D7 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157821B0F8F400FD89D7 /* HomePageViewController.swift */; };
+		7230158321B0F8FE00FD89D7 /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157C21B0F8FE00FD89D7 /* EditingTableViewController.swift */; };
+		7230158421B0F8FE00FD89D7 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157D21B0F8FE00FD89D7 /* RatingViewController.swift */; };
+		7230158521B0F8FE00FD89D7 /* RatingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157E21B0F8FE00FD89D7 /* RatingDetailTableViewCell.swift */; };
+		7230158621B0F8FE00FD89D7 /* RatingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157F21B0F8FE00FD89D7 /* RatingListTableViewController.swift */; };
+		7230158721B0F8FE00FD89D7 /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230158021B0F8FE00FD89D7 /* JoinTableViewController.swift */; };
+		7230158821B0F8FE00FD89D7 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230158121B0F8FE00FD89D7 /* ReceiptTableViewController.swift */; };
+		7230158921B0F8FE00FD89D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230158221B0F8FE00FD89D7 /* ProfileViewController.swift */; };
+		7230158B21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230158A21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift */; };
+		7230158D21B1005000FD89D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7230158C21B1005000FD89D7 /* Main.storyboard */; };
 		72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7261595F219DA6E100EB43FB /* ServiceStatusTableViewController.swift */; };
 		72615962219DA77100EB43FB /* ServiceStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615961219DA77100EB43FB /* ServiceStatusTableViewCell.swift */; };
 		72615964219DB3C000EB43FB /* Instant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615963219DB3C000EB43FB /* Instant.swift */; };
@@ -21,30 +33,30 @@
 		78390532219BFC740059BC5B /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* PrintHelper.swift */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
-		78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB9498216E13F100045C95 /* ProfileViewController.swift */; };
-		78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */; };
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
 		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
-		78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */; };
-		D12394E421940A7D001F6E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405A72166699300E72B67 /* Main.storyboard */; };
 		D12CAED9219D4CC40035446C /* RoomOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12CAED8219D4CC40035446C /* RoomOrder.storyboard */; };
 		D13405A42166699300E72B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A32166699300E72B67 /* AppDelegate.swift */; };
-		D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A52166699300E72B67 /* HomePageViewController.swift */; };
 		D13405AB2166699500E72B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D13405AA2166699500E72B67 /* Assets.xcassets */; };
 		D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405AC2166699500E72B67 /* LaunchScreen.storyboard */; };
-		D149C7DC219D110800FDF92E /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7D8219D110800FDF92E /* EditingTableViewController.swift */; };
-		D149C7DD219D110800FDF92E /* RatingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7D9219D110800FDF92E /* RatingDetailTableViewCell.swift */; };
-		D149C7DE219D110800FDF92E /* RatingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7DA219D110800FDF92E /* RatingListTableViewController.swift */; };
-		D149C7DF219D110800FDF92E /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7DB219D110800FDF92E /* RatingViewController.swift */; };
-		D149C7E2219D111D00FDF92E /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7E0219D111C00FDF92E /* AllRatingsTableViewController.swift */; };
-		D149C7E3219D111D00FDF92E /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7E1219D111C00FDF92E /* AllRatingsTableViewCell.swift */; };
 		D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E2421941466002E065A /* RoomOrderTableViewController.swift */; };
-		D1918E272194153A002E065A /* OrderRoomDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E262194153A002E065A /* OrderRoomDetail.swift */; };
 		D1918E2921951426002E065A /* RoomOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E2821951426002E065A /* RoomOrderDetailViewController.swift */; };
 		D76C7F7D6E8B8BF07E7B5BC8 /* Pods_iOS_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB724A95E3AF927AE6FDE13F /* Pods_iOS_Customer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
+		7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
+		7230157821B0F8F400FD89D7 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		7230157C21B0F8FE00FD89D7 /* EditingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
+		7230157D21B0F8FE00FD89D7 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		7230157E21B0F8FE00FD89D7 /* RatingDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDetailTableViewCell.swift; sourceTree = "<group>"; };
+		7230157F21B0F8FE00FD89D7 /* RatingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingListTableViewController.swift; sourceTree = "<group>"; };
+		7230158021B0F8FE00FD89D7 /* JoinTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
+		7230158121B0F8FE00FD89D7 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
+		7230158221B0F8FE00FD89D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7230158A21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRoomDetailForSocket.swift; sourceTree = "<group>"; };
+		7230158C21B1005000FD89D7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7261595F219DA6E100EB43FB /* ServiceStatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatusTableViewController.swift; sourceTree = "<group>"; };
 		72615961219DA77100EB43FB /* ServiceStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatusTableViewCell.swift; sourceTree = "<group>"; };
 		72615963219DB3C000EB43FB /* Instant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instant.swift; sourceTree = "<group>"; };
@@ -60,29 +72,17 @@
 		78390531219BFC740059BC5B /* PrintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintHelper.swift; sourceTree = "<group>"; };
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		78AB9498216E13F100045C95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptTableViewController.swift; path = "/Users/hsinhwang/git/iOS-Customer/iOS-Customer/iOS-Customer/Control/ProfilePage/ReceiptTableViewController.swift"; sourceTree = "<absolute>"; };
 		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
-		78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
 		9F2DEE62D08AECFEBE061A2D /* Pods-iOS-Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		CE792F163EAE41DB92E4F2F7 /* Pods-iOS-Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.release.xcconfig"; sourceTree = "<group>"; };
 		D12CAED8219D4CC40035446C /* RoomOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RoomOrder.storyboard; sourceTree = "<group>"; };
 		D13405A02166699300E72B67 /* iOS-Customer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Customer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13405A32166699300E72B67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D13405A52166699300E72B67 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = "/Users/hsinhwang/git/iOS-Customer/iOS-Customer/iOS-Customer/Control/HomePage/HomePageViewController.swift"; sourceTree = "<absolute>"; };
-		D13405A82166699300E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D13405AA2166699500E72B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D13405AD2166699500E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D13405AF2166699500E72B67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D149C7D8219D110800FDF92E /* EditingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
-		D149C7D9219D110800FDF92E /* RatingDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDetailTableViewCell.swift; sourceTree = "<group>"; };
-		D149C7DA219D110800FDF92E /* RatingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingListTableViewController.swift; sourceTree = "<group>"; };
-		D149C7DB219D110800FDF92E /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
-		D149C7E0219D111C00FDF92E /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
-		D149C7E1219D111C00FDF92E /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
 		D1918E2421941466002E065A /* RoomOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOrderTableViewController.swift; sourceTree = "<group>"; };
-		D1918E262194153A002E065A /* OrderRoomDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRoomDetail.swift; sourceTree = "<group>"; };
 		D1918E2821951426002E065A /* RoomOrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOrderDetailViewController.swift; sourceTree = "<group>"; };
 		FB724A95E3AF927AE6FDE13F /* Pods_iOS_Customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,6 +107,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7230156921B0F7F900FD89D7 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		72D917C3219D18270008D90C /* ServicePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,13 +130,13 @@
 		78390537219C155E0059BC5B /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
-				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
-				785867332199C083007220F4 /* EditingTableViewController.swift */,
-				78C3261B21953299008F4B0A /* RatingViewController.swift */,
-				78C3261D21953300008F4B0A /* RatingListTableViewController.swift */,
-				78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */,
-				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
-				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
+				7230157C21B0F8FE00FD89D7 /* EditingTableViewController.swift */,
+				7230158021B0F8FE00FD89D7 /* JoinTableViewController.swift */,
+				7230158221B0F8FE00FD89D7 /* ProfileViewController.swift */,
+				7230157E21B0F8FE00FD89D7 /* RatingDetailTableViewCell.swift */,
+				7230157F21B0F8FE00FD89D7 /* RatingListTableViewController.swift */,
+				7230157D21B0F8FE00FD89D7 /* RatingViewController.swift */,
+				7230158121B0F8FE00FD89D7 /* ReceiptTableViewController.swift */,
 			);
 			path = ProfilePage;
 			sourceTree = "<group>";
@@ -137,9 +144,9 @@
 		78390538219C15910059BC5B /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				D13405A52166699300E72B67 /* HomePageViewController.swift */,
-				78390533219C14770059BC5B /* AllRatingsTableViewController.swift */,
-				78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */,
+				7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */,
+				7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */,
+				7230157821B0F8F400FD89D7 /* HomePageViewController.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -160,11 +167,11 @@
 				7857F5712192B2EE00641030 /* Common.swift */,
 				78AB949C216E286C00045C95 /* Rating.swift */,
 				72C35FB421AE753C006BD1A7 /* Socket.swift */,
+				7230158A21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift */,
 				729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */,
 				72615963219DB3C000EB43FB /* Instant.swift */,
 				781DEB512198095A00AED03E /* Download.swift */,
 				78AB94A0216E2A7900045C95 /* Customer.swift */,
-				D1918E262194153A002E065A /* OrderRoomDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,8 +199,8 @@
 		D12CAED7219D4BED0035446C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7230158C21B1005000FD89D7 /* Main.storyboard */,
 				D12CAED8219D4CC40035446C /* RoomOrder.storyboard */,
-				D13405A72166699300E72B67 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,6 +212,7 @@
 				D13405A12166699300E72B67 /* Products */,
 				BF0071D7DF6F5C2D74EC17FA /* Pods */,
 				2B5C5DFC965823ECF3BBB8F7 /* Frameworks */,
+				7230156921B0F7F900FD89D7 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -221,7 +229,6 @@
 			children = (
 				726302A521AFEDE3006A8A1D /* iOS-Customer.entitlements */,
 				72D917C1219D142A0008D90C /* Josh.storyboard */,
-				D13405A72166699300E72B67 /* Main.storyboard */,
 				D12CAED7219D4BED0035446C /* View */,
 				78AB949F216E28FD00045C95 /* Control */,
 				78AB949E216E28B700045C95 /* Model */,
@@ -231,30 +238,6 @@
 				D13405AF2166699500E72B67 /* Info.plist */,
 			);
 			path = "iOS-Customer";
-			sourceTree = "<group>";
-		};
-		D149C7E5219D135800FDF92E /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-				D149C7E1219D111C00FDF92E /* AllRatingsTableViewCell.swift */,
-				D149C7E0219D111C00FDF92E /* AllRatingsTableViewController.swift */,
-				D13405A52166699300E72B67 /* HomePageViewController.swift */,
-			);
-			path = HomePage;
-			sourceTree = "<group>";
-		};
-		D149C7E6219D139700FDF92E /* ProfilePage */ = {
-			isa = PBXGroup;
-			children = (
-				D149C7D8219D110800FDF92E /* EditingTableViewController.swift */,
-				D149C7D9219D110800FDF92E /* RatingDetailTableViewCell.swift */,
-				D149C7DA219D110800FDF92E /* RatingListTableViewController.swift */,
-				D149C7DB219D110800FDF92E /* RatingViewController.swift */,
-				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
-				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
-				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
-			);
-			path = ProfilePage;
 			sourceTree = "<group>";
 		};
 		D149C7E7219D13AF00FDF92E /* RoomOrder */ = {
@@ -335,11 +318,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D12CAED9219D4CC40035446C /* RoomOrder.storyboard in Resources */,
-				D12394E421940A7D001F6E98 /* Main.storyboard in Resources */,
+				7230158D21B1005000FD89D7 /* Main.storyboard in Resources */,
 				D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */,
 				D13405AB2166699500E72B67 /* Assets.xcassets in Resources */,
 				72D917C2219D142A0008D90C /* Josh.storyboard in Resources */,
-				D13405A92166699300E72B67 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,36 +377,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				785867342199C083007220F4 /* EditingTableViewController.swift in Sources */,
+				7230158321B0F8FE00FD89D7 /* EditingTableViewController.swift in Sources */,
+				7230158521B0F8FE00FD89D7 /* RatingDetailTableViewCell.swift in Sources */,
 				72615964219DB3C000EB43FB /* Instant.swift in Sources */,
-				78C3261E21953300008F4B0A /* RatingListTableViewController.swift in Sources */,
-				78C32622219580CC008F4B0A /* RatingDetailTableViewCell.swift in Sources */,
+				7230158621B0F8FE00FD89D7 /* RatingListTableViewController.swift in Sources */,
 				788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */,
+				7230157B21B0F8F400FD89D7 /* HomePageViewController.swift in Sources */,
 				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
-				D149C7E3219D111D00FDF92E /* AllRatingsTableViewCell.swift in Sources */,
+				7230158821B0F8FE00FD89D7 /* ReceiptTableViewController.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
-				D149C7DF219D110800FDF92E /* RatingViewController.swift in Sources */,
-				D149C7DE219D110800FDF92E /* RatingListTableViewController.swift in Sources */,
-				78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */,
 				72D917C7219D188A0008D90C /* ServiceItemCollectionViewCell.swift in Sources */,
+				7230157A21B0F8F400FD89D7 /* AllRatingsTableViewCell.swift in Sources */,
 				72D917C9219D1AA90008D90C /* ItemDetailTableViewController.swift in Sources */,
 				72615962219DA77100EB43FB /* ServiceStatusTableViewCell.swift in Sources */,
+				7230158721B0F8FE00FD89D7 /* JoinTableViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
-				D149C7E2219D111D00FDF92E /* AllRatingsTableViewController.swift in Sources */,
-				78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */,
-				78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */,
 				72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */,
+				7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */,
 				72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */,
-				D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */,
 				72C35FB521AE753C006BD1A7 /* Socket.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
+				7230158921B0F8FE00FD89D7 /* ProfileViewController.swift in Sources */,
 				729527B221A3EE8200E9E839 /* OrderRoomDetail.swift in Sources */,
-				D149C7DC219D110800FDF92E /* EditingTableViewController.swift in Sources */,
-				D149C7DD219D110800FDF92E /* RatingDetailTableViewCell.swift in Sources */,
 				D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */,
 				D1918E2921951426002E065A /* RoomOrderDetailViewController.swift in Sources */,
+				7230158B21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift in Sources */,
 				78AB949D216E286C00045C95 /* Rating.swift in Sources */,
 				72D917CB219D26110008D90C /* ItemDetailTableViewCell.swift in Sources */,
+				7230158421B0F8FE00FD89D7 /* RatingViewController.swift in Sources */,
 				781DEB522198095A00AED03E /* Download.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,14 +412,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D13405A72166699300E72B67 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D13405A82166699300E72B67 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D13405AC2166699500E72B67 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

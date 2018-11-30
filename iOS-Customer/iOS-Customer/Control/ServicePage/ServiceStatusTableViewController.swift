@@ -20,7 +20,7 @@ class ServiceStatusTableViewController: UITableViewController, WebSocketDelegate
     var arrayInstantType: [String] = []
     var arrayInstantQuantity: [String] = []
     var instantDetailInfo = [Instant]()
-    var payDetailInfo = [OrderRoomDetail]()
+    var payDetailInfo = [OrderRoomDetailForSocket]()
     var socket: WebSocket!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -212,7 +212,7 @@ class ServiceStatusTableViewController: UITableViewController, WebSocketDelegate
                 return
             }
             let decoder = JSONDecoder()
-            guard let resultObject = try? decoder.decode([OrderRoomDetail].self, from: jsonData) else {
+            guard let resultObject = try? decoder.decode([OrderRoomDetailForSocket].self, from: jsonData) else {
                 print("getUserRoomNumberForInstant Fail to decode jsonData.")
                 return
             }

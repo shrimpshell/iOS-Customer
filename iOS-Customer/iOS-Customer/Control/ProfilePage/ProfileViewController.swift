@@ -212,22 +212,9 @@ class ProfileViewController: UIViewController {
     }
         
     
-<<<<<<< HEAD
     @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue) {
         
-=======
-    @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue){
-        switch segue.identifier {
-        case "toProfilePage":
-            guard let roomOrderTableView = segue.source as? RoomOrderDetailViewController, let rooms = roomOrderTableView.rooms else {
-                print("error")
-                return
-            }
-            self.orderRoomDetails = rooms
-        default:
-            break
-        }
->>>>>>> develop
+
     }
     
    

@@ -23,7 +23,7 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
     let arrayItemLabels = ["點餐服務","接送服務","房務服務"]
     let download = DownloadAuth.shared
     var instantDetailInfo = [Instant]()
-    var payDetailInfo = [OrderRoomDetail]()
+    var payDetailInfo = [OrderRoomDetailForSocket]()
     var socket: WebSocket!
     
     
@@ -178,7 +178,7 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
                 return
             }
             let decoder = JSONDecoder()
-            guard let resultObject = try? decoder.decode([OrderRoomDetail].self, from: jsonData) else {
+            guard let resultObject = try? decoder.decode([OrderRoomDetailForSocket].self, from: jsonData) else {
                 print("getUserRoomNumberForInstant Fail to decode jsonData.")
                 return
             }

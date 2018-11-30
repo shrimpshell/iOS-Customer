@@ -213,6 +213,14 @@
                                             <action selector="logOutBtnPressed:" destination="QEA-SG-bAS" eventType="touchUpInside" id="tn5-6C-oTW"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-V0-19N">
+                                        <rect key="frame" x="132" y="453" width="62" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="訂房紀錄"/>
+                                        <connections>
+                                            <segue destination="NqS-7c-zRR" kind="show" identifier="toOrderList" id="Lbp-XG-cvX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="XvL-r8-1dn" firstAttribute="leading" secondItem="7Yy-d7-nKU" secondAttribute="leading" constant="168" id="1LQ-19-Wd0"/>
@@ -790,9 +798,6 @@
                             <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="給予評論"/>
-                            <connections>
-                                <segue destination="lA2-I0-4zv" kind="showDetail" id="JzV-qK-TBu"/>
-                            </connections>
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="r1A-aQ-rw8">
@@ -1029,6 +1034,7 @@
             </objects>
             <point key="canvasLocation" x="617" y="2799"/>
         </scene>
+<<<<<<< HEAD:iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
         <!--Rating View Controller-->
         <scene sceneID="8pj-pa-GZP">
             <objects>
@@ -1128,6 +1134,8 @@
             </objects>
             <point key="canvasLocation" x="1556" y="2799"/>
         </scene>
+=======
+>>>>>>> develop:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
         <!--Tab Bar Controller-->
         <scene sceneID="7bF-PQ-OGB">
             <objects>
@@ -1459,6 +1467,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="132.68365817091455"/>
         </scene>
+<<<<<<< HEAD:iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
         <!--Josh-->
         <scene sceneID="n3S-wF-BBH">
             <objects>
@@ -1466,6 +1475,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Dx-Kt-OuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2869.5999999999999" y="2122.4887556221893"/>
+=======
+        <!--RoomOrder-->
+        <scene sceneID="p8s-zw-Ksq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RoomOrder" id="NqS-7c-zRR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r8y-uT-jbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3254" y="2078"/>
+>>>>>>> develop:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
         </scene>
     </scenes>
     <resources>

@@ -155,15 +155,16 @@ struct Customer: Codable {
                     guard let data = data, error == nil else {
                         return result.reject(error!)
                     }
-                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for
-                        return result.reject("Status: \(httpStatus.statusCode)" as! Error)
-                    }
+
                     let validResult = String(data: data, encoding: .utf8)
                     isValidAccount = String(describing: validResult!)
+                    guard isValidAccount == "true" else {
+                        return result.resolve(nil, isValidAccount)
+                    }
                     return result.resolve(isValidAccount, nil)
-                    }.resume()
-                }
+                }.resume()
             }
+        }
         
         func isCorrectUser(_ params: [String: String]) -> Promise<String> {
             let completeURL = SERVER_URL + SERVLET
@@ -179,16 +180,17 @@ struct Customer: Codable {
                     guard let data = data, error == nil else {
                         return result.reject(error!)
                     }
-                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 { // check for http errors
-                        return result.reject("Status: \(httpStatus.statusCode)" as! Error)
-                    }
                     
                     let id = String(data: data, encoding: .utf8)
                     idCustomer = String(describing: id!)
+                    
+                    guard idCustomer != "0" else {
+                        return result.resolve(nil, idCustomer)
+                    }
                     return result.resolve(idCustomer, nil)
-                    }.resume()
-                }
+                }.resume()
             }
+        }
         
     
     func getCustomerInfo(_ params: [String: String]) -> Promise<Customer?> {

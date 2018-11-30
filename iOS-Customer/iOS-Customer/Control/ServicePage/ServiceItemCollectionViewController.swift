@@ -44,7 +44,6 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
     
     override func viewWillAppear(_ animated: Bool) {
 
-        NotificationCenter.default.post(name: .notificationDisConnectName, object: nil)
         
         customerInt = customer?.idCustomer
         
@@ -60,7 +59,6 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
     override func viewWillDisappear(_ animated: Bool) {
         if socket.isConnected {
             socket.disconnect()
-            NotificationCenter.default.post(name: .notificationConnectName, object: nil)
         }
     }
     

@@ -33,7 +33,6 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
 
     override func viewWillAppear(_ animated: Bool) {
         
-        NotificationCenter.default.post(name: .notificationDisConnectName, object: nil)
         
         guard let userId = customerInt?.description else {
             return
@@ -44,7 +43,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
     override func viewWillDisappear(_ animated: Bool) {
         if socket.isConnected {
             socket.disconnect()
-            NotificationCenter.default.post(name: .notificationConnectName, object: nil)
+            
         }
     }
     
@@ -168,8 +167,8 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
             return
         }
         
-        
-        let socketMessage = Socket(senderId: senderId , receiverId: receiverId, senderGroupId: "0", receiverGroupId: receiverId , serviceId: serviceInstantService!, instantNumber: 0)
+        // instantNumber 不能等於 0 否則 Android 無法接到通知更新(因為Android有寫條件)
+        let socketMessage = Socket(senderId: senderId , receiverId: receiverId, senderGroupId: "0", receiverGroupId: receiverId , serviceId: serviceInstantService!, instantNumber: 1)
         let socketData = try! JSONEncoder().encode(socketMessage)
         let socketString = String(data: socketData, encoding: .utf8)!
         

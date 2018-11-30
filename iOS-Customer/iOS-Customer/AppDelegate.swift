@@ -8,7 +8,7 @@
 
 import UIKit
 import UserNotifications
-import Starscream
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

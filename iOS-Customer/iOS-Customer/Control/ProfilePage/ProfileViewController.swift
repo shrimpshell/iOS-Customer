@@ -11,7 +11,7 @@ import PromiseKit
 import Starscream
 
 
-class ProfileViewController: UIViewController, WebSocketDelegate {
+class ProfileViewController: UIViewController {
     
     let TAG = "ProfileViewController"
     var customer: Customer?
@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController, WebSocketDelegate {
     var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
     var editPageInfo: Customer?
     let customerAuth = DownloadAuth.shared
-    var socket: WebSocket!
+    
    
     
     @IBOutlet weak var profilePageView: UIScrollView!
@@ -40,12 +40,7 @@ class ProfileViewController: UIViewController, WebSocketDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(socketConnect), name: .notificationConnectName, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(socketDisConnect), name: .notificationDisConnectName, object: nil)
-        
         userlogin()
-        
-       
         
     }
     
@@ -62,9 +57,7 @@ class ProfileViewController: UIViewController, WebSocketDelegate {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        if isLogin == false {
-            socketDisConnect()
-        }
+       
     }
     
     
@@ -113,11 +106,6 @@ class ProfileViewController: UIViewController, WebSocketDelegate {
                 self.nameCustomer.text = customer.name
                 self.emailCustomer.text = customer.email
                 self.phoneCustomer.text = customer.phone
-                
-                guard let userId = self.customer?.idCustomer?.description else {
-                    return
-                }
-                self.socketConnect(userId: userId, groupId: "0")
                 
             }.catch { (error) in
                 assertionFailure("Login Error: \(error)")
@@ -224,37 +212,7 @@ class ProfileViewController: UIViewController, WebSocketDelegate {
         
     }
     
-    @objc func socketConnect(userId: String, groupId: String) {
-        socket = WebSocket(url: URL(string: Common.SOCKET_URL + userId + "/" + groupId)!)
-        socket.delegate = self
-        socket.connect()
-    }
-    
-    @objc func socketDisConnect() {
-        socket.disconnect()
-    }
-    
-    
-    func websocketDidConnect(socket: WebSocketClient) {
-        print("ProfileView websocket is connected")
-    }
-    
-    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("ProfileView websocket is disconnected: \(error!.localizedDescription)")
-    }
-    
-    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("ProfileView got some text: \(text)")
-        instantNotifications(text: text)
-    }
-    
-    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        print("ProfileView got some data: \(data.count)")
-    }
+   
     
 }
 
-extension Notification.Name {
-    static let notificationConnectName = Notification.Name("socketConnect")
-    static let notificationDisConnectName = Notification.Name("socketdisConnect")
-}

@@ -26,8 +26,6 @@ class ServiceStatusTableViewController: UITableViewController, WebSocketDelegate
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.allowsSelection = false
         
-        NotificationCenter.default.post(name: .notificationDisConnectName, object: nil)
-       
         guard let userId = customerInt?.description else {
             return
         }
@@ -41,7 +39,7 @@ class ServiceStatusTableViewController: UITableViewController, WebSocketDelegate
     override func viewWillDisappear(_ animated: Bool) {
         if socket.isConnected {
             socketDisConnect()
-            NotificationCenter.default.post(name: .notificationConnectName, object: nil)
+          
         }
         
     }

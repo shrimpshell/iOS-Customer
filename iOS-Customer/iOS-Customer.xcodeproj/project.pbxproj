@@ -7,25 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B7C1BE2219C306300859D25 /* WritingRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1BDB219C306200859D25 /* WritingRatingViewController.swift */; };
+		2B7C1BE9219C30CF00859D25 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1BE8219C30CF00859D25 /* Common.swift */; };
+		2B7C1BEE219C39E300859D25 /* BookingChooseRoomCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1BED219C39E300859D25 /* BookingChooseRoomCollectionViewController.swift */; };
+		2B7C1BF1219C58D400859D25 /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1BF0219C58D400859D25 /* RoomType.swift */; };
+		2B7C1BF3219C65A300859D25 /* RoomTypeCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1BF2219C65A300859D25 /* RoomTypeCommunication.swift */; };
+		2B7C1BF8219D47B100859D25 /* BookingChooseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1BF7219D47B100859D25 /* BookingChooseCollectionViewCell.swift */; };
+		2B7C1C0A219D6C7900859D25 /* RatingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1C05219D6C7800859D25 /* RatingDetailTableViewCell.swift */; };
+		2B7C1C0B219D6C7900859D25 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1C06219D6C7900859D25 /* ReceiptTableViewController.swift */; };
+		2B7C1C0C219D6C7900859D25 /* RatingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1C07219D6C7900859D25 /* RatingListTableViewController.swift */; };
+		2B7C1C0D219D6C7900859D25 /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1C08219D6C7900859D25 /* JoinTableViewController.swift */; };
+		2B7C1C0E219D6C7900859D25 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1C09219D6C7900859D25 /* ProfileViewController.swift */; };
+		2B7C1C10219D6C8900859D25 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C1C0F219D6C8900859D25 /* HomePageViewController.swift */; };
+		2BEDA69E21B0E17E00A9B3F8 /* BookingCheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEDA69D21B0E17E00A9B3F8 /* BookingCheckTableViewController.swift */; };
+		2BEDA6A021B0E2D700A9B3F8 /* BookingCheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEDA69F21B0E2D700A9B3F8 /* BookingCheckTableViewCell.swift */; };
 		2BF72A0E2194A37E00ED8C77 /* BookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF72A0D2194A37E00ED8C77 /* BookingTableViewController.swift */; };
 		2BF72A142194AD3700ED8C77 /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF72A132194AD3700ED8C77 /* Booking.storyboard */; };
 		781DEB522198095A00AED03E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781DEB512198095A00AED03E /* Download.swift */; };
 		78390532219BFC740059BC5B /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* PrintHelper.swift */; };
 		78390534219C14770059BC5B /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390533219C14770059BC5B /* AllRatingsTableViewController.swift */; };
 		78390536219C153B0059BC5B /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */; };
-		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
 		785867342199C083007220F4 /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785867332199C083007220F4 /* EditingTableViewController.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
-		78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB9498216E13F100045C95 /* ProfileViewController.swift */; };
-		78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */; };
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
 		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
-		78C3261C21953299008F4B0A /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3261B21953299008F4B0A /* RatingViewController.swift */; };
-		78C3261E21953300008F4B0A /* RatingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3261D21953300008F4B0A /* RatingListTableViewController.swift */; };
-		78C32622219580CC008F4B0A /* RatingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */; };
-		78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */; };
 		D13405A42166699300E72B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A32166699300E72B67 /* AppDelegate.swift */; };
-		D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A52166699300E72B67 /* HomePageViewController.swift */; };
 		D13405A92166699300E72B67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405A72166699300E72B67 /* Main.storyboard */; };
 		D13405AB2166699500E72B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D13405AA2166699500E72B67 /* Assets.xcassets */; };
 		D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405AC2166699500E72B67 /* LaunchScreen.storyboard */; };
@@ -33,28 +39,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B7C1BDB219C306200859D25 /* WritingRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingRatingViewController.swift; sourceTree = "<group>"; };
+		2B7C1BE8219C30CF00859D25 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		2B7C1BED219C39E300859D25 /* BookingChooseRoomCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingChooseRoomCollectionViewController.swift; sourceTree = "<group>"; };
+		2B7C1BF0219C58D400859D25 /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
+		2B7C1BF2219C65A300859D25 /* RoomTypeCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTypeCommunication.swift; sourceTree = "<group>"; };
+		2B7C1BF7219D47B100859D25 /* BookingChooseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingChooseCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B7C1C05219D6C7800859D25 /* RatingDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDetailTableViewCell.swift; sourceTree = "<group>"; };
+		2B7C1C06219D6C7900859D25 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
+		2B7C1C07219D6C7900859D25 /* RatingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingListTableViewController.swift; sourceTree = "<group>"; };
+		2B7C1C08219D6C7900859D25 /* JoinTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
+		2B7C1C09219D6C7900859D25 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2B7C1C0F219D6C8900859D25 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		2BEDA69D21B0E17E00A9B3F8 /* BookingCheckTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingCheckTableViewController.swift; sourceTree = "<group>"; };
+		2BEDA69F21B0E2D700A9B3F8 /* BookingCheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingCheckTableViewCell.swift; sourceTree = "<group>"; };
 		2BF72A0D2194A37E00ED8C77 /* BookingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewController.swift; sourceTree = "<group>"; };
 		2BF72A132194AD3700ED8C77 /* Booking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Booking.storyboard; sourceTree = "<group>"; };
 		781DEB512198095A00AED03E /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		78390531219BFC740059BC5B /* PrintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintHelper.swift; sourceTree = "<group>"; };
 		78390533219C14770059BC5B /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
 		78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
-		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		785867332199C083007220F4 /* EditingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		78AB9498216E13F100045C95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
 		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
-		78C3261B21953299008F4B0A /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
-		78C3261D21953300008F4B0A /* RatingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingListTableViewController.swift; sourceTree = "<group>"; };
-		78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDetailTableViewCell.swift; sourceTree = "<group>"; };
-		78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
 		9F2DEE62D08AECFEBE061A2D /* Pods-iOS-Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		CE792F163EAE41DB92E4F2F7 /* Pods-iOS-Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.release.xcconfig"; sourceTree = "<group>"; };
 		D13405A02166699300E72B67 /* iOS-Customer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Customer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13405A32166699300E72B67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D13405A52166699300E72B67 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		D13405A82166699300E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D13405AA2166699500E72B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D13405AD2166699500E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,16 +94,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2B7C1BEA219C322D00859D25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D13405A72166699300E72B67 /* Main.storyboard */,
+				2BF72A132194AD3700ED8C77 /* Booking.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B7C1BEF219C39EF00859D25 /* BookingPage */ = {
+			isa = PBXGroup;
+			children = (
+				2BEDA69F21B0E2D700A9B3F8 /* BookingCheckTableViewCell.swift */,
+				2BEDA69D21B0E17E00A9B3F8 /* BookingCheckTableViewController.swift */,
+				2B7C1BF7219D47B100859D25 /* BookingChooseCollectionViewCell.swift */,
+				2B7C1BED219C39E300859D25 /* BookingChooseRoomCollectionViewController.swift */,
+				2BF72A0D2194A37E00ED8C77 /* BookingTableViewController.swift */,
+			);
+			path = BookingPage;
+			sourceTree = "<group>";
+		};
+		2B7C1BF4219C65AA00859D25 /* RoomTypeModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B7C1BF0219C58D400859D25 /* RoomType.swift */,
+				2B7C1BF2219C65A300859D25 /* RoomTypeCommunication.swift */,
+			);
+			path = RoomTypeModel;
+			sourceTree = "<group>";
+		};
 		78390537219C155E0059BC5B /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
-				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
 				785867332199C083007220F4 /* EditingTableViewController.swift */,
-				78C3261B21953299008F4B0A /* RatingViewController.swift */,
-				78C3261D21953300008F4B0A /* RatingListTableViewController.swift */,
-				78C32621219580CC008F4B0A /* RatingDetailTableViewCell.swift */,
-				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
-				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
+				2B7C1C08219D6C7900859D25 /* JoinTableViewController.swift */,
+				2B7C1C09219D6C7900859D25 /* ProfileViewController.swift */,
+				2B7C1C05219D6C7800859D25 /* RatingDetailTableViewCell.swift */,
+				2B7C1C07219D6C7900859D25 /* RatingListTableViewController.swift */,
+				2B7C1C06219D6C7900859D25 /* ReceiptTableViewController.swift */,
+				2B7C1BDB219C306200859D25 /* WritingRatingViewController.swift */,
 			);
 			path = ProfilePage;
 			sourceTree = "<group>";
@@ -99,9 +141,9 @@
 		78390538219C15910059BC5B /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				D13405A52166699300E72B67 /* HomePageViewController.swift */,
 				78390533219C14770059BC5B /* AllRatingsTableViewController.swift */,
 				78390535219C153B0059BC5B /* AllRatingsTableViewCell.swift */,
+				2B7C1C0F219D6C8900859D25 /* HomePageViewController.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -118,11 +160,12 @@
 		78AB949E216E28B700045C95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2B7C1BE8219C30CF00859D25 /* Common.swift */,
 				78390539219C15BF0059BC5B /* Helper */,
-				7857F5712192B2EE00641030 /* Common.swift */,
 				78AB949C216E286C00045C95 /* Rating.swift */,
 				781DEB512198095A00AED03E /* Download.swift */,
 				78AB94A0216E2A7900045C95 /* Customer.swift */,
+				2B7C1BF4219C65AA00859D25 /* RoomTypeModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,11 +173,7 @@
 		78AB949F216E28FD00045C95 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
-				D13405A52166699300E72B67 /* HomePageViewController.swift */,
-				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
-				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
-				2BF72A0D2194A37E00ED8C77 /* BookingTableViewController.swift */,
+				2B7C1BEF219C39EF00859D25 /* BookingPage */,
 				78390538219C15910059BC5B /* HomePage */,
 				78390537219C155E0059BC5B /* ProfilePage */,
 			);
@@ -171,12 +210,10 @@
 		D13405A22166699300E72B67 /* iOS-Customer */ = {
 			isa = PBXGroup;
 			children = (
-				D13405A72166699300E72B67 /* Main.storyboard */,
 				78AB949F216E28FD00045C95 /* Control */,
 				78AB949E216E28B700045C95 /* Model */,
 				D13405A32166699300E72B67 /* AppDelegate.swift */,
-				D13405A72166699300E72B67 /* Main.storyboard */,
-				2BF72A132194AD3700ED8C77 /* Booking.storyboard */,
+				2B7C1BEA219C322D00859D25 /* View */,
 				D13405AA2166699500E72B67 /* Assets.xcassets */,
 				D13405AC2166699500E72B67 /* LaunchScreen.storyboard */,
 				D13405AF2166699500E72B67 /* Info.plist */,
@@ -301,23 +338,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B7C1BE9219C30CF00859D25 /* Common.swift in Sources */,
 				785867342199C083007220F4 /* EditingTableViewController.swift in Sources */,
-				78C3261E21953300008F4B0A /* RatingListTableViewController.swift in Sources */,
-				78C32622219580CC008F4B0A /* RatingDetailTableViewCell.swift in Sources */,
 				788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */,
-				78C3261C21953299008F4B0A /* RatingViewController.swift in Sources */,
+				2B7C1BEE219C39E300859D25 /* BookingChooseRoomCollectionViewController.swift in Sources */,
+				2BEDA6A021B0E2D700A9B3F8 /* BookingCheckTableViewCell.swift in Sources */,
 				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
 				78390536219C153B0059BC5B /* AllRatingsTableViewCell.swift in Sources */,
+				2B7C1C0E219D6C7900859D25 /* ProfileViewController.swift in Sources */,
 				78390534219C14770059BC5B /* AllRatingsTableViewController.swift in Sources */,
-				7857F5722192B2EE00641030 /* Common.swift in Sources */,
-				78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */,
+				2B7C1BF8219D47B100859D25 /* BookingChooseCollectionViewCell.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
+				2B7C1BF1219C58D400859D25 /* RoomType.swift in Sources */,
 				2BF72A0E2194A37E00ED8C77 /* BookingTableViewController.swift in Sources */,
-				78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */,
-				78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */,
-				D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */,
+				2B7C1BE2219C306300859D25 /* WritingRatingViewController.swift in Sources */,
+				2B7C1C0D219D6C7900859D25 /* JoinTableViewController.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
+				2B7C1C0A219D6C7900859D25 /* RatingDetailTableViewCell.swift in Sources */,
 				78AB949D216E286C00045C95 /* Rating.swift in Sources */,
+				2B7C1BF3219C65A300859D25 /* RoomTypeCommunication.swift in Sources */,
+				2B7C1C10219D6C8900859D25 /* HomePageViewController.swift in Sources */,
+				2BEDA69E21B0E17E00A9B3F8 /* BookingCheckTableViewController.swift in Sources */,
+				2B7C1C0B219D6C7900859D25 /* ReceiptTableViewController.swift in Sources */,
+				2B7C1C0C219D6C7900859D25 /* RatingListTableViewController.swift in Sources */,
 				781DEB522198095A00AED03E /* Download.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

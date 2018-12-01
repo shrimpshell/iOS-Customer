@@ -21,7 +21,7 @@ typealias DoneHandler = (_ result: Any?, _ error: Error?) -> Void
 
 struct DownloadAuth {
     //static let SERVER_URL = "http://192.168.1.2:8080/ShellService"
-    static let SERVER_URL = "http://192.168.50.105:8080/ShellService"
+    static let SERVER_URL = Common.SERVER_URL
     let RATING_SERVLET = SERVER_URL + "/RatingServlet"
     let CUSTOMER_SERVLET = SERVER_URL + "/CustomerServlet"
     

@@ -8,7 +8,14 @@
 
 import UIKit
 
-class RatingViewController: UIViewController {
+class WritingRatingViewController: UIViewController {
+    let TAG = "WritingRatingViewController"
+    
+    var customer: Customer?
+    let ratingAuth = DownloadAuth.shared
+    let now: Date = Date()
+    let dateFormat: DateFormatter = DateFormatter()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

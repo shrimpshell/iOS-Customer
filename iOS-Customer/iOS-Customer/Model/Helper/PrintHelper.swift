@@ -18,6 +18,6 @@ import Foundation
 
 final class printHelper {
     static func println(tag: String, line: Int, _ msg: String) {
-        print("在 \(tag) 的 \(#line) 行,\n訊息：\(msg) ")
+        print("在 \(tag) 的 \(line) 行,\n訊息：\(msg) ")
     }
 }

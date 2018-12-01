@@ -17,3 +17,14 @@ extension UIViewController {
         present(alert, animated: true)
     }
 }
+
+extension UICollectionViewController {
+    func showAlertOkAndCancel(title: String? = nil, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .default)
+        let ok = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        present(alert, animated: true)
+    }
+}

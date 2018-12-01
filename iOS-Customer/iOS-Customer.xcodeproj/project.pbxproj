@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BC0DB8E21B24C3B003B3C05 /* RoomType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC0DB8D21B24C3B003B3C05 /* RoomType.storyboard */; };
+		2BC0DB9221B24E19003B3C05 /* RoomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0DB9021B24E19003B3C05 /* RoomDetailViewController.swift */; };
+		2BC0DB9321B24E19003B3C05 /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0DB9121B24E19003B3C05 /* RoomTableViewController.swift */; };
+		2BC0DB9621B24E34003B3C05 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0DB9421B24E33003B3C05 /* Event.swift */; };
+		2BC0DB9721B24E34003B3C05 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0DB9521B24E34003B3C05 /* Room.swift */; };
+		2BC0DB9B21B24F03003B3C05 /* RoomDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0DB9821B24F02003B3C05 /* RoomDetailTableViewCell.swift */; };
+		2BC0DB9C21B24F03003B3C05 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0DB9921B24F03003B3C05 /* RoomTableViewCell.swift */; };
 		7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */; };
 		7230157A21B0F8F400FD89D7 /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */; };
 		7230157B21B0F8F400FD89D7 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157821B0F8F400FD89D7 /* HomePageViewController.swift */; };
@@ -45,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BC0DB8D21B24C3B003B3C05 /* RoomType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomType.storyboard; sourceTree = "<group>"; };
+		2BC0DB9021B24E19003B3C05 /* RoomDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetailViewController.swift; sourceTree = "<group>"; };
+		2BC0DB9121B24E19003B3C05 /* RoomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableViewController.swift; sourceTree = "<group>"; };
+		2BC0DB9421B24E33003B3C05 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		2BC0DB9521B24E34003B3C05 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		2BC0DB9821B24F02003B3C05 /* RoomDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetailTableViewCell.swift; sourceTree = "<group>"; };
+		2BC0DB9921B24F03003B3C05 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
 		7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
 		7230157821B0F8F400FD89D7 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +121,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2BC0DB8F21B24DF5003B3C05 /* RoomTypePage */ = {
+			isa = PBXGroup;
+			children = (
+				2BC0DB9821B24F02003B3C05 /* RoomDetailTableViewCell.swift */,
+				2BC0DB9921B24F03003B3C05 /* RoomTableViewCell.swift */,
+				2BC0DB9021B24E19003B3C05 /* RoomDetailViewController.swift */,
+				2BC0DB9121B24E19003B3C05 /* RoomTableViewController.swift */,
+			);
+			path = RoomTypePage;
+			sourceTree = "<group>";
+		};
 		7230156921B0F7F900FD89D7 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +190,8 @@
 			children = (
 				78390539219C15BF0059BC5B /* Helper */,
 				7857F5712192B2EE00641030 /* Common.swift */,
+				2BC0DB9421B24E33003B3C05 /* Event.swift */,
+				2BC0DB9521B24E34003B3C05 /* Room.swift */,
 				78AB949C216E286C00045C95 /* Rating.swift */,
 				72C35FB421AE753C006BD1A7 /* Socket.swift */,
 				7230158A21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift */,
@@ -179,6 +206,7 @@
 		78AB949F216E28FD00045C95 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				2BC0DB8F21B24DF5003B3C05 /* RoomTypePage */,
 				72D917C3219D18270008D90C /* ServicePage */,
 				78390538219C15910059BC5B /* HomePage */,
 				78390537219C155E0059BC5B /* ProfilePage */,
@@ -200,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				7230158C21B1005000FD89D7 /* Main.storyboard */,
+				2BC0DB8D21B24C3B003B3C05 /* RoomType.storyboard */,
 				D12CAED8219D4CC40035446C /* RoomOrder.storyboard */,
 			);
 			path = View;
@@ -322,6 +351,7 @@
 				D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */,
 				D13405AB2166699500E72B67 /* Assets.xcassets in Resources */,
 				72D917C2219D142A0008D90C /* Josh.storyboard in Resources */,
+				2BC0DB8E21B24C3B003B3C05 /* RoomType.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +415,8 @@
 				7230157B21B0F8F400FD89D7 /* HomePageViewController.swift in Sources */,
 				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
 				7230158821B0F8FE00FD89D7 /* ReceiptTableViewController.swift in Sources */,
+				2BC0DB9621B24E34003B3C05 /* Event.swift in Sources */,
+				2BC0DB9B21B24F03003B3C05 /* RoomDetailTableViewCell.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
 				72D917C7219D188A0008D90C /* ServiceItemCollectionViewCell.swift in Sources */,
 				7230157A21B0F8F400FD89D7 /* AllRatingsTableViewCell.swift in Sources */,
@@ -394,7 +426,9 @@
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
 				72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */,
 				7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */,
+				2BC0DB9321B24E19003B3C05 /* RoomTableViewController.swift in Sources */,
 				72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */,
+				2BC0DB9221B24E19003B3C05 /* RoomDetailViewController.swift in Sources */,
 				72C35FB521AE753C006BD1A7 /* Socket.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
 				7230158921B0F8FE00FD89D7 /* ProfileViewController.swift in Sources */,
@@ -404,8 +438,10 @@
 				7230158B21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift in Sources */,
 				78AB949D216E286C00045C95 /* Rating.swift in Sources */,
 				72D917CB219D26110008D90C /* ItemDetailTableViewCell.swift in Sources */,
+				2BC0DB9C21B24F03003B3C05 /* RoomTableViewCell.swift in Sources */,
 				7230158421B0F8FE00FD89D7 /* RatingViewController.swift in Sources */,
 				781DEB522198095A00AED03E /* Download.swift in Sources */,
+				2BC0DB9721B24E34003B3C05 /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

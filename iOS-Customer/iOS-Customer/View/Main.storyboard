@@ -21,22 +21,35 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.78971105813980103" green="0.86620420217514038" blue="0.89020222425460815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-4Q-Xtx">
-                                <rect key="frame" x="49" y="104" width="277" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-4Q-Xtx">
+                                <rect key="frame" x="49" y="104" width="277" height="30"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="顧客評價"/>
                                 <connections>
                                     <segue destination="wZ6-ug-8Yl" kind="show" id="575-gY-QMC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NN-wP-Tfw">
+                                <rect key="frame" x="49" y="166" width="277" height="30"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="房間資訊"/>
+                                <connections>
+                                    <segue destination="STG-Eo-7ES" kind="show" id="3Eh-Qm-zPl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="1NN-wP-Tfw" firstAttribute="top" secondItem="mgY-4Q-Xtx" secondAttribute="bottom" constant="32" id="7AX-SX-Pgi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1NN-wP-Tfw" secondAttribute="trailing" constant="49" id="7FS-wG-4Yd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mgY-4Q-Xtx" secondAttribute="trailing" constant="49" id="964-pg-7bJ"/>
                             <constraint firstItem="FqG-ll-sE7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BIr-SV-1Ds"/>
+                            <constraint firstItem="mgY-4Q-Xtx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="J4s-m0-C81"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FqG-ll-sE7" secondAttribute="trailing" id="KfL-4x-Raw"/>
+                            <constraint firstItem="1NN-wP-Tfw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="Tac-4S-rL5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FqG-ll-sE7" secondAttribute="bottom" id="Tmz-ij-goY"/>
                             <constraint firstItem="FqG-ll-sE7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X5n-E2-bCE"/>
+                            <constraint firstItem="mgY-4Q-Xtx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="Z2G-lv-6oG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -45,6 +58,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2015.2" y="132.68365817091455"/>
+        </scene>
+        <!--RoomView-->
+        <scene sceneID="Pgt-n8-gPL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RoomType" referencedIdentifier="RoomView" id="STG-Eo-7ES" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NgF-IW-Jeq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2820" y="157"/>
         </scene>
         <!--顧客評價-->
         <scene sceneID="Fym-s9-tXO">
@@ -217,9 +238,6 @@
                                         <rect key="frame" x="132" y="453" width="62" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="訂房紀錄"/>
-                                        <connections>
-                                            <segue destination="NqS-7c-zRR" kind="show" identifier="toOrderList" id="Lbp-XG-cvX"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1034,7 +1052,6 @@
             </objects>
             <point key="canvasLocation" x="617" y="2799"/>
         </scene>
-iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
         <!--Rating View Controller-->
         <scene sceneID="8pj-pa-GZP">
             <objects>
@@ -1134,8 +1151,6 @@ iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
             </objects>
             <point key="canvasLocation" x="1556" y="2799"/>
         </scene>
-
-iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
         <!--Tab Bar Controller-->
         <scene sceneID="7bF-PQ-OGB">
             <objects>
@@ -1467,7 +1482,6 @@ iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
             </objects>
             <point key="canvasLocation" x="1076" y="132.68365817091455"/>
         </scene>
-iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
         <!--Josh-->
         <scene sceneID="n3S-wF-BBH">
             <objects>
@@ -1475,7 +1489,6 @@ iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Dx-Kt-OuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2869.5999999999999" y="2122.4887556221893"/>
-
         </scene>
     </scenes>
     <resources>

@@ -8,17 +8,24 @@
 
 import UIKit
 import PromiseKit
+import Photos
+import MobileCoreServices
+import Alamofire
 import Starscream
 
+class ProfileViewController: UIViewController,
+                                                UIImagePickerControllerDelegate,
+                                                UINavigationControllerDelegate
+{
 
-class ProfileViewController: UIViewController {
-    
     let TAG = "ProfileViewController"
     var customer: Customer?
     var idCustomer: Int = 0
     var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
     var editPageInfo: Customer?
-    let customerAuth = DownloadAuth.shared
+     let customerTask = CustomerAuth()    //使用promiseKit方法
+    let customerAuth = DownloadAuth.shared       //使用Alamofirez方法
+    
     var orderRoomDetails: [OrderRoomDetail]?
     var orderInstantDetails: [OrderInstantDetail]?
     
@@ -27,7 +34,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePageView: UIScrollView!
     @IBOutlet weak var loginPageView: UIScrollView!
     @IBOutlet weak var logInView: UIScrollView!
-    @IBOutlet weak var settingBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var loginEmailText: UITextField!
     @IBOutlet weak var loginPasswordText: UITextField!
     @IBOutlet weak var nameCustomer: UILabel!
@@ -36,14 +42,16 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailCustomer: UILabel!
     @IBOutlet weak var phoneCustomer: UILabel!
     @IBOutlet weak var titleNavigationItem: UINavigationItem!
+    @IBOutlet weak var settingItemBtn: UIBarButtonItem!
     
-    //var idCustomer: Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         userlogin()
         
+        //修image邊角
+        cornerRadius(view: imageCustomer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -148,31 +156,93 @@ class ProfileViewController: UIViewController {
             self.nameCustomer.text = self.customer?.name
             self.emailCustomer.text = self.customer?.email
             self.phoneCustomer.text = self.customer?.phone
-            
+            }
+        
+        let getCustomerImage: [String : Any] = ["action": "getImage", "IdCustomer": idCustomer]
+        customerTask.getCustomerImage(getCustomerImage).done { (data) in
+             if (data?.count)! > 0 {
+                DispatchQueue.main.async() {
+                    self.imageCustomer.image = UIImage(data: data!)
+                }
+            }
+        }.catch { (error) in
+            assertionFailure("CheckoutTableViewController Error: \(error)")
         }
     }
     
-    //使用isLogin切換會員頁面與登入頁面
-    func userlogin() {
-        if  isLogin == true {
-            loginPageView.isHidden = true
-            profilePageView.isHidden = false
-            titleNavigationItem.title = "會員資料"
-            settingBarButtonItem.title = "Setting"
-            settingBarButtonItem.isEnabled = true
-        } else {
-            loginPageView.isHidden = false
-            titleNavigationItem.title = ""
-            profilePageView.isHidden = true
-            settingBarButtonItem.title = ""
-            settingBarButtonItem.isEnabled = false
+   
+    
+    
+    @IBAction func chungPicBtnPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Please choose source:", message: nil, preferredStyle: .actionSheet)
+        let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
+            self.launchPicker(source: .camera)
         }
+        let library = UIAlertAction(title: "Photo library", style: .default) { (action) in
+            self.launchPicker(source: .photoLibrary)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(camera)
+        alert.addAction(library)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
+    
+    func launchPicker(source: UIImagePickerController.SourceType)  {
+        guard UIImagePickerController.isSourceTypeAvailable(source)
+            else {
+                print("Invalid source type")
+                return
+        }
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.mediaTypes = [kUTTypeImage] as [String]
+        picker.sourceType = source
+        picker.allowsEditing = true     //可裁切正方形的照片
+        
+        present(picker, animated: true)
+    }
+    
+    
+    //選取照片
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        printHelper.println(tag: "ProfileViewController", line: #line, "info: \(info)")
+        guard let type = info[UIImagePickerController.InfoKey.mediaType] as? String
+            else {
+                assertionFailure("Invalid type")
+                return
+        }
+        // user 選到照片時
+        if type == (kUTTypeImage as String) {
+            guard let originalImage = info[.originalImage] as? UIImage
+                else {
+                    assertionFailure("originalImage is nil.")
+                    return
+            }
+            let resizedImage = originalImage.resize(maxEdge: 1024)!
+            let jpgData = resizedImage.jpegData(compressionQuality: 0.8)
+            //let pngData = resizedImage.pngData()
+            
+            let imageDataString = jpgData?.base64EncodedString(options: .lineLength64Characters)
+            let parameters = ["action":"updateImage", "IdCustomer":"\(idCustomer)", "imageBase64": imageDataString]
+            customerTask.updateCustomerImage(parameters as [String : Any]).done { data in
+                if data != "0" {
+                    self.imageCustomer.image = UIImage(data: jpgData!)
+                }
+            }
+        }
+        // 要記得把picker收起來～！
+        picker.dismiss(animated: true)    // Important!
+        
+    }
+
+    
     
     
     //登出
     @IBAction func logOutBtnPressed(_ sender: UIButton) {
-        idCustomer = 0
+        //idCustomer = 0
+        customer = nil
         isLogin = false
         userlogin()
         print("Log Out")
@@ -211,6 +281,23 @@ class ProfileViewController: UIViewController {
         }
     }
         
+        //使用isLogin切換會員頁面與登入頁面
+        func userlogin() {
+            if  isLogin == true {
+                navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
+                navigationItem.rightBarButtonItem?.isEnabled = true
+                loginPageView.isHidden = true
+                profilePageView.isHidden = false
+                titleNavigationItem.title = "會員資料"
+            } else {
+                loginPageView.isHidden = false
+                titleNavigationItem.title = ""
+                profilePageView.isHidden = true
+                navigationItem.rightBarButtonItem?.image = nil
+                navigationItem.rightBarButtonItem?.isEnabled = false
+                
+            }
+        }
     
     @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue) {
         

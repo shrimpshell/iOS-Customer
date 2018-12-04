@@ -235,6 +235,24 @@ struct Customer: Codable {
                     }.resume()
             }
         }
+        
+        func updateCustomerImage (_ params: [String:Any]) -> Promise<String> {
+            let completeURL = SERVER_URL + SERVLET
+            let url = URL.init(string: completeURL)
+            var request = URLRequest(url: url!)
+            request.httpMethod = "POST"
+            request.httpBody = try? JSONSerialization.data(withJSONObject: params)
+            
+            return Promise { result in
+                URLSession.shared.dataTask(with: request) {
+                    (data, response, error) in
+                    guard let data = data, error == nil else {
+                        return result.reject(error!)
+                    }
+                    return result.resolve(String(data: data, encoding: .utf8), nil)
+                    }.resume()
+            }
+        }
     }
 
 

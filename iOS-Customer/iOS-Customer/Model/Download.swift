@@ -16,6 +16,7 @@ let ID_CUSTOMER = "IdCustomer"
 let CUSTOMER_KEY = "customer"
 let RESULT_KEY = "result"
 let DATA_KEY = "data"
+let IDROOMRESERVATION_KEY = "IdRoomReservation"
 //Instant_Keys
 let ROOMNUMBER_KEY = "roomNumber"
 let INSTANT_KEY = "instant"
@@ -29,7 +30,11 @@ typealias DoneHandler = (_ result: Any?, _ error: Error?) -> Void
 
 
 struct DownloadAuth {
-   
+   static let SERVER_URL = "http://192.168.50.105:8080/ShellService"
+    //static let SERVER_URL = "http://192.168.1.15:8080/ShellService"
+    //static let SERVER_URL = "http://172.20.10.6:8080/ShellService"
+    let RATING_SERVLET = SERVER_URL + "/RatingServlet"
+    let CUSTOMER_SERVLET = SERVER_URL + "/CustomerServlet"
     let RATING_SERVLET = Common.SERVER_URL + "/RatingServlet"
     let CUSTOMER_SERVLET = Common.SERVER_URL + "/CustomerServlet"
     let INSTANT_SERVLET = Common.SERVER_URL + "/InstantServlet"
@@ -50,8 +55,8 @@ struct DownloadAuth {
         
     }
     
-    func getAllCustomerRatings(completion: @escaping DoneHandler) {
-         let parameters: [String : Any] = [ACTION: "getAll"]
+    func getAllCustomerRatings(key: String, completion: @escaping DoneHandler) {
+         let parameters: [String : Any] = [ACTION: key]
         doPost(urlString: RATING_SERVLET, parameters: parameters, completion: completion)
     }
     
@@ -67,7 +72,12 @@ struct DownloadAuth {
          doPost(urlString: CUSTOMER_SERVLET, parameters: parameters, completion: completion)
     }
     
-
+    func getRatingStatus(idRoomReservation: Int, completion: @escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION: "getRatingStatus", IDROOMRESERVATION_KEY: idRoomReservation]
+        
+        doPost(urlString: RATING_SERVLET, parameters: parameters, completion: completion)
+    }
+    
     // MARK: - InstantService
     // get user InstantService status
     func getCustomerStatus(roomNumber: String, completion: @escaping DoneHandler) {
@@ -103,7 +113,6 @@ struct DownloadAuth {
         
         doPost(urlString: PAYDETAIL_SERVLET, parameters: parameters, completion: completion)
     }
-    
     
     
     fileprivate func doPost(urlString: String,

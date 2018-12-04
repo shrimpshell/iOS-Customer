@@ -10,20 +10,18 @@ import UIKit
 import Cosmos
 
 class AllRatingsTableViewCell: UITableViewCell {
-    let TAG = "ProfileViewController"
-    
     
     @IBOutlet weak var customerNameLabel: UILabel!
     @IBOutlet weak var idRoomReservationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var ratingStarCosmosView: CosmosView!
     @IBOutlet weak var opinionLabel: UILabel!
+    @IBOutlet weak var customrServiceResponse: UILabel!
     
     var allRating: Rating? {
         didSet {
             guard  let idRoomReservation = allRating?.idRoomReservation else {
-                printHelper.println(tag: TAG, line: #line, "Rating idRoomReservation is nil")
-                print("Rating idRoomReservation is nil")
+                printHelper.println(tag: "ProfileViewController", line: #line, "Rating idRoomReservation is nil")
                 return
             }
             if allRating?.idRoomReservation != nil {
@@ -32,10 +30,16 @@ class AllRatingsTableViewCell: UITableViewCell {
                 idRoomReservationLabel.text = ""
             }
             
+            if allRating?.name != nil {
+                customerNameLabel.text = allRating?.name
+            } 
+            
             if allRating?.ratingStar != nil {
                 ratingStarCosmosView.rating = Double((allRating?.ratingStar)!)
+                ratingStarCosmosView.settings.updateOnTouch = false
             } else {
                 ratingStarCosmosView.rating = 1
+                ratingStarCosmosView.settings.updateOnTouch = false
             }
             
             if allRating?.opinion != nil {
@@ -48,6 +52,11 @@ class AllRatingsTableViewCell: UITableViewCell {
                 dateLabel.text = allRating?.time
             } else {
                 dateLabel.isHidden = true
+            }
+            
+            customrServiceResponse.isHidden = false
+            if allRating?.ratingStatus != 2 {
+                customrServiceResponse.isHidden = true
             }
         }
     }

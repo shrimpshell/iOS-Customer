@@ -9,9 +9,13 @@
 import UIKit
 
 class RoomOrderDetailViewController: UIViewController {
+    let customerTask = DownloadAuth.shared
     var rooms: [OrderRoomDetail]?
     var instants: [OrderInstantDetail]?
     var amount: Int = 0
+    static var ratingStatus = 0
+    
+    
     
     @IBOutlet weak var roomGroupLabel: UILabel!
     @IBOutlet weak var checkinLabel: UILabel!
@@ -41,12 +45,36 @@ class RoomOrderDetailViewController: UIViewController {
         } else {
             checkStatusButton.isHidden = true
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        rateBUtton.isHidden = true
+         if let rooms = rooms, rooms[0].roomReservationStatus == "3" {
+            if  rooms[0].idRoomReservation != nil {
+                let idRoomReservation = rooms[0].idRoomReservation
+                getRatingStatusByIdRoomReservation(idRoomReservation: idRoomReservation)
+            }
+        }
+        
+        
         self.amountLabel.text = "總金額：\(amount)"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toTableView" {
+        guard let rooms = self.rooms else {
+            return
+        }
+        switch segue.identifier {
+        case "toTableView":
             clearAllDetails()
+            
+        case "toWritingRatingPage":
+            let writingRating = segue.destination as! WritingRatingViewController
+                    writingRating.idRoomReservation = rooms[0].idRoomReservation
+            
+        default:
+            break
         }
     }
 
@@ -101,7 +129,7 @@ class RoomOrderDetailViewController: UIViewController {
         
         orderRoomDB.updateRoomReservationStatusById(parameters).done { (result) in
             guard result != "0" else {
-                print("fail to update")
+                printHelper.println(tag: "RoomOrderDetailViewController", line: #line, "fail to update")
                 return
             }
             
@@ -115,16 +143,51 @@ class RoomOrderDetailViewController: UIViewController {
         }
     }
     
+  
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//        if segue.identifier == "toWritingRatingPage" {
+//            let writingRating = segue.destination as! WritingRatingViewController
+//            writingRating.roomDetail = rooms[0].
+//
+//        }
+//
+//    }
+//
+    
+    func getRatingStatusByIdRoomReservation(idRoomReservation: Int) {
+        customerTask.getRatingStatus(idRoomReservation: idRoomReservation) { (result, error) in
+            if let error = error {
+                printHelper.println(tag: "RoomOrderDetailViewController", line: #line, "RatingStatus download error: \(error)")
+                return
+            }
+            guard let result = result else {
+                printHelper.println(tag: "RoomOrderDetailViewController", line: #line, "RatingStatus result is nil.")
+                return
+            }
+            RoomOrderDetailViewController.ratingStatus = result as! Int
+            print("ratingStatus: \(RoomOrderDetailViewController.ratingStatus)")
+            printHelper.println(tag: "RoomOrderDetailViewController", line: #line, "RatingStatus is OK.")
+            if RoomOrderDetailViewController.ratingStatus == 0 {
+                self.rateBUtton.isHidden = false
+            } else {
+                self.rateBUtton.isHidden = true
+            }
+        }
+    }
+    
     @IBAction func unwindToDetailPage(_ segue: UIStoryboardSegue) {
         switch segue.identifier {
         case "submitDetail":
-            print("submit")
+             printHelper.println(tag: "RoomOrderDetailViewController", line: #line, "submit")
             break
         case "cancelDetail":
-            print("cancel")
+             printHelper.println(tag: "RoomOrderDetailViewController", line: #line, "cancel")
             break
         default:
-            print("did notthing")
+            printHelper.println(tag: "RoomOrderDetailViewController", line: #line, "did notthing")
         }
     }
 }

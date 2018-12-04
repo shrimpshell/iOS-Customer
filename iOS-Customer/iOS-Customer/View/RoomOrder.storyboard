@@ -130,7 +130,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="評論"/>
                                         <connections>
-                                            <segue destination="WgC-Hh-sRh" kind="show" id="cvv-ra-CJr"/>
+                                            <segue destination="WgC-Hh-sRh" kind="show" identifier="toWritingRatingPage" id="cvv-ra-CJr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obc-gW-BrI">
@@ -233,10 +233,10 @@
             </objects>
             <point key="canvasLocation" x="3254" y="2078"/>
         </scene>
-        <!--Rating View Controller-->
+        <!--Writing Rating View Controller-->
         <scene sceneID="Mfz-sk-Jim">
             <objects>
-                <viewController id="WgC-Hh-sRh" customClass="RatingViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WgC-Hh-sRh" customClass="WritingRatingViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TGf-1Y-bGe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,12 +272,12 @@
                                     <navigationItem title="撰寫評論" id="DFn-Qa-mkC">
                                         <barButtonItem key="leftBarButtonItem" title="取消" id="dYf-Bu-3we">
                                             <connections>
-                                                <segue destination="4R3-zK-UcZ" kind="unwind" identifier="cancelDetail" unwindAction="unwindToDetailPage:" id="9ID-AH-E6p"/>
+                                                <action selector="cancelBtnPressed:" destination="WgC-Hh-sRh" id="zCy-Bg-jfM"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="送出" id="AN9-wN-BWj">
                                             <connections>
-                                                <segue destination="4R3-zK-UcZ" kind="unwind" identifier="submitDetail" unwindAction="unwindToDetailPage:" id="uK1-Pw-LZs"/>
+                                                <action selector="sendRatingBtnPressed:" destination="WgC-Hh-sRh" id="BCl-xb-tDT"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -315,7 +315,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Vst-7n-mXy" firstAttribute="bottom" secondItem="Mq8-0q-Ahf" secondAttribute="bottom" constant="35" id="4SX-9v-u6d"/>
+                            <constraint firstItem="K1Z-wv-3Fn" firstAttribute="leading" secondItem="Vst-7n-mXy" secondAttribute="leading" constant="90" id="E7P-a1-NXj"/>
                             <constraint firstItem="Mq8-0q-Ahf" firstAttribute="leading" secondItem="Vst-7n-mXy" secondAttribute="leading" constant="25" id="JoL-jC-BaW"/>
+                            <constraint firstAttribute="bottom" secondItem="K1Z-wv-3Fn" secondAttribute="bottom" constant="548" id="RKh-1k-cwd"/>
                             <constraint firstItem="Vst-7n-mXy" firstAttribute="trailing" secondItem="Mq8-0q-Ahf" secondAttribute="trailing" constant="25" id="hVc-6d-r1e"/>
                             <constraint firstItem="Mq8-0q-Ahf" firstAttribute="top" secondItem="K1Z-wv-3Fn" secondAttribute="bottom" constant="25" id="hwz-W1-cFv"/>
                             <constraint firstItem="K1Z-wv-3Fn" firstAttribute="centerX" secondItem="Dbh-EG-m4V" secondAttribute="centerX" id="kqC-XB-ERp"/>
@@ -327,6 +329,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vst-7n-mXy"/>
                     </view>
+                    <connections>
+                        <outlet property="opinionText" destination="ptP-VB-rJZ" id="VPR-Yj-V06"/>
+                        <outlet property="ratingStarView" destination="K1Z-wv-3Fn" id="Wp9-5d-hQW"/>
+                        <segue destination="4R3-zK-UcZ" kind="unwind" identifier="toPayDetailPage" unwindAction="unwindToDetailPage:" id="gVf-Aw-Nm3"/>
+                        <segue destination="4R3-zK-UcZ" kind="unwind" identifier="toRoomOrderTable" unwindAction="unwindToRoomOrderTableView:" id="o5c-le-l9p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LcS-aK-Re1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4R3-zK-UcZ" userLabel="Exit" sceneMemberID="exit"/>

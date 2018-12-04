@@ -248,6 +248,10 @@ class ProfileViewController: UIViewController,
         print("Log Out")
     }
     
+    @IBAction func toOrderListPageButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toOrderList", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let customer = self.customer else {
             return

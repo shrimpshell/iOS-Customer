@@ -29,6 +29,9 @@ class RoomOrderDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        roomsLabel.text = ""
+        instantLabel.text = ""
+        discountLabel.text = ""
         showRoomDetails()
         showInstantDetails()
         if let rooms = rooms, rooms[0].roomReservationStatus != "3" {
@@ -100,13 +103,28 @@ class RoomOrderDetailViewController: UIViewController {
     }
     
     private func showInstantDetails() {
+        var aMeal: Int = 0
+        var bMeal: Int = 0
+        var cMeal: Int = 0
         guard let instants = self.instants, let instantTypeName = instants[0].instantTypeName else {
             return
         }
         for instant in instants {
-            self.instantLabel.text = self.instantLabel.text! + "\(instantTypeName) x \(String(describing: instant.quantity))\n"
+//            self.instantLabel.text = self.instantLabel.text! + "\(instantTypeName) x \(String(describing: instant.quantity!))\n"
+            switch instant.instantTypeName!  {
+            case "A餐":
+                aMeal = aMeal + Int(instant.quantity!)!
+            case "B餐":
+                bMeal = bMeal + Int(instant.quantity!)!
+            case "C餐":
+                cMeal = cMeal + Int(instant.quantity!)!
+            default:
+                print("unidentified service")
+            }
             amount = amount + Int(instant.instantPrice!)!
         }
+        
+        self.instantLabel.text = "A餐：\(aMeal) \nB餐：\(bMeal) \nC餐：\(cMeal)"
     }
     
     private func updateRooms(status: String) {

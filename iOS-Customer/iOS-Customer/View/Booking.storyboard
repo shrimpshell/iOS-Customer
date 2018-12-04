@@ -556,7 +556,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="確認訂房" id="dDn-u3-mMv">
-                        <barButtonItem key="rightBarButtonItem" title="確認訂房" id="TML-Se-kQV"/>
+                        <barButtonItem key="rightBarButtonItem" title="確認訂房" id="TML-Se-kQV">
+                            <connections>
+                                <action selector="sendReservation:" destination="u8u-9V-5ke" id="ZK1-Uo-aCn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="checkBooking" unwindAction="unwindToChooseRoom:" id="a7l-hp-AHK"/>

@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController {
     let TAG = "ProfileViewController"
     var customer: Customer?
     var idCustomer: Int = 0
-    var isLogin = false    // false = 顯示登入頁面， true = 顯示會員頁面
+    static var isLogin = false    // false = 顯示登入頁面， true = 顯示會員頁面
     var editPageInfo: Customer?
     let customerAuth = DownloadAuth.shared
     

@@ -23,6 +23,14 @@ class BookingCheckTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 200
     }
     
+    @IBAction func sendReservation(_ sender: UIBarButtonItem) {
+        if ProfileViewController.isLogin == true {
+            // ...
+        } else {
+            performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -86,7 +94,10 @@ class BookingCheckTableViewController: UITableViewController {
 
 }
 
+// MARK: - TableViewCellDelegate
+// Change room quantity.
 extension BookingCheckTableViewController: BookingCheckTableViewCellDelegate {
+    // Minus room quantity.
     func minusRoomQuantity(_ sender: BookingCheckTableViewCell) {
         guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
         guard let roomQuantity = sender.roomQuantityLabel.text?.replace(target: " 間", withString: "") else {
@@ -102,6 +113,7 @@ extension BookingCheckTableViewController: BookingCheckTableViewCellDelegate {
         sender.priceLabel.text = "NT$ \(price * quantity)"
     }
     
+    // Plus room quantity.
     func plusRoomQuantity(_ sender: BookingCheckTableViewCell) {
         guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
         guard let roomQuantity = sender.roomQuantityLabel.text?.replace(target: " 間", withString: "") else {

@@ -19,8 +19,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
     var roomTypes = [RoomType]()
     var reservationRoom = [RoomType]()
     var events = [Events]()
-    var shoppingCar = [String: Int]()
-//    var shoppingCar = [ShoppingCar]()
+    var shoppingCar = [ShoppingCar]()
     var checkInDate = ""
     var checkOutDate = ""
     var discount: Float = 1.0
@@ -33,6 +32,8 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        shoppingCar = [ShoppingCar]()
+        collectionView.reloadData()
         getRoomType()
     }
     
@@ -141,6 +142,18 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         })
     }
     
+    @IBAction func checkBookingBtnPressed(_ sender: Any) {
+        if !shoppingCar.isEmpty || shoppingCar.count != 0 {
+            performSegue(withIdentifier: "checkBooking", sender: nil)
+        } else {
+            showAlert(message: "尚未選取房間。")
+        }
+    }
+    
+    @IBAction func unwindToChooseRoom(_ segue: UIStoryboardSegue) {
+        
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -159,6 +172,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookingChooseCollectionViewCell
         
         // Configure the cell
+        cell.reservationRoomView.rating = 0
         cell.roomTypeImageView.image = UIImage(named: "pic_roomtype_2seaview")
         cell.roomTypeLabel.text = roomTypes[indexPath.row].name
         cell.roomSizeLabel.text = roomTypes[indexPath.row].roomSize
@@ -171,10 +185,17 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
             let roomName = self.roomTypes[indexPath.row].name
             let reservationQuantity = Int(cell.reservationRoomView.rating)
             let alert = UIAlertController(title: "房間選擇", message: "確定要選擇\"\(roomName)\" \(reservationQuantity) 間", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "取消", style: .cancel)
+            let cancel = UIAlertAction(title: "取消", style: .destructive, handler: { (cancel) in
+                cell.reservationRoomView.rating = 0
+            })
             let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
-                self.shoppingCar[roomName] = reservationQuantity
-//                self.shoppingCar.append(ShoppingCar(roomTypeName: roomName, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: self.roomTypes[indexPath.row].price))
+                if self.discount == 1 {
+                    self.shoppingCar.append(ShoppingCar(roomTypeName: roomName, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: self.roomTypes[indexPath.row].price))
+                } else {
+                    cell.eventLabel.isHidden = false
+                    let price = Float(self.roomTypes[indexPath.row].price) * self.discount
+                    self.shoppingCar.append(ShoppingCar(roomTypeName: roomName, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: Int(price)))
+                }
             })
             alert.addAction(cancel)
             alert.addAction(ok)
@@ -204,10 +225,9 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         }
         let checkIn = checkInDate
         let checkOut = checkOutDate
+        let days = checkIn.getStringToDate().daysBetweenDate(toDate: checkOut.getStringToDate())
         printHelper.println(tag: self.TAG, line: #line, "checkIn: \(checkIn), checkOut: \(checkOut)")
         checkRoomVC.roomReservation = shoppingCar
-        checkRoomVC.checkInDate = checkIn
-        checkRoomVC.checkOutDate = checkOut
-//        printHelper.println(tag: self.TAG, line: #line, "\(checkRoomVC.checkInDate), \(checkRoomVC.checkOutDate)")
+        checkRoomVC.totalDays = days
     }
 }

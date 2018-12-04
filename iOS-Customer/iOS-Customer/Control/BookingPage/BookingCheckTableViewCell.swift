@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol BookingCheckTableViewCellDelegate : class {
+    func minusRoomQuantity(_ sender: BookingCheckTableViewCell)
+    func plusRoomQuantity(_ sender: BookingCheckTableViewCell)
+}
+
 class BookingCheckTableViewCell: UITableViewCell {
     
     @IBOutlet weak var roomTypeNameLabel: UILabel!
@@ -15,6 +20,11 @@ class BookingCheckTableViewCell: UITableViewCell {
     @IBOutlet weak var checkOutDateLabel: UILabel!
     @IBOutlet weak var roomQuantityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var totalDaysLabel: UILabel!
+    @IBOutlet weak var minusBtn: UIButton!
+    @IBOutlet weak var plusBtn: UIButton!
+    
+    weak var delegate: BookingCheckTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +36,11 @@ class BookingCheckTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func minusRoomQuantity(_ sender: UIButton) {
+        delegate?.minusRoomQuantity(self)
+    }
+    
+    @IBAction func plusRoomQuantity(_ sender: UIButton) {
+        delegate?.plusRoomQuantity(self)
+    }
 }

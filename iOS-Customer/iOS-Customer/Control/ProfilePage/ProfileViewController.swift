@@ -11,12 +11,9 @@ import PromiseKit
 import Photos
 import MobileCoreServices
 import Alamofire
-import Starscream
 
-class ProfileViewController: UIViewController,
-                                                UIImagePickerControllerDelegate,
-                                                UINavigationControllerDelegate
-{
+
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let TAG = "ProfileViewController"
     var customer: Customer?

@@ -209,6 +209,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-V0-19N">
                                                 <rect key="frame" x="100" y="0.0" width="65" height="30"/>
                                                 <state key="normal" title="訂房紀錄"/>
+                                                <connections>
+                                                    <action selector="toOrderListPageButtonPressed:" destination="QEA-SG-bAS" eventType="touchUpInside" id="zdJ-eo-R6a"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1t-3D-zQ0">
                                                 <rect key="frame" x="200" y="0.0" width="65" height="30"/>
@@ -232,7 +235,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button" image="cm200"/>
                                         <connections>
-                                            <action selector="chungPicBtnPressed:" destination="QEA-SG-bAS" eventType="touchUpInside" id="BE9-eb-1z4"/>
+                                            <action selector="chungPicBtnPressed:" destination="QEA-SG-bAS" eventType="touchUpInside" id="ghA-FH-XaH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -369,6 +372,7 @@
                         <outlet property="profilePageView" destination="7Yy-d7-nKU" id="uZ3-Sb-hh9"/>
                         <outlet property="settingItemBtn" destination="dLi-HH-1Ap" id="KuE-3b-1dz"/>
                         <outlet property="titleNavigationItem" destination="iWE-hZ-M7t" id="O0Z-5e-PSr"/>
+                        <segue destination="znP-iC-XOu" kind="show" identifier="toOrderList" id="YnO-aU-9o2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TgL-db-Y9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1596,7 +1600,7 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="view:k3W-ik-jwl:value"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="0E35F165-38C4-4F84-AAEC-DE7B809579C3"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="FD77DFBB-EB34-4C71-B6C8-EB9CC9770322"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                         <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
@@ -1657,9 +1661,17 @@
             </objects>
             <point key="canvasLocation" x="1970" y="1623"/>
         </scene>
+        <!--RoomOrder-->
+        <scene sceneID="M3w-LV-oSu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RoomOrder" id="znP-iC-XOu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jXX-Td-Fdm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2668" y="1991"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="0E35F165-38C4-4F84-AAEC-DE7B809579C3" width="53" height="51">
+        <image name="FD77DFBB-EB34-4C71-B6C8-EB9CC9770322" width="53" height="51">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGaWpYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QGAcI
 ExQbICElJi0wNTg5PkFCRU9XW19jZlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFn

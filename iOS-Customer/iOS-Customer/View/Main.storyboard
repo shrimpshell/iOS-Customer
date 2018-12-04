@@ -163,7 +163,6 @@
                                             <constraint firstAttribute="width" constant="100" id="liO-vY-syV"/>
                                             <constraint firstAttribute="height" constant="100" id="mM7-w8-KwQ"/>
                                         </constraints>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHL-TR-PcG">
                                         <rect key="frame" x="64" y="405" width="53" height="30"/>
                                         <state key="normal" title="Receipt"/>
@@ -185,7 +184,6 @@
                                         <rect key="frame" x="168" y="80" width="39" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="to3-q9-wgt"/>
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Main.storyboard
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1163,7 +1161,6 @@ iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
         </scene>
 
 iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Main.storyboard
         <!--Tab Bar Controller-->
         <scene sceneID="7bF-PQ-OGB">
             <objects>

@@ -236,11 +236,10 @@ struct Customer: Codable {
             }
         }
         
-        func updateCustomerImage (_ params: [String: Any]) -> Promise<String> {
+        func updateCustomerImage (_ params: [String:Any]) -> Promise<String> {
             let completeURL = SERVER_URL + SERVLET
             let url = URL.init(string: completeURL)
             var request = URLRequest(url: url!)
-            var updateCustomerImageResult = "0"
             request.httpMethod = "POST"
             request.httpBody = try? JSONSerialization.data(withJSONObject: params)
             
@@ -250,13 +249,7 @@ struct Customer: Codable {
                     guard let data = data, error == nil else {
                         return result.reject(error!)
                     }
-                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for
-                        return result.reject("Status: \(httpStatus.statusCode)" as! Error)
-                    }
-                    
-                    let validResult = String(data: data, encoding: .utf8)
-                    updateCustomerImageResult = String(describing: validResult!)
-                    return result.resolve(updateCustomerImageResult, nil)
+                    return result.resolve(String(data: data, encoding: .utf8), nil)
                     }.resume()
             }
         }

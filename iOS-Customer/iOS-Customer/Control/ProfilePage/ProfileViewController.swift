@@ -213,19 +213,14 @@ class ProfileViewController: UIViewController,
             let resizedImage = originalImage.resize(maxEdge: 1024)!
             let jpgData = resizedImage.jpegData(compressionQuality: 0.8)
             //let pngData = resizedImage.pngData()
-            print("jpgData: \(jpgData!.count)")
-            self.imageCustomer.image = UIImage(data: jpgData!)
-//            let getCustomerImage: [String : Any] = ["action": "updateImage",
-//                                                                                "IdCustomer": idCustomer,
-//                                                                                "imageBase64":jpgData]
-//            customerTask.getCustomerImage(getCustomerImage).done { (result) in
-//                if result != "0" {
-//                    print("會員資料修改成功 \(result)")
-//                }.catch { (error) in
-//
-//                    assertionFailure("CheckoutTableViewController Error: \(error)")
-//            }
-//        }
+            
+            let imageDataString = jpgData?.base64EncodedString(options: .lineLength64Characters)
+            let parameters = ["action":"updateImage", "IdCustomer":"\(idCustomer)", "imageBase64": imageDataString]
+            customerTask.updateCustomerImage(parameters as [String : Any]).done { data in
+                if data != "0" {
+                    self.imageCustomer.image = UIImage(data: jpgData!)
+                }
+            }
         }
         // 要記得把picker收起來～！
         picker.dismiss(animated: true)    // Important!

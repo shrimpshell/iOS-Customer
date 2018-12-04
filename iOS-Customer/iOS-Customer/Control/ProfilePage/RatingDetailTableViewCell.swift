@@ -31,6 +31,7 @@ class RatingDetailTableViewCell: UITableViewCell {
                 idRoomReservationLabel.text = ""
             }
             
+            ratingStar.settings.updateOnTouch = false
             if rating?.ratingStar != nil {
                 ratingStar.rating = Double((rating?.ratingStar)!)
             } else {

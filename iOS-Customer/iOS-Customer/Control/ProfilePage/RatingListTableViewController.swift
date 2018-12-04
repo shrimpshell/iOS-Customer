@@ -25,6 +25,7 @@ class RatingListTableViewController: UITableViewController {
         super.viewDidLoad()
         pullToRefresh()
         refreshRatingList()
+        
     }
     
     //下拉轉圈圈更新
@@ -63,32 +64,31 @@ class RatingListTableViewController: UITableViewController {
     @objc
     func refreshRatingList() {
         guard  let idCustomer = customer?.idCustomer else {
-           print("idCustomer 解包錯誤")
+            printHelper.println(tag: "RatingListTableViewController", line: #line, "idCustomer 解包錯誤")
             return
         }
         ratingAuth.getAllRatingById(idCustomer: idCustomer) { (result, error) in
             if let error = error {
-                print("Rating download error\(error)")
+                printHelper.println(tag: "RatingListTableViewController", line: #line, "Rating download error\(error)")
                 return
             }
             guard let result = result else {
-                print("result is nil.")
+                printHelper.println(tag: "RatingListTableViewController", line: #line, "result is nil.")
                 return
             }
-            print("Retrive Rating List is OK.")
+            printHelper.println(tag: "RatingListTableViewController", line: #line, "Retrive Rating List is OK.")
             
             guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
                 else  {
-                    print("Fail to generate jsonData.")
+                    printHelper.println(tag: "RatingListTableViewController", line: #line, "Fail to generate jsonData.")
                     return
             }
             let decoder = JSONDecoder()
             guard let resultObject = try? decoder.decode([Rating].self, from: jsonData) else {
-                print("Fail to decoder jsonData.")
+                printHelper.println(tag: "RatingListTableViewController", line: #line, "Fail to decoder jsonData.")
                 return
             }
-            print("resultObject: \(resultObject)")
-            
+            printHelper.println(tag: "RatingListTableViewController", line: #line, "resultObject: \(resultObject)")
             
             self.ratingItem = resultObject
             

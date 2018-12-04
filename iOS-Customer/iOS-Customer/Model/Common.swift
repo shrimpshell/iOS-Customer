@@ -11,8 +11,15 @@ import Starscream
 
 struct Common {
 
+    //static let SERVER_URL: String = "http://172.20.10.6:8080/ShellService"
+    
+   static let SERVER_URL: String = "http://192.168.50.105:8080/ShellService"
+
+  // static let SERVER_URL: String = "http://192.168.92.3:8080/ShellService"
+
+    //static let SERVER_URL: String = "http://192.168.1.15:8080/ShellService"
     // Server
-    static let SERVER_URL: String = "http://192.168.50.124:8080/ShellService"
+    //static let SERVER_URL: String = "http://192.168.50.124:8080/ShellService"
     //static let SERVER_URL: String = "http://10.1.1.2:8080/ShellService"
 
     
@@ -20,7 +27,6 @@ struct Common {
     static let SOCKET_URL: String = "ws://192.168.50.124:8080/ShellService/WsServer/"
     //static let SOCKET_URL: String = "ws://10.1.1.2:8080/ShellService/WsServer/"
    
- 
 }
 
 

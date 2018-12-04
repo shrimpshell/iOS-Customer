@@ -70,7 +70,7 @@ class EditingTableViewController: UITableViewController {
 
         let editCustomer = Customer(idCustomer: idCustomer, customerID: email!, name: name!, email: email!, password: password!, birthday: birthday!, phone: phone, address: address!)
         customer = editCustomer
-        print("editCustomer: \(editCustomer)")
+        //print("editCustomer: \(editCustomer)")
         let editCustomerData = try! JSONEncoder().encode(editCustomer)
         let customerString = String(data: editCustomerData, encoding: .utf8)
         let joinCustomer = ["action": "update", "customer": customerString] as! [String:Any]

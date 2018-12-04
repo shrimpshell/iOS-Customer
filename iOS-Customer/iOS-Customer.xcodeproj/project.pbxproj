@@ -33,12 +33,26 @@
 		78390532219BFC740059BC5B /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* PrintHelper.swift */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
+		78955BAD219EAF6A0092FD42 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */; };
+		789B07D221A4438300B764C2 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B07D121A4438300B764C2 /* CornerRadius.swift */; };
+		78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB9498216E13F100045C95 /* ProfileViewController.swift */; };
+		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
+		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
+		78BC9627219D6B33005DBD6A /* AllRatingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC9626219D6B33005DBD6A /* AllRatingDetailViewController.swift */; };
+		78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */; };
+		D12394E421940A7D001F6E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405A72166699300E72B67 /* Main.storyboard */; };
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
 		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
 		D12CAED9219D4CC40035446C /* RoomOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12CAED8219D4CC40035446C /* RoomOrder.storyboard */; };
 		D13405A42166699300E72B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A32166699300E72B67 /* AppDelegate.swift */; };
 		D13405AB2166699500E72B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D13405AA2166699500E72B67 /* Assets.xcassets */; };
 		D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405AC2166699500E72B67 /* LaunchScreen.storyboard */; };
+		D149C7DC219D110800FDF92E /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7D8219D110800FDF92E /* EditingTableViewController.swift */; };
+		D149C7DD219D110800FDF92E /* RatingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7D9219D110800FDF92E /* RatingDetailTableViewCell.swift */; };
+		D149C7DE219D110800FDF92E /* RatingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7DA219D110800FDF92E /* RatingListTableViewController.swift */; };
+		D149C7DF219D110800FDF92E /* WritingRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7DB219D110800FDF92E /* WritingRatingViewController.swift */; };
+		D149C7E2219D111D00FDF92E /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7E0219D111C00FDF92E /* AllRatingsTableViewController.swift */; };
+		D149C7E3219D111D00FDF92E /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149C7E1219D111C00FDF92E /* AllRatingsTableViewCell.swift */; };
 		D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E2421941466002E065A /* RoomOrderTableViewController.swift */; };
 		D1918E2921951426002E065A /* RoomOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E2821951426002E065A /* RoomOrderDetailViewController.swift */; };
 		D76C7F7D6E8B8BF07E7B5BC8 /* Pods_iOS_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB724A95E3AF927AE6FDE13F /* Pods_iOS_Customer.framework */; };
@@ -72,6 +86,13 @@
 		78390531219BFC740059BC5B /* PrintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintHelper.swift; sourceTree = "<group>"; };
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		789B07D121A4438300B764C2 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		78AB9498216E13F100045C95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		78BC9626219D6B33005DBD6A /* AllRatingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingDetailViewController.swift; sourceTree = "<group>"; };
+		78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
 		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		9F2DEE62D08AECFEBE061A2D /* Pods-iOS-Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +100,17 @@
 		D12CAED8219D4CC40035446C /* RoomOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RoomOrder.storyboard; sourceTree = "<group>"; };
 		D13405A02166699300E72B67 /* iOS-Customer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Customer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13405A32166699300E72B67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D13405A52166699300E72B67 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = "/Users/unalee/Desktop/Android PG/iOS App/iOS-Customer/iOS-Customer/Control/HomePage/HomePageViewController.swift"; sourceTree = "<absolute>"; };
+		D13405A82166699300E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D13405AA2166699500E72B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D13405AD2166699500E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D13405AF2166699500E72B67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D149C7D8219D110800FDF92E /* EditingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
+		D149C7D9219D110800FDF92E /* RatingDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDetailTableViewCell.swift; sourceTree = "<group>"; };
+		D149C7DA219D110800FDF92E /* RatingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingListTableViewController.swift; sourceTree = "<group>"; };
+		D149C7DB219D110800FDF92E /* WritingRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingRatingViewController.swift; sourceTree = "<group>"; };
+		D149C7E0219D111C00FDF92E /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
+		D149C7E1219D111C00FDF92E /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
 		D13405AA2166699500E72B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D13405AD2166699500E72B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D13405AF2166699500E72B67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,7 +186,9 @@
 		78390539219C15BF0059BC5B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */,
 				788AE3A82193DD7C008B3C0F /* Alert.swift */,
+				789B07D121A4438300B764C2 /* CornerRadius.swift */,
 				78390531219BFC740059BC5B /* PrintHelper.swift */,
 			);
 			path = Helper;
@@ -227,17 +261,41 @@
 		D13405A22166699300E72B67 /* iOS-Customer */ = {
 			isa = PBXGroup;
 			children = (
+				D13405A32166699300E72B67 /* AppDelegate.swift */,
 				726302A521AFEDE3006A8A1D /* iOS-Customer.entitlements */,
 				72D917C1219D142A0008D90C /* Josh.storyboard */,
 				D12CAED7219D4BED0035446C /* View */,
 				78AB949F216E28FD00045C95 /* Control */,
 				78AB949E216E28B700045C95 /* Model */,
-				D13405A32166699300E72B67 /* AppDelegate.swift */,
 				D13405AA2166699500E72B67 /* Assets.xcassets */,
 				D13405AC2166699500E72B67 /* LaunchScreen.storyboard */,
 				D13405AF2166699500E72B67 /* Info.plist */,
 			);
 			path = "iOS-Customer";
+			sourceTree = "<group>";
+		};
+		D149C7E5219D135800FDF92E /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				78BC9626219D6B33005DBD6A /* AllRatingDetailViewController.swift */,
+				D149C7E1219D111C00FDF92E /* AllRatingsTableViewCell.swift */,
+				D149C7E0219D111C00FDF92E /* AllRatingsTableViewController.swift */,
+				D13405A52166699300E72B67 /* HomePageViewController.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		D149C7E6219D139700FDF92E /* ProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
+				D149C7D8219D110800FDF92E /* EditingTableViewController.swift */,
+				D149C7D9219D110800FDF92E /* RatingDetailTableViewCell.swift */,
+				D149C7DA219D110800FDF92E /* RatingListTableViewController.swift */,
+				D149C7DB219D110800FDF92E /* WritingRatingViewController.swift */,
+				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
+			);
+			path = ProfilePage;
 			sourceTree = "<group>";
 		};
 		D149C7E7219D13AF00FDF92E /* RoomOrder */ = {
@@ -386,6 +444,19 @@
 				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
 				7230158821B0F8FE00FD89D7 /* ReceiptTableViewController.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
+				D149C7DF219D110800FDF92E /* WritingRatingViewController.swift in Sources */,
+				D149C7DE219D110800FDF92E /* RatingListTableViewController.swift in Sources */,
+				789B07D221A4438300B764C2 /* CornerRadius.swift in Sources */,
+				78BC9627219D6B33005DBD6A /* AllRatingDetailViewController.swift in Sources */,
+				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
+				D149C7E2219D111D00FDF92E /* AllRatingsTableViewController.swift in Sources */,
+				78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */,
+				78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */,
+				D13405A62166699300E72B67 /* HomePageViewController.swift in Sources */,
+				D149C7DC219D110800FDF92E /* EditingTableViewController.swift in Sources */,
+				D149C7DD219D110800FDF92E /* RatingDetailTableViewCell.swift in Sources */,
+				78955BAD219EAF6A0092FD42 /* UIImage+Resize.swift in Sources */,
+				D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */,
 				72D917C7219D188A0008D90C /* ServiceItemCollectionViewCell.swift in Sources */,
 				7230157A21B0F8F400FD89D7 /* AllRatingsTableViewCell.swift in Sources */,
 				72D917C9219D1AA90008D90C /* ItemDetailTableViewController.swift in Sources */,
@@ -547,6 +618,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS-Customer/iOS-Customer.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 85Z3N82V35;
 				DEVELOPMENT_TEAM = DW35N2WN73;
 				INFOPLIST_FILE = "iOS-Customer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -567,6 +639,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "iOS-Customer/iOS-Customer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 85Z3N82V35;
 				DEVELOPMENT_TEAM = DW35N2WN73;
 				INFOPLIST_FILE = "iOS-Customer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

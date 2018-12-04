@@ -19,12 +19,19 @@ class ViewController: UIViewController {
         
     }
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> Josh03
     // 顯示TabBar
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.tabBarController?.tabBar.isHidden = false
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> Josh03
 
      @IBAction func unwindToHomePage(_ segue: UIStoryboardSegue){
 

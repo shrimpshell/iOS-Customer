@@ -35,8 +35,6 @@ struct DownloadAuth {
     //static let SERVER_URL = "http://172.20.10.6:8080/ShellService"
     let RATING_SERVLET = SERVER_URL + "/RatingServlet"
     let CUSTOMER_SERVLET = SERVER_URL + "/CustomerServlet"
-    let RATING_SERVLET = Common.SERVER_URL + "/RatingServlet"
-    let CUSTOMER_SERVLET = Common.SERVER_URL + "/CustomerServlet"
     let INSTANT_SERVLET = Common.SERVER_URL + "/InstantServlet"
     let PAYDETAIL_SERVLET = Common.SERVER_URL + "/PayDetailServlet"
     

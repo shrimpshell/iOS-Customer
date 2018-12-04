@@ -159,35 +159,8 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvL-r8-1dn">
                                         <rect key="frame" x="137.5" y="65" width="100" height="25"/>
                                         <constraints>
-<<<<<<< HEAD:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
                                             <constraint firstAttribute="height" constant="25" id="kot-5c-ymZ"/>
                                             <constraint firstAttribute="width" constant="100" id="liO-vY-syV"/>
-=======
-                                            <constraint firstAttribute="height" constant="100" id="mM7-w8-KwQ"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHL-TR-PcG">
-                                        <rect key="frame" x="64" y="405" width="53" height="30"/>
-                                        <state key="normal" title="Receipt"/>
-                                        <connections>
-                                            <segue destination="imT-fT-DLU" kind="show" identifier="toReceiptList" id="M9q-tx-MJW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqV-Kd-7ua">
-                                        <rect key="frame" x="138" y="405" width="51" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="51" id="5ao-DN-UPQ"/>
-                                        </constraints>
-                                        <state key="normal" title="Service"/>
-                                        <connections>
-                                            <segue destination="thQ-U8-QyH" kind="showDetail" identifier="toInstantServicePage" id="0HF-yN-CTm"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvL-r8-1dn">
-                                        <rect key="frame" x="168" y="80" width="39" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="to3-q9-wgt"/>
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Main.storyboard
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -535,11 +508,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztS-2O-b6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
             <point key="canvasLocation" x="1076" y="1911"/>
-=======
-            <point key="canvasLocation" x="1556" y="1978"/>
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Main.storyboard
         </scene>
         <!--註冊會員-->
         <scene sceneID="H6X-lH-5j2">
@@ -819,8 +788,6 @@
             </objects>
             <point key="canvasLocation" x="4192.8000000000002" y="641.82908545727139"/>
         </scene>
-<<<<<<< HEAD:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
-=======
         <!--Receipt Table View Controller-->
         <scene sceneID="c0P-nz-yby">
             <objects>
@@ -1069,7 +1036,6 @@
             </objects>
             <point key="canvasLocation" x="617" y="2799"/>
         </scene>
-iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
         <!--Rating View Controller-->
         <scene sceneID="8pj-pa-GZP">
             <objects>
@@ -1169,9 +1135,6 @@ iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
             </objects>
             <point key="canvasLocation" x="1556" y="2799"/>
         </scene>
-
-iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Main.storyboard
         <!--Tab Bar Controller-->
         <scene sceneID="7bF-PQ-OGB">
             <objects>
@@ -1503,7 +1466,6 @@ iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
             </objects>
             <point key="canvasLocation" x="1076" y="132.68365817091455"/>
         </scene>
-<<<<<<< HEAD:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
         <!--All Rating Detail View Controller-->
         <scene sceneID="PcE-vf-qcE">
             <objects>
@@ -1689,21 +1651,11 @@ iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
         </scene>
         <!--RoomOrder-->
         <scene sceneID="p8s-zw-Ksq">
-=======
-iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
-        <!--Josh-->
-        <scene sceneID="n3S-wF-BBH">
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Main.storyboard
             <objects>
                 <viewControllerPlaceholder storyboardName="Josh" id="thQ-U8-QyH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Dx-Kt-OuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
             <point key="canvasLocation" x="1970" y="1623"/>
-=======
-            <point key="canvasLocation" x="2869.5999999999999" y="2122.4887556221893"/>
-
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Main.storyboard
         </scene>
     </scenes>
     <resources>

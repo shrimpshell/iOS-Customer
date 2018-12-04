@@ -17,7 +17,7 @@ class Communicator {
     private init() {
     }
     
-    func joinCustomer(<#parameters#>) -> <#return type#> {
-        <#function body#>
-    }
+//    func joinCustomer(<#parameters#>) -> <#return type#> {
+//        <#function body#>
+//    }
 }

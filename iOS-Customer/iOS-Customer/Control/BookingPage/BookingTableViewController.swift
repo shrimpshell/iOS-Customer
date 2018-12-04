@@ -45,9 +45,6 @@ class BookingTableViewController: UITableViewController {
         return 1
     }
     
-    @IBAction func unwindToBookingPage(_ segue: UIStoryboardSegue) {
-    }
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -84,5 +81,27 @@ extension Date {
         formatter.dateFormat = "yyyy-MM-dd"
         let dateStr = formatter.string(from: self)
         return dateStr
+    }
+    
+    func daysBetweenDate(toDate: Date) -> Int {
+        let components = Calendar.current.dateComponents([.day], from: self, to: toDate)
+        return components.day ?? 0
+    }
+}
+
+extension String {
+    func getStringToDate() -> Date {
+        // 設置 Date 的格式
+        let formatter = DateFormatter()
+        
+        // 設置時間顯示的格式
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone.ReferenceType.system
+        let date = formatter.date(from: self)
+        return date!
+    }
+    
+    func replace(target: String, withString: String) -> String {
+        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
     }
 }

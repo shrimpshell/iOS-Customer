@@ -1107,11 +1107,13 @@
                             <constraint firstItem="6zN-lu-TJW" firstAttribute="centerX" secondItem="5s9-lK-KI5" secondAttribute="centerX" id="Eir-Uh-PTv"/>
                             <constraint firstItem="5s9-lK-KI5" firstAttribute="leading" secondItem="0rC-5e-gKK" secondAttribute="leading" id="N0N-BT-vrY"/>
                             <constraint firstItem="6zN-lu-TJW" firstAttribute="centerX" secondItem="wtd-kf-eeM" secondAttribute="centerX" id="ODs-NT-bIL"/>
+                            <constraint firstAttribute="bottom" secondItem="6zN-lu-TJW" secondAttribute="bottom" constant="548" id="OwY-UY-PFd"/>
                             <constraint firstItem="wtd-kf-eeM" firstAttribute="top" secondItem="6zN-lu-TJW" secondAttribute="bottom" constant="25" id="VH4-X5-ngK"/>
                             <constraint firstItem="6zN-lu-TJW" firstAttribute="top" secondItem="5s9-lK-KI5" secondAttribute="bottom" constant="20" id="ZiT-ZE-u7J"/>
                             <constraint firstItem="6zN-lu-TJW" firstAttribute="top" secondItem="0rC-5e-gKK" secondAttribute="top" constant="84" id="cBv-eJ-H4V"/>
                             <constraint firstItem="wtd-kf-eeM" firstAttribute="centerX" secondItem="0rC-5e-gKK" secondAttribute="centerX" id="fTq-Dc-e0o"/>
                             <constraint firstItem="wtd-kf-eeM" firstAttribute="leading" secondItem="EzT-Qg-0It" secondAttribute="leading" constant="25" id="nuE-Rd-RO8"/>
+                            <constraint firstItem="6zN-lu-TJW" firstAttribute="leading" secondItem="EzT-Qg-0It" secondAttribute="leading" constant="90" id="p75-XS-zx9"/>
                             <constraint firstItem="EzT-Qg-0It" firstAttribute="trailing" secondItem="wtd-kf-eeM" secondAttribute="trailing" constant="25" id="zsN-Xr-sRl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EzT-Qg-0It"/>
@@ -1443,8 +1445,6 @@
     <resources>
         <image name="GoldStar" width="53" height="51"/>
         <image name="GoldStarEmpty" width="53" height="51"/>
-        <image name="calendar" width="25" height="28.5"/>
-        <image name="calendar_selected" width="25" height="28.5"/>
         <image name="customer_detail_background" width="455" height="717"/>
         <image name="customer_global_background" width="360" height="511"/>
         <image name="home" width="25" height="25"/>

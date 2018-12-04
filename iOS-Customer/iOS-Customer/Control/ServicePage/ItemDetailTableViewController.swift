@@ -20,7 +20,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
     let itemLabelForDinling = ["A餐","B餐","C餐"]
     let itemImageForTraffic = ["icon_traffic_plant","icon_traffic_train","icon_traffic_higeway"]
     let itemLabelForTraffic = ["機場接送","車站接送","高鐵接送"]
-    let itemImageForRoomService = ["icon_room_service_clean","icon_room_service_washing","icon_room_service_gotoroom","icon_room_service_gotoroom"]
+    let itemImageForRoomService = ["icon_room_service_clean","icon_room_service_washing","icon_service_bed","icon_toothbrush"]
     let itemLabelForRoomService = ["清潔房間","洗衣服務","枕頭備品","盥洗用具"]
     var itemCount: Int = -1
     var serviceName: String = ""

@@ -269,11 +269,11 @@
             </objects>
             <point key="canvasLocation" x="2869.5999999999999" y="2122.4887556221893"/>
         </scene>
-        <!--Item-->
+        <!--即時服務-->
         <scene sceneID="Wco-L8-iZn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ea4-9p-de3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="VU0-Jz-pZu"/>
+                    <tabBarItem key="tabBarItem" title="即時服務" image="icon_instant_service" id="VU0-Jz-pZu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3PQ-76-sJK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -306,11 +306,11 @@
             </objects>
             <point key="canvasLocation" x="5645.6000000000004" y="1781.5592203898052"/>
         </scene>
-        <!--Item-->
+        <!--服務進度-->
         <scene sceneID="fHE-NB-Z1a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eQ2-P4-T5l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Qpw-wS-a5R"/>
+                    <tabBarItem key="tabBarItem" title="服務進度" image="icon_status_service" id="Qpw-wS-a5R"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8TF-lG-Hid">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -326,4 +326,8 @@
             <point key="canvasLocation" x="3824.8000000000002" y="2538.9805097451276"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_instant_service" width="34.400001525878906" height="34.400001525878906"/>
+        <image name="icon_status_service" width="34.400001525878906" height="34.400001525878906"/>
+    </resources>
 </document>

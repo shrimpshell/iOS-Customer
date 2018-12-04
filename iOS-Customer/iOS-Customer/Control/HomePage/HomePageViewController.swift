@@ -8,18 +8,26 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
     }
     
+<<<<<<< HEAD
     // 顯示TabBar
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.tabBarController?.tabBar.isHidden = false
     }
+=======
+    
+>>>>>>> develop
 
      @IBAction func unwindToHomePage(_ segue: UIStoryboardSegue){
 

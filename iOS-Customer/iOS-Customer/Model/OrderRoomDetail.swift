@@ -2,12 +2,15 @@
 //  OrderRoomDetail.swift
 //  iOS-Customer
 //
-//  Created by Hsin Hwang on 2018/11/8.
+
+//  Created by Josh Hsieh on 2018/11/20.
+
 //  Copyright © 2018 Hsin Hwang. All rights reserved.
 //
 
 import Foundation
 import PromiseKit
+
 
 struct OrderRoomDetail {
     var checkInDate: String, checkOuntDate: String, roomNumber: String? = nil, price: String, roomQuantity: String, roomTypeName: String, roomReservationStatus: String, roomGroup: String, ratingStatus: String? = nil, idRoomReservation: Int
@@ -62,7 +65,7 @@ struct OrderRoomDB {
                 }
                 
                 return result.resolve(orderRoomDetails, nil)
-            }.resume()
+                }.resume()
         }
     }
     
@@ -98,7 +101,7 @@ struct OrderRoomDB {
                 }
                 
                 return result.resolve(orderInstantDetails, nil)
-            }.resume()
+                }.resume()
         }
     }
     

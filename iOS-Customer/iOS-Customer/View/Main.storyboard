@@ -159,10 +159,8 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvL-r8-1dn">
                                         <rect key="frame" x="137.5" y="65" width="100" height="25"/>
                                         <constraints>
-<<<<<<< HEAD:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
                                             <constraint firstAttribute="height" constant="25" id="kot-5c-ymZ"/>
                                             <constraint firstAttribute="width" constant="100" id="liO-vY-syV"/>
-=======
                                             <constraint firstAttribute="height" constant="100" id="mM7-w8-KwQ"/>
                                         </constraints>
                                     </imageView>
@@ -535,11 +533,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztS-2O-b6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
             <point key="canvasLocation" x="1076" y="1911"/>
-=======
-            <point key="canvasLocation" x="1556" y="1978"/>
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Main.storyboard
         </scene>
         <!--註冊會員-->
         <scene sceneID="H6X-lH-5j2">
@@ -819,8 +813,6 @@
             </objects>
             <point key="canvasLocation" x="4192.8000000000002" y="641.82908545727139"/>
         </scene>
-<<<<<<< HEAD:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
-=======
         <!--Receipt Table View Controller-->
         <scene sceneID="c0P-nz-yby">
             <objects>
@@ -1689,21 +1681,13 @@ iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
         </scene>
         <!--RoomOrder-->
         <scene sceneID="p8s-zw-Ksq">
-=======
-iOS-Customer/iOS-Customer/Base.lproj/Main.storyboard
         <!--Josh-->
         <scene sceneID="n3S-wF-BBH">
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Main.storyboard
             <objects>
                 <viewControllerPlaceholder storyboardName="Josh" id="thQ-U8-QyH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Dx-Kt-OuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD:iOS-Customer/iOS-Customer/View/Base.lproj/Main.storyboard
             <point key="canvasLocation" x="1970" y="1623"/>
-=======
-            <point key="canvasLocation" x="2869.5999999999999" y="2122.4887556221893"/>
-
->>>>>>> develop:iOS-Customer/iOS-Customer/View/Main.storyboard
         </scene>
     </scenes>
     <resources>

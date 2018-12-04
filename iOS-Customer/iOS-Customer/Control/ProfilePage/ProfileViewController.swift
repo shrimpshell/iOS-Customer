@@ -47,6 +47,8 @@ class ProfileViewController: UIViewController,
         super.viewDidLoad()
         userlogin()
         
+        //修image邊角
+        cornerRadius(view: imageCustomer)
     }
     
     override func viewWillAppear(_ animated: Bool) {

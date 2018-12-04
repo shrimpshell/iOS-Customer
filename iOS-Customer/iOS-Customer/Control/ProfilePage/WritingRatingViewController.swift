@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import Cosmos
 
 class WritingRatingViewController: UIViewController {
     let TAG = "WritingRatingViewController"
     
-    var customer: Customer?
-    let ratingAuth = DownloadAuth.shared
+    var idRoomReservation: Int = 0
+    let ratingAuth = RatingAuth()
     
+    
+    @IBOutlet weak var ratingStarView: CosmosView!
+    @IBOutlet weak var opinionText: UITextView!
     
 
     override func viewDidLoad() {
@@ -29,7 +33,9 @@ class WritingRatingViewController: UIViewController {
     }
     
     
+    
     @IBAction func sendRatingBtnPressed(_ sender: UIBarButtonItem) {
+        var opinion = ""
         
         //取得當前時間
         let now: Date = Date()
@@ -37,13 +43,34 @@ class WritingRatingViewController: UIViewController {
         dateFormat.dateFormat = "yyyy-MM-dd"
         let dateString: String = dateFormat.string(from: now)
         print("“現在時間：\(dateString)”")
+        
+        let ratingStar = Float(ratingStarView.rating)
+        if opinionText.text != nil {
+             opinion = opinionText.text
+        }
+        let rating = Rating(ratingStar: ratingStar, time: dateString, opinion: opinion, ratingStatus: 1, idRoomReservation: idRoomReservation)
+        let ratingData = try! JSONEncoder().encode(rating)
+        let ratingString = String(data: ratingData, encoding: .utf8)
+        let insertRating = ["action": "ratingInsert", "rating": ratingString] as! [String:Any]
+        print("ratingString: \(ratingString)")
+        ratingAuth.insertRating(insertRating).done {
+            (result) in
+            if result != "0" {
+                printHelper.println(tag: "WritingRatingViewController", line: #line, "評論上傳成功 \(result)")
+                self.performSegue(withIdentifier: "toPayDetailPage", sender: self.sendRatingBtnPressed)
+                
+            } else {
+                self.showAlert(message: "評論添加失敗")
+            }
+        }
     }
     
     @IBAction func cancelBtnPressed(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "蝦殼飯店", message: "取消撰寫", preferredStyle: .alert)
         let ok = UIAlertAction(title: "確定", style: .destructive){
             (action) in
-            self.performSegue(withIdentifier: "toReceiptList", sender: action)
+            self.performSegue(withIdentifier: "toPayDetailPage", sender: self.cancelBtnPressed)
+            
         }
         let cancel = UIAlertAction(title: "取消", style: .default)
         alert.addAction(cancel)
@@ -51,20 +78,4 @@ class WritingRatingViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    
-   
-//    @IBAction func cancelBtnPressed(_ sender: UIBarButtonItem) {
-//        let alert = UIAlertController(title: "蝦殼飯店", message: "取消撰寫", preferredStyle: .alert)
-//        let ok = UIAlertAction(title: "確定", style: .destructive){
-//            (action) in
-//            self.performSegue(withIdentifier: "toReceiptList", sender: action)
-//        }
-//        let cancel = UIAlertAction(title: "取消", style: .default)
-//        alert.addAction(cancel)
-//        alert.addAction(ok)
-//
-//        present(alert, animated: true, completion: nil)
-//    }
-
-    
 }

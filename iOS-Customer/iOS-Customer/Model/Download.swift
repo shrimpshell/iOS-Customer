@@ -15,13 +15,15 @@ let ID_CUSTOMER = "IdCustomer"
 let CUSTOMER_KEY = "customer"
 let RESULT_KEY = "result"
 let DATA_KEY = "data"
+let IDROOMRESERVATION_KEY = "IdRoomReservation"
 
 
 typealias DoneHandler = (_ result: Any?, _ error: Error?) -> Void
 
 struct DownloadAuth {
-    //static let SERVER_URL = "http://192.168.1.2:8080/ShellService"
-    static let SERVER_URL = "http://192.168.50.105:8080/ShellService"
+   static let SERVER_URL = "http://192.168.50.105:8080/ShellService"
+    //static let SERVER_URL = "http://192.168.1.15:8080/ShellService"
+    //static let SERVER_URL = "http://172.20.10.6:8080/ShellService"
     let RATING_SERVLET = SERVER_URL + "/RatingServlet"
     let CUSTOMER_SERVLET = SERVER_URL + "/CustomerServlet"
     
@@ -54,6 +56,12 @@ struct DownloadAuth {
         let parameters: [String : Any] = [ACTION: "update",
                                                                 CUSTOMER_KEY: customer]
          doPost(urlString: CUSTOMER_SERVLET, parameters: parameters, completion: completion)
+    }
+    
+    func getRatingStatus(idRoomReservation: Int, completion: @escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION: "getRatingStatus", IDROOMRESERVATION_KEY: idRoomReservation]
+        
+        doPost(urlString: RATING_SERVLET, parameters: parameters, completion: completion)
     }
     
     fileprivate func doPost(urlString: String,

@@ -10,7 +10,6 @@ import UIKit
 import Cosmos
 
 class AllRatingDetailViewController: UIViewController {
-    static let TAG = "AllRatingDetailViewController"
     
     var rating: Rating?
 

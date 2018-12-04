@@ -10,7 +10,7 @@ import UIKit
 
 class AllRatingsTableViewController: UITableViewController {
     
-    static let TAG = "AllRatingsTableViewController"
+    
     var refreshAction = UIRefreshControl()
     var allRatingItems = [Rating]()
     let ratingAuth = DownloadAuth.shared
@@ -94,26 +94,26 @@ class AllRatingsTableViewController: UITableViewController {
     func showAllCustomerRatings(key: String) {
         ratingAuth.getAllCustomerRatings(key: key) { (result, error) in
             if let error = error {
-                printHelper.println(tag: AllRatingsTableViewController.TAG, line: #line, "Rating download error\(error)")
+                printHelper.println(tag: "AllRatingsTableViewController", line: #line, "Rating download error\(error)")
                 return
             }
             guard let result = result else {
-                printHelper.println(tag: AllRatingsTableViewController.TAG, line: #line, "result is nil.")
+                printHelper.println(tag: "AllRatingsTableViewController", line: #line, "result is nil.")
                 return
             }
             print("Retrive all ratings list is OK.")
             
             guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
                 else  {
-                    printHelper.println(tag: AllRatingsTableViewController.TAG, line: #line, "Fail to generate jsonData.")
+                    printHelper.println(tag: "AllRatingsTableViewController", line: #line, "Fail to generate jsonData.")
                     return
             }
             let decoder = JSONDecoder()
             guard let resultObject = try? decoder.decode([Rating].self, from: jsonData) else {
-                printHelper.println(tag: AllRatingsTableViewController.TAG, line: #line, "Fail to decoder jsonData.")
+                printHelper.println(tag: "AllRatingsTableViewController", line: #line, "Fail to decoder jsonData.")
                 return
             }
-            print("resultObject: \(resultObject)")
+            printHelper.println(tag: "AllRatingDetailViewController", line: #line, "resultObject: \(resultObject)")
             self.allRatingItems = resultObject
             
             //更新TableView內容
@@ -138,15 +138,5 @@ class AllRatingsTableViewController: UITableViewController {
                 
             }
         }
-        
-//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//                if(segue.identifier == "showRatingDetails"){
-//                let rating = allRatingItems[selectedIndexPath.row]
-//                let controller = segue.destination as! AllRatingDetailViewController
-//                controller.rating = rating
-//
-//            }
-//        }
     }
-    
 }

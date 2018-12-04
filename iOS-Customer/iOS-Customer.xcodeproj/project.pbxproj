@@ -12,8 +12,8 @@
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
 		78955BAD219EAF6A0092FD42 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */; };
+		789B07D221A4438300B764C2 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B07D121A4438300B764C2 /* CornerRadius.swift */; };
 		78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB9498216E13F100045C95 /* ProfileViewController.swift */; };
-		78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */; };
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
 		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
 		78BC9627219D6B33005DBD6A /* AllRatingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC9626219D6B33005DBD6A /* AllRatingDetailViewController.swift */; };
@@ -42,8 +42,8 @@
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		789B07D121A4438300B764C2 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		78AB9498216E13F100045C95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptTableViewController.swift; path = "/Users/unalee/Desktop/Android PG/iOS App/iOS-Customer/iOS-Customer/Control/ProfilePage/ReceiptTableViewController.swift"; sourceTree = "<absolute>"; };
 		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		78BC9626219D6B33005DBD6A /* AllRatingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingDetailViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +95,7 @@
 			children = (
 				78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */,
 				788AE3A82193DD7C008B3C0F /* Alert.swift */,
+				789B07D121A4438300B764C2 /* CornerRadius.swift */,
 				78390531219BFC740059BC5B /* PrintHelper.swift */,
 			);
 			path = Helper;
@@ -187,12 +188,11 @@
 		D149C7E6219D139700FDF92E /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
+				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
 				D149C7D8219D110800FDF92E /* EditingTableViewController.swift */,
 				D149C7D9219D110800FDF92E /* RatingDetailTableViewCell.swift */,
 				D149C7DA219D110800FDF92E /* RatingListTableViewController.swift */,
 				D149C7DB219D110800FDF92E /* WritingRatingViewController.swift */,
-				78AB949A216E27E300045C95 /* ReceiptTableViewController.swift */,
-				78AB9498216E13F100045C95 /* ProfileViewController.swift */,
 				78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */,
 			);
 			path = ProfilePage;
@@ -330,7 +330,7 @@
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
 				D149C7DF219D110800FDF92E /* WritingRatingViewController.swift in Sources */,
 				D149C7DE219D110800FDF92E /* RatingListTableViewController.swift in Sources */,
-				78AB949B216E27E300045C95 /* ReceiptTableViewController.swift in Sources */,
+				789B07D221A4438300B764C2 /* CornerRadius.swift in Sources */,
 				78BC9627219D6B33005DBD6A /* AllRatingDetailViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
 				D149C7E2219D111D00FDF92E /* AllRatingsTableViewController.swift in Sources */,

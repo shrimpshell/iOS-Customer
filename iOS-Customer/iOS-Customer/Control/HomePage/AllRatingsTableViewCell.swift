@@ -22,7 +22,6 @@ class AllRatingsTableViewCell: UITableViewCell {
         didSet {
             guard  let idRoomReservation = allRating?.idRoomReservation else {
                 printHelper.println(tag: "ProfileViewController", line: #line, "Rating idRoomReservation is nil")
-                print("Rating idRoomReservation is nil")
                 return
             }
             if allRating?.idRoomReservation != nil {
@@ -55,7 +54,8 @@ class AllRatingsTableViewCell: UITableViewCell {
                 dateLabel.isHidden = true
             }
             
-            if allRating?.review == nil {
+            customrServiceResponse.isHidden = false
+            if allRating?.ratingStatus != 2 {
                 customrServiceResponse.isHidden = true
             }
         }

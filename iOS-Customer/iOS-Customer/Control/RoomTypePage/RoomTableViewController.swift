@@ -11,6 +11,7 @@ import UIKit
 class RoomTableViewController: UITableViewController {
     
     var objects = [Room]()
+    let communicator = Communicator.shared
     
     //增加背景圖
     override func viewWillAppear(_ animated: Bool) {
@@ -25,7 +26,7 @@ class RoomTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("RoomTableViewController")
+//        print("RoomTableViewController")
         
         let urlString = Common.SERVER_URL + "/RoomTypeServlet?action=getAll"
         
@@ -45,7 +46,9 @@ class RoomTableViewController: UITableViewController {
             }
             
             print("Items: \(items)")
-            self.objects = items//替換Master的Array
+            for item in items {
+                self.objects.append(item)
+            }
             
             self.tableView.reloadData()//刷新tableView
         }
@@ -75,7 +78,7 @@ class RoomTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RoomTableViewCell
         
-        cell.nameLabel?.text = objects[indexPath.row].name
+        /*cell.nameLabel?.text = objects[indexPath.row].name
         cell.typeLabel?.text = objects[indexPath.row].roomSize
         cell.priceLabel?.text = String(objects[indexPath.row].price)
         cell.roomImage.image = UIImage(named: "picture")
@@ -89,8 +92,28 @@ class RoomTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 cell.roomImage.image = UIImage(data: data!)
             }
-        }
+        }*/
         
+        let room = objects[indexPath.row]
+        let id = room.id
+        cell.roomImage.image = UIImage(named: "picture")
+        communicator.getPhotoById(id: id) { (result, error) in
+            
+            guard let data = result else {
+                return
+            }
+            
+            if let currentIndexPath = tableView.indexPath(for: cell), currentIndexPath == indexPath {
+                DispatchQueue.main.async {
+                    cell.roomImage.image = UIImage(data: data)
+                }
+                
+                cell.nameLabel?.text = room.name
+                cell.typeLabel?.text = room.roomSize
+                cell.priceLabel?.text = String(room.price)
+                
+            }
+        }
         
         return cell
     }

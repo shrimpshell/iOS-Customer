@@ -14,6 +14,7 @@
 		2BC0DB9721B24E34003B3C05 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0DB9521B24E34003B3C05 /* Room.swift */; };
 		2BC0DB9B21B24F03003B3C05 /* RoomDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0DB9821B24F02003B3C05 /* RoomDetailTableViewCell.swift */; };
 		2BC0DB9C21B24F03003B3C05 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0DB9921B24F03003B3C05 /* RoomTableViewCell.swift */; };
+		2BC0DBA721B77936003B3C05 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0DBA621B77936003B3C05 /* Communicator.swift */; };
 		7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */; };
 		7230157A21B0F8F400FD89D7 /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */; };
 		7230157B21B0F8F400FD89D7 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157821B0F8F400FD89D7 /* HomePageViewController.swift */; };
@@ -59,6 +60,7 @@
 		2BC0DB9521B24E34003B3C05 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		2BC0DB9821B24F02003B3C05 /* RoomDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetailTableViewCell.swift; sourceTree = "<group>"; };
 		2BC0DB9921B24F03003B3C05 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		2BC0DBA621B77936003B3C05 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 		7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
 		7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
 		7230157821B0F8F400FD89D7 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				72615963219DB3C000EB43FB /* Instant.swift */,
 				781DEB512198095A00AED03E /* Download.swift */,
 				78AB94A0216E2A7900045C95 /* Customer.swift */,
+				2BC0DBA621B77936003B3C05 /* Communicator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				7230158721B0F8FE00FD89D7 /* JoinTableViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
 				72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */,
+				2BC0DBA721B77936003B3C05 /* Communicator.swift in Sources */,
 				7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */,
 				2BC0DB9321B24E19003B3C05 /* RoomTableViewController.swift in Sources */,
 				72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */,

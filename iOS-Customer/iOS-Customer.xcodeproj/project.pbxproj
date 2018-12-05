@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		720A2E4921B6A77D00EF44ED /* AllRatingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4821B6A77D00EF44ED /* AllRatingDetailViewController.swift */; };
+		720A2E5121B6A79200EF44ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4A21B6A79200EF44ED /* ProfileViewController.swift */; };
+		720A2E5221B6A79200EF44ED /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4B21B6A79200EF44ED /* JoinTableViewController.swift */; };
+		720A2E5321B6A79200EF44ED /* WritingRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4C21B6A79200EF44ED /* WritingRatingViewController.swift */; };
+		720A2E5421B6A79200EF44ED /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4D21B6A79200EF44ED /* ReceiptTableViewController.swift */; };
+		720A2E5521B6A79200EF44ED /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4E21B6A79200EF44ED /* EditingTableViewController.swift */; };
+		720A2E5621B6A79200EF44ED /* RatingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4F21B6A79200EF44ED /* RatingDetailTableViewCell.swift */; };
+		720A2E5721B6A79200EF44ED /* RatingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E5021B6A79200EF44ED /* RatingListTableViewController.swift */; };
+		720A2E5921B6A81200EF44ED /* AllCustomerRatings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 720A2E5821B6A81200EF44ED /* AllCustomerRatings.storyboard */; };
 		7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */; };
 		7230157A21B0F8F400FD89D7 /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */; };
 		7230157B21B0F8F400FD89D7 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157821B0F8F400FD89D7 /* HomePageViewController.swift */; };
@@ -40,6 +49,8 @@
 		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
 		78BC9627219D6B33005DBD6A /* AllRatingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC9626219D6B33005DBD6A /* AllRatingDetailViewController.swift */; };
 		78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */; };
+		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
+		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
 		D12CAED9219D4CC40035446C /* RoomOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D12CAED8219D4CC40035446C /* RoomOrder.storyboard */; };
 		D13405A42166699300E72B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A32166699300E72B67 /* AppDelegate.swift */; };
 		D13405AB2166699500E72B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D13405AA2166699500E72B67 /* Assets.xcassets */; };
@@ -55,6 +66,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		720A2E4821B6A77D00EF44ED /* AllRatingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingDetailViewController.swift; sourceTree = "<group>"; };
+		720A2E4A21B6A79200EF44ED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		720A2E4B21B6A79200EF44ED /* JoinTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
+		720A2E4C21B6A79200EF44ED /* WritingRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingRatingViewController.swift; sourceTree = "<group>"; };
+		720A2E4D21B6A79200EF44ED /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
+		720A2E4E21B6A79200EF44ED /* EditingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
+		720A2E4F21B6A79200EF44ED /* RatingDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDetailTableViewCell.swift; sourceTree = "<group>"; };
+		720A2E5021B6A79200EF44ED /* RatingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingListTableViewController.swift; sourceTree = "<group>"; };
+		720A2E5821B6A81200EF44ED /* AllCustomerRatings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllCustomerRatings.storyboard; sourceTree = "<group>"; };
 		7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
 		7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
 		7230157821B0F8F400FD89D7 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +109,8 @@
 		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		78BC9626219D6B33005DBD6A /* AllRatingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingDetailViewController.swift; sourceTree = "<group>"; };
 		78FD78AC216CBA1900EC880F /* JoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
+		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		9F2DEE62D08AECFEBE061A2D /* Pods-iOS-Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		CE792F163EAE41DB92E4F2F7 /* Pods-iOS-Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.release.xcconfig"; sourceTree = "<group>"; };
 		D12CAED8219D4CC40035446C /* RoomOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RoomOrder.storyboard; sourceTree = "<group>"; };
@@ -165,6 +187,13 @@
 				7894246221B6586D00FA479C /* WritingRatingViewController.swift */,
 				7230157F21B0F8FE00FD89D7 /* RatingListTableViewController.swift */,
 				7230158121B0F8FE00FD89D7 /* ReceiptTableViewController.swift */,
+				720A2E4E21B6A79200EF44ED /* EditingTableViewController.swift */,
+				720A2E4B21B6A79200EF44ED /* JoinTableViewController.swift */,
+				720A2E4A21B6A79200EF44ED /* ProfileViewController.swift */,
+				720A2E4F21B6A79200EF44ED /* RatingDetailTableViewCell.swift */,
+				720A2E5021B6A79200EF44ED /* RatingListTableViewController.swift */,
+				720A2E4D21B6A79200EF44ED /* ReceiptTableViewController.swift */,
+				720A2E4C21B6A79200EF44ED /* WritingRatingViewController.swift */,
 			);
 			path = ProfilePage;
 			sourceTree = "<group>";
@@ -172,6 +201,7 @@
 		78390538219C15910059BC5B /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				720A2E4821B6A77D00EF44ED /* AllRatingDetailViewController.swift */,
 				7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */,
 				7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */,
 				7230157821B0F8F400FD89D7 /* HomePageViewController.swift */,
@@ -231,6 +261,7 @@
 			children = (
 				7230158C21B1005000FD89D7 /* Main.storyboard */,
 				D12CAED8219D4CC40035446C /* RoomOrder.storyboard */,
+				720A2E5821B6A81200EF44ED /* AllCustomerRatings.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D12CAED9219D4CC40035446C /* RoomOrder.storyboard in Resources */,
+				720A2E5921B6A81200EF44ED /* AllCustomerRatings.storyboard in Resources */,
 				7230158D21B1005000FD89D7 /* Main.storyboard in Resources */,
 				D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */,
 				D13405AB2166699500E72B67 /* Assets.xcassets in Resources */,
@@ -407,42 +439,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7230158321B0F8FE00FD89D7 /* EditingTableViewController.swift in Sources */,
-				7230158521B0F8FE00FD89D7 /* RatingDetailTableViewCell.swift in Sources */,
 				72615964219DB3C000EB43FB /* Instant.swift in Sources */,
-				7230158621B0F8FE00FD89D7 /* RatingListTableViewController.swift in Sources */,
 				788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */,
 				7230157B21B0F8F400FD89D7 /* HomePageViewController.swift in Sources */,
 				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
 				7230158821B0F8FE00FD89D7 /* ReceiptTableViewController.swift in Sources */,
 				7894246321B6586D00FA479C /* WritingRatingViewController.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
-				D149C7DF219D110800FDF92E /* WritingRatingViewController.swift in Sources */,
-				D149C7DE219D110800FDF92E /* RatingListTableViewController.swift in Sources */,
+				720A2E5721B6A79200EF44ED /* RatingListTableViewController.swift in Sources */,
+				720A2E5121B6A79200EF44ED /* ProfileViewController.swift in Sources */,
+				720A2E5321B6A79200EF44ED /* WritingRatingViewController.swift in Sources */,
 				789B07D221A4438300B764C2 /* CornerRadius.swift in Sources */,
-				78BC9627219D6B33005DBD6A /* AllRatingDetailViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
 				D149C7E2219D111D00FDF92E /* AllRatingsTableViewController.swift in Sources */,
 				78AB9499216E13F100045C95 /* ProfileViewController.swift in Sources */,
 				78FD78AD216CBA1900EC880F /* JoinTableViewController.swift in Sources */,
 				D149C7DC219D110800FDF92E /* EditingTableViewController.swift in Sources */,
 				D149C7DD219D110800FDF92E /* RatingDetailTableViewCell.swift in Sources */,
+				720A2E5521B6A79200EF44ED /* EditingTableViewController.swift in Sources */,
+				720A2E5421B6A79200EF44ED /* ReceiptTableViewController.swift in Sources */,
 				78955BAD219EAF6A0092FD42 /* UIImage+Resize.swift in Sources */,
 				D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */,
 				72D917C7219D188A0008D90C /* ServiceItemCollectionViewCell.swift in Sources */,
 				7230157A21B0F8F400FD89D7 /* AllRatingsTableViewCell.swift in Sources */,
 				72D917C9219D1AA90008D90C /* ItemDetailTableViewController.swift in Sources */,
 				72615962219DA77100EB43FB /* ServiceStatusTableViewCell.swift in Sources */,
-				7230158721B0F8FE00FD89D7 /* JoinTableViewController.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
 				72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */,
+				720A2E4921B6A77D00EF44ED /* AllRatingDetailViewController.swift in Sources */,
 				7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */,
+				720A2E5621B6A79200EF44ED /* RatingDetailTableViewCell.swift in Sources */,
 				72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */,
 				72C35FB521AE753C006BD1A7 /* Socket.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
-				7230158921B0F8FE00FD89D7 /* ProfileViewController.swift in Sources */,
 				729527B221A3EE8200E9E839 /* OrderRoomDetail.swift in Sources */,
 				D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */,
+				720A2E5221B6A79200EF44ED /* JoinTableViewController.swift in Sources */,
 				D1918E2921951426002E065A /* RoomOrderDetailViewController.swift in Sources */,
 				7230158B21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift in Sources */,
 				78AB949D216E286C00045C95 /* Rating.swift in Sources */,

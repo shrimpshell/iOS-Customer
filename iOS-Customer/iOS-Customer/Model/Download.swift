@@ -134,6 +134,5 @@ struct DownloadAuth {
             
     }
     
-    
 }
 

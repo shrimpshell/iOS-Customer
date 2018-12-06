@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var idCustomer: Int = 0
     var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
     var editPageInfo: Customer?
-     let customerTask = CustomerAuth()    //使用promiseKit方法
+    let customerTask = CustomerAuth()    //使用promiseKit方法
     let customerAuth = DownloadAuth.shared       //使用Alamofirez方法
     
     var orderRoomDetails: [OrderRoomDetail]?

@@ -59,10 +59,13 @@
                     <navigationItem key="navigationItem" id="Ff0-Uv-gg1">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="W1f-vm-CdU">
                             <connections>
-                                <segue destination="yDf-i9-drO" kind="unwind" unwindAction="unwindToProfilePage:" id="zRu-Ma-nrw"/>
+                                <segue destination="yDf-i9-drO" kind="unwind" identifier="noRoomNumberItem" unwindAction="unwindToProfilePage:" id="fmc-8x-7gU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="yDf-i9-drO" kind="unwind" unwindAction="unwindToProfilePage:" id="2u1-fA-D9e"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98N-CI-xhh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yDf-i9-drO" userLabel="Exit" sceneMemberID="exit"/>
@@ -245,8 +248,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Y6M-xF-M3x"/>
+                    <connections>
+                        <segue destination="SSe-b4-rGl" kind="unwind" identifier="noRoomNumberForStatus" unwindAction="unwindToProfilePage:" id="2rn-H2-rTs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OeN-5e-5Um" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SSe-b4-rGl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4697" y="2539"/>
         </scene>

@@ -14,19 +14,19 @@ import Alamofire
 
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     let TAG = "ProfileViewController"
     var customer: Customer?
     var idCustomer: Int = 0
     var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
     var editPageInfo: Customer?
-     let customerTask = CustomerAuth()    //使用promiseKit方法
+    let customerTask = CustomerAuth()    //使用promiseKit方法
     let customerAuth = DownloadAuth.shared       //使用Alamofirez方法
     
     var orderRoomDetails: [OrderRoomDetail]?
     var orderInstantDetails: [OrderInstantDetail]?
     
-   
+    
     
     @IBOutlet weak var profilePageView: UIScrollView!
     @IBOutlet weak var loginPageView: UIScrollView!
@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-       
+        
     }
     
     
@@ -153,24 +153,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.nameCustomer.text = self.customer?.name
             self.emailCustomer.text = self.customer?.email
             self.phoneCustomer.text = self.customer?.phone
-            }
+        }
         
         let getCustomerImage: [String : Any] = ["action": "getImage", "IdCustomer": idCustomer]
         customerTask.getCustomerImage(getCustomerImage).done { (data) in
-             if (data?.count)! > 0 {
+            if (data?.count)! > 0 {
                 DispatchQueue.main.async() {
                     self.imageCustomer.image = UIImage(data: data!)
                 }
-             } else {
+            } else {
                 self.imageCustomer.image = UIImage(named: "person128.png")
                 self.imageCustomer.backgroundColor = .white
             }
-        }.catch { (error) in
-            assertionFailure("CheckoutTableViewController Error: \(error)")
+            }.catch { (error) in
+                assertionFailure("CheckoutTableViewController Error: \(error)")
         }
     }
     
-   
+    
     
     
     @IBAction func chungPicBtnPressed(_ sender: UIButton) {
@@ -235,7 +235,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.dismiss(animated: true)    // Important!
         
     }
-
+    
     
     
     
@@ -271,7 +271,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         case "toReceiptList":
             let receiptListPage = segue.destination as! ReceiptTableViewController
             receiptListPage.customer = customer
-        
+            
         case "toEditingPage":
             let NAVController = segue.destination as? UINavigationController
             let editingPage = NAVController?.viewControllers.first as! JoinTableViewController
@@ -282,42 +282,42 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let NAVController = segue.destination as? UINavigationController
             let joinPage = NAVController?.viewControllers.first as! JoinTableViewController
             joinPage.pageNumber = 1
-        
+            
         case "toInstantServicePage":
             let tabBarVC = segue.destination as! UITabBarController
             let nivagationVC = tabBarVC.viewControllers![0] as! UINavigationController
             let instantServiceVC = nivagationVC.topViewController as! ServiceItemCollectionViewController
             instantServiceVC.customer = customer
-    
+            
         default:
             break
         }
     }
-        
-        //使用isLogin切換會員頁面與登入頁面
-        func userlogin() {
-            if  isLogin == true {
-                navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
-                navigationItem.rightBarButtonItem?.isEnabled = true
-                loginPageView.isHidden = true
-                profilePageView.isHidden = false
-                titleNavigationItem.title = "會員資料"
-            } else {
-                loginPageView.isHidden = false
-                titleNavigationItem.title = ""
-                profilePageView.isHidden = true
-                navigationItem.rightBarButtonItem?.image = nil
-                navigationItem.rightBarButtonItem?.isEnabled = false
-                
-            }
+    
+    //使用isLogin切換會員頁面與登入頁面
+    func userlogin() {
+        if  isLogin == true {
+            navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
+            navigationItem.rightBarButtonItem?.isEnabled = true
+            loginPageView.isHidden = true
+            profilePageView.isHidden = false
+            titleNavigationItem.title = "會員資料"
+        } else {
+            loginPageView.isHidden = false
+            titleNavigationItem.title = ""
+            profilePageView.isHidden = true
+            navigationItem.rightBarButtonItem?.image = nil
+            navigationItem.rightBarButtonItem?.isEnabled = false
+            
         }
+    }
     
     @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue) {
         
-
+        
     }
     
-   
+    
     
 }
 

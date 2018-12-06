@@ -12,9 +12,6 @@
 		720A2E5221B6A79200EF44ED /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4B21B6A79200EF44ED /* JoinTableViewController.swift */; };
 		720A2E5321B6A79200EF44ED /* WritingRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4C21B6A79200EF44ED /* WritingRatingViewController.swift */; };
 		720A2E5421B6A79200EF44ED /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4D21B6A79200EF44ED /* ReceiptTableViewController.swift */; };
-		720A2E5521B6A79200EF44ED /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4E21B6A79200EF44ED /* EditingTableViewController.swift */; };
-		720A2E5621B6A79200EF44ED /* RatingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4F21B6A79200EF44ED /* RatingDetailTableViewCell.swift */; };
-		720A2E5721B6A79200EF44ED /* RatingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E5021B6A79200EF44ED /* RatingListTableViewController.swift */; };
 		720A2E5921B6A81200EF44ED /* CustomerRatings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 720A2E5821B6A81200EF44ED /* CustomerRatings.storyboard */; };
 		7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */; };
 		7230157A21B0F8F400FD89D7 /* AllRatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */; };
@@ -57,9 +54,6 @@
 		720A2E4B21B6A79200EF44ED /* JoinTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
 		720A2E4C21B6A79200EF44ED /* WritingRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingRatingViewController.swift; sourceTree = "<group>"; };
 		720A2E4D21B6A79200EF44ED /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
-		720A2E4E21B6A79200EF44ED /* EditingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
-		720A2E4F21B6A79200EF44ED /* RatingDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDetailTableViewCell.swift; sourceTree = "<group>"; };
-		720A2E5021B6A79200EF44ED /* RatingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingListTableViewController.swift; sourceTree = "<group>"; };
 		720A2E5821B6A81200EF44ED /* CustomerRatings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomerRatings.storyboard; sourceTree = "<group>"; };
 		7230157621B0F8F400FD89D7 /* AllRatingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewController.swift; sourceTree = "<group>"; };
 		7230157721B0F8F400FD89D7 /* AllRatingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,11 +138,8 @@
 		78390537219C155E0059BC5B /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
-				720A2E4E21B6A79200EF44ED /* EditingTableViewController.swift */,
 				720A2E4B21B6A79200EF44ED /* JoinTableViewController.swift */,
 				720A2E4A21B6A79200EF44ED /* ProfileViewController.swift */,
-				720A2E4F21B6A79200EF44ED /* RatingDetailTableViewCell.swift */,
-				720A2E5021B6A79200EF44ED /* RatingListTableViewController.swift */,
 				720A2E4D21B6A79200EF44ED /* ReceiptTableViewController.swift */,
 				720A2E4C21B6A79200EF44ED /* WritingRatingViewController.swift */,
 			);
@@ -415,12 +406,10 @@
 				7230157B21B0F8F400FD89D7 /* HomePageViewController.swift in Sources */,
 				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
-				720A2E5721B6A79200EF44ED /* RatingListTableViewController.swift in Sources */,
 				720A2E5121B6A79200EF44ED /* ProfileViewController.swift in Sources */,
 				720A2E5321B6A79200EF44ED /* WritingRatingViewController.swift in Sources */,
 				789B07D221A4438300B764C2 /* CornerRadius.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
-				720A2E5521B6A79200EF44ED /* EditingTableViewController.swift in Sources */,
 				720A2E5421B6A79200EF44ED /* ReceiptTableViewController.swift in Sources */,
 				78955BAD219EAF6A0092FD42 /* UIImage+Resize.swift in Sources */,
 				D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */,
@@ -432,7 +421,6 @@
 				72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */,
 				720A2E4921B6A77D00EF44ED /* AllRatingDetailViewController.swift in Sources */,
 				7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */,
-				720A2E5621B6A79200EF44ED /* RatingDetailTableViewCell.swift in Sources */,
 				72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */,
 				72C35FB521AE753C006BD1A7 /* Socket.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,

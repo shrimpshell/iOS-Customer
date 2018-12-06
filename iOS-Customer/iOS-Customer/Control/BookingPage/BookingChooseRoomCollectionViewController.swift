@@ -37,6 +37,101 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         getRoomType()
     }
     
+    @IBAction func checkBookingBtnPressed(_ sender: Any) {
+        if !shoppingCar.isEmpty || shoppingCar.count != 0 {
+            performSegue(withIdentifier: "checkBooking", sender: nil)
+        } else {
+            showAlert(message: "尚未選取房間。")
+        }
+    }
+    
+    @IBAction func unwindToChooseRoom(_ segue: UIStoryboardSegue) {
+        
+    }
+    
+    // MARK: UICollectionViewDataSource
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        printHelper.println(tag: self.TAG, line: #line, "\(roomTypes.count)")
+        return roomTypes.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> BookingChooseCollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookingChooseCollectionViewCell
+        
+        if let name = self.roomTypes[indexPath.row].name, let adult = self.roomTypes[indexPath.row].adultQuantity, let price = self.roomTypes[indexPath.row].price {
+            
+            // Configure the cell
+            cell.reservationRoomView.rating = 0
+            cell.roomTypeImageView.image = UIImage(named: "pic_roomtype_2seaview")
+            cell.roomTypeLabel.text = name
+            cell.roomSizeLabel.text = roomTypes[indexPath.row].roomSize
+            cell.bedQuantityLabel.text = roomTypes[indexPath.row].bed
+            cell.peopleQuantityLabel.text = "最多可住 \(adult) 位大人"
+            cell.remainingRoomsLabel.text = "剩 \(roomTypes[indexPath.row].roomQuantity) 間"
+            cell.reservationRoomView.settings.totalStars = roomTypes[indexPath.row].roomQuantity
+            cell.reservationRoomView.didFinishTouchingCosmos = {
+                rating in
+                let reservationQuantity = Int(cell.reservationRoomView.rating)
+                let alert = UIAlertController(title: "房間選擇", message: "確定要選擇\"\(name)\" \(reservationQuantity) 間", preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "取消", style: .destructive, handler: { (cancel) in
+                    cell.reservationRoomView.rating = 0
+                })
+                let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
+                    if self.discount == 1 {
+                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: price))
+                    } else {
+                        cell.eventLabel.isHidden = false
+                        let price = Float(price) * self.discount
+                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id, roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: Int(price)))
+                    }
+                })
+                alert.addAction(cancel)
+                alert.addAction(ok)
+                self.present(alert, animated: true)
+            }
+            
+            if discount == 1 {
+                cell.eventLabel.isHidden = true
+                cell.priceLabel.text = "NT$  \(price)"
+            } else {
+                cell.eventLabel.isHidden = false
+                let price = Float(roomTypes[indexPath.row].price!) * discount
+                cell.priceLabel.text = "NT$  \(Int(price))"
+                cell.eventLabel.text = "打 \(Int(discount * 10)) 折"
+            }
+        }
+        return cell
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+        guard let checkRoomVC = segue.destination as? BookingCheckTableViewController else {
+            return
+        }
+        let checkIn = checkInDate
+        let checkOut = checkOutDate
+        let days = checkIn.getStringToDate().daysBetweenDate(toDate: checkOut.getStringToDate())
+        printHelper.println(tag: self.TAG, line: #line, "checkIn: \(checkIn), checkOut: \(checkOut)")
+        checkRoomVC.roomReservation = shoppingCar
+        checkRoomVC.totalDays = days
+    }
+}
+
+// MARK: - Get data from server.
+
+extension BookingChooseRoomCollectionViewController {
     func getRoomType() {
         RoomTypeCommunicator.shared.getAllRoomType { (result, error) in
             if let error = error {
@@ -140,96 +235,5 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
                 self.collectionView.reloadData()
             }
         })
-    }
-    
-    @IBAction func checkBookingBtnPressed(_ sender: Any) {
-        if !shoppingCar.isEmpty || shoppingCar.count != 0 {
-            performSegue(withIdentifier: "checkBooking", sender: nil)
-        } else {
-            showAlert(message: "尚未選取房間。")
-        }
-    }
-    
-    @IBAction func unwindToChooseRoom(_ segue: UIStoryboardSegue) {
-        
-    }
-    
-    // MARK: UICollectionViewDataSource
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        printHelper.println(tag: self.TAG, line: #line, "\(roomTypes.count)")
-        return roomTypes.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> BookingChooseCollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookingChooseCollectionViewCell
-        
-        if let name = self.roomTypes[indexPath.row].name, let adult = self.roomTypes[indexPath.row].adultQuantity, let price = self.roomTypes[indexPath.row].price {
-            
-            // Configure the cell
-            cell.reservationRoomView.rating = 0
-            cell.roomTypeImageView.image = UIImage(named: "pic_roomtype_2seaview")
-            cell.roomTypeLabel.text = name
-            cell.roomSizeLabel.text = roomTypes[indexPath.row].roomSize
-            cell.bedQuantityLabel.text = roomTypes[indexPath.row].bed
-            cell.peopleQuantityLabel.text = "最多可住 \(adult) 位大人"
-            cell.remainingRoomsLabel.text = "剩 \(roomTypes[indexPath.row].roomQuantity) 間"
-            cell.reservationRoomView.settings.totalStars = roomTypes[indexPath.row].roomQuantity
-            cell.reservationRoomView.didFinishTouchingCosmos = {
-                rating in
-                let reservationQuantity = Int(cell.reservationRoomView.rating)
-                let alert = UIAlertController(title: "房間選擇", message: "確定要選擇\"\(name)\" \(reservationQuantity) 間", preferredStyle: .alert)
-                let cancel = UIAlertAction(title: "取消", style: .destructive, handler: { (cancel) in
-                    cell.reservationRoomView.rating = 0
-                })
-                let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
-                    if self.discount == 1 {
-                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: price))
-                    } else {
-                        cell.eventLabel.isHidden = false
-                        let price = Float(price) * self.discount
-                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id, roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: Int(price)))
-                    }
-                })
-                alert.addAction(cancel)
-                alert.addAction(ok)
-                self.present(alert, animated: true)
-            }
-            
-            if discount == 1 {
-                cell.eventLabel.isHidden = true
-                cell.priceLabel.text = "NT$  \(price)"
-            } else {
-                cell.eventLabel.isHidden = false
-                let price = Float(roomTypes[indexPath.row].price!) * discount
-                cell.priceLabel.text = "NT$  \(Int(price))"
-                cell.eventLabel.text = "打 \(Int(discount * 10)) 折"
-            }
-        }
-        return cell
-    }
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-        guard let checkRoomVC = segue.destination as? BookingCheckTableViewController else {
-            return
-        }
-        let checkIn = checkInDate
-        let checkOut = checkOutDate
-        let days = checkIn.getStringToDate().daysBetweenDate(toDate: checkOut.getStringToDate())
-        printHelper.println(tag: self.TAG, line: #line, "checkIn: \(checkIn), checkOut: \(checkOut)")
-        checkRoomVC.roomReservation = shoppingCar
-        checkRoomVC.totalDays = days
     }
 }

@@ -14,7 +14,7 @@
 		2B82098021B91E8300251AA2 /* BookingChooseRoomCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82097B21B91E8300251AA2 /* BookingChooseRoomCollectionViewController.swift */; };
 		2B82098121B91E8300251AA2 /* BookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82097C21B91E8300251AA2 /* BookingTableViewController.swift */; };
 		2B82098221B91E8300251AA2 /* BookingCheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82097D21B91E8300251AA2 /* BookingCheckTableViewCell.swift */; };
-		2B82098421B91EAD00251AA2 /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B82098321B91EAD00251AA2 /* Booking.storyboard */; };
+		2B82098621B9219400251AA2 /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B82098521B9219300251AA2 /* Booking.storyboard */; };
 		720A2E4921B6A77D00EF44ED /* AllRatingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4821B6A77D00EF44ED /* AllRatingDetailViewController.swift */; };
 		720A2E5121B6A79200EF44ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4A21B6A79200EF44ED /* ProfileViewController.swift */; };
 		720A2E5221B6A79200EF44ED /* JoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A2E4B21B6A79200EF44ED /* JoinTableViewController.swift */; };
@@ -64,7 +64,7 @@
 		2B82097B21B91E8300251AA2 /* BookingChooseRoomCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingChooseRoomCollectionViewController.swift; sourceTree = "<group>"; };
 		2B82097C21B91E8300251AA2 /* BookingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingTableViewController.swift; sourceTree = "<group>"; };
 		2B82097D21B91E8300251AA2 /* BookingCheckTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingCheckTableViewCell.swift; sourceTree = "<group>"; };
-		2B82098321B91EAD00251AA2 /* Booking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Booking.storyboard; path = "../../../../../Documents/iOS-Hotel/iOS-Customer/iOS-Customer/iOS-Customer/View/Booking.storyboard"; sourceTree = "<group>"; };
+		2B82098521B9219300251AA2 /* Booking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Booking.storyboard; sourceTree = "<group>"; };
 		720A2E4821B6A77D00EF44ED /* AllRatingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRatingDetailViewController.swift; sourceTree = "<group>"; };
 		720A2E4A21B6A79200EF44ED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		720A2E4B21B6A79200EF44ED /* JoinTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinTableViewController.swift; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 		D12CAED7219D4BED0035446C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2B82098321B91EAD00251AA2 /* Booking.storyboard */,
+				2B82098521B9219300251AA2 /* Booking.storyboard */,
 				7230158C21B1005000FD89D7 /* Main.storyboard */,
 				7839371121B8BD7F002FAEED /* ProfileDetailInfoPage.storyboard */,
 				78F836B721B8066C00E7B059 /* PersonalRatings.storyboard */,
@@ -383,7 +383,7 @@
 				78F836B621B8002800E7B059 /* person128.png in Resources */,
 				D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */,
 				78F836B821B8066C00E7B059 /* PersonalRatings.storyboard in Resources */,
-				2B82098421B91EAD00251AA2 /* Booking.storyboard in Resources */,
+				2B82098621B9219400251AA2 /* Booking.storyboard in Resources */,
 				D13405AB2166699500E72B67 /* Assets.xcassets in Resources */,
 				7839371221B8BD7F002FAEED /* ProfileDetailInfoPage.storyboard in Resources */,
 				72D917C2219D142A0008D90C /* Josh.storyboard in Resources */,

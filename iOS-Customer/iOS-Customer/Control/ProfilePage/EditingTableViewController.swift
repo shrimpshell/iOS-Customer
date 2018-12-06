@@ -38,10 +38,6 @@ class EditingTableViewController: UITableViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
 
-    func customerInfoLoading() {
-        
-    }
-
     @IBAction func checkEditing(_ sender: Any) {
         guard  let idCustomer = customer?.idCustomer else {
             print("idCustomer 解包錯誤")
@@ -59,6 +55,7 @@ class EditingTableViewController: UITableViewController {
             password = customer?.password
         }
         
+        let gender = customer?.gender
         let birthday = birthdayLabel.text
         
         phone = phoneField.text!
@@ -68,9 +65,8 @@ class EditingTableViewController: UITableViewController {
             address = customer?.address
         }
 
-        let editCustomer = Customer(idCustomer: idCustomer, customerID: email!, name: name!, email: email!, password: password!, birthday: birthday!, phone: phone, address: address!)
+        let editCustomer = Customer(idCustomer: idCustomer, customerID: email!, name: name!, email: email!, password: password!, gender: gender!, birthday: birthday!, phone: phone, address: address!)
         customer = editCustomer
-        //print("editCustomer: \(editCustomer)")
         let editCustomerData = try! JSONEncoder().encode(editCustomer)
         let customerString = String(data: editCustomerData, encoding: .utf8)
         let joinCustomer = ["action": "update", "customer": customerString] as! [String:Any]

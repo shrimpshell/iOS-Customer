@@ -15,7 +15,7 @@ struct Customer: Codable {
     var name: String
     var email: String
     var password: String
-    var gender: String? = nil
+    var gender: String
     var birthday: String
     var phone: String
     var address: String
@@ -37,7 +37,7 @@ struct Customer: Codable {
         ]
     }
     
-    init(idCustomer: Int? = nil, customerID: String, name: String, email: String, password: String, gender: String? = nil, birthday: String, phone: String, address: String, discount: Int? = nil) {
+    init(idCustomer: Int? = nil, customerID: String, name: String, email: String, password: String, gender: String, birthday: String, phone: String, address: String, discount: Int? = nil) {
         self.idCustomer = idCustomer
         self.customerID = customerID
         self.name = name

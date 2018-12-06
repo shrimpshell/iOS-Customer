@@ -25,6 +25,13 @@ class ViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAllCustomerRatingsPage" {
+            let NAVController = segue.destination as? UINavigationController
+            let ratingListPage = NAVController?.viewControllers.first as! AllRatingsTableViewController
+            ratingListPage.pageNumber = 1
+        }
+    }
 
      @IBAction func unwindToHomePage(_ segue: UIStoryboardSegue){
 

@@ -30,6 +30,15 @@
                                     <segue destination="O24-hz-q3t" kind="show" identifier="goToAllCustomerRatingsPage" id="7lj-Fd-D9p"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIS-2P-uHK">
+                                <rect key="frame" x="49" y="198" width="277" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="房間資訊"/>
+                                <connections>
+                                    <segue destination="4xU-AH-9qw" kind="show" id="nhO-Wt-5ce"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -383,6 +392,14 @@
             </objects>
             <point key="canvasLocation" x="2375" y="1150"/>
         </scene>
+        <!--RoomView-->
+        <scene sceneID="Ue7-4l-tzk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RoomType" referencedIdentifier="RoomView" id="4xU-AH-9qw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Xz-7B-2IN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2820" y="157"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cm200" width="202" height="202"/>
@@ -395,6 +412,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gDW-jf-gVR"/>
-        <segue reference="NkR-JI-TG6"/>
+        <segue reference="7lj-Fd-D9p"/>
     </inferredMetricsTieBreakers>
 </document>

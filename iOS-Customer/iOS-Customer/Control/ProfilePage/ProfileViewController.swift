@@ -161,6 +161,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 DispatchQueue.main.async() {
                     self.imageCustomer.image = UIImage(data: data!)
                 }
+             } else {
+                self.imageCustomer.image = UIImage(named: "person128.png")
+                self.imageCustomer.backgroundColor = .white
             }
         }.catch { (error) in
             assertionFailure("CheckoutTableViewController Error: \(error)")
@@ -260,16 +263,25 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             tableViewController.orders = self.orderRoomDetails!
             tableViewController.instants = self.orderInstantDetails!
         case "toRatingList":
-            let ratingListPage = segue.destination as! RatingListTableViewController
+            let NAVController = segue.destination as? UINavigationController
+            let ratingListPage = NAVController?.viewControllers.first as! AllRatingsTableViewController
             ratingListPage.customer = customer
+            ratingListPage.pageNumber = 2
             
         case "toReceiptList":
             let receiptListPage = segue.destination as! ReceiptTableViewController
             receiptListPage.customer = customer
         
         case "toEditingPage":
-            let editingPage = segue.destination as! EditingTableViewController
+            let NAVController = segue.destination as? UINavigationController
+            let editingPage = NAVController?.viewControllers.first as! JoinTableViewController
             editingPage.customer = customer
+            editingPage.pageNumber = 2
+            
+        case "toJoinPage":
+            let NAVController = segue.destination as? UINavigationController
+            let joinPage = NAVController?.viewControllers.first as! JoinTableViewController
+            joinPage.pageNumber = 1
         
         case "toInstantServicePage":
             let tabBarVC = segue.destination as! UITabBarController

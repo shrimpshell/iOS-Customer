@@ -12,33 +12,40 @@ class AllRatingsTableViewController: UITableViewController {
     
     
     var refreshAction = UIRefreshControl()
-    var allRatingItems = [Rating]()
+    var ratingItems = [Rating]()
     let ratingAuth = DownloadAuth.shared
+    var customer: Customer?
+    var pageNumber = 0
     
     
     @IBOutlet var allCustomerRatiingsTableView: UITableView!
+    @IBOutlet weak var rightBtnItem: UIBarButtonItem!
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        showAllCustomerRatings(key: "getAll")
-        refreshRatings()
-      
+        switch pageNumber {
+        case 1:
+            showAllCustomerRatings(key: "getAll")
+            refreshRatings()
+            rightBtnItem.image = UIImage(named: "down")
+            rightBtnItem.isEnabled = true
+        case 2:
+            personalRatingList()
+            rightBtnItem.isEnabled = false
+            rightBtnItem.title = ""
+        default:
+            break
+        }
+        
     }
-    
+      
     //下拉轉圈圈更新
     func refreshRatings() {
         refreshAction.addTarget(self, action: #selector(AllRatingsTableViewController.pullToRefresh), for: .valueChanged)
         refreshAction.attributedTitle = NSAttributedString(string: "刷新評論")
         allCustomerRatiingsTableView.refreshControl = refreshAction
-    }
-    
-    // 把TabBar藏起來
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.tabBarController?.tabBar.isHidden = true
     }
 
     // MARK: - Table view data source
@@ -50,15 +57,15 @@ class AllRatingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return allRatingItems.count
+        return ratingItems.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "allRatingCell", for: indexPath) as! AllRatingsTableViewCell
 
-        let allRating = allRatingItems[indexPath.row]
-        cell.allRating = allRating
+        let rating = ratingItems[indexPath.row]
+        cell.allRating = rating
 
         return cell
     }
@@ -114,7 +121,7 @@ class AllRatingsTableViewController: UITableViewController {
                 return
             }
             printHelper.println(tag: "AllRatingDetailViewController", line: #line, "resultObject: \(resultObject)")
-            self.allRatingItems = resultObject
+            self.ratingItems = resultObject
             
             //更新TableView內容
             self.tableView.reloadData()
@@ -123,16 +130,74 @@ class AllRatingsTableViewController: UITableViewController {
             self.refreshAction.endRefreshing()
         }
     }
+
+@objc
+func personalRatingList() {
+    guard  let idCustomer = customer?.idCustomer else {
+        printHelper.println(tag: "RatingListTableViewController", line: #line, "idCustomer 解包錯誤")
+        return
+    }
+    ratingAuth.getAllRatingById(idCustomer: idCustomer) { (result, error) in
+        if let error = error {
+            printHelper.println(tag: "RatingListTableViewController", line: #line, "Rating download error\(error)")
+            return
+        }
+        guard let result = result else {
+            printHelper.println(tag: "RatingListTableViewController", line: #line, "result is nil.")
+            return
+        }
+        printHelper.println(tag: "RatingListTableViewController", line: #line, "Retrive Rating List is OK.")
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
+            else  {
+                printHelper.println(tag: "RatingListTableViewController", line: #line, "Fail to generate jsonData.")
+                return
+        }
+        let decoder = JSONDecoder()
+        guard let resultObject = try? decoder.decode([Rating].self, from: jsonData) else {
+            printHelper.println(tag: "RatingListTableViewController", line: #line, "Fail to decoder jsonData.")
+            return
+        }
+        printHelper.println(tag: "RatingListTableViewController", line: #line, "resultObject: \(resultObject)")
+        
+        self.ratingItems = resultObject
+        
+        //更新TableView內容
+        self.tableView.reloadData()
+        
+        //讓轉圈圈消失
+        self.refreshAction.endRefreshing()
+    }
+}
     
     @objc
     func pullToRefresh() {
-        showAllCustomerRatings(key:"getAll")
+        switch pageNumber {
+        case  1:
+            showAllCustomerRatings(key:"getAll")
+        case  2:
+            personalRatingList()
+        default:
+            break
+        }
+    }
+    
+    
+    @IBAction func goBackBtnPressed(_ sender: UIBarButtonItem) {
+        switch pageNumber {
+        case 1:
+            self.performSegue(withIdentifier: "goBackHomePage", sender: nil)
+        case 2:
+            self.performSegue(withIdentifier: "goBackProfilePage", sender: nil)
+        default:
+            break
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRatingDetails" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let rating = allRatingItems[indexPath.row]
+                let rating = ratingItems[indexPath.row]
                 let controller = segue.destination as!  AllRatingDetailViewController
                 controller.rating = rating
                 

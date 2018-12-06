@@ -31,8 +31,11 @@ class AllRatingsTableViewCell: UITableViewCell {
             }
             
             if allRating?.name != nil {
+                customerNameLabel.isHidden = false
                 customerNameLabel.text = allRating?.name
-            } 
+            } else {
+                customerNameLabel.isHidden = true
+            }
             
             if allRating?.ratingStar != nil {
                 ratingStarCosmosView.rating = Double((allRating?.ratingStar)!)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JoinTableViewController: UITableViewController {
+class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     
     let customerTask = CustomerAuth()
      var customer: Customer?
@@ -42,6 +42,7 @@ class JoinTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("pageNumber: \(pageNumber)")
+        hideKeyboard()
         switch pageNumber {
         case 0:
             checkBtn.title = "Join"
@@ -94,6 +95,7 @@ class JoinTableViewController: UITableViewController {
         formateer.dateFormat = "yyyy-MM-dd"
         let dateString = formateer.string(from: date)
         birthdayLable.text = dateString
+        
     }
     
     // 判斷資料庫中是否已有相同Email存在
@@ -112,7 +114,6 @@ class JoinTableViewController: UITableViewController {
     @IBAction func joinButton(_ sender: Any) {
         switch pageNumber {
         case 0:
-            
             let name: String = nameField.text!
             let password: String = passwordField.text!
             var _: String = rePasswordField.text!
@@ -142,7 +143,6 @@ class JoinTableViewController: UITableViewController {
             }
             
         case 2:
-            
             guard  let idCustomer = customer?.idCustomer else {
                 print("idCustomer 解包錯誤")
                 return
@@ -231,6 +231,7 @@ class JoinTableViewController: UITableViewController {
     func showCustomerInfo() {
         nameField.text = customer?.name
         emailField.text = customer?.email
+        emailField.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         emailField.isUserInteractionEnabled = false
         passwordField.text = customer?.password
         rePasswordField.text = customer?.password
@@ -240,13 +241,29 @@ class JoinTableViewController: UITableViewController {
         } else {
             genderSegmented.selectedSegmentIndex = 1
         }
+        genderSegmented.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         birthdayLable.text = customer?.birthday
+        birthdayLable.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        cornerRadius(view: birthdayLable)
         birthdayLable.isUserInteractionEnabled = false
         phoneField.text = customer?.phone
         addressField.text = customer?.address
     }
     
-   
+    //藏鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func hideKeyboard() {
+        nameField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
+        rePasswordField.delegate = self
+        phoneField.delegate = self
+        addressField.delegate = self
+    }
     
     
 

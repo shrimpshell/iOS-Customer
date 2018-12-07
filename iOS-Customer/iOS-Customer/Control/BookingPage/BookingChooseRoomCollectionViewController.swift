@@ -122,6 +122,8 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         printHelper.println(tag: self.TAG, line: #line, "checkIn: \(checkIn), checkOut: \(checkOut)")
         checkRoomVC.roomReservation = shoppingCar
         checkRoomVC.totalDays = days
+        checkRoomVC.checkInDate = checkIn
+        checkRoomVC.checkOutDate = checkOut
     }
 }
 

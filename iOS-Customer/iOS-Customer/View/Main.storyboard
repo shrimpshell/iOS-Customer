@@ -17,26 +17,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_detail_background" translatesAutoresizingMaskIntoConstraints="NO" id="FqG-ll-sE7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_background" translatesAutoresizingMaskIntoConstraints="NO" id="FqG-ll-sE7">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.78971105813980103" green="0.86620420217514038" blue="0.89020222425460815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-4Q-Xtx">
-                                <rect key="frame" x="49" y="104" width="277" height="62"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RIS-2P-uHK">
+                                <rect key="frame" x="49" y="325" width="277" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="顧客評價"/>
-                                <connections>
-                                    <segue destination="O24-hz-q3t" kind="show" identifier="goToAllCustomerRatingsPage" id="7lj-Fd-D9p"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIS-2P-uHK">
-                                <rect key="frame" x="49" y="198" width="277" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="房間資訊"/>
+                                <color key="backgroundColor" red="0.6171078085899353" green="0.81619834899902344" blue="0.98041659593582153" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="房間資訊">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="4xU-AH-9qw" kind="show" id="nhO-Wt-5ce"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwd-Lm-m26">
+                                <rect key="frame" x="49" y="463" width="277" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.48290145397186279" green="0.73636126518249512" blue="0.95689326524734497" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="最新活動">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-4Q-Xtx">
+                                <rect key="frame" x="49" y="187" width="277" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.69801312685012817" green="0.85614901781082153" blue="0.98825567960739136" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="顧客評價">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="O24-hz-q3t" kind="show" identifier="goToAllCustomerRatingsPage" id="7lj-Fd-D9p"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -50,6 +68,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ffj-NM-cqd"/>
+                    <connections>
+                        <outlet property="eventsButton" destination="wwd-Lm-m26" id="FR1-Fg-yU5"/>
+                        <outlet property="ratingButton" destination="mgY-4Q-Xtx" id="Wal-Gq-df3"/>
+                        <outlet property="roomReviewButton" destination="RIS-2P-uHK" id="eqg-nd-BDc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,7 +94,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_detail_background" translatesAutoresizingMaskIntoConstraints="NO" id="hJ7-g6-8Ej">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="other_background" translatesAutoresizingMaskIntoConstraints="NO" id="hJ7-g6-8Ej">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Yy-d7-nKU">
@@ -138,7 +161,7 @@
                                                 <rect key="frame" x="200" y="0.0" width="65" height="30"/>
                                                 <state key="normal" title="Rating"/>
                                                 <connections>
-                                                    <segue destination="O24-hz-q3t" kind="show" identifier="toRatingList" id="rkM-S0-N7U"/>
+                                                    <segue destination="O24-hz-q3t" kind="show" identifier="toRatingList" id="NkR-JI-TG6"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -403,15 +426,16 @@
     </scenes>
     <resources>
         <image name="cm200" width="202" height="202"/>
-        <image name="customer_detail_background" width="455" height="717"/>
         <image name="home" width="25" height="25"/>
+        <image name="home_background" width="375" height="667"/>
         <image name="home_selected" width="32" height="25"/>
+        <image name="other_background" width="375" height="667"/>
         <image name="profile" width="25" height="25"/>
         <image name="profile_selected" width="25" height="25"/>
         <image name="settings" width="52" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gDW-jf-gVR"/>
-        <segue reference="rkM-S0-N7U"/>
+        <segue reference="NkR-JI-TG6"/>
     </inferredMetricsTieBreakers>
 </document>

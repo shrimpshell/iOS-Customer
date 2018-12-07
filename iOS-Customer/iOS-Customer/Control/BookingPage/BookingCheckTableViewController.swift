@@ -14,12 +14,13 @@ class BookingCheckTableViewController: UITableViewController {
     var roomReservation = [ShoppingCar]()
     var reservationRoom = [RoomType]()
     var totalDays = 1
+    let roomGruopId = UUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reservationRoom.removeAll()
-        
+        printHelper.println(tag: self.TAG, line: #line, roomGruopId)
         // row的高度
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -28,8 +29,24 @@ class BookingCheckTableViewController: UITableViewController {
     }
     
     @IBAction func sendReservation(_ sender: UIBarButtonItem) {
-        for index in 0...reservationRoom.count {
+        for index in 0...(roomReservation.count - 1) {
            getReservation(checkInDate: roomReservation[index].checkInDate, checkOutDate: roomReservation[index].checkOutDate, roomTypeId: roomReservation[index].id)
+            if reservationRoom.isEmpty {
+                // ... insert
+            } else {
+                for roomIndex in 0...(reservationRoom.count - 1) where roomReservation[index].id == reservationRoom[roomIndex].id {
+                    if roomReservation[index].roomQuantity <= reservationRoom[roomIndex].roomQuantity {
+                        
+                    } else {
+                        let alert = UIAlertController(title: "訂房失敗", message: "房間已被訂滿，請重新選取。", preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
+                            self.performSegue(withIdentifier: "backToChooseBooking", sender: nil)
+                        })
+                        alert.addAction(ok)
+                        self.present(alert, animated: true)
+                    }
+                }
+            }
         }
     }
     

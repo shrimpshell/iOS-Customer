@@ -161,7 +161,7 @@
                                                 <rect key="frame" x="200" y="0.0" width="65" height="30"/>
                                                 <state key="normal" title="Rating"/>
                                                 <connections>
-                                                    <segue destination="O24-hz-q3t" kind="show" identifier="toRatingList" id="NkR-JI-TG6"/>
+                                                    <segue destination="O24-hz-q3t" kind="show" identifier="toRatingList" id="rkM-S0-N7U"/>
                                                 </connections>
                                             </button>
                                         </subviews>

@@ -19,17 +19,6 @@ struct RoomType: Codable {
     var childQuantity: Int = 0
     var roomQuantity: Int
     var price: Int = 0
-    
-//    init(id: Int, name: String, roomSize: String, bed: String, adultQuantity: Int, childQuantity: Int, roomQuantity: Int, price: Int) {
-//        self.id = id
-//        self.name = name
-//        self.roomSize = roomSize
-//        self.bed = bed
-//        self.adultQuantity = adultQuantity
-//        self.childQuantity = childQuantity
-//        self.roomQuantity = roomQuantity
-//        self.price = price
-//    }
 }
 
 struct Reservation: Codable {

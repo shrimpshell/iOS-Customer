@@ -263,7 +263,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             tableViewController.orders = self.orderRoomDetails!
             tableViewController.instants = self.orderInstantDetails!
         case "toRatingList":
-            print("toRatingList")
             let NAVController = segue.destination as? UINavigationController
             let ratingListPage = NAVController?.viewControllers.first as! AllRatingsTableViewController
             ratingListPage.customer = customer

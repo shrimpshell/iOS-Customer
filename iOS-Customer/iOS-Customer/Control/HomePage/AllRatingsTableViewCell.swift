@@ -58,7 +58,7 @@ class AllRatingsTableViewCell: UITableViewCell {
             }
             
             customrServiceResponse.isHidden = false
-            if allRating?.ratingStatus == 1 {
+            if allRating?.ratingStatus != 2 {
                 customrServiceResponse.isHidden = true
             }
         }

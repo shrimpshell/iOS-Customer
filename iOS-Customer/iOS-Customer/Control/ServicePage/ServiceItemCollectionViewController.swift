@@ -129,6 +129,15 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
 
     // get user service status
     func updateUserServiceStatus() {
+        guard payDetailInfo.first?.roomReservationStatus == "1" else {
+            let alert = UIAlertController(title: "無法使用此功能", message: "入住後啟用此功能", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.performSegue(withIdentifier: "noRoomNumberItem", sender: nil)
+                }
+            alert.addAction(ok)
+            present(alert, animated: true)
+            return
+        }
         download.getCustomerStatus(roomNumber: (payDetailInfo.first?.roomNumber)!) { (result, error) in
             if let error = error {
                 print("updateUserServiceStatus error: \(error)")
@@ -187,6 +196,7 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
             for userDetail in resultObject {
                 if userDetail.roomReservationStatus == "1" {
                     self.payDetailInfo.append(userDetail)
+                    print("Deubg >>> \(self.payDetailInfo)")
                 }
             }
             self.updateUserServiceStatus()

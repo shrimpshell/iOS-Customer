@@ -50,10 +50,6 @@ class ViewController: UIViewController {
         ratingButton.titleLabel?.shadowColor = .black
         roomReviewButton.titleLabel?.shadowColor = .black
         eventsButton.titleLabel?.shadowColor = .black
-        
-        ratingButton.titleLabel?.shadowOffset = CGSize(width: 0, height: 1)
-        roomReviewButton.titleLabel?.shadowOffset = CGSize(width: 0, height: 1)
-        eventsButton.titleLabel?.shadowOffset = CGSize(width: 0, height: 1)
     }
 }
 

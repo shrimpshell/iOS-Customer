@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var orderRoomDetails: [OrderRoomDetail]?
     var orderInstantDetails: [OrderInstantDetail]?
+    let userID = UserDefaults()
     
     
     
@@ -149,6 +150,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 printHelper.println(tag: self.TAG, line: #line, "idCustomer解包錯誤")
                 return
             }
+            self.userID.set(idCustomer, forKey: "userID")
+            self.userID.synchronize()
             self.idCustomerLabel.text = "\(reFreshidCustmoer)"
             self.nameCustomer.text = self.customer?.name
             self.emailCustomer.text = self.customer?.email
@@ -262,8 +265,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let tableViewController = NAVController?.viewControllers.first as! RoomOrderTableViewController
             tableViewController.orders = self.orderRoomDetails!
             tableViewController.instants = self.orderInstantDetails!
+            
         case "toRatingList":
-            print("toRatingList")
             let NAVController = segue.destination as? UINavigationController
             let ratingListPage = NAVController?.viewControllers.first as! AllRatingsTableViewController
             ratingListPage.customer = customer

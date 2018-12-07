@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" red="0.78971105813980103" green="0.86620420217514038" blue="0.89020222425460815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RIS-2P-uHK">
-                                <rect key="frame" x="49" y="328" width="277" height="138"/>
+                                <rect key="frame" x="49" y="238" width="277" height="138"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-4Q-Xtx">
-                                <rect key="frame" x="49" y="125" width="277" height="140"/>
+                                <rect key="frame" x="49" y="90" width="277" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -46,6 +46,15 @@
                                 <connections>
                                     <segue destination="O24-hz-q3t" kind="show" identifier="goToAllCustomerRatingsPage" id="7lj-Fd-D9p"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwd-Lm-m26">
+                                <rect key="frame" x="49" y="384" width="277" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="最新活動" backgroundImage="events">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -59,6 +68,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ffj-NM-cqd"/>
                     <connections>
+                        <outlet property="eventsButton" destination="wwd-Lm-m26" id="FR1-Fg-yU5"/>
                         <outlet property="ratingButton" destination="mgY-4Q-Xtx" id="Wal-Gq-df3"/>
                         <outlet property="roomReviewButton" destination="RIS-2P-uHK" id="eqg-nd-BDc"/>
                     </connections>
@@ -416,6 +426,7 @@
     <resources>
         <image name="cm200" width="202" height="202"/>
         <image name="customer_detail_background" width="455" height="717"/>
+        <image name="events" width="1500" height="1000"/>
         <image name="home" width="25" height="25"/>
         <image name="home_selected" width="32" height="25"/>
         <image name="profile" width="25" height="25"/>

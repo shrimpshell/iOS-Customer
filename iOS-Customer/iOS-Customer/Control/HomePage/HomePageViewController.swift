@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet weak var roomReviewButton: UIButton!
+    @IBOutlet weak var eventsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,15 +41,19 @@ class ViewController: UIViewController {
     func buttonSetup() {
         ratingButton.clipsToBounds = true
         roomReviewButton.clipsToBounds = true
+        eventsButton.clipsToBounds = true
         
         ratingButton.layer.cornerRadius = 10
         roomReviewButton.layer.cornerRadius = 10
+        eventsButton.layer.cornerRadius = 10
         
         ratingButton.titleLabel?.shadowColor = .black
         roomReviewButton.titleLabel?.shadowColor = .black
+        eventsButton.titleLabel?.shadowColor = .black
         
         ratingButton.titleLabel?.shadowOffset = CGSize(width: 0, height: 1)
         roomReviewButton.titleLabel?.shadowOffset = CGSize(width: 0, height: 1)
+        eventsButton.titleLabel?.shadowOffset = CGSize(width: 0, height: 1)
     }
 }
 

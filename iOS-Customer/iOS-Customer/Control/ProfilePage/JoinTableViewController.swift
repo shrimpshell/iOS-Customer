@@ -15,6 +15,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     var pageNumber = 0
     var email: String = ""
     var phone: String = ""
+    var password: String = "", rePassword: String = ""
     
     
     @IBOutlet weak var nameField: UITextField!
@@ -104,13 +105,18 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     
     // 判斷資料庫中是否已有相同Email存在
     @IBAction func emailExistCheck(_ sender: UITextField) {
-        email = emailField.text!
-        let customerExist = ["action": "userExist", "email": email] as [String : String]
-        customerTask.userExist(customerExist).done { (reuslt) in
-            if reuslt == "true" {
-                self.emailField.text = ""
-                self.showAlert(message: "Email已存在\n請輸入其他Email")
+        switch pageNumber {
+        case 0:
+            email = emailField.text!
+            let customerExist = ["action": "userExist", "email": email] as [String : String]
+            customerTask.userExist(customerExist).done { (reuslt) in
+                if reuslt == "true" {
+                    self.emailField.text = ""
+                    self.showAlert(message: "Email已存在\n請輸入其他Email")
+                }
             }
+        default:
+            break
         }
     }
     
@@ -119,7 +125,15 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     
     
     @IBAction func rePasswordCheck(_ sender: UITextField) {
-        
+        password = passwordField.text!
+        rePassword = rePasswordField.text!
+        if password != rePassword {
+            passwordField.text = ""
+            rePasswordField.text = ""
+            passwordField.placeholder = "請確認密碼是否正確"
+            passwordField.layer.borderColor = UIColor.red.cgColor
+            rePasswordField.layer.borderColor = UIColor.red.cgColor
+        }
     }
     
     
@@ -127,7 +141,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         switch pageNumber {
         case 0:
             let name: String = nameField.text!
-            let password: String = passwordField.text!
+            
             var _: String = rePasswordField.text!
             var gender: String
             if genderSegmented.selectedSegmentIndex == 0   {

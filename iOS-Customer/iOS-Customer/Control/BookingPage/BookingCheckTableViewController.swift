@@ -35,9 +35,16 @@ class BookingCheckTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 200
     }
     
+    // MAKR: - Send reservation.
+    
     @IBAction func sendReservation(_ sender: UIBarButtonItem) {
+        if customerId == 0 {
+            
+        }
         for index in 0...(roomReservation.count - 1) {
            getReservation(checkInDate: checkInDate, checkOutDate: checkOutDate, roomTypeId: roomReservation[index].id)
+            
+            // Check that the room the user wants to book can be booked.
             if reservationRoom.isEmpty {
                 let alert = UIAlertController(title: "訂房確認", message: "確定要訂房嗎？", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "確定", style: .default) { (ok) in
@@ -50,7 +57,7 @@ class BookingCheckTableViewController: UITableViewController {
             } else {
                 for roomIndex in 0...(reservationRoom.count - 1) where roomReservation[index].id == reservationRoom[roomIndex].id {
                     if roomReservation[index].roomQuantity <= reservationRoom[roomIndex].roomQuantity {
-                        // ... insert
+                        self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
                     } else {
                         let alert = UIAlertController(title: "訂房失敗", message: "房間已被訂滿，請重新選取。", preferredStyle: .alert)
                         let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
@@ -62,6 +69,10 @@ class BookingCheckTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func unwindToBookingCheck(_ segue: UIStoryboardSegue) {
+        
     }
     
     // MARK: - Table view data source
@@ -168,15 +179,14 @@ extension BookingCheckTableViewController: BookingCheckTableViewCellDelegate {
         guard let price = Int((sender.priceLabel.text?.replace(target: "NT$ ", withString: ""))!) else {
             return
         }
-        guard let quaintity = Int(sender.roomQuantityLabel.text!) else { return }
-        let extraPrice = 1000 * quaintity
+        guard let quaintity = Int((sender.roomQuantityLabel.text?.replace(target: " 間", withString: ""))!) else { return }
         
         if sender.extraBedSwitch.isOn {
             extraBed = 1
-            sender.priceLabel.text = "NT$ \(price + extraPrice)"
+            sender.priceLabel.text = "NT$ \(price + 1000 * quaintity)"
         } else {
             extraBed = 0
-            sender.priceLabel.text = "NT$ \(price - extraPrice)"
+            sender.priceLabel.text = "NT$ \(price - 1000 * quaintity)"
         }
     }
 }

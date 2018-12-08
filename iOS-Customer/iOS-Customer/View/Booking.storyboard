@@ -599,6 +599,7 @@
                     <connections>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="checkBooking" unwindAction="unwindToChooseRoom:" id="a7l-hp-AHK"/>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="backToChooseBooking" unwindAction="unwindToChooseRoom:" id="HZT-Za-25V"/>
+                        <segue destination="bNV-S8-kyi" kind="show" id="a3Q-r2-0TZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zB-dB-5BY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -606,10 +607,18 @@
             </objects>
             <point key="canvasLocation" x="3135" y="1128"/>
         </scene>
+        <!--ProfilePage-->
+        <scene sceneID="KHq-bV-BOf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="ProfilePage" id="bNV-S8-kyi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ke-YE-Kn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3793" y="1127"/>
+        </scene>
         <!--預約-->
         <scene sceneID="raz-EX-gx1">
             <objects>
-                <navigationController storyboardIdentifier="booking" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XMv-Pl-L1U" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="booking" automaticallyAdjustsScrollViewInsets="NO" id="XMv-Pl-L1U" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="預約" image="calendar" selectedImage="calendar_selected" id="NoK-x6-wY3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bOO-Lj-Itc">

@@ -31,6 +31,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
+                                                    <connections>
+                                                        <action selector="checkNameCount:" destination="eYn-bM-RTx" eventType="editingDidEnd" id="a4P-zU-ZXd"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -86,6 +89,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                                                    <connections>
+                                                        <action selector="checkPasswordCount:" destination="eYn-bM-RTx" eventType="editingDidEnd" id="SUD-kC-3B9"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>

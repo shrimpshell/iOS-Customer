@@ -13,13 +13,21 @@ class BookingCheckTableViewController: UITableViewController {
     let TAG = "BookingCheckTableViewController"
     var roomReservation = [ShoppingCar]()
     var reservationRoom = [RoomType]()
+    var checkInDate = ""
+    var checkOutDate = ""
+    var reservation = Reservation()
+    var customerId = 0
     var totalDays = 1
+    var extraBed = 0
+    let roomGruopId = UUID().uuidString
+    let reservagtionDate = Date().getDateString()
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reservationRoom.removeAll()
-        
+        printHelper.println(tag: self.TAG, line: #line, roomGruopId)
         // row的高度
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -28,8 +36,31 @@ class BookingCheckTableViewController: UITableViewController {
     }
     
     @IBAction func sendReservation(_ sender: UIBarButtonItem) {
-        for index in 0...reservationRoom.count {
-           getReservation(checkInDate: roomReservation[index].checkInDate, checkOutDate: roomReservation[index].checkOutDate, roomTypeId: roomReservation[index].id)
+        for index in 0...(roomReservation.count - 1) {
+           getReservation(checkInDate: checkInDate, checkOutDate: checkOutDate, roomTypeId: roomReservation[index].id)
+            if reservationRoom.isEmpty {
+                let alert = UIAlertController(title: "訂房確認", message: "確定要訂房嗎？", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "確定", style: .default) { (ok) in
+                    self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
+                }
+                let cancel = UIAlertAction(title: "取消", style: .destructive)
+                alert.addAction(cancel)
+                alert.addAction(ok)
+                self.present(alert, animated: true)
+            } else {
+                for roomIndex in 0...(reservationRoom.count - 1) where roomReservation[index].id == reservationRoom[roomIndex].id {
+                    if roomReservation[index].roomQuantity <= reservationRoom[roomIndex].roomQuantity {
+                        // ... insert
+                    } else {
+                        let alert = UIAlertController(title: "訂房失敗", message: "房間已被訂滿，請重新選取。", preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
+                            self.performSegue(withIdentifier: "backToChooseBooking", sender: nil)
+                        })
+                        alert.addAction(ok)
+                        self.present(alert, animated: true)
+                    }
+                }
+            }
         }
     }
     
@@ -54,11 +85,11 @@ class BookingCheckTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.delegate = self
-//        cell.minusBtn.addTarget(self, action: #selector(minusRoomQuantity), for: .touchUpInside)
         cell.roomTypeNameLabel.text = roomReservation[indexPath.row].roomTypeName
-        cell.checkInDateLabel.text = "入住日期： \(roomReservation[indexPath.row].checkOutDate)"
-        cell.checkOutDateLabel.text = "退房日期： \(roomReservation[indexPath.row].checkOutDate)"
+        cell.checkInDateLabel.text = "入住日期： \(checkOutDate)"
+        cell.checkOutDateLabel.text = "退房日期： \(checkOutDate)"
         cell.totalDaysLabel.text = "共 \(totalDays) 晚"
+        cell.extraBedLabel.text = "是否要加床:"
         cell.roomQuantityLabel.text = "\(roomReservation[indexPath.row].roomQuantity) 間"
         cell.priceLabel.text = "NT$ \(roomReservation[indexPath.row].price * roomReservation[indexPath.row].roomQuantity)"
         return cell
@@ -99,6 +130,7 @@ class BookingCheckTableViewController: UITableViewController {
 // MARK: - TableViewCellDelegate
 // Change room quantity.
 extension BookingCheckTableViewController: BookingCheckTableViewCellDelegate {
+    
     // Minus room quantity.
     func minusRoomQuantity(_ sender: BookingCheckTableViewCell) {
         guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
@@ -131,6 +163,22 @@ extension BookingCheckTableViewController: BookingCheckTableViewCellDelegate {
         let price = roomReservation[tappedIndexPath.row].price
         sender.priceLabel.text = "NT$ \(price * quantity)"
     }
+    
+    func extraBedSwitchPressed(_ sender: BookingCheckTableViewCell) {
+        guard let price = Int((sender.priceLabel.text?.replace(target: "NT$ ", withString: ""))!) else {
+            return
+        }
+        guard let quaintity = Int(sender.roomQuantityLabel.text!) else { return }
+        let extraPrice = 1000 * quaintity
+        
+        if sender.extraBedSwitch.isOn {
+            extraBed = 1
+            sender.priceLabel.text = "NT$ \(price + extraPrice)"
+        } else {
+            extraBed = 0
+            sender.priceLabel.text = "NT$ \(price - extraPrice)"
+        }
+    }
 }
 
 // MARK: - Get data from server.
@@ -161,5 +209,20 @@ extension BookingCheckTableViewController {
             printHelper.println(tag: self.TAG, line: #line, "resultObject: \(resultsObject)")
             self.reservationRoom = resultsObject
         })
+    }
+    
+    func insertReservation(quantity: Int, roomTypeId: Int, eventId: Int, price: Int) {
+        customerId = userDefaults.value(forKey: "userID") as! Int
+        let reservation = Reservation(reservationDate: reservagtionDate, checkInDate: checkInDate, checkOutDate: checkOutDate, extraBed: extraBed, quantity: quantity, reservationStatus: roomGruopId, customerId: customerId, roomTypeId: roomTypeId, eventId: eventId, roomGroup: roomGruopId, price: price)
+        let reservationData = try! JSONEncoder().encode(reservation)
+        let reservationString = String(data: reservationData, encoding: .utf8)
+        RoomTypeCommunicator.shared.insertReservation(reservation: reservationString!) { (result, error) in
+            if let error = error {
+                printHelper.println(tag: self.TAG, line: #line, "InsertInstant text error: \(error)")
+                return
+            }
+            printHelper.println(tag: self.TAG, line: #line, "InsertInstant text OK: \(result!)")
+            self.showAlert(title: "訂房成功", message: "期待您的光臨！")
+        }
     }
 }

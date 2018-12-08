@@ -49,6 +49,20 @@ struct Reservation: Codable {
     }
 }
 
+struct Reservation: Codable {
+    var reservationDate: String = ""
+    var checkInDate: String = ""
+    var checkOutDate: String = ""
+    var extraBed: Int = 0
+    var quantity: Int = 0
+    var reservationStatus: String = ""
+    var customerId: Int = 0
+    var roomTypeId: Int = 0
+    var eventId: Int = 0
+    var roomGroup: String = ""
+    var price: Int = 0
+}
+
 struct Events: Codable {
     var eventId: Int
     var discount: Float

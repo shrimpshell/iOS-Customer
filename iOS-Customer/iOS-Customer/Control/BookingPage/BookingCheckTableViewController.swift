@@ -35,6 +35,12 @@ class BookingCheckTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 200
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        customerId = userDefaults.value(forKey: "userID") as! Int
+    }
+    
     // MAKR: - Send reservation.
     
     @IBAction func sendReservation(_ sender: UIBarButtonItem) {
@@ -138,6 +144,9 @@ class BookingCheckTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         // Change to isFromCheckBooking = true, which means coming from the CheckBooking page.
+//        let tabBarVC = segue.destination as! UITabBarController
+//        let nivagationVC = tabBarVC.viewControllers![1] as! UINavigationController
+//        let profileVC = nivagationVC.topViewController as! ProfileViewController
         let profileVC = segue.destination as! ProfileViewController
         profileVC.isFromCheckBooking = true
     }
@@ -229,7 +238,6 @@ extension BookingCheckTableViewController {
     }
     
     func insertReservation(quantity: Int, roomTypeId: Int, eventId: Int, price: Int) {
-        customerId = userDefaults.value(forKey: "userID") as! Int
         let reservation = Reservation(reservationDate: reservagtionDate, checkInDate: checkInDate, checkOutDate: checkOutDate, extraBed: extraBed, quantity: quantity, customerId: customerId, roomTypeId: roomTypeId, eventId: eventId, roomGroup: roomGruopId, price: price)
         let reservationData = try! JSONEncoder().encode(reservation)
         let reservationString = String(data: reservationData, encoding: .utf8)

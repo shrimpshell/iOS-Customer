@@ -128,8 +128,8 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="bHY-ol-HCm" firstAttribute="centerY" secondItem="zvX-V8-fG0" secondAttribute="centerY" id="5Ef-MH-qku"/>
-                                                <constraint firstItem="bHY-ol-HCm" firstAttribute="centerX" secondItem="zvX-V8-fG0" secondAttribute="centerX" id="JtV-nF-Igf"/>
+                                                <constraint firstItem="bHY-ol-HCm" firstAttribute="centerX" secondItem="zvX-V8-fG0" secondAttribute="centerX" id="G5r-Gu-hmP"/>
+                                                <constraint firstItem="bHY-ol-HCm" firstAttribute="centerY" secondItem="zvX-V8-fG0" secondAttribute="centerY" id="pv6-6e-QSB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -184,8 +184,8 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="y0a-Mw-Pvo" firstAttribute="centerX" secondItem="Xl0-mG-Rr3" secondAttribute="centerX" id="0av-pe-Squ"/>
-                                                <constraint firstItem="y0a-Mw-Pvo" firstAttribute="centerY" secondItem="Xl0-mG-Rr3" secondAttribute="centerY" id="rIx-8C-CJq"/>
+                                                <constraint firstItem="y0a-Mw-Pvo" firstAttribute="centerY" secondItem="Xl0-mG-Rr3" secondAttribute="centerY" id="FL8-Hz-Yf0"/>
+                                                <constraint firstItem="y0a-Mw-Pvo" firstAttribute="centerX" secondItem="Xl0-mG-Rr3" secondAttribute="centerX" id="yma-YK-S1z"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -601,6 +601,8 @@
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="backToChooseBooking" unwindAction="unwindToChooseRoom:" id="HZT-Za-25V"/>
                         <segue destination="bNV-S8-kyi" kind="show" identifier="goToCheckIn" id="a3Q-r2-0TZ"/>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="goToProfilePage" unwindAction="unwindToProfilePage:" id="LkF-dd-82x"/>
+                        <segue destination="SRd-19-gST" kind="show" identifier="goToHomePage" id="fVe-jo-teG"/>
+                        <segue destination="XMv-Pl-L1U" kind="show" identifier="backToBooking" id="T3b-Qk-HgT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zB-dB-5BY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -614,7 +616,15 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="profile" id="bNV-S8-kyi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ke-YE-Kn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3731" y="1127"/>
+            <point key="canvasLocation" x="3730" y="1034"/>
+        </scene>
+        <!--HomePage-->
+        <scene sceneID="0Rw-wW-5fH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="HomePage" id="SRd-19-gST" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgC-uZ-Dbz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3749" y="1213"/>
         </scene>
         <!--預約-->
         <scene sceneID="raz-EX-gx1">

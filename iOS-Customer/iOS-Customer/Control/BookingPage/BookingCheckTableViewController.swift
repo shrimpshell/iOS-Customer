@@ -35,6 +35,14 @@ class BookingCheckTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 200
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if roomReservation.count == 0 {
+            performSegue(withIdentifier: "backToBooking", sender: nil)
+        }
+    }
+    
     // MAKR: - Send reservation.
     
     @IBAction func sendReservation(_ sender: UIBarButtonItem) {
@@ -52,7 +60,7 @@ class BookingCheckTableViewController: UITableViewController {
                         self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
                         self.roomReservation.removeAll()
                         self.reservationRoom.removeAll()
-                        self.performSegue(withIdentifier: "goToProfilePage", sender: nil)
+                        self.performSegue(withIdentifier: "goToHomePage", sender: nil)
                     }
                     let cancel = UIAlertAction(title: "取消", style: .destructive)
                     alert.addAction(cancel)
@@ -141,11 +149,10 @@ class BookingCheckTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         // Change to isFromCheckBooking = true, which means coming from the CheckBooking page.
-//        let tabBarVC = segue.destination as! UITabBarController
-//        let nivagationVC = tabBarVC.viewControllers![1] as! UINavigationController
-//        let profileVC = nivagationVC.topViewController as! ProfileViewController
-        let profileVC = segue.destination as! ProfileViewController
-        profileVC.isFromCheckBooking = true
+        if segue.identifier == "goToCheckIn" {
+            let profileVC = segue.destination as! ProfileViewController
+            profileVC.isFromCheckBooking = true
+        }
     }
     
 
@@ -235,6 +242,7 @@ extension BookingCheckTableViewController {
     }
     
     func insertReservation(quantity: Int, roomTypeId: Int, eventId: Int, price: Int) {
+        customerId = userDefaults.value(forKey: "userID") as! Int
         let reservation = Reservation(reservationDate: reservagtionDate, checkInDate: checkInDate, checkOutDate: checkOutDate, extraBed: extraBed, quantity: quantity, customerId: customerId, roomTypeId: roomTypeId, eventId: eventId, roomGroup: roomGruopId, price: price)
         let reservationData = try! JSONEncoder().encode(reservation)
         let reservationString = String(data: reservationData, encoding: .utf8)

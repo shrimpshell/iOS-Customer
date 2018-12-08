@@ -336,7 +336,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 return orderDetails.getInstantPayDetail(detailParameters)
             }.done {
                 instants in
-                self.isLogin = true
                 self.showCustomerInfo()
                 self.orderInstantDetails = instants
             }.catch {

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_detail_background" translatesAutoresizingMaskIntoConstraints="NO" id="FqG-ll-sE7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_background" translatesAutoresizingMaskIntoConstraints="NO" id="FqG-ll-sE7">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.78971105813980103" green="0.86620420217514038" blue="0.89020222425460815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
@@ -71,7 +71,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_detail_background" translatesAutoresizingMaskIntoConstraints="NO" id="hJ7-g6-8Ej">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="other_background" translatesAutoresizingMaskIntoConstraints="NO" id="hJ7-g6-8Ej">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Yy-d7-nKU">
@@ -405,9 +405,10 @@
     </scenes>
     <resources>
         <image name="cm200" width="202" height="202"/>
-        <image name="customer_detail_background" width="455" height="717"/>
         <image name="home" width="25" height="25"/>
+        <image name="home_background" width="375" height="667"/>
         <image name="home_selected" width="32" height="25"/>
+        <image name="other_background" width="375" height="667"/>
         <image name="profile" width="25" height="25"/>
         <image name="profile_selected" width="25" height="25"/>
         <image name="settings" width="52" height="52"/>

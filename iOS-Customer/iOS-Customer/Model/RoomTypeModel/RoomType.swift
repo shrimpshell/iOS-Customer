@@ -36,6 +36,7 @@ struct Reservation: Codable {
 }
 
 struct Events: Codable {
+    var eventId: Int
     var discount: Float
 }
 
@@ -45,5 +46,16 @@ struct ShoppingCar {
     var checkInDate: String
     var checkOutDate: String
     var roomQuantity: Int
+    var eventid: Int = 0
     var price: Int
+    
+    init(id: Int, roomTypeName: String, checkInDate: String, checkOutDate: String, roomQuantity: Int, eventid: Int = 0, price: Int) {
+        self.id = id
+        self.roomTypeName = roomTypeName
+        self.checkInDate = checkInDate
+        self.checkOutDate = checkOutDate
+        self.roomQuantity = roomQuantity
+        self.eventid = eventid
+        self.price = price
+    }
 }

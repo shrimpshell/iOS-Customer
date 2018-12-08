@@ -21,6 +21,7 @@ class BookingCheckTableViewController: UITableViewController {
     var extraBed = 0
     let roomGruopId = UUID().uuidString
     let reservagtionDate = Date().getDateString()
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class BookingCheckTableViewController: UITableViewController {
             if reservationRoom.isEmpty {
                 let alert = UIAlertController(title: "訂房確認", message: "確定要訂房嗎？", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "確定", style: .default) { (ok) in
-                    // ... insert
+                    self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
                 }
                 let cancel = UIAlertAction(title: "取消", style: .destructive)
                 alert.addAction(cancel)
@@ -84,7 +85,6 @@ class BookingCheckTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.delegate = self
-//        cell.minusBtn.addTarget(self, action: #selector(minusRoomQuantity), for: .touchUpInside)
         cell.roomTypeNameLabel.text = roomReservation[indexPath.row].roomTypeName
         cell.checkInDateLabel.text = "入住日期： \(checkOutDate)"
         cell.checkOutDateLabel.text = "退房日期： \(checkOutDate)"
@@ -165,15 +165,18 @@ extension BookingCheckTableViewController: BookingCheckTableViewCellDelegate {
     }
     
     func extraBedSwitchPressed(_ sender: BookingCheckTableViewCell) {
-        guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: tappedIndexPath) as! BookingCheckTableViewCell
+        guard let price = Int((sender.priceLabel.text?.replace(target: "NT$ ", withString: ""))!) else {
+            return
+        }
+        guard let quaintity = Int(sender.roomQuantityLabel.text!) else { return }
+        let extraPrice = 1000 * quaintity
         
         if sender.extraBedSwitch.isOn {
             extraBed = 1
-            sender.priceLabel.text = "\(Int(sender.priceLabel.text!)! + 1000)"
+            sender.priceLabel.text = "NT$ \(price + extraPrice)"
         } else {
             extraBed = 0
-            sender.priceLabel.text = "\(Int(sender.priceLabel.text!)! - 1000)"
+            sender.priceLabel.text = "NT$ \(price - extraPrice)"
         }
     }
 }
@@ -209,6 +212,17 @@ extension BookingCheckTableViewController {
     }
     
     func insertReservation(quantity: Int, roomTypeId: Int, eventId: Int, price: Int) {
+        customerId = userDefaults.value(forKey: "userID") as! Int
         let reservation = Reservation(reservationDate: reservagtionDate, checkInDate: checkInDate, checkOutDate: checkOutDate, extraBed: extraBed, quantity: quantity, reservationStatus: roomGruopId, customerId: customerId, roomTypeId: roomTypeId, eventId: eventId, roomGroup: roomGruopId, price: price)
+        let reservationData = try! JSONEncoder().encode(reservation)
+        let reservationString = String(data: reservationData, encoding: .utf8)
+        RoomTypeCommunicator.shared.insertReservation(reservation: reservationString!) { (result, error) in
+            if let error = error {
+                printHelper.println(tag: self.TAG, line: #line, "InsertInstant text error: \(error)")
+                return
+            }
+            printHelper.println(tag: self.TAG, line: #line, "InsertInstant text OK: \(result!)")
+            self.showAlert(title: "訂房成功", message: "期待您的光臨！")
+        }
     }
 }

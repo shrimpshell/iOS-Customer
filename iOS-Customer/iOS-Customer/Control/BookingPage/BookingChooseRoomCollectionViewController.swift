@@ -87,7 +87,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
                     } else {
                         cell.eventLabel.isHidden = false
                         let price = Float(self.roomTypes[indexPath.row].price) * self.discount
-                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id, roomTypeName: self.roomTypes[indexPath.row].name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: Int(price)))
+                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id, roomTypeName: self.roomTypes[indexPath.row].name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventid: self.events[0].eventId, price: Int(price)))
                     }
                 })
                 alert.addAction(cancel)

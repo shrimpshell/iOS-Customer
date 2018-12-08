@@ -13,9 +13,9 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     let customerTask = CustomerAuth()
      var customer: Customer?
     var pageNumber = 0
-    var email: String = ""
-    var phone: String = ""
+    var name = "", email = "", phone = "", password = "", rePassword = "", birthday = "", address = ""
     
+    var isNameOK = false, isEmailOK = false, isPasswordOK = false, isPhoneOK = false
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -50,6 +50,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
             birthdayLable.isUserInteractionEnabled = true
             genderSegmented.isEnabled = true
             emailField.isUserInteractionEnabled = true
+            
         case 2:
             navigationTitle.title = "會員資料修改"
             checkBtn.title = "Editing"
@@ -98,15 +99,69 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func checkNameCount(_ sender: UITextField) {
+        name = nameField.text!
+        if name.count == 0 {
+            errorAction(textField: nameField, message: "請輸入姓名")
+        } else {
+            isNameOK = true
+            nameField.layer.borderColor = UIColor.clear.cgColor
+            print("isNameOK")
+        }
+    }
+    
+    
     // 判斷資料庫中是否已有相同Email存在
     @IBAction func emailExistCheck(_ sender: UITextField) {
-        email = emailField.text!
-        let customerExist = ["action": "userExist", "email": email] as [String : String]
-        customerTask.userExist(customerExist).done { (reuslt) in
-            if reuslt == "true" {
-                self.emailField.text = ""
-                self.showAlert(message: "Email已存在\n請輸入其他Email")
+        switch pageNumber {
+        case 0:
+            email = emailField.text!
+            if isEmail(emailString: email) == true {
+                let customerExist = ["action": "userExist", "email": email] as [String : String]
+                customerTask.userExist(customerExist).done { (reuslt) in
+                    if reuslt == "true" {
+                        self.emailField.text = ""
+                        self.showAlert(message: "Email已存在\n請輸入其他Email")
+                    } else {
+                        self.isEmailOK = true
+                        self.emailField.layer.borderColor = UIColor.clear.cgColor
+                    }
+                }
+            } else  {
+                errorAction(textField: emailField, message: "請輸入正確Email")
             }
+        default:
+            break
+        }
+    }
+    
+    @IBAction func checkPasswordCount(_ sender: UITextField) {
+         password = passwordField.text!
+        if password.count < 4 {
+            errorAction(textField: passwordField, message: "不符合密碼長度，最少四位數")
+        }
+    }
+    
+    
+    @IBAction func rePasswordCheck(_ sender: UITextField) {
+        rePassword = rePasswordField.text!
+        if password != rePassword {
+            errorAction(textField: passwordField, message: "與確認密碼不相符，請再次確認")
+            errorAction(textField: rePasswordField, message: "與確認密碼不相符，請再次確認")
+        } else {
+            isPasswordOK = true
+            passwordField.layer.borderColor = UIColor.clear.cgColor
+            print("isPasswordOK")
+        }
+    }
+    
+    @IBAction func checkPhoneCount(_ sender: UITextField) {
+        phone = phoneField.text!
+        if phone.count < 10 {
+            errorAction(textField: phoneField, message: "手機號碼長度不夠，請再輸入一次")
+        } else {
+            isPhoneOK = true
+            phoneField.layer.borderColor = UIColor.clear.cgColor
         }
     }
     
@@ -114,32 +169,39 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func joinButton(_ sender: Any) {
         switch pageNumber {
         case 0:
-            let name: String = nameField.text!
-            let password: String = passwordField.text!
-            var _: String = rePasswordField.text!
-            var gender: String
-            if genderSegmented.selectedSegmentIndex == 0   {
-                gender = "female"
-            } else {
-                gender = "male"
-            }
-            let birthday: String = birthdayLable.text!
-            phone =  phoneField.text!
-            let address: String = addressField.text!
-            let customer =  Customer(idCustomer: 0, customerID: email, name: name, email: email, password: password, gender: gender, birthday: birthday, phone: phone, address: address, discount: 0)
-            print("customer: \(customer)")
-            let customerData = try! JSONEncoder().encode(customer)
-            let customerString = String(data: customerData, encoding: .utf8)
-            let joinCustomer = ["action": "customerInsert", "customer": customerString] as! [String:Any]
-            customerTask.joinCustomer(joinCustomer).done {
-                (result) in
-                if result != "0" {
-                    print("加入成功 \(result)")
-                    self.performSegue(withIdentifier: "goToProfilePage", sender: self.joinButton)
-                    
+            phoneField.resignFirstResponder()
+            if isNameOK == true && isEmailOK == true && isPasswordOK == true && isPhoneOK == true {
+                var gender: String
+                if genderSegmented.selectedSegmentIndex == 0   {
+                    gender = "female"
                 } else {
-                    self.showAlert(message: "加入失敗")
+                    gender = "male"
                 }
+                birthday = birthdayLable.text!
+                if birthday.count < 1 {
+                    birthday = "1997-01-01"
+                }
+                address = addressField.text!
+                if address.count < 1 {
+                    address = ""
+                }
+                let customer =  Customer(idCustomer: 0, customerID: email, name: name, email: email, password: password, gender: gender, birthday: birthday, phone: phone, address: address, discount: 0)
+                print("customer: \(customer)")
+                let customerData = try! JSONEncoder().encode(customer)
+                let customerString = String(data: customerData, encoding: .utf8)
+                let joinCustomer = ["action": "customerInsert", "customer": customerString] as! [String:Any]
+                customerTask.joinCustomer(joinCustomer).done {
+                    (result) in
+                    if result != "0" {
+                        print("加入成功 \(result)")
+                        self.performSegue(withIdentifier: "goToProfilePage", sender: self.joinButton)
+                        
+                    } else {
+                        self.showAlert(message: "加入失敗")
+                    }
+                }
+            } else {
+                showAlert(message: "資料輸入不完整，請再次確認")
             }
             
         case 2:
@@ -189,13 +251,6 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func checkPhoneCount(_ sender: UITextField) {
-        phone = phoneField.text!
-        if phone.count < 10 {
-            showAlert(message: "手機號碼輸入錯誤，\n請再輸入一次")
-            phoneField.text = ""
-        }
-    }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         switch pageNumber {
@@ -248,6 +303,21 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         birthdayLable.isUserInteractionEnabled = false
         phoneField.text = customer?.phone
         addressField.text = customer?.address
+    }
+    
+    func errorAction(textField: UITextField, message: String) {
+        textField.text = ""
+        textField.placeholder = message
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.red.cgColor
+    }
+    
+    //確認Email是否正確
+    func isEmail(emailString: String) -> Bool {
+        // Sample regex for email - You can use your own regex for email
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: emailString)
     }
     
     //藏鍵盤

@@ -27,14 +27,14 @@ struct Reservation: Codable {
     var checkOutDate: String = ""
     var extraBed: Int = 0
     var quantity: Int = 0
-    var reservationStatus: String = ""
+    var reservationStatus: String = "0"
     var customerId: Int = 0
     var roomTypeId: Int = 0
     var eventId: Int = 0
     var roomGroup: String = ""
     var price: Int = 0
     
-    init(reservationDate: String = "", checkInDate: String = "", checkOutDate: String = "", extraBed: Int = 0, quantity: Int = 0, reservationStatus: String = "", customerId: Int = 0, roomTypeId: Int = 0, eventId: Int = 0, roomGroup: String = "", price: Int = 0) {
+    init(reservationDate: String = "", checkInDate: String = "", checkOutDate: String = "", extraBed: Int = 0, quantity: Int = 0, reservationStatus: String = "0", customerId: Int = 0, roomTypeId: Int = 0, eventId: Int = 0, roomGroup: String = "", price: Int = 0) {
         self.reservationDate = reservationDate
         self.checkInDate = checkInDate
         self.checkOutDate = checkOutDate

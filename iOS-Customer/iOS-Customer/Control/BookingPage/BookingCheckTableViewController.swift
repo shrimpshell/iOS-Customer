@@ -35,17 +35,11 @@ class BookingCheckTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 200
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        customerId = userDefaults.value(forKey: "userID") as! Int
-    }
-    
     // MAKR: - Send reservation.
     
     @IBAction func sendReservation(_ sender: UIBarButtonItem) {
         // Check user is login. The customerId = 0 is not login.
-        if customerId == 0 {
+        if ProfileViewController.isLogin == false {
             performSegue(withIdentifier: "goToCheckIn", sender: nil)
         } else {
             for index in 0...(roomReservation.count - 1) {
@@ -56,6 +50,9 @@ class BookingCheckTableViewController: UITableViewController {
                     let alert = UIAlertController(title: "訂房確認", message: "確定要訂房嗎？", preferredStyle: .alert)
                     let ok = UIAlertAction(title: "確定", style: .default) { (ok) in
                         self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
+                        self.roomReservation.removeAll()
+                        self.reservationRoom.removeAll()
+                        self.performSegue(withIdentifier: "goToProfilePage", sender: nil)
                     }
                     let cancel = UIAlertAction(title: "取消", style: .destructive)
                     alert.addAction(cancel)

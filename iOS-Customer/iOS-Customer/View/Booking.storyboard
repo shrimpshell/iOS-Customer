@@ -12,18 +12,18 @@
         <scene sceneID="LxN-8T-KVy">
             <objects>
                 <tableViewController id="KaL-Hq-NkZ" customClass="BookingTableViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="T0T-fO-CXK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="T0T-fO-CXK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection headerTitle="入住日期" id="T4B-cG-lPC">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="ObR-Z1-ZEv">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="145" id="ObR-Z1-ZEv">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ObR-Z1-ZEv" id="n7N-Za-z6o">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ObR-Z1-ZEv" id="n7N-Za-z6o">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lhH-1N-n8j">
@@ -50,11 +50,11 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="退房日期" id="Amk-Z3-X3O">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="Hrc-Eg-M69">
-                                        <rect key="frame" x="0.0" y="206" width="375" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="145" id="Hrc-Eg-M69">
+                                        <rect key="frame" x="0.0" y="201" width="375" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hrc-Eg-M69" id="72y-rE-MxC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hrc-Eg-M69" id="72y-rE-MxC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0VB-5Q-3DS">
@@ -81,15 +81,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="大人" id="Vux-zp-Yvg">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="pBd-wg-Bzr">
-                                        <rect key="frame" x="0.0" y="384" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="75" id="pBd-wg-Bzr">
+                                        <rect key="frame" x="0.0" y="374" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pBd-wg-Bzr" id="zvX-V8-fG0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHY-ol-HCm" customClass="CosmosView" customModule="Cosmos">
-                                                    <rect key="frame" x="97.5" y="10" width="180" height="60"/>
+                                                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="bHY-ol-HCm" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="97.5" y="7.5" width="180" height="60"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="bHY-ol-HCm" secondAttribute="height" multiplier="3:1" id="6PO-Bm-6bI"/>
@@ -137,15 +137,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="小孩" id="eQj-GP-zgE">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="NmL-PJ-45c">
-                                        <rect key="frame" x="0.0" y="492" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="75" id="NmL-PJ-45c">
+                                        <rect key="frame" x="0.0" y="477" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NmL-PJ-45c" id="Xl0-mG-Rr3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0a-Mw-Pvo" customClass="CosmosView" customModule="Cosmos">
-                                                    <rect key="frame" x="97.5" y="10" width="180" height="60"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0a-Mw-Pvo" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="97.5" y="7.5" width="180" height="60"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="y0a-Mw-Pvo" secondAttribute="height" multiplier="3:1" id="cim-fj-cLB"/>
@@ -600,6 +600,7 @@
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="checkBooking" unwindAction="unwindToChooseRoom:" id="a7l-hp-AHK"/>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="backToChooseBooking" unwindAction="unwindToChooseRoom:" id="HZT-Za-25V"/>
                         <segue destination="bNV-S8-kyi" kind="show" identifier="goToCheckIn" id="a3Q-r2-0TZ"/>
+                        <segue destination="1YY-Vq-9wA" kind="unwind" identifier="goToProfilePage" unwindAction="unwindToProfilePage:" id="LkF-dd-82x"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zB-dB-5BY" userLabel="First Responder" sceneMemberID="firstResponder"/>

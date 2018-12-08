@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     let TAG = "ProfileViewController"
     var customer: Customer?
     var idCustomer: Int = 0
-    var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
+    static var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
     var isFromCheckBooking = false // false is not come from CheckBooking.
     var editPageInfo: Customer?
     let customerTask = CustomerAuth()    //使用promiseKit方法
@@ -57,7 +57,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super .viewWillAppear(true)
         self.tabBarController?.tabBar.isHidden = false
         
-        if isLogin == true {
+        if ProfileViewController.isLogin == true {
             showCustomerInfo()
         }
         
@@ -98,7 +98,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 }
                 self.customer = customer
                 if customer.idCustomer != 0 {
-                    self.isLogin = true
+                    ProfileViewController.isLogin = true
                 }
                 self.userlogin()
                 self.nameCustomer.text = customer.name
@@ -111,7 +111,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let parameters = ["action":"getInstantPayDetail", "idCustomer":"\(self.idCustomer)"]
                 return orderDetails.getInstantPayDetail(parameters)
             }.done { instants in
-                self.isLogin = true
+                ProfileViewController.isLogin = true
                 if self.isFromCheckBooking == false {
                     self.showCustomerInfo()
                     self.orderInstantDetails = instants
@@ -252,7 +252,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func logOutBtnPressed(_ sender: UIButton) {
         //idCustomer = 0
         customer = nil
-        isLogin = false
+        ProfileViewController.isLogin = false
         isFromCheckBooking = false
         self.userID.set(0, forKey: "userID")
         self.userID.synchronize()
@@ -309,7 +309,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //使用isLogin切換會員頁面與登入頁面
     func userlogin() {
-        if  isLogin == true {
+        if  ProfileViewController.isLogin == true {
             navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
             navigationItem.rightBarButtonItem?.isEnabled = true
             loginPageView.isHidden = true

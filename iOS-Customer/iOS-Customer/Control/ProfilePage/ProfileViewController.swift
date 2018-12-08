@@ -254,6 +254,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         customer = nil
         isLogin = false
         isFromCheckBooking = false
+        self.userID.set(0, forKey: "userID")
+        self.userID.synchronize()
         userlogin()
         print("Log Out")
     }

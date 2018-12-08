@@ -99,6 +99,10 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func checkNameCount(_ sender: UITextField) {
+    }
+    
+    
     // 判斷資料庫中是否已有相同Email存在
     @IBAction func emailExistCheck(_ sender: UITextField) {
         switch pageNumber {
@@ -115,6 +119,10 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
             break
         }
     }
+    
+    @IBAction func checkPasswordCount(_ sender: UITextField) {
+    }
+    
     
     @IBAction func rePasswordCheck(_ sender: UITextField) {
         password = passwordField.text!

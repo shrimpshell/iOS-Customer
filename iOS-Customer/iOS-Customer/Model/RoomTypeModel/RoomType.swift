@@ -33,6 +33,20 @@ struct Reservation: Codable {
     var eventId: Int = 0
     var roomGroup: String = ""
     var price: Int = 0
+    
+    init(reservationDate: String = "", checkInDate: String = "", checkOutDate: String = "", extraBed: Int = 0, quantity: Int = 0, reservationStatus: String = "", customerId: Int = 0, roomTypeId: Int = 0, eventId: Int = 0, roomGroup: String = "", price: Int = 0) {
+        self.reservationDate = reservationDate
+        self.checkInDate = checkInDate
+        self.checkOutDate = checkOutDate
+        self.extraBed = extraBed
+        self.quantity = quantity
+        self.reservationStatus = reservationStatus
+        self.customerId = customerId
+        self.roomTypeId = roomTypeId
+        self.eventId = eventId
+        self.roomGroup = roomGroup
+        self.price = price
+    }
 }
 
 struct Events: Codable {

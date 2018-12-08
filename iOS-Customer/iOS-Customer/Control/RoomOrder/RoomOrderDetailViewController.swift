@@ -10,12 +10,11 @@ import UIKit
 
 class RoomOrderDetailViewController: UIViewController {
     let customerTask = DownloadAuth.shared
+    var roomGroup: String!
     var rooms: [OrderRoomDetail]?
     var instants: [OrderInstantDetail]?
     var amount: Int = 0
     static var ratingStatus = 0
-    
-    
     
     @IBOutlet weak var roomGroupLabel: UILabel!
     @IBOutlet weak var checkinLabel: UILabel!
@@ -34,6 +33,7 @@ class RoomOrderDetailViewController: UIViewController {
         discountLabel.text = ""
         showRoomDetails()
         showInstantDetails()
+        roomGroup = rooms![0].roomGroup
         if let rooms = rooms, rooms[0].roomReservationStatus != "3" {
             switch rooms[0].roomReservationStatus {
             case "2":
@@ -70,6 +70,13 @@ class RoomOrderDetailViewController: UIViewController {
         }
         switch segue.identifier {
         case "toTableView":
+            let roomOrderTableViewController = segue.destination as! RoomOrderTableViewController
+            let ord: OrderRoomDictionary = OrderRoomDictionary(id: roomGroup, orderRoomDetails: rooms, orderInstantDetails: instants!)
+            for (index, _) in roomOrderTableViewController.detailDictionary.enumerated() {
+                if ord.id == roomOrderTableViewController.detailDictionary[index].id {
+                    roomOrderTableViewController.detailDictionary[index] = ord
+                }
+            }
             clearAllDetails()
             
         case "toWritingRatingPage":
@@ -160,20 +167,6 @@ class RoomOrderDetailViewController: UIViewController {
             self.checkStatusButton.setTitle("退房", for: .normal)
         }
     }
-    
-  
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//        if segue.identifier == "toWritingRatingPage" {
-//            let writingRating = segue.destination as! WritingRatingViewController
-//            writingRating.roomDetail = rooms[0].
-//
-//        }
-//
-//    }
-//
     
     func getRatingStatusByIdRoomReservation(idRoomReservation: Int) {
         customerTask.getRatingStatus(idRoomReservation: idRoomReservation) { (result, error) in

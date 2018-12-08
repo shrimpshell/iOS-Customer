@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class RoomOrderTableViewController: UITableViewController {
     
@@ -115,15 +116,6 @@ class RoomOrderTableViewController: UITableViewController {
             let detail = segue.destination as! RoomOrderDetailViewController
             detail.rooms = self.targetRooms
             detail.instants = self.targetInstants
-        } else if segue.identifier == "toProfilePage" {
-            let profile = segue.destination as! ProfileViewController
-            for target in self.detailDictionary {
-                self.targetRooms = target.orderRoomDetails
-                self.targetInstants = target.orderInstantDetails
-            }
-            
-            profile.orderRoomDetails = self.targetRooms
-            profile.orderInstantDetails = self.targetInstants
         }
         
     }

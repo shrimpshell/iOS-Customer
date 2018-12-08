@@ -317,7 +317,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue) {
-        
+        if segue.identifier == "toProfilePage" {
+            let orderDetails = OrderRoomDB()
+            let roomParameters = ["action":"getRoomPayDetailById", "idCustomer":"\(self.idCustomer)"]
+            orderDetails.getRoomPayDetailById(roomParameters).then {
+                rooms -> Promise<[OrderInstantDetail]> in
+                self.orderRoomDetails = rooms
+                let detailParameters = ["action":"getInstantPayDetail", "idCustomer":"\(self.idCustomer)"]
+                return orderDetails.getInstantPayDetail(detailParameters)
+            }.done {
+                instants in
+                self.isLogin = true
+                self.showCustomerInfo()
+                self.orderInstantDetails = instants
+            }.catch {
+                (error) in
+                assertionFailure("Login Error: \(error)")
+            }
+        }
         
     }
     

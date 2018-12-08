@@ -149,10 +149,10 @@
 			isa = PBXGroup;
 			children = (
 				2B21F4C321B92FB100534049 /* BookingCheckTableViewController.swift */,
+				2B21F4C721B92FB100534049 /* BookingCheckTableViewCell.swift */,
 				2B21F4C421B92FB100534049 /* BookingChooseCollectionViewCell.swift */,
 				2B21F4C521B92FB100534049 /* BookingChooseRoomCollectionViewController.swift */,
 				2B21F4C621B92FB100534049 /* BookingTableViewController.swift */,
-				2B21F4C721B92FB100534049 /* BookingCheckTableViewCell.swift */,
 			);
 			path = BookingPage;
 			sourceTree = "<group>";

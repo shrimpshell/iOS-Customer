@@ -110,6 +110,10 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func rePasswordCheck(_ sender: UITextField) {
+        
+    }
+    
     
     @IBAction func joinButton(_ sender: Any) {
         switch pageNumber {

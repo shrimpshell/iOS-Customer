@@ -112,6 +112,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                                                    <connections>
+                                                        <action selector="rePasswordCheck:" destination="eYn-bM-RTx" eventType="editingDidEnd" id="IOC-jN-vdl"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>

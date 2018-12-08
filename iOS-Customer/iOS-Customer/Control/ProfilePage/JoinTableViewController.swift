@@ -169,6 +169,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func joinButton(_ sender: Any) {
         switch pageNumber {
         case 0:
+            phoneField.resignFirstResponder()
             if isNameOK == true && isEmailOK == true && isPasswordOK == true && isPhoneOK == true {
                 var gender: String
                 if genderSegmented.selectedSegmentIndex == 0   {

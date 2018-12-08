@@ -18,7 +18,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
     let communicator = RoomTypeCommunicator.shared
     var roomTypes = [RoomType]()
     var reservationRoom = [RoomType]()
-    var events = [Events]()
+    var event = Events()
     var shoppingCar = [ShoppingCar]()
     var checkInDate = ""
     var checkOutDate = ""
@@ -87,7 +87,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
                     } else {
                         cell.eventLabel.isHidden = false
                         let price = Float(self.roomTypes[indexPath.row].price) * self.discount
-                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id, roomTypeName: self.roomTypes[indexPath.row].name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventid: self.events[0].eventId, price: Int(price)))
+                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id, roomTypeName: self.roomTypes[indexPath.row].name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventid: self.event.eventId, price: Int(price)))
                     }
                 })
                 alert.addAction(cancel)
@@ -213,19 +213,19 @@ extension BookingChooseRoomCollectionViewController {
             }
             printHelper.println(tag: self.TAG, line: #line, "RetriveRoomType OK.")
             
-            // Decode as [Events].
+            // Decode as Event.
             guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
                 printHelper.println(tag: self.TAG, line: #line, "Fail to generate jsonData.")
                 return
             }
             let decoder = JSONDecoder()
-            guard let resultsObject = try? decoder.decode([Events].self, from: jsonData) else {
+            guard let resultsObject = try? decoder.decode(Events.self, from: jsonData) else {
                 printHelper.println(tag: self.TAG, line: #line, "Fail to generate jsonData.")
                 return
             }
-            self.events = resultsObject
-            if self.events[0].discount != 0 {
-                self.discount = self.events[0].discount
+            self.event = resultsObject
+            if self.event.discount != 0 {
+                self.discount = self.event.discount
                 printHelper.println(tag: self.TAG, line: #line, "\(self.discount)")
                 self.collectionView.reloadData()
             } else {

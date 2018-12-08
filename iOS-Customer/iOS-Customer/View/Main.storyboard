@@ -66,7 +66,7 @@
         <!--Profile-->
         <scene sceneID="Kd6-Lp-hhF">
             <objects>
-                <viewController title="Profile" id="QEA-SG-bAS" customClass="ProfileViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" title="Profile" id="QEA-SG-bAS" customClass="ProfileViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9w8-3t-wfu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -294,9 +294,11 @@
                         <outlet property="settingItemBtn" destination="dLi-HH-1Ap" id="KuE-3b-1dz"/>
                         <outlet property="titleNavigationItem" destination="iWE-hZ-M7t" id="O0Z-5e-PSr"/>
                         <segue destination="znP-iC-XOu" kind="show" identifier="toOrderList" id="YnO-aU-9o2"/>
+                        <segue destination="Q3V-I0-h4d" kind="unwind" identifier="backToBookingCheck" unwindAction="unwindToBookingCheck:" id="Jtg-T7-Zeh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TgL-db-Y9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Q3V-I0-h4d" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1556" y="1127.5862068965519"/>
         </scene>
@@ -411,7 +413,7 @@
         <image name="settings" width="52" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gDW-jf-gVR"/>
+        <segue reference="wPi-im-ix4"/>
         <segue reference="7lj-Fd-D9p"/>
     </inferredMetricsTieBreakers>
 </document>

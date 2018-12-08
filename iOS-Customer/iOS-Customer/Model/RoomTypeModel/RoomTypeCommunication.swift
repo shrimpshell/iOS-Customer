@@ -12,6 +12,7 @@ import Alamofire
 let ROOMTYPE_URL = Common.SERVER_URL + "/RoomTypeServlet"
 let EVENTS_URL = Common.SERVER_URL + "/EventServlet"
 let RESERVATION_URL = Common.SERVER_URL + "/ReservationServlet"
+let RESERVATION_KEY = "reservation"
 
 class RoomTypeCommunicator {
     
@@ -53,7 +54,7 @@ class RoomTypeCommunicator {
     // MARK: - Insert new data to server.
     // Add new reservation.  Alamorefire just use jsonString.
     func insertReservation(reservation: String, completion: @escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION: "insertReservation", reservation: "reservation"]
+        let parameters: [String : Any] = [ACTION: "insertReservation", RESERVATION_KEY: reservation]
         
         
         doPost(urlString: RESERVATION_URL, parameters: parameters, completion: completion)

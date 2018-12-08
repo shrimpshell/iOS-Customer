@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var customer: Customer?
     var idCustomer: Int = 0
     var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
+    var isFromCheckBooking = false // false is not come from CheckBooking.
     var editPageInfo: Customer?
     let customerTask = CustomerAuth()    //使用promiseKit方法
     let customerAuth = DownloadAuth.shared       //使用Alamofirez方法
@@ -247,6 +248,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         //idCustomer = 0
         customer = nil
         isLogin = false
+        isFromCheckBooking = false
         userlogin()
         print("Log Out")
     }
@@ -301,11 +303,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     //使用isLogin切換會員頁面與登入頁面
     func userlogin() {
         if  isLogin == true {
-            navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
-            navigationItem.rightBarButtonItem?.isEnabled = true
-            loginPageView.isHidden = true
-            profilePageView.isHidden = false
-            titleNavigationItem.title = "會員資料"
+            if isFromCheckBooking == false {
+                navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
+                navigationItem.rightBarButtonItem?.isEnabled = true
+                loginPageView.isHidden = true
+                profilePageView.isHidden = false
+                titleNavigationItem.title = "會員資料"
+            } else {
+                performSegue(withIdentifier: "backToBookingCheck", sender: nil)
+            }
         } else {
             loginPageView.isHidden = false
             titleNavigationItem.title = ""

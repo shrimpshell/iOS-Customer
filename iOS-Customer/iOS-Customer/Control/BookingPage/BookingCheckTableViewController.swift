@@ -38,33 +38,36 @@ class BookingCheckTableViewController: UITableViewController {
     // MAKR: - Send reservation.
     
     @IBAction func sendReservation(_ sender: UIBarButtonItem) {
+        // Check user is login. The customerId = 0 is not login.
         if customerId == 0 {
-            
-        }
-        for index in 0...(roomReservation.count - 1) {
-           getReservation(checkInDate: checkInDate, checkOutDate: checkOutDate, roomTypeId: roomReservation[index].id)
-            
-            // Check that the room the user wants to book can be booked.
-            if reservationRoom.isEmpty {
-                let alert = UIAlertController(title: "訂房確認", message: "確定要訂房嗎？", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "確定", style: .default) { (ok) in
-                    self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
-                }
-                let cancel = UIAlertAction(title: "取消", style: .destructive)
-                alert.addAction(cancel)
-                alert.addAction(ok)
-                self.present(alert, animated: true)
-            } else {
-                for roomIndex in 0...(reservationRoom.count - 1) where roomReservation[index].id == reservationRoom[roomIndex].id {
-                    if roomReservation[index].roomQuantity <= reservationRoom[roomIndex].roomQuantity {
+            performSegue(withIdentifier: "goToCheckIn", sender: nil)
+        } else {
+            for index in 0...(roomReservation.count - 1) {
+                getReservation(checkInDate: checkInDate, checkOutDate: checkOutDate, roomTypeId: roomReservation[index].id)
+                
+                // Check that the room the user wants to book can be booked.
+                if reservationRoom.isEmpty {
+                    let alert = UIAlertController(title: "訂房確認", message: "確定要訂房嗎？", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "確定", style: .default) { (ok) in
                         self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
-                    } else {
-                        let alert = UIAlertController(title: "訂房失敗", message: "房間已被訂滿，請重新選取。", preferredStyle: .alert)
-                        let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
-                            self.performSegue(withIdentifier: "backToChooseBooking", sender: nil)
-                        })
-                        alert.addAction(ok)
-                        self.present(alert, animated: true)
+                    }
+                    let cancel = UIAlertAction(title: "取消", style: .destructive)
+                    alert.addAction(cancel)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true)
+                } else {
+                    //Check if the remaining room is enough for the user to book.
+                    for roomIndex in 0...(reservationRoom.count - 1) where roomReservation[index].id == reservationRoom[roomIndex].id {
+                        if roomReservation[index].roomQuantity <= reservationRoom[roomIndex].roomQuantity {
+                            self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
+                        } else {
+                            let alert = UIAlertController(title: "訂房失敗", message: "房間已被訂滿，請重新選取。", preferredStyle: .alert)
+                            let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
+                                self.performSegue(withIdentifier: "backToChooseBooking", sender: nil)
+                            })
+                            alert.addAction(ok)
+                            self.present(alert, animated: true)
+                        }
                     }
                 }
             }
@@ -126,15 +129,19 @@ class BookingCheckTableViewController: UITableViewController {
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        // Change to isFromCheckBooking = true, which means coming from the CheckBooking page.
+        let profileVC = segue.destination as! ProfileViewController
+        profileVC.isFromCheckBooking = true
     }
-    */
+    
 
 }
 

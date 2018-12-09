@@ -17,35 +17,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_detail_background" translatesAutoresizingMaskIntoConstraints="NO" id="FqG-ll-sE7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_background" translatesAutoresizingMaskIntoConstraints="NO" id="FqG-ll-sE7">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.78971105813980103" green="0.86620420217514038" blue="0.89020222425460815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-4Q-Xtx">
-                                <rect key="frame" x="49" y="104" width="277" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="顧客評價"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yGJ-WY-mjL">
+                                <rect key="frame" x="49" y="321" width="277" height="130"/>
+                                <color key="backgroundColor" red="0.61710780860000003" green="0.81619834899999999" blue="0.98041659589999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="277" id="ICf-8j-sqP"/>
+                                    <constraint firstAttribute="height" constant="130" id="kBW-b1-pqC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="房間資訊">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <segue destination="O24-hz-q3t" kind="show" identifier="goToAllCustomerRatingsPage" id="7lj-Fd-D9p"/>
+                                    <segue destination="4xU-AH-9qw" kind="show" id="nrX-qk-VWp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIS-2P-uHK">
-                                <rect key="frame" x="49" y="198" width="277" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="房間資訊"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psM-cM-Bmu">
+                                <rect key="frame" x="49" y="459" width="277" height="130"/>
+                                <color key="backgroundColor" red="0.48290145400000001" green="0.7363612652" blue="0.95689326519999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="AMQ-op-i2j"/>
+                                    <constraint firstAttribute="width" constant="277" id="K9G-AW-UJ0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="最新活動">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaD-Mg-buj">
+                                <rect key="frame" x="49" y="183" width="277" height="130"/>
+                                <color key="backgroundColor" red="0.69801312689999995" green="0.85614901779999997" blue="0.98825567960000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="8tA-0a-0kT"/>
+                                    <constraint firstAttribute="width" constant="277" id="f94-bp-xFw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="顧客評價">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <segue destination="4xU-AH-9qw" kind="show" id="nhO-Wt-5ce"/>
+                                    <segue destination="O24-hz-q3t" kind="show" identifier="goToAllCustomerRatingsPage" id="9vA-Ft-UIx"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yGJ-WY-mjL" secondAttribute="trailing" constant="49" id="3LV-Hj-iRr"/>
+                            <constraint firstItem="yGJ-WY-mjL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4jy-bb-xRj"/>
+                            <constraint firstItem="AaD-Mg-buj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="8oZ-HL-C0p"/>
                             <constraint firstItem="FqG-ll-sE7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BIr-SV-1Ds"/>
+                            <constraint firstItem="yGJ-WY-mjL" firstAttribute="top" secondItem="AaD-Mg-buj" secondAttribute="bottom" constant="8" id="BVx-bh-Ydk"/>
+                            <constraint firstItem="psM-cM-Bmu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J2q-f8-Jdw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FqG-ll-sE7" secondAttribute="trailing" id="KfL-4x-Raw"/>
+                            <constraint firstItem="AaD-Mg-buj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="119" id="MP5-BR-842"/>
+                            <constraint firstItem="psM-cM-Bmu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="TeN-t8-RMM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FqG-ll-sE7" secondAttribute="bottom" id="Tmz-ij-goY"/>
                             <constraint firstItem="FqG-ll-sE7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X5n-E2-bCE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="psM-cM-Bmu" secondAttribute="trailing" constant="49" id="ar1-WO-jIP"/>
+                            <constraint firstItem="AaD-Mg-buj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fw8-ly-7Bf"/>
+                            <constraint firstItem="psM-cM-Bmu" firstAttribute="top" secondItem="yGJ-WY-mjL" secondAttribute="bottom" constant="8" id="g9d-zR-KSa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AaD-Mg-buj" secondAttribute="trailing" constant="49" id="hCA-wX-Bhx"/>
+                            <constraint firstItem="yGJ-WY-mjL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="xid-MK-cvp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -66,12 +105,12 @@
         <!--Profile-->
         <scene sceneID="Kd6-Lp-hhF">
             <objects>
-                <viewController title="Profile" id="QEA-SG-bAS" customClass="ProfileViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" title="Profile" id="QEA-SG-bAS" customClass="ProfileViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9w8-3t-wfu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_detail_background" translatesAutoresizingMaskIntoConstraints="NO" id="hJ7-g6-8Ej">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="other_background" translatesAutoresizingMaskIntoConstraints="NO" id="hJ7-g6-8Ej">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Yy-d7-nKU">
@@ -294,9 +333,11 @@
                         <outlet property="settingItemBtn" destination="dLi-HH-1Ap" id="KuE-3b-1dz"/>
                         <outlet property="titleNavigationItem" destination="iWE-hZ-M7t" id="O0Z-5e-PSr"/>
                         <segue destination="znP-iC-XOu" kind="show" identifier="toOrderList" id="YnO-aU-9o2"/>
+                        <segue destination="Q3V-I0-h4d" kind="unwind" identifier="backToBookingCheck" unwindAction="unwindToBookingCheck:" id="Jtg-T7-Zeh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TgL-db-Y9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Q3V-I0-h4d" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1556" y="1127.5862068965519"/>
         </scene>
@@ -403,15 +444,16 @@
     </scenes>
     <resources>
         <image name="cm200" width="202" height="202"/>
-        <image name="customer_detail_background" width="455" height="717"/>
         <image name="home" width="25" height="25"/>
+        <image name="home_background" width="375" height="667"/>
         <image name="home_selected" width="32" height="25"/>
+        <image name="other_background" width="375" height="667"/>
         <image name="profile" width="25" height="25"/>
         <image name="profile_selected" width="25" height="25"/>
         <image name="settings" width="52" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gDW-jf-gVR"/>
-        <segue reference="7lj-Fd-D9p"/>
+        <segue reference="wPi-im-ix4"/>
+        <segue reference="9vA-Ft-UIx"/>
     </inferredMetricsTieBreakers>
 </document>

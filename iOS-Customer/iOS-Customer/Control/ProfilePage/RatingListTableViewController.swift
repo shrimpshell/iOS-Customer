@@ -17,6 +17,7 @@ class RatingListTableViewController: UITableViewController {
     var ratingItem = [Rating]()
     var customer: Customer?
     let ratingAuth = DownloadAuth.shared
+    //let userID = UserDefaults()
     
     
     
@@ -25,6 +26,8 @@ class RatingListTableViewController: UITableViewController {
         super.viewDidLoad()
         pullToRefresh()
         refreshRatingList()
+//        let aa = userID.object(forKey: "userID")
+//        print("userID: \(aa)")
         
     }
     

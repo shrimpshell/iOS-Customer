@@ -35,33 +35,58 @@ class BookingCheckTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 200
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if roomReservation.count == 0 {
+            performSegue(withIdentifier: "backToBooking", sender: nil)
+        }
+    }
+    
+    // MAKR: - Send reservation.
+    
     @IBAction func sendReservation(_ sender: UIBarButtonItem) {
-        for index in 0...(roomReservation.count - 1) {
-           getReservation(checkInDate: checkInDate, checkOutDate: checkOutDate, roomTypeId: roomReservation[index].id)
-            if reservationRoom.isEmpty {
-                let alert = UIAlertController(title: "訂房確認", message: "確定要訂房嗎？", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "確定", style: .default) { (ok) in
-                    self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
-                }
-                let cancel = UIAlertAction(title: "取消", style: .destructive)
-                alert.addAction(cancel)
-                alert.addAction(ok)
-                self.present(alert, animated: true)
-            } else {
-                for roomIndex in 0...(reservationRoom.count - 1) where roomReservation[index].id == reservationRoom[roomIndex].id {
-                    if roomReservation[index].roomQuantity <= reservationRoom[roomIndex].roomQuantity {
-                        // ... insert
-                    } else {
-                        let alert = UIAlertController(title: "訂房失敗", message: "房間已被訂滿，請重新選取。", preferredStyle: .alert)
-                        let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
-                            self.performSegue(withIdentifier: "backToChooseBooking", sender: nil)
-                        })
-                        alert.addAction(ok)
-                        self.present(alert, animated: true)
+        // Check user is login. The customerId = 0 is not login.
+        if ProfileViewController.isLogin == false {
+            performSegue(withIdentifier: "goToCheckIn", sender: nil)
+        } else {
+            for index in 0...(roomReservation.count - 1) {
+                getReservation(checkInDate: checkInDate, checkOutDate: checkOutDate, roomTypeId: roomReservation[index].id)
+                
+                // Check that the room the user wants to book can be booked.
+                if reservationRoom.isEmpty {
+                    let alert = UIAlertController(title: "訂房確認", message: "確定要訂房嗎？", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "確定", style: .default) { (ok) in
+                        self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
+                        self.roomReservation.removeAll()
+                        self.reservationRoom.removeAll()
+                        self.performSegue(withIdentifier: "goToHomePage", sender: nil)
+                    }
+                    let cancel = UIAlertAction(title: "取消", style: .destructive)
+                    alert.addAction(cancel)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true)
+                } else {
+                    //Check if the remaining room is enough for the user to book.
+                    for roomIndex in 0...(reservationRoom.count - 1) where roomReservation[index].id == reservationRoom[roomIndex].id {
+                        if roomReservation[index].roomQuantity <= reservationRoom[roomIndex].roomQuantity {
+                            self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
+                        } else {
+                            let alert = UIAlertController(title: "訂房失敗", message: "房間已被訂滿，請重新選取。", preferredStyle: .alert)
+                            let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
+                                self.performSegue(withIdentifier: "backToChooseBooking", sender: nil)
+                            })
+                            alert.addAction(ok)
+                            self.present(alert, animated: true)
+                        }
                     }
                 }
             }
         }
+    }
+    
+    @IBAction func unwindToBookingCheck(_ segue: UIStoryboardSegue) {
+        
     }
     
     // MARK: - Table view data source
@@ -115,15 +140,21 @@ class BookingCheckTableViewController: UITableViewController {
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        // Change to isFromCheckBooking = true, which means coming from the CheckBooking page.
+        if segue.identifier == "goToCheckIn" {
+            let profileVC = segue.destination as! ProfileViewController
+            profileVC.isFromCheckBooking = true
+        }
     }
-    */
+    
 
 }
 
@@ -168,15 +199,14 @@ extension BookingCheckTableViewController: BookingCheckTableViewCellDelegate {
         guard let price = Int((sender.priceLabel.text?.replace(target: "NT$ ", withString: ""))!) else {
             return
         }
-        guard let quaintity = Int(sender.roomQuantityLabel.text!) else { return }
-        let extraPrice = 1000 * quaintity
+        guard let quaintity = Int((sender.roomQuantityLabel.text?.replace(target: " 間", withString: ""))!) else { return }
         
         if sender.extraBedSwitch.isOn {
             extraBed = 1
-            sender.priceLabel.text = "NT$ \(price + extraPrice)"
+            sender.priceLabel.text = "NT$ \(price + 1000 * quaintity)"
         } else {
             extraBed = 0
-            sender.priceLabel.text = "NT$ \(price - extraPrice)"
+            sender.priceLabel.text = "NT$ \(price - 1000 * quaintity)"
         }
     }
 }

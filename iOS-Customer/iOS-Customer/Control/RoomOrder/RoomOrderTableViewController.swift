@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class RoomOrderTableViewController: UITableViewController {
     

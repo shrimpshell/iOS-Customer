@@ -18,16 +18,15 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
     let communicator = RoomTypeCommunicator.shared
     var roomTypes = [RoomType]()
     var reservationRoom = [RoomType]()
-    var events = [Events]()
+    var event = Events()
     var shoppingCar = [ShoppingCar]()
     var checkInDate = ""
     var checkOutDate = ""
     var discount: Float = 1.0
-    let fullScreenSize = UIScreen.main.bounds.size
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cellLayout.itemSize = CGSize(width: fullScreenSize.width, height: fullScreenSize.height)
+        collectionView.contentInset = collectionView.adjustedContentInset
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,31 +65,29 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> BookingChooseCollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookingChooseCollectionViewCell
         
-        if let name = self.roomTypes[indexPath.row].name, let adult = self.roomTypes[indexPath.row].adultQuantity, let price = self.roomTypes[indexPath.row].price {
-            
             // Configure the cell
             cell.reservationRoomView.rating = 0
             cell.roomTypeImageView.image = UIImage(named: "pic_roomtype_2seaview")
-            cell.roomTypeLabel.text = name
+            cell.roomTypeLabel.text = self.roomTypes[indexPath.row].name            
             cell.roomSizeLabel.text = roomTypes[indexPath.row].roomSize
             cell.bedQuantityLabel.text = roomTypes[indexPath.row].bed
-            cell.peopleQuantityLabel.text = "最多可住 \(adult) 位大人"
+            cell.peopleQuantityLabel.text = "最多可住 \(self.roomTypes[indexPath.row].adultQuantity) 位大人"
             cell.remainingRoomsLabel.text = "剩 \(roomTypes[indexPath.row].roomQuantity) 間"
             cell.reservationRoomView.settings.totalStars = roomTypes[indexPath.row].roomQuantity
             cell.reservationRoomView.didFinishTouchingCosmos = {
                 rating in
                 let reservationQuantity = Int(cell.reservationRoomView.rating)
-                let alert = UIAlertController(title: "房間選擇", message: "確定要選擇\"\(name)\" \(reservationQuantity) 間", preferredStyle: .alert)
+                let alert = UIAlertController(title: "房間選擇", message: "確定要選擇\"\(self.roomTypes[indexPath.row].name)\" \(reservationQuantity) 間", preferredStyle: .alert)
                 let cancel = UIAlertAction(title: "取消", style: .destructive, handler: { (cancel) in
                     cell.reservationRoomView.rating = 0
                 })
                 let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
                     if self.discount == 1 {
-                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: price))
+                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id ,roomTypeName: self.roomTypes[indexPath.row].name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: self.roomTypes[indexPath.row].price))
                     } else {
                         cell.eventLabel.isHidden = false
-                        let price = Float(price) * self.discount
-                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id, roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, price: Int(price)))
+                        let price = Float(self.roomTypes[indexPath.row].price) * self.discount
+                        self.shoppingCar.append(ShoppingCar(id: self.roomTypes[indexPath.row].id, roomTypeName: self.roomTypes[indexPath.row].name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventid: self.event.eventId, price: Int(price)))
                     }
                 })
                 alert.addAction(cancel)
@@ -100,14 +97,13 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
             
             if discount == 1 {
                 cell.eventLabel.isHidden = true
-                cell.priceLabel.text = "NT$  \(price)"
+                cell.priceLabel.text = "NT$  \(self.roomTypes[indexPath.row].price)"
             } else {
                 cell.eventLabel.isHidden = false
-                let price = Float(roomTypes[indexPath.row].price!) * discount
+                let price = Float(roomTypes[indexPath.row].price) * discount
                 cell.priceLabel.text = "NT$  \(Int(price))"
                 cell.eventLabel.text = "打 \(Int(discount * 10)) 折"
             }
-        }
         return cell
     }
     
@@ -126,6 +122,8 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         printHelper.println(tag: self.TAG, line: #line, "checkIn: \(checkIn), checkOut: \(checkOut)")
         checkRoomVC.roomReservation = shoppingCar
         checkRoomVC.totalDays = days
+        checkRoomVC.checkInDate = checkIn
+        checkRoomVC.checkOutDate = checkOut
     }
 }
 
@@ -215,19 +213,19 @@ extension BookingChooseRoomCollectionViewController {
             }
             printHelper.println(tag: self.TAG, line: #line, "RetriveRoomType OK.")
             
-            // Decode as [Events].
+            // Decode as Event.
             guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
                 printHelper.println(tag: self.TAG, line: #line, "Fail to generate jsonData.")
                 return
             }
             let decoder = JSONDecoder()
-            guard let resultsObject = try? decoder.decode([Events].self, from: jsonData) else {
+            guard let resultsObject = try? decoder.decode(Events.self, from: jsonData) else {
                 printHelper.println(tag: self.TAG, line: #line, "Fail to generate jsonData.")
                 return
             }
-            self.events = resultsObject
-            if self.events[0].discount != 0 {
-                self.discount = self.events[0].discount
+            self.event = resultsObject
+            if self.event.discount != 0 {
+                self.discount = self.event.discount
                 printHelper.println(tag: self.TAG, line: #line, "\(self.discount)")
                 self.collectionView.reloadData()
             } else {

@@ -13,18 +13,20 @@ import MobileCoreServices
 import Alamofire
 
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     let TAG = "ProfileViewController"
     var customer: Customer?
     var idCustomer: Int = 0
-    var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
+    static var isLogin = false   // false = 顯示登入頁面， true = 顯示會員頁面
+    var isFromCheckBooking = false // false is not come from CheckBooking.
     var editPageInfo: Customer?
     let customerTask = CustomerAuth()    //使用promiseKit方法
     let customerAuth = DownloadAuth.shared       //使用Alamofirez方法
     
     var orderRoomDetails: [OrderRoomDetail]?
     var orderInstantDetails: [OrderInstantDetail]?
+    let userID = UserDefaults()
     
     
     
@@ -44,7 +46,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loginEmailText.clearButtonMode = .unlessEditing
+        loginPasswordText.clearButtonMode = .unlessEditing
         userlogin()
         
         //修image邊角
@@ -54,8 +57,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(true)
         self.tabBarController?.tabBar.isHidden = false
+        hideKeyboard()
         
-        if isLogin == true {
+        if ProfileViewController.isLogin == true {
             showCustomerInfo()
         }
         
@@ -96,7 +100,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 }
                 self.customer = customer
                 if customer.idCustomer != 0 {
-                    self.isLogin = true
+                    ProfileViewController.isLogin = true
                 }
                 self.userlogin()
                 self.nameCustomer.text = customer.name
@@ -109,9 +113,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let parameters = ["action":"getInstantPayDetail", "idCustomer":"\(self.idCustomer)"]
                 return orderDetails.getInstantPayDetail(parameters)
             }.done { instants in
-                self.isLogin = true
-                self.showCustomerInfo()
-                self.orderInstantDetails = instants
+                ProfileViewController.isLogin = true
+                if self.isFromCheckBooking == false {
+                    self.showCustomerInfo()
+                    self.orderInstantDetails = instants
+                } else {
+                    self.showCustomerInfo()
+                    self.performSegue(withIdentifier: "backToBookingCheck", sender: nil)
+                }
             }.catch { (error) in
                 assertionFailure("Login Error: \(error)")
         }
@@ -149,6 +158,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 printHelper.println(tag: self.TAG, line: #line, "idCustomer解包錯誤")
                 return
             }
+            self.userID.set(idCustomer, forKey: "userID")
+            self.userID.synchronize()
             self.idCustomerLabel.text = "\(reFreshidCustmoer)"
             self.nameCustomer.text = self.customer?.name
             self.emailCustomer.text = self.customer?.email
@@ -243,7 +254,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func logOutBtnPressed(_ sender: UIButton) {
         //idCustomer = 0
         customer = nil
-        isLogin = false
+        ProfileViewController.isLogin = false
+        isFromCheckBooking = false
+        self.userID.set(0, forKey: "userID")
+        self.userID.synchronize()
+        imageCustomer.image = UIImage(named: "")
         userlogin()
         print("Log Out")
     }
@@ -262,6 +277,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let tableViewController = NAVController?.viewControllers.first as! RoomOrderTableViewController
             tableViewController.orders = self.orderRoomDetails!
             tableViewController.instants = self.orderInstantDetails!
+            
         case "toRatingList":
             let NAVController = segue.destination as? UINavigationController
             let ratingListPage = NAVController?.viewControllers.first as! AllRatingsTableViewController
@@ -296,7 +312,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //使用isLogin切換會員頁面與登入頁面
     func userlogin() {
-        if  isLogin == true {
+        if  ProfileViewController.isLogin == true {
             navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
             navigationItem.rightBarButtonItem?.isEnabled = true
             loginPageView.isHidden = true
@@ -308,16 +324,40 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             profilePageView.isHidden = true
             navigationItem.rightBarButtonItem?.image = nil
             navigationItem.rightBarButtonItem?.isEnabled = false
-            
         }
     }
     
     @IBAction func unwindToProfilePage(_ segue: UIStoryboardSegue) {
-        
+        if segue.identifier == "toProfilePage" {
+            let orderDetails = OrderRoomDB()
+            let roomParameters = ["action":"getRoomPayDetailById", "idCustomer":"\(self.idCustomer)"]
+            orderDetails.getRoomPayDetailById(roomParameters).then {
+                rooms -> Promise<[OrderInstantDetail]> in
+                self.orderRoomDetails = rooms
+                let detailParameters = ["action":"getInstantPayDetail", "idCustomer":"\(self.idCustomer)"]
+                return orderDetails.getInstantPayDetail(detailParameters)
+            }.done {
+                instants in
+                self.showCustomerInfo()
+                self.orderInstantDetails = instants
+            }.catch {
+                (error) in
+                assertionFailure("Login Error: \(error)")
+            }
+        }
         
     }
     
+    //藏鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
+    func hideKeyboard() {
+        loginEmailText.delegate = self
+        loginPasswordText.delegate = self
+    }
     
 }
 

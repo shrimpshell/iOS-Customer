@@ -11,6 +11,7 @@ import UIKit
 protocol BookingCheckTableViewCellDelegate : class {
     func minusRoomQuantity(_ sender: BookingCheckTableViewCell)
     func plusRoomQuantity(_ sender: BookingCheckTableViewCell)
+    func extraBedSwitchPressed(_ sender: BookingCheckTableViewCell)
 }
 
 class BookingCheckTableViewCell: UITableViewCell {
@@ -18,6 +19,8 @@ class BookingCheckTableViewCell: UITableViewCell {
     @IBOutlet weak var roomTypeNameLabel: UILabel!
     @IBOutlet weak var checkInDateLabel: UILabel!
     @IBOutlet weak var checkOutDateLabel: UILabel!
+    @IBOutlet weak var extraBedLabel: UILabel!
+    @IBOutlet weak var extraBedSwitch: UISwitch!
     @IBOutlet weak var roomQuantityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var totalDaysLabel: UILabel!
@@ -42,5 +45,8 @@ class BookingCheckTableViewCell: UITableViewCell {
     
     @IBAction func plusRoomQuantity(_ sender: UIButton) {
         delegate?.plusRoomQuantity(self)
+    }
+    @IBAction func extraBedSwitchPressed(_ sender: UISwitch) {
+        delegate?.extraBedSwitchPressed(self)
     }
 }

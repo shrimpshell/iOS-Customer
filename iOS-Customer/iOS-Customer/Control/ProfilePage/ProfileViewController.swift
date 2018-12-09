@@ -256,6 +256,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         isFromCheckBooking = false
         self.userID.set(0, forKey: "userID")
         self.userID.synchronize()
+        imageCustomer.image = UIImage(named: "")
         userlogin()
         print("Log Out")
     }
@@ -321,7 +322,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             profilePageView.isHidden = true
             navigationItem.rightBarButtonItem?.image = nil
             navigationItem.rightBarButtonItem?.isEnabled = false
-            
         }
     }
     

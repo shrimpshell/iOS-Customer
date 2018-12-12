@@ -37,7 +37,7 @@ class BookingCheckTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        tableView.reloadData()
         if roomReservation.count == 0 {
             performSegue(withIdentifier: "backToBooking", sender: nil)
         }
@@ -56,13 +56,14 @@ class BookingCheckTableViewController: UITableViewController {
                 // Check that the room the user wants to book can be booked.
                 if reservationRoom.isEmpty {
                     let alert = UIAlertController(title: "訂房確認", message: "確定要訂房嗎？", preferredStyle: .alert)
-                    let ok = UIAlertAction(title: "確定", style: .default) { (ok) in
-                        self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
+                    let ok = UIAlertAction(title: "確定", style: .destructive) { (ok) in
+                        self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventId, price: self.roomReservation[index].price)
                         self.roomReservation.removeAll()
                         self.reservationRoom.removeAll()
-                        self.performSegue(withIdentifier: "goToHomePage", sender: nil)
+                        
+                        self.performSegue(withIdentifier: "backToBooking", sender: nil)
                     }
-                    let cancel = UIAlertAction(title: "取消", style: .destructive)
+                    let cancel = UIAlertAction(title: "取消", style: .default)
                     alert.addAction(cancel)
                     alert.addAction(ok)
                     self.present(alert, animated: true)
@@ -70,7 +71,7 @@ class BookingCheckTableViewController: UITableViewController {
                     //Check if the remaining room is enough for the user to book.
                     for roomIndex in 0...(reservationRoom.count - 1) where roomReservation[index].id == reservationRoom[roomIndex].id {
                         if roomReservation[index].roomQuantity <= reservationRoom[roomIndex].roomQuantity {
-                            self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventid, price: self.roomReservation[index].price)
+                            self.insertReservation(quantity: self.roomReservation[index].roomQuantity, roomTypeId: self.roomReservation[index].id, eventId: self.roomReservation[index].eventId, price: self.roomReservation[index].price)
                         } else {
                             let alert = UIAlertController(title: "訂房失敗", message: "房間已被訂滿，請重新選取。", preferredStyle: .alert)
                             let ok = UIAlertAction(title: "確認", style: .default, handler: { (ok) in
@@ -215,7 +216,7 @@ extension BookingCheckTableViewController: BookingCheckTableViewCellDelegate {
 
 extension BookingCheckTableViewController {
     func getReservation(checkInDate: String, checkOutDate: String, roomTypeId: Int) {
-        RoomTypeCommunicator.shared.getRoomTypeQuantity(checkInDate: checkInDate, checkOutDate: checkOutDate, roomTypeId: roomTypeId, completion: { (result, error) in
+        RoomTypeCommunicator.shared.doPostRoomTypeQuantity(checkInDate: checkInDate, checkOutDate: checkOutDate, roomTypeId: roomTypeId, completion: { (result, error) in
             if let error = error {
                 printHelper.println(tag: self.TAG, line: #line, "RetriveRoomType error \(error)")
                 return

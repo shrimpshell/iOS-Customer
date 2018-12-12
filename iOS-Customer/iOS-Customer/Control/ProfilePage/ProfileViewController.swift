@@ -13,7 +13,7 @@ import MobileCoreServices
 import Alamofire
 
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     let TAG = "ProfileViewController"
     var customer: Customer?
@@ -46,7 +46,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loginEmailText.clearButtonMode = .unlessEditing
+        loginPasswordText.clearButtonMode = .unlessEditing
         userlogin()
         
         //修image邊角
@@ -56,6 +57,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(true)
         self.tabBarController?.tabBar.isHidden = false
+        hideKeyboard()
         
         if ProfileViewController.isLogin == true {
             showCustomerInfo()
@@ -251,6 +253,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         isFromCheckBooking = false
         self.userID.set(0, forKey: "userID")
         self.userID.synchronize()
+        imageCustomer.image = UIImage(named: "")
         userlogin()
         print("Log Out")
     }
@@ -321,7 +324,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             profilePageView.isHidden = true
             navigationItem.rightBarButtonItem?.image = nil
             navigationItem.rightBarButtonItem?.isEnabled = false
-            
         }
     }
     
@@ -346,7 +348,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
+    //藏鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
+    func hideKeyboard() {
+        loginEmailText.delegate = self
+        loginPasswordText.delegate = self
+    }
     
 }
 

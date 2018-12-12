@@ -601,10 +601,10 @@
                     <connections>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="checkBooking" unwindAction="unwindToChooseRoom:" id="a7l-hp-AHK"/>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="backToChooseBooking" unwindAction="unwindToChooseRoom:" id="HZT-Za-25V"/>
-                        <segue destination="bNV-S8-kyi" kind="show" identifier="goToCheckIn" id="a3Q-r2-0TZ"/>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="goToProfilePage" unwindAction="unwindToProfilePage:" id="LkF-dd-82x"/>
-                        <segue destination="SRd-19-gST" kind="show" identifier="goToHomePage" id="fVe-jo-teG"/>
-                        <segue destination="XMv-Pl-L1U" kind="show" identifier="backToBooking" id="T3b-Qk-HgT"/>
+                        <segue destination="bNV-S8-kyi" kind="presentation" identifier="goToCheckIn" id="Z3q-Uj-nhl"/>
+                        <segue destination="SRd-19-gST" kind="show" identifier="goToHomePage" id="vKa-IB-tB4"/>
+                        <segue destination="1YY-Vq-9wA" kind="unwind" identifier="backToBooking" unwindAction="unwindBackToBooking:" id="Dzl-P3-gMU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zB-dB-5BY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -620,13 +620,13 @@
             </objects>
             <point key="canvasLocation" x="3730" y="1034"/>
         </scene>
-        <!--HomePage-->
+        <!--home-->
         <scene sceneID="0Rw-wW-5fH">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="HomePage" id="SRd-19-gST" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="home" id="SRd-19-gST" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgC-uZ-Dbz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3749" y="1213"/>
+            <point key="canvasLocation" x="3730" y="1213"/>
         </scene>
         <!--預約-->
         <scene sceneID="raz-EX-gx1">

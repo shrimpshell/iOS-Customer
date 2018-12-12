@@ -33,8 +33,9 @@ struct Reservation: Codable {
     var eventId: Int = 0
     var roomGroup: String = ""
     var price: Int = 0
+    var reservationQuantity: Int = 0
     
-    init(reservationDate: String = "", checkInDate: String = "", checkOutDate: String = "", extraBed: Int = 0, quantity: Int = 0, reservationStatus: String = "0", customerId: Int = 0, roomTypeId: Int = 0, eventId: Int = 0, roomGroup: String = "", price: Int = 0) {
+    init(reservationDate: String = "", checkInDate: String = "", checkOutDate: String = "", extraBed: Int = 0, quantity: Int = 0, reservationStatus: String = "0", customerId: Int = 0, roomTypeId: Int = 0, eventId: Int = 0, roomGroup: String = "", price: Int = 0, reservationQuantity: Int = 0) {
         self.reservationDate = reservationDate
         self.checkInDate = checkInDate
         self.checkOutDate = checkOutDate
@@ -46,6 +47,7 @@ struct Reservation: Codable {
         self.eventId = eventId
         self.roomGroup = roomGroup
         self.price = price
+        self.reservationQuantity = reservationQuantity
     }
 }
 
@@ -60,16 +62,16 @@ struct ShoppingCar {
     var checkInDate: String
     var checkOutDate: String
     var roomQuantity: Int
-    var eventid: Int = 0
+    var eventId: Int = 0
     var price: Int
     
-    init(id: Int, roomTypeName: String, checkInDate: String, checkOutDate: String, roomQuantity: Int, eventid: Int = 0, price: Int) {
+    init(id: Int, roomTypeName: String, checkInDate: String, checkOutDate: String, roomQuantity: Int, eventId: Int = 0, price: Int) {
         self.id = id
         self.roomTypeName = roomTypeName
         self.checkInDate = checkInDate
         self.checkOutDate = checkOutDate
         self.roomQuantity = roomQuantity
-        self.eventid = eventid
+        self.eventId = eventId
         self.price = price
     }
 }

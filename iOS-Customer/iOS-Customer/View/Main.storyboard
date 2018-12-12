@@ -393,7 +393,7 @@
         <!--首頁-->
         <scene sceneID="ySd-ys-J7R">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BTk-o1-EI4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="home" automaticallyAdjustsScrollViewInsets="NO" id="BTk-o1-EI4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首頁" image="home" selectedImage="home_selected" id="LFz-Oy-GPg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qgu-zA-tr5">

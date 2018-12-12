@@ -23,28 +23,28 @@ class RoomTypeCommunicator {
     }
     
     // MARK: - Gate data from servser.
-    func getAllRoomType(completion: @escaping DoneHandler) {
+    func doPostAllRoomType(completion: @escaping DoneHandler) {
         let parameters: [String: String] = [ACTION: "getAll"]
         
         doPost(urlString: ROOMTYPE_URL, parameters: parameters,
                completion: completion)
     }
     
-    func getRoomType(checkInDate: String, checkOutDate: String, completion: @escaping DoneHandler) {
+    func doPostRoomType(checkInDate: String, checkOutDate: String, completion: @escaping DoneHandler) {
         let parameters: [String: String] = [ACTION: "getReservation", "checkInDate": checkInDate, "checkOutDate": checkOutDate]
         
         doPost(urlString: ROOMTYPE_URL, parameters: parameters,
                completion: completion)
     }
     
-    func getEvent(checkInDate: String, completion: @escaping DoneHandler) {
+    func doPostEvent(checkInDate: String, completion: @escaping DoneHandler) {
         let parameters: [String: String] = [ACTION: "getDiscount", "firstday": checkInDate]
         
         doPost(urlString: EVENTS_URL, parameters: parameters,
                completion: completion)
     }
     
-    func getRoomTypeQuantity(checkInDate: String, checkOutDate: String, roomTypeId: Int, completion: @escaping DoneHandler) {
+    func doPostRoomTypeQuantity(checkInDate: String, checkOutDate: String, roomTypeId: Int, completion: @escaping DoneHandler) {
         let parameters: [String: Any] = [ACTION: "findByRoomId", "checkInDate": checkInDate, "checkOutDate": checkOutDate, "roomTypeId": roomTypeId]
         
         doPost(urlString: ROOMTYPE_URL, parameters: parameters,

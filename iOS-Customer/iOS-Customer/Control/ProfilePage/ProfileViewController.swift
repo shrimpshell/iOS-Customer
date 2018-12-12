@@ -114,13 +114,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 return orderDetails.getInstantPayDetail(parameters)
             }.done { instants in
                 ProfileViewController.isLogin = true
-                if self.isFromCheckBooking == false {
-                    self.showCustomerInfo()
-                    self.orderInstantDetails = instants
-                } else {
-                    self.showCustomerInfo()
-                    self.performSegue(withIdentifier: "backToBookingCheck", sender: nil)
-                }
+                self.showCustomerInfo()
+                self.orderInstantDetails = instants
             }.catch { (error) in
                 assertionFailure("Login Error: \(error)")
         }
@@ -284,10 +279,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             ratingListPage.customer = customer
             ratingListPage.pageNumber = 2
             
-        case "toReceiptList":
-            let receiptListPage = segue.destination as! ReceiptTableViewController
-            receiptListPage.customer = customer
-            
         case "toEditingPage":
             let NAVController = segue.destination as? UINavigationController
             let editingPage = NAVController?.viewControllers.first as! JoinTableViewController
@@ -298,6 +289,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let NAVController = segue.destination as? UINavigationController
             let joinPage = NAVController?.viewControllers.first as! JoinTableViewController
             joinPage.pageNumber = 1
+            print("goto Join")
             
         case "toInstantServicePage":
             let tabBarVC = segue.destination as! UITabBarController
@@ -313,11 +305,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     //使用isLogin切換會員頁面與登入頁面
     func userlogin() {
         if  ProfileViewController.isLogin == true {
-            navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
-            navigationItem.rightBarButtonItem?.isEnabled = true
-            loginPageView.isHidden = true
-            profilePageView.isHidden = false
-            titleNavigationItem.title = "會員資料"
+            if self.isFromCheckBooking == false {
+                navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
+                navigationItem.rightBarButtonItem?.isEnabled = true
+                loginPageView.isHidden = true
+                profilePageView.isHidden = false
+                titleNavigationItem.title = "會員資料"
+            } else {
+                self.showCustomerInfo()
+                self.performSegue(withIdentifier: "backToBookingCheck", sender: nil)
+            }
         } else {
             loginPageView.isHidden = false
             titleNavigationItem.title = ""

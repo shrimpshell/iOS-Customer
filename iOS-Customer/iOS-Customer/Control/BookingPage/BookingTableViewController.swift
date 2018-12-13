@@ -34,7 +34,9 @@ class BookingTableViewController: UITableViewController {
     }
     
     @IBAction func unwindBackToBooking(_ sender: UIStoryboardSegue) {
-        
+        if sender.identifier == "backToBooking" {
+            tabBarController?.tabBar.isHidden = false
+        }
     }
     
     // MARK: - Table view data source

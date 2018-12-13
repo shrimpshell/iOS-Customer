@@ -243,7 +243,7 @@ extension BookingCheckTableViewController {
     }
     
     func insertReservation(quantity: Int, roomTypeId: Int, eventId: Int, price: Int) {
-        customerId = userDefaults.value(forKey: "userID") as! Int
+        customerId = userDefaults.integer(forKey: "userID")
         let reservation = Reservation(reservationDate: reservagtionDate, checkInDate: checkInDate, checkOutDate: checkOutDate, extraBed: extraBed, quantity: quantity, customerId: customerId, roomTypeId: roomTypeId, eventId: eventId, roomGroup: roomGruopId, price: price)
         let reservationData = try! JSONEncoder().encode(reservation)
         let reservationString = String(data: reservationData, encoding: .utf8)

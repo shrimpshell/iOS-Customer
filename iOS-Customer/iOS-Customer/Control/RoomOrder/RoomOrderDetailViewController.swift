@@ -168,6 +168,7 @@ class RoomOrderDetailViewController: UIViewController {
                 
                 if buttonTitle == "退房" {
                     self.checkStatusButton.isHidden = true
+                    self.showAlert(title: "退房手續進行中", message: "請於櫃檯完成退房手續。")
                     return
                 }
                 self.checkStatusButton.setTitle("退房", for: .normal)

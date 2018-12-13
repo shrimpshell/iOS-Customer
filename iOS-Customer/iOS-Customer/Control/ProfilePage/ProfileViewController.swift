@@ -279,10 +279,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             ratingListPage.customer = customer
             ratingListPage.pageNumber = 2
             
-        case "toReceiptList":
-            let receiptListPage = segue.destination as! ReceiptTableViewController
-            receiptListPage.customer = customer
-            
         case "toEditingPage":
             let NAVController = segue.destination as? UINavigationController
             let editingPage = NAVController?.viewControllers.first as! JoinTableViewController
@@ -293,6 +289,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let NAVController = segue.destination as? UINavigationController
             let joinPage = NAVController?.viewControllers.first as! JoinTableViewController
             joinPage.pageNumber = 1
+            print("goto Join")
             
         case "toInstantServicePage":
             let tabBarVC = segue.destination as! UITabBarController

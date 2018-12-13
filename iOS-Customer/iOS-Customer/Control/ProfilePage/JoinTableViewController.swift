@@ -41,7 +41,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("pageNumber: \(pageNumber)")
+        print("pageNumber: \(pageNumber)")
         hideKeyboard()
         switch pageNumber {
         case 0:

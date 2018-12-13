@@ -147,25 +147,39 @@ class RoomOrderDetailViewController: UIViewController {
         guard let buttonTitle = sender.title(for: .normal), let rooms = self.rooms else {
             return
         }
+        sender.isEnabled = false
         let orderRoomDB = OrderRoomDB()
         let roomGroup = rooms[0].roomGroup
         let roomReservationStatus = buttonTitle == "入住" ? "1" : "2"
         let parameters =  ["action":"updateRoomReservationStatusById", "roomGroup":roomGroup, "roomReservationStatus": roomReservationStatus] as [String : String]
+        let message = buttonTitle == "入住" ? "確定要入住？" : "確定要退房？"
         
-        orderRoomDB.updateRoomReservationStatusById(parameters).done { (result) in
-            guard result != "0" else {
-                printHelper.println(tag: "RoomOrderDetailViewController", line: #line, "fail to update")
-                return
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "確定", style: .default, handler: {
+            _ in
+            orderRoomDB.updateRoomReservationStatusById(parameters).done { (result) in
+                guard result != "0" else {
+                    printHelper.println(tag: "RoomOrderDetailViewController", line: #line, "fail to update")
+                    return
+                }
+                
+                self.updateRooms(status: roomReservationStatus)
+                sender.isEnabled = true
+                
+                if buttonTitle == "退房" {
+                    self.checkStatusButton.isHidden = true
+                    return
+                }
+                self.checkStatusButton.setTitle("退房", for: .normal)
             }
-            
-            self.updateRooms(status: roomReservationStatus)
-            
-            if buttonTitle == "退房" {
-                self.checkStatusButton.isHidden = true
-                return
-            }
-            self.checkStatusButton.setTitle("退房", for: .normal)
-        }
+        })
+        let cancel = UIAlertAction(title: "取消", style: .destructive, handler: {
+            _ in
+            sender.isEnabled = true
+        })
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
     
     func getRatingStatusByIdRoomReservation(idRoomReservation: Int) {
@@ -187,6 +201,15 @@ class RoomOrderDetailViewController: UIViewController {
                 self.rateBUtton.isHidden = true
             }
         }
+    }
+    
+    func changeStatusAlert(title: String? = nil, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "確定", style: .default)
+        let cancel = UIAlertAction(title: "取消", style: .destructive)
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
     
     @IBAction func unwindToDetailPage(_ segue: UIStoryboardSegue) {

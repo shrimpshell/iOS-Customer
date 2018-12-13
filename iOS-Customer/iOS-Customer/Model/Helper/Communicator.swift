@@ -16,6 +16,7 @@ let IMAGEID_KEY = "imageId"
 let IMAGESIZE_KEY = "imageSize"
 let IMAGEBASE64 = "imageBase64"
 let ROOM_KEY = "room"
+let EVENT_KEY = "event"
 
 //result:[String:Any] is dictionary declaration.
 typealias RoomDoneHandler = (_ result: Any?, _ error:Error?) -> Void
@@ -28,6 +29,7 @@ class Communicator {  //Singleton instance 單一實例模式
     
     static let BASEURL = Common.SERVER_URL
     let ROOMTYPESERVLET_URL = BASEURL + "/RoomTypeServlet"
+    let EventServlet_URL = BASEURL + "/EventServlet"
     
     static let shared = Communicator()
     private init() {
@@ -107,7 +109,36 @@ class Communicator {  //Singleton instance 單一實例模式
         return doPostForPhoto(urlString: ROOMTYPESERVLET_URL, parameters: parameters, completion: completion)
     }
     
+    /***活動訊息***/
+    //取活動訊息，文字部分
+    func getAllEvents(completion: @escaping DoneHandler) {
+        let parameters:[String : Any]  = [ACTION_KEY: "getAll" ]
+        return doPost(urlString: EventServlet_URL, parameters: parameters, completion: completion)
+    }
     
+    //取活動照片
+    func getPhotoById(photoURL: String, id: Int, completion: @escaping RoomDownloadDoneHandler) {
+        let parameters:[String : Any] = [ACTION_KEY: "getImage", IMAGEID_KEY: id]
+        return doPostForPhoto(urlString: photoURL, parameters: parameters, completion: completion)
+    }
+    
+    //新增
+    func eventInsert(event: String, photo: String, completion: @escaping DoneHandler) {
+        let parameters: [String: Any] = [ACTION_KEY: "eventInsert", EVENT_KEY: event, IMAGEBASE64: photo]
+        doPost(urlString: EventServlet_URL, parameters: parameters, completion:completion)
+    }
+    
+    //修改
+    func eventUpdate(event: String, photo: String, completion: @escaping DoneHandler) {
+        let parameters: [String: Any] = [ACTION_KEY: "eventUpdate", EVENT_KEY: event, IMAGEBASE64: photo]
+        doPost(urlString: EventServlet_URL, parameters: parameters, completion: completion)
+    }
+    
+    //刪除
+    func eventRemove(event: String, completion: @escaping DoneHandler) {
+        let parameters: [String: Any] = [ACTION_KEY: "eventRemove", EVENT_KEY: event]
+        doPost(urlString: EventServlet_URL, parameters: parameters, completion: completion)
+    }
 }
 
 

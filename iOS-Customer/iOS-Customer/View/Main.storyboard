@@ -49,6 +49,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ibT-pZ-Scm" kind="show" id="wEt-9L-DQG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaD-Mg-buj">
                                 <rect key="frame" x="49" y="183" width="277" height="130"/>
@@ -440,6 +443,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Xz-7B-2IN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2820" y="157"/>
+        </scene>
+        <!--EventView-->
+        <scene sceneID="eF2-by-xfa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Event" referencedIdentifier="EventView" id="ibT-pZ-Scm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oCZ-bc-9wb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2820" y="300"/>
         </scene>
     </scenes>
     <resources>

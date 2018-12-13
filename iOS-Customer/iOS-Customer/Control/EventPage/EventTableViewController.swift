@@ -130,8 +130,8 @@ class EventTableViewController: UITableViewController {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             let event = events[selectedIndexPath.row]
             let eventName = event.name
-            let dateRange = event.start + "-" + event.end
-            let formatMessage = "活動內容：" + event.description + "\n活動期間： \(dateRange)\n" + "全部\(event.discount)折！"
+            let dateRange = event.start + "至" + event.end
+            let formatMessage = "活動內容：" + event.description + "\n活動期間： \(dateRange)\n" + "全部\(event.discount * 10)折！"
             let alertController = UIAlertController(title: eventName, message: formatMessage, preferredStyle: .alert)
             alertController.addImage(image: self.eventsImages[event.eventId]!)
             alertController.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))

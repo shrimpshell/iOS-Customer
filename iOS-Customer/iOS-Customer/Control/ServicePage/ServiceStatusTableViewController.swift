@@ -223,16 +223,14 @@ class ServiceStatusTableViewController: UITableViewController, WebSocketDelegate
                     self.payDetailInfo.append(userDetail)
                 }
             }
+            guard self.payDetailInfo.count == 1 else {
+                self.showAlert(message: "太多房間了！")
+                return
+            }
             self.updateUserServiceStatus()
         }
     }
     
-    func showLocalNotification(_ message: Socket) {
-        
-            getUserRoomNumberForInstant()
-        
-        
-    }
         
     
     func socketConnect(userId: String, groupId: String) {
@@ -240,31 +238,35 @@ class ServiceStatusTableViewController: UITableViewController, WebSocketDelegate
         socket.delegate = self
         socket.connect()
     }
-    
+
     func socketDisConnect() {
         socket.disconnect()
     }
-    
+
     func websocketDidConnect(socket: WebSocketClient) {
         print("Status websocket is connected")
     }
-    
+
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
         print("Status websocket is disconnected: \(error!.localizedDescription)")
     }
-    
+
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("Status got some text: \(text)")
         let decoder = JSONDecoder()
         let jsonData = text.data(using: String.Encoding.utf8, allowLossyConversion: true)!
         let message = try! decoder.decode(Socket.self, from: jsonData)
+
+        getUserRoomNumberForInstant()
+        //showUserNotifications()
         
-        showLocalNotification(message)
     }
-    
+
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("Status got some data: \(data.count)")
     }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

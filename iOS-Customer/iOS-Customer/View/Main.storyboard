@@ -92,6 +92,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ffj-NM-cqd"/>
+                    <connections>
+                        <outlet property="eventButton" destination="psM-cM-Bmu" id="J6H-4a-F25"/>
+                        <outlet property="ratingButton" destination="AaD-Mg-buj" id="TSz-Ho-4jV"/>
+                        <outlet property="roomButton" destination="yGJ-WY-mjL" id="TC4-8t-fdK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -465,6 +470,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wPi-im-ix4"/>
-        <segue reference="NkR-JI-TG6"/>
+        <segue reference="9vA-Ft-UIx"/>
     </inferredMetricsTieBreakers>
 </document>

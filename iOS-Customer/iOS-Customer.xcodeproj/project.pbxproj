@@ -53,6 +53,7 @@
 		72D917C9219D1AA90008D90C /* ItemDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917C8219D1AA90008D90C /* ItemDetailTableViewController.swift */; };
 		72D917CB219D26110008D90C /* ItemDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917CA219D26110008D90C /* ItemDetailTableViewCell.swift */; };
 		781DEB522198095A00AED03E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781DEB512198095A00AED03E /* Download.swift */; };
+		7828D15621C37FDD00B3E430 /* CheckInInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828D15521C37FDD00B3E430 /* CheckInInfo.swift */; };
 		78390532219BFC740059BC5B /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* PrintHelper.swift */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
@@ -121,6 +122,7 @@
 		72D917C8219D1AA90008D90C /* ItemDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewController.swift; sourceTree = "<group>"; };
 		72D917CA219D26110008D90C /* ItemDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewCell.swift; sourceTree = "<group>"; };
 		781DEB512198095A00AED03E /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		7828D15521C37FDD00B3E430 /* CheckInInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInInfo.swift; sourceTree = "<group>"; };
 		78390531219BFC740059BC5B /* PrintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintHelper.swift; sourceTree = "<group>"; };
 		7857F5712192B2EE00641030 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		788AE3A82193DD7C008B3C0F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				7857F5712192B2EE00641030 /* Common.swift */,
 				78AB949C216E286C00045C95 /* Rating.swift */,
 				72C35FB421AE753C006BD1A7 /* Socket.swift */,
+				7828D15521C37FDD00B3E430 /* CheckInInfo.swift */,
 				7230158A21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift */,
 				729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */,
 				72615963219DB3C000EB43FB /* Instant.swift */,
@@ -540,6 +543,7 @@
 				2B21F4C921B92FB100534049 /* BookingChooseCollectionViewCell.swift in Sources */,
 				720A2E5621B6A79200EF44ED /* RatingDetailTableViewCell.swift in Sources */,
 				72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */,
+				7828D15621C37FDD00B3E430 /* CheckInInfo.swift in Sources */,
 				72C35FB521AE753C006BD1A7 /* Socket.swift in Sources */,
 				2B1EF1BA21C239E0007A7D51 /* EventTableViewController.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,

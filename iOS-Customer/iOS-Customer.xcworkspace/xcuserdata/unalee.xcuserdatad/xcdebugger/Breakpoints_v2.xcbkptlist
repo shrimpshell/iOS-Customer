@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "183"
             endingLineNumber = "183"
-            landmarkName = "chungPicBtnPressed(_:)"
+            landmarkName = "showCustomerInfo()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "188"
             endingLineNumber = "188"
-            landmarkName = "chungPicBtnPressed(_:)"
+            landmarkName = "showCustomerInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "184"
             endingLineNumber = "184"
-            landmarkName = "chungPicBtnPressed(_:)"
+            landmarkName = "showCustomerInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -159,7 +159,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "189"
             endingLineNumber = "189"
-            landmarkName = "chungPicBtnPressed(_:)"
+            landmarkName = "showCustomerInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -175,7 +175,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "207"
             endingLineNumber = "207"
-            landmarkName = "launchPicker(source:)"
+            landmarkName = "showCustomerInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

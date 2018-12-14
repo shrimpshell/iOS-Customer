@@ -23,7 +23,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var editPageInfo: Customer?
     let customerTask = CustomerAuth()    //使用promiseKit方法
     let customerAuth = DownloadAuth.shared       //使用Alamofirez方法
-    
     var orderRoomDetails: [OrderRoomDetail]?
     var orderInstantDetails: [OrderInstantDetail]?
     let userID = UserDefaults()
@@ -42,6 +41,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var phoneCustomer: UILabel!
     @IBOutlet weak var titleNavigationItem: UINavigationItem!
     @IBOutlet weak var settingItemBtn: UIBarButtonItem!
+    @IBOutlet weak var checkInTitleLabel: UILabel!
+    @IBOutlet weak var checkInDateLabel: UILabel!
+    @IBOutlet weak var roomNumberLabel: UILabel!
+    @IBOutlet weak var checkInfomation: UIStackView!
+    @IBOutlet weak var serviceBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -58,7 +62,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super .viewWillAppear(true)
         self.tabBarController?.tabBar.isHidden = false
         hideKeyboard()
-        
+        checkInTitleLabel.isHidden = true
+        checkInfomation.isHidden = true
         if ProfileViewController.isLogin == true {
             showCustomerInfo()
         }
@@ -174,8 +179,68 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }.catch { (error) in
                 assertionFailure("CheckoutTableViewController Error: \(error)")
         }
-    }
     
+        customerAuth.getUserRoomReservationStatus(idCustomer: idCustomer) { (result, error) in
+            if let error = error {
+                printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse error: \(error)")
+                return
+            }
+            guard var result = result else {
+                assertionFailure("ProfielViewController - RoomReservationStatuse result is nil")
+                return
+            }
+
+            if result  is NSNull {
+                self.checkInTitleLabel.isHidden = false
+                self.checkInTitleLabel.text = "你沒有訂房紀錄喔\n快加入我們吧～！"
+                self.checkInfomation.isHidden = true
+                self.serviceBtn.isEnabled = false
+                return
+            }
+            printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse Info is OK.")
+           
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
+                else  {
+                    assertionFailure("ProfielViewController - Fail to generate jsonData")
+                    return
+        }
+            let decoder = JSONDecoder()
+            guard let resultObject = try? decoder.decode(CheckInInfo?.self, from: jsonData) else {
+                print("ProfielViewController - Download RoomReservationStatuse - Fail to decoder jsonData.")
+                return
+    }
+            
+            guard let checkInInfo = resultObject else {
+                
+                return
+            }
+            print("\(checkInInfo)")
+            switch checkInInfo.roomReservationStatus {
+            case "1":
+                self.checkInTitleLabel.isHidden = false
+                self.checkInfomation.isHidden = false
+                self.checkInTitleLabel.text = "入住資訊"
+                let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
+                let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
+                self.checkInDateLabel.text = "\(firstSentence)"
+                self.roomNumberLabel.text = checkInInfo.roomNumber
+                self.serviceBtn.isEnabled = true
+                break
+            
+            case "0":
+                self.checkInTitleLabel.isHidden = false
+                self.checkInfomation.isHidden = false
+                    self.checkInTitleLabel.text = "預約入住資訊"
+                    self.checkInDateLabel.text = checkInInfo.checkInDate
+                    self.roomNumberLabel.text = ""
+                    self.serviceBtn.isEnabled = false
+                break
+                
+            default:
+                break
+            }
+        }
+    }
     
     
     
@@ -251,6 +316,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         customer = nil
         ProfileViewController.isLogin = false
         isFromCheckBooking = false
+        checkInTitleLabel.isHidden = true
+        checkInfomation.isHidden = true
         self.userID.set(0, forKey: "userID")
         self.userID.synchronize()
         imageCustomer.image = UIImage(named: "")
@@ -312,7 +379,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 profilePageView.isHidden = false
                 titleNavigationItem.title = "會員資料"
             } else {
-                self.showCustomerInfo()
+                navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
+                navigationItem.rightBarButtonItem?.isEnabled = true
+                loginPageView.isHidden = true
+                profilePageView.isHidden = false
+                titleNavigationItem.title = "會員資料"
+                self.isFromCheckBooking = false
                 self.performSegue(withIdentifier: "backToBookingCheck", sender: nil)
             }
         } else {

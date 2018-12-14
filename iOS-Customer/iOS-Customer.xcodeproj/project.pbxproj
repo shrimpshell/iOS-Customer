@@ -61,6 +61,7 @@
 		789B07D221A4438300B764C2 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B07D121A4438300B764C2 /* CornerRadius.swift */; };
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
 		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
+		78F088B121C2497C000CBE93 /* CheckInInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F088B021C2497C000CBE93 /* CheckInInfo.swift */; };
 		D110437521B93CB700C8ACC3 /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110437121B93CB700C8ACC3 /* RoomTableViewController.swift */; };
 		D110437621B93CB700C8ACC3 /* RoomDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110437221B93CB700C8ACC3 /* RoomDetailTableViewCell.swift */; };
 		D110437721B93CB700C8ACC3 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110437321B93CB700C8ACC3 /* RoomTableViewCell.swift */; };
@@ -130,6 +131,7 @@
 		789B07D121A4438300B764C2 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		78AB949C216E286C00045C95 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		78AB94A0216E2A7900045C95 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		78F088B021C2497C000CBE93 /* CheckInInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInInfo.swift; sourceTree = "<group>"; };
 		9F2DEE62D08AECFEBE061A2D /* Pods-iOS-Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		CE792F163EAE41DB92E4F2F7 /* Pods-iOS-Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Customer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Customer/Pods-iOS-Customer.release.xcconfig"; sourceTree = "<group>"; };
 		D110437121B93CB700C8ACC3 /* RoomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				7230158A21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift */,
 				729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */,
 				72615963219DB3C000EB43FB /* Instant.swift */,
+				78F088B021C2497C000CBE93 /* CheckInInfo.swift */,
 				781DEB512198095A00AED03E /* Download.swift */,
 				78AB94A0216E2A7900045C95 /* Customer.swift */,
 			);
@@ -521,6 +524,7 @@
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
 				2B21F4CA21B92FB100534049 /* BookingChooseRoomCollectionViewController.swift in Sources */,
 				720A2E5521B6A79200EF44ED /* EditingTableViewController.swift in Sources */,
+				78F088B121C2497C000CBE93 /* CheckInInfo.swift in Sources */,
 				D110437721B93CB700C8ACC3 /* RoomTableViewCell.swift in Sources */,
 				78955BAD219EAF6A0092FD42 /* UIImage+Resize.swift in Sources */,
 				D110437521B93CB700C8ACC3 /* RoomTableViewController.swift in Sources */,
@@ -701,13 +705,13 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS-Customer/iOS-Customer.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 378NT6B6N9;
+				DEVELOPMENT_TEAM = 85Z3N82V35;
 				INFOPLIST_FILE = "iOS-Customer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "hhl.com.iOS-Customer";
+				PRODUCT_BUNDLE_IDENTIFIER = "una.lee.iOS-Customer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -721,13 +725,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "iOS-Customer/iOS-Customer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 378NT6B6N9;
+				DEVELOPMENT_TEAM = 85Z3N82V35;
 				INFOPLIST_FILE = "iOS-Customer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "hhl.com.iOS-Customer";
+				PRODUCT_BUNDLE_IDENTIFIER = "una.lee.iOS-Customer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

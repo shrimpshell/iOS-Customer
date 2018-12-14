@@ -18,6 +18,21 @@ extension UIViewController {
         alert.addAction(ok)
         present(alert, animated: true)
     }
+    
+    func showUserNotifications() {
+        
+        let content = UNMutableNotificationContent()
+        content.title = "即時服務通知"
+        content.subtitle = "subtitle"
+        content.body = "body"
+        content.badge = 1
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "alert", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+
+    }
 
 }
 

@@ -10,13 +10,15 @@ import UIKit
 
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var ratingButton: UIButton!
+    @IBOutlet weak var roomButton: UIButton!
+    @IBOutlet weak var eventButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
-        
+        changeButton()
     }
     
     // 顯示TabBar
@@ -35,6 +37,16 @@ class ViewController: UIViewController {
 
      @IBAction func unwindToHomePage(_ segue: UIStoryboardSegue){
 
+    }
+    
+    func changeButton() {
+        self.ratingButton.layer.cornerRadius = 10
+        self.roomButton.layer.cornerRadius = 10
+        self.eventButton.layer.cornerRadius = 10
+        
+        self.ratingButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
+        self.roomButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
+        self.eventButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
     }
 }
 

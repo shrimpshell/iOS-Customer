@@ -9,6 +9,7 @@
 import UIKit
 import PromiseKit
 import Starscream
+import UserNotifications
 
 class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate, WebSocketDelegate {
    
@@ -233,6 +234,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
 
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("ItemDetail got some text: \(text)")
+        
 
     }
 

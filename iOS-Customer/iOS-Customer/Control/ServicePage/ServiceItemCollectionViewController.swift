@@ -45,12 +45,16 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
     override func viewWillAppear(_ animated: Bool) {
 
         
-        customerInt = customer?.idCustomer
         
+        customerInt = customer?.idCustomer
+
         guard let userId = customerInt?.description else {
             return
         }
         socketConnect(userId: userId, groupId: "0")
+        
+
+
 
         getUserRoomNumberForInstant()
     }
@@ -71,6 +75,7 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
         // Pass the selected object to the new view controller.
         
         if segue.identifier == "showItemDetail" {
+            
             
             guard let selectedIndexPath = self.collectionView.indexPathsForSelectedItems?.first else {
                 assertionFailure("Fail to get selected item's index path.")
@@ -199,6 +204,10 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
                     print("Deubg >>> \(self.payDetailInfo)")
                 }
             }
+            guard self.payDetailInfo.count == 1 else {
+                self.showAlert(message: "太多房間了！")
+                return
+            }
             self.updateUserServiceStatus()
         }
     }
@@ -208,20 +217,20 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
         socket.delegate = self
         socket.connect()
     }
-    
+
     func websocketDidConnect(socket: WebSocketClient) {
         print("Item websocket is connected")
     }
-    
+
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
         print("Item websocket is disconnected: \(error!.localizedDescription)")
     }
-    
+
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("Item got some text: \(text)")
-       
+
     }
-    
+
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("Item got some data: \(data.count)")
     }

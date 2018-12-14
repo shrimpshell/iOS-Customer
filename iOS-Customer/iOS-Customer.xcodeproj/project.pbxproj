@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1EF1BA21C239E0007A7D51 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1EF1B921C239E0007A7D51 /* EventTableViewController.swift */; };
+		2B1EF1BC21C23A84007A7D51 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1EF1BB21C23A84007A7D51 /* EventTableViewCell.swift */; };
+		2B1EF1C021C23F7A007A7D51 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B1EF1BF21C23F7A007A7D51 /* Event.storyboard */; };
+		2B1EF1C221C2424E007A7D51 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1EF1C121C2424E007A7D51 /* Helper.swift */; };
+		2B1EF1C421C247A8007A7D51 /* EventUIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1EF1C321C247A8007A7D51 /* EventUIImage+Resize.swift */; };
+		2B1EF1C621C24841007A7D51 /* AlertController+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1EF1C521C24841007A7D51 /* AlertController+Image.swift */; };
 		2B21F4B121B92B3F00534049 /* CustomerRatings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B21F4AD21B92B3F00534049 /* CustomerRatings.storyboard */; };
 		2B21F4B221B92B3F00534049 /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B21F4AE21B92B3F00534049 /* Booking.storyboard */; };
 		2B21F4B321B92B3F00534049 /* PersonalRatings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B21F4AF21B92B3F00534049 /* PersonalRatings.storyboard */; };
@@ -38,6 +44,7 @@
 		72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7261595F219DA6E100EB43FB /* ServiceStatusTableViewController.swift */; };
 		72615962219DA77100EB43FB /* ServiceStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615961219DA77100EB43FB /* ServiceStatusTableViewCell.swift */; };
 		72615964219DB3C000EB43FB /* Instant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72615963219DB3C000EB43FB /* Instant.swift */; };
+		726B7CD421BE6E4D002A7B10 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726B7CD321BE6E4D002A7B10 /* SocketManager.swift */; };
 		729527B221A3EE8200E9E839 /* OrderRoomDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */; };
 		72C35FB521AE753C006BD1A7 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C35FB421AE753C006BD1A7 /* Socket.swift */; };
 		72D917C2219D142A0008D90C /* Josh.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72D917C1219D142A0008D90C /* Josh.storyboard */; };
@@ -67,6 +74,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B1EF1B921C239E0007A7D51 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
+		2B1EF1BB21C23A84007A7D51 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		2B1EF1BF21C23F7A007A7D51 /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		2B1EF1C121C2424E007A7D51 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		2B1EF1C321C247A8007A7D51 /* EventUIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventUIImage+Resize.swift"; sourceTree = "<group>"; };
+		2B1EF1C521C24841007A7D51 /* AlertController+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertController+Image.swift"; sourceTree = "<group>"; };
 		2B21F4AD21B92B3F00534049 /* CustomerRatings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomerRatings.storyboard; sourceTree = "<group>"; };
 		2B21F4AE21B92B3F00534049 /* Booking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Booking.storyboard; sourceTree = "<group>"; };
 		2B21F4AF21B92B3F00534049 /* PersonalRatings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalRatings.storyboard; sourceTree = "<group>"; };
@@ -99,6 +112,7 @@
 		72615961219DA77100EB43FB /* ServiceStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatusTableViewCell.swift; sourceTree = "<group>"; };
 		72615963219DB3C000EB43FB /* Instant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instant.swift; sourceTree = "<group>"; };
 		726302A521AFEDE3006A8A1D /* iOS-Customer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS-Customer.entitlements"; sourceTree = "<group>"; };
+		726B7CD321BE6E4D002A7B10 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		729527B121A3EE8200E9E839 /* OrderRoomDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRoomDetail.swift; sourceTree = "<group>"; };
 		72C35FB421AE753C006BD1A7 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		72D917C1219D142A0008D90C /* Josh.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Josh.storyboard; sourceTree = "<group>"; };
@@ -143,6 +157,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B1EF1B821C239A6007A7D51 /* EventPage */ = {
+			isa = PBXGroup;
+			children = (
+				2B1EF1C321C247A8007A7D51 /* EventUIImage+Resize.swift */,
+				2B1EF1B921C239E0007A7D51 /* EventTableViewController.swift */,
+				2B1EF1BB21C23A84007A7D51 /* EventTableViewCell.swift */,
+				2B1EF1C521C24841007A7D51 /* AlertController+Image.swift */,
+			);
+			path = EventPage;
+			sourceTree = "<group>";
+		};
 		2B21F4C221B92FB100534049 /* BookingPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,10 +244,12 @@
 		78390539219C15BF0059BC5B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2B1EF1C121C2424E007A7D51 /* Helper.swift */,
 				2B4EECC021B929160059EE3F /* Event.swift */,
 				2B4EECC121B929160059EE3F /* Room.swift */,
 				2B4EECBF21B929160059EE3F /* Communicator.swift */,
 				78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */,
+				726B7CD321BE6E4D002A7B10 /* SocketManager.swift */,
 				788AE3A82193DD7C008B3C0F /* Alert.swift */,
 				789B07D121A4438300B764C2 /* CornerRadius.swift */,
 				78390531219BFC740059BC5B /* PrintHelper.swift */,
@@ -250,6 +277,7 @@
 		78AB949F216E28FD00045C95 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				2B1EF1B821C239A6007A7D51 /* EventPage */,
 				D110437021B93CB700C8ACC3 /* RoomTypePage */,
 				2B21F4C221B92FB100534049 /* BookingPage */,
 				72D917C3219D18270008D90C /* ServicePage */,
@@ -291,6 +319,7 @@
 				2B4EECC521B9292F0059EE3F /* RoomType.storyboard */,
 				D12CAED8219D4CC40035446C /* RoomOrder.storyboard */,
 				720A2E5821B6A81200EF44ED /* AllCustomerRatings.storyboard */,
+				2B1EF1BF21C23F7A007A7D51 /* Event.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -412,6 +441,7 @@
 				2B4EECC621B9292F0059EE3F /* RoomType.storyboard in Resources */,
 				2B21F4B121B92B3F00534049 /* CustomerRatings.storyboard in Resources */,
 				7230158D21B1005000FD89D7 /* Main.storyboard in Resources */,
+				2B1EF1C021C23F7A007A7D51 /* Event.storyboard in Resources */,
 				2B21F4B321B92B3F00534049 /* PersonalRatings.storyboard in Resources */,
 				2B21F4B221B92B3F00534049 /* Booking.storyboard in Resources */,
 				D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */,
@@ -477,10 +507,12 @@
 				788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */,
 				7230157B21B0F8F400FD89D7 /* HomePageViewController.swift in Sources */,
 				78390532219BFC740059BC5B /* PrintHelper.swift in Sources */,
+				2B1EF1C421C247A8007A7D51 /* EventUIImage+Resize.swift in Sources */,
 				7857F5722192B2EE00641030 /* Common.swift in Sources */,
 				2B4EECC421B929160059EE3F /* Room.swift in Sources */,
 				720A2E5721B6A79200EF44ED /* RatingListTableViewController.swift in Sources */,
 				720A2E5121B6A79200EF44ED /* ProfileViewController.swift in Sources */,
+				2B1EF1C221C2424E007A7D51 /* Helper.swift in Sources */,
 				720A2E5321B6A79200EF44ED /* WritingRatingViewController.swift in Sources */,
 				789B07D221A4438300B764C2 /* CornerRadius.swift in Sources */,
 				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
@@ -501,16 +533,20 @@
 				720A2E4921B6A77D00EF44ED /* AllRatingDetailViewController.swift in Sources */,
 				2B21F4C821B92FB100534049 /* BookingCheckTableViewController.swift in Sources */,
 				7230157921B0F8F400FD89D7 /* AllRatingsTableViewController.swift in Sources */,
+				2B1EF1C621C24841007A7D51 /* AlertController+Image.swift in Sources */,
 				2B4EECC321B929160059EE3F /* Event.swift in Sources */,
+				726B7CD421BE6E4D002A7B10 /* SocketManager.swift in Sources */,
 				2B4EECC221B929160059EE3F /* Communicator.swift in Sources */,
 				2B21F4C921B92FB100534049 /* BookingChooseCollectionViewCell.swift in Sources */,
 				720A2E5621B6A79200EF44ED /* RatingDetailTableViewCell.swift in Sources */,
 				72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */,
 				72C35FB521AE753C006BD1A7 /* Socket.swift in Sources */,
+				2B1EF1BA21C239E0007A7D51 /* EventTableViewController.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
 				729527B221A3EE8200E9E839 /* OrderRoomDetail.swift in Sources */,
 				2B21F4D021B92FE700534049 /* RoomType.swift in Sources */,
 				D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */,
+				2B1EF1BC21C23A84007A7D51 /* EventTableViewCell.swift in Sources */,
 				720A2E5221B6A79200EF44ED /* JoinTableViewController.swift in Sources */,
 				D1918E2921951426002E065A /* RoomOrderDetailViewController.swift in Sources */,
 				7230158B21B0FE7D00FD89D7 /* OrderRoomDetailForSocket.swift in Sources */,

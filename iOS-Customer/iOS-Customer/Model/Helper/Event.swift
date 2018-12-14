@@ -8,22 +8,11 @@
 
 import Foundation
 
-class Event {
-    var Events_Name = ""
-    var Events_Description = ""
-    var discount:Float = 1.0
-    var Events_Start_Datetime = ""
-    var Events_End_Datetime = ""
-    var image = ""
-    
-    init(Events_Name: String, Events_Description: String, discount: Float, Events_Start_Datetime: String, Events_End_Datetime: String, image: String) {
-        self.Events_Name = Events_Name
-        self.Events_Description = Events_Description
-        self.discount = discount
-        self.Events_Start_Datetime = Events_Start_Datetime
-        self.Events_End_Datetime = Events_End_Datetime
-        self.image = image
-    }
+struct Event: Codable {//建立struct Event格式化資料使用,須參考JSON結構來定義
+    var eventId: Int
+    var discount: Double
+    var name: String
+    var description: String
+    var start: String
+    var end: String
 }
-
-

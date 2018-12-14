@@ -379,7 +379,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 profilePageView.isHidden = false
                 titleNavigationItem.title = "會員資料"
             } else {
-                self.showCustomerInfo()
+                navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
+                navigationItem.rightBarButtonItem?.isEnabled = true
+                loginPageView.isHidden = true
+                profilePageView.isHidden = false
+                titleNavigationItem.title = "會員資料"
+                self.isFromCheckBooking = false
                 self.performSegue(withIdentifier: "backToBookingCheck", sender: nil)
             }
         } else {

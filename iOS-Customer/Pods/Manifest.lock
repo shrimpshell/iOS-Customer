@@ -16,7 +16,7 @@ DEPENDENCIES:
   - Alamofire
   - Cosmos
   - PromiseKit
-  - Starscream (~> 3.0.2)
+  - Starscream (~> 3.0.6)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -31,6 +31,6 @@ SPEC CHECKSUMS:
   PromiseKit: 27c1601bfb73405871b805bcb8cf7e55c4dad3db
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: fe40436985d361a957c469c9ed6175598df71b1c
+PODFILE CHECKSUM: 1200f29d176eb9f113bc73eb38d50814e54087fc
 
 COCOAPODS: 1.5.2

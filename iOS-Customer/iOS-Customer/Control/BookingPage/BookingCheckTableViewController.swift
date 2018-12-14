@@ -19,15 +19,15 @@ class BookingCheckTableViewController: UITableViewController {
     var customerId = 0
     var totalDays = 1
     var extraBed = 0
-    let roomGruopId = UUID().uuidString
-    let reservagtionDate = Date().getDateString()
+    let roomGruopId = UUID().hashValue
+    let reservationDate = Date().getDateString()
     let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reservationRoom.removeAll()
-        printHelper.println(tag: self.TAG, line: #line, roomGruopId)
+        printHelper.println(tag: self.TAG, line: #line, "\(roomGruopId)")
         // row的高度
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -48,7 +48,7 @@ class BookingCheckTableViewController: UITableViewController {
     @IBAction func sendReservation(_ sender: UIBarButtonItem) {
         // Check user is login. The customerId = 0 is not login.
         if ProfileViewController.isLogin == false {
-            performSegue(withIdentifier: "goToCheckIn", sender: nil)
+            performSegue(withIdentifier: "goToLogin", sender: nil)
         } else {
             for index in 0...(roomReservation.count - 1) {
                 getReservation(checkInDate: checkInDate, checkOutDate: checkOutDate, roomTypeId: roomReservation[index].id)
@@ -100,7 +100,7 @@ class BookingCheckTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if roomReservation.count == 0 {
-            performSegue(withIdentifier: "checkBooking", sender: nil)
+            performSegue(withIdentifier: "backToChooseBooking", sender: nil)
         }
         return roomReservation.count
     }
@@ -150,7 +150,7 @@ class BookingCheckTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         // Change to isFromCheckBooking = true, which means coming from the CheckBooking page.
-        if segue.identifier == "goToCheckIn" {
+        if segue.identifier == "goToLogin" {
             let profileVC = segue.destination as! ProfileViewController
             profileVC.isFromCheckBooking = true
         }
@@ -243,8 +243,13 @@ extension BookingCheckTableViewController {
     }
     
     func insertReservation(quantity: Int, roomTypeId: Int, eventId: Int, price: Int) {
+        var reservation = Reservation()
         customerId = userDefaults.integer(forKey: "userID")
-        let reservation = Reservation(reservationDate: reservagtionDate, checkInDate: checkInDate, checkOutDate: checkOutDate, extraBed: extraBed, quantity: quantity, customerId: customerId, roomTypeId: roomTypeId, eventId: eventId, roomGroup: roomGruopId, price: price)
+        if eventId == 0 {
+            reservation = Reservation(reservationDate: reservationDate, checkInDate: checkInDate, checkOutDate: checkOutDate, extraBed: extraBed, quantity: quantity, customerId: customerId, roomTypeId: roomTypeId, roomGroup: "\(roomGruopId)", price: price)
+        } else {
+            reservation = Reservation(reservationDate: reservationDate, checkInDate: checkInDate, checkOutDate: checkOutDate, extraBed: extraBed, quantity: quantity, customerId: customerId, roomTypeId: roomTypeId, eventId: eventId, roomGroup: "\(roomGruopId)", price: price)
+        }
         let reservationData = try! JSONEncoder().encode(reservation)
         let reservationString = String(data: reservationData, encoding: .utf8)
         RoomTypeCommunicator.shared.insertReservation(reservation: reservationString!) { (result, error) in

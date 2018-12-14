@@ -250,7 +250,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         //idCustomer = 0
         customer = nil
         ProfileViewController.isLogin = false
-        isFromCheckBooking = false
         self.userID.set(0, forKey: "userID")
         self.userID.synchronize()
         imageCustomer.image = UIImage(named: "")
@@ -312,7 +311,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 profilePageView.isHidden = false
                 titleNavigationItem.title = "會員資料"
             } else {
-                self.showCustomerInfo()
+                navigationItem.rightBarButtonItem?.image = UIImage(named: "settings")
+                navigationItem.rightBarButtonItem?.isEnabled = true
+                loginPageView.isHidden = true
+                profilePageView.isHidden = false
+                titleNavigationItem.title = "會員資料"
+                self.isFromCheckBooking = false
                 self.performSegue(withIdentifier: "backToBookingCheck", sender: nil)
             }
         } else {

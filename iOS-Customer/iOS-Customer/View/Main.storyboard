@@ -49,6 +49,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ibT-pZ-Scm" kind="show" id="wEt-9L-DQG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaD-Mg-buj">
                                 <rect key="frame" x="49" y="183" width="277" height="130"/>
@@ -89,6 +92,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ffj-NM-cqd"/>
+                    <connections>
+                        <outlet property="eventButton" destination="psM-cM-Bmu" id="J6H-4a-F25"/>
+                        <outlet property="ratingButton" destination="AaD-Mg-buj" id="TSz-Ho-4jV"/>
+                        <outlet property="roomButton" destination="yGJ-WY-mjL" id="TC4-8t-fdK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,7 +169,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqV-Kd-7ua">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="30"/>
-                                                <state key="normal" title="Service"/>
+                                                <state key="normal" title="即時服務"/>
                                                 <connections>
                                                     <segue destination="thQ-U8-QyH" kind="showDetail" identifier="toInstantServicePage" id="r8o-RR-0bp"/>
                                                 </connections>
@@ -175,7 +183,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1t-3D-zQ0">
                                                 <rect key="frame" x="200" y="0.0" width="65" height="30"/>
-                                                <state key="normal" title="Rating"/>
+                                                <state key="normal" title="客戶評論"/>
                                                 <connections>
                                                     <segue destination="O24-hz-q3t" kind="show" identifier="toRatingList" id="NkR-JI-TG6"/>
                                                 </connections>
@@ -231,7 +239,7 @@
                                             <constraint firstAttribute="height" constant="35" id="JhK-e2-Ndy"/>
                                             <constraint firstAttribute="width" constant="76" id="uYz-y8-vWs"/>
                                         </constraints>
-                                        <state key="normal" title="Join">
+                                        <state key="normal" title="註冊">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -258,7 +266,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3F-Ku-JEP">
                                         <rect key="frame" x="226" y="348" width="76" height="35"/>
                                         <color key="backgroundColor" red="0.41835921999999998" green="0.54048347470000002" blue="0.57647883889999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Log In">
+                                        <state key="normal" title="登入">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <state key="disabled">
@@ -440,6 +448,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Xz-7B-2IN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2820" y="157"/>
+        </scene>
+        <!--EventView-->
+        <scene sceneID="eF2-by-xfa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Event" referencedIdentifier="EventView" id="ibT-pZ-Scm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oCZ-bc-9wb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2820" y="300"/>
         </scene>
     </scenes>
     <resources>

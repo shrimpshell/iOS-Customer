@@ -57,7 +57,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="Ff0-Uv-gg1">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="W1f-vm-CdU">
+                        <barButtonItem key="leftBarButtonItem" title="上一頁" id="W1f-vm-CdU">
                             <connections>
                                 <segue destination="yDf-i9-drO" kind="unwind" identifier="noRoomNumberItem" unwindAction="unwindToProfilePage:" id="fmc-8x-7gU"/>
                             </connections>
@@ -145,7 +145,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="cy0-e5-NGV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Eb4-4q-oah">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="Eb4-4q-oah">
                             <connections>
                                 <segue destination="jt5-yH-Qzx" kind="unwind" unwindAction="unwindToServiceItemPage:" id="Hpo-LW-Pwa"/>
                             </connections>

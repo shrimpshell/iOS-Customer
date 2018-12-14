@@ -18,7 +18,7 @@ class RoomTableViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         // Add a background view to the table view
-        let backgroundImage = UIImage(named: "customer_global_background")
+        let backgroundImage = UIImage(named: "other_background")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
     }

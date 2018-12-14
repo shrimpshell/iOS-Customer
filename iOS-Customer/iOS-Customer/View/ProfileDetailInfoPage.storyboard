@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
-                            <tableViewSection headerTitle="Name*" id="ixp-J7-KM1">
+                            <tableViewSection headerTitle="姓名*" id="ixp-J7-KM1">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1kh-Oo-b25">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -46,7 +46,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Email*" id="KQW-So-ZUt">
+                            <tableViewSection headerTitle="郵件*" id="KQW-So-ZUt">
                                 <cells>
                                     <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cIg-Ju-kjK">
                                         <rect key="frame" x="0.0" y="100" width="375" height="44"/>
@@ -75,7 +75,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Password*" id="xsc-e3-bbz">
+                            <tableViewSection headerTitle="密碼*" id="xsc-e3-bbz">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Wqv-s7-8Bs">
                                         <rect key="frame" x="0.0" y="172" width="375" height="44"/>
@@ -104,7 +104,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Re-enter Password*" id="J0j-vc-l8V">
+                            <tableViewSection headerTitle="重新輸入密碼*" id="J0j-vc-l8V">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="deN-2O-O84">
                                         <rect key="frame" x="0.0" y="244" width="375" height="44"/>
@@ -133,7 +133,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Gender" id="q95-kl-kgs">
+                            <tableViewSection headerTitle="性別" id="q95-kl-kgs">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oMQ-5k-BEw">
                                         <rect key="frame" x="0.0" y="316" width="375" height="44"/>
@@ -160,7 +160,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Birthday" id="ssX-RA-Haq">
+                            <tableViewSection headerTitle="出生日期" id="ssX-RA-Haq">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="V1Y-kz-67Y">
                                         <rect key="frame" x="0.0" y="388" width="375" height="44"/>
@@ -206,7 +206,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Phone Number*" id="eD9-IO-XyB">
+                            <tableViewSection headerTitle="電話*" id="eD9-IO-XyB">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VYK-Y8-sWU">
                                         <rect key="frame" x="0.0" y="460" width="375" height="44"/>
@@ -235,7 +235,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Address" id="38m-cK-Rre">
+                            <tableViewSection headerTitle="住址" id="38m-cK-Rre">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="g2O-Hb-ffC">
                                         <rect key="frame" x="0.0" y="532" width="375" height="44"/>
@@ -268,12 +268,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="註冊會員" id="WPx-cd-jtz">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GsW-tb-hDw">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="GsW-tb-hDw">
                             <connections>
                                 <action selector="cancelButton:" destination="eYn-bM-RTx" id="VS5-5T-5fo"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Join" id="2vn-tm-D09">
+                        <barButtonItem key="rightBarButtonItem" title="加入" id="2vn-tm-D09">
                             <connections>
                                 <action selector="joinButton:" destination="eYn-bM-RTx" id="Z5Z-Tg-PP3"/>
                             </connections>

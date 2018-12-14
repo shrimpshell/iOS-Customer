@@ -164,7 +164,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqV-Kd-7ua">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="30"/>
-                                                <state key="normal" title="Service"/>
+                                                <state key="normal" title="即時服務"/>
                                                 <connections>
                                                     <segue destination="thQ-U8-QyH" kind="showDetail" identifier="toInstantServicePage" id="r8o-RR-0bp"/>
                                                 </connections>
@@ -178,7 +178,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1t-3D-zQ0">
                                                 <rect key="frame" x="200" y="0.0" width="65" height="30"/>
-                                                <state key="normal" title="Rating"/>
+                                                <state key="normal" title="客戶評論"/>
                                                 <connections>
                                                     <segue destination="O24-hz-q3t" kind="show" identifier="toRatingList" id="NkR-JI-TG6"/>
                                                 </connections>
@@ -234,7 +234,7 @@
                                             <constraint firstAttribute="height" constant="35" id="JhK-e2-Ndy"/>
                                             <constraint firstAttribute="width" constant="76" id="uYz-y8-vWs"/>
                                         </constraints>
-                                        <state key="normal" title="Join">
+                                        <state key="normal" title="註冊">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -261,7 +261,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3F-Ku-JEP">
                                         <rect key="frame" x="226" y="348" width="76" height="35"/>
                                         <color key="backgroundColor" red="0.41835921999999998" green="0.54048347470000002" blue="0.57647883889999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Log In">
+                                        <state key="normal" title="登入">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <state key="disabled">
@@ -465,6 +465,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wPi-im-ix4"/>
-        <segue reference="9vA-Ft-UIx"/>
+        <segue reference="NkR-JI-TG6"/>
     </inferredMetricsTieBreakers>
 </document>

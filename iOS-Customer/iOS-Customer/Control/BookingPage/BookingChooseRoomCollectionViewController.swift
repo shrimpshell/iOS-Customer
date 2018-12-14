@@ -33,7 +33,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         super.viewWillAppear(true)
         shoppingCar = [ShoppingCar]()
         collectionView.reloadData()
-        getRoomType()
+        getRoomType(checkInDate: checkInDate, checkOutDate: checkOutDate)
     }
     
     @IBAction func checkBookingBtnPressed(_ sender: Any) {
@@ -72,7 +72,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         let quantity = room.roomQuantity
         let adult = room.adultQuantity
         let price = room.price
-        print("Debug 1 >>> \(room)")
+        
         // Configure the cell
         // Download room picture.
         cell.roomTypeImageView.image = UIImage(named: "picture")
@@ -161,35 +161,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
 // MARK: - Get data from server.
 
 extension BookingChooseRoomCollectionViewController {
-    func getRoomType() {
-        RoomTypeCommunicator.shared.doPostAllRoomType { (result, error) in
-            if let error = error {
-                printHelper.println(tag: self.TAG, line: #line, "RetriveRoomType error \(error)")
-                return
-            }
-            guard let result = result else {
-                printHelper.println(tag: self.TAG, line: #line, "result is nil.")
-                return
-            }
-            printHelper.println(tag: self.TAG, line: #line, "RetriveRoomType OK.")
-            
-            // Decode as [RoomType].
-            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
-                printHelper.println(tag: self.TAG, line: #line, "Fail to generate jsonData.")
-                return
-            }
-            let decoder = JSONDecoder()
-            guard let resultsObject = try? decoder.decode([RoomType].self, from: jsonData) else {
-                printHelper.println(tag: self.TAG, line: #line, "Fail to generate jsonData.")
-                return
-            }
-            printHelper.println(tag: self.TAG, line: #line, "resultObject: \(resultsObject)")
-            self.roomTypes = resultsObject
-            self.getReservation(checkInDate: self.checkInDate, checkOutDate: self.checkOutDate)
-        }
-    }
-    
-    func getReservation(checkInDate: String, checkOutDate: String) {
+    func getRoomType(checkInDate: String, checkOutDate: String) {
         RoomTypeCommunicator.shared.doPostRoomType(checkInDate: checkInDate, checkOutDate: checkOutDate, completion: { (result, error) in
             if let error = error {
                 printHelper.println(tag: self.TAG, line: #line, "RetriveRoomType error \(error)")
@@ -212,24 +184,9 @@ extension BookingChooseRoomCollectionViewController {
                 return
             }
             printHelper.println(tag: self.TAG, line: #line, "resultObject: \(resultsObject)")
-            self.reservationRoom = resultsObject
-            self.getRemainingRoom()
+            self.roomTypes = resultsObject
+            self.getEvent(checkInDate: checkInDate)
         })
-    }
-    
-    func getRemainingRoom() {
-        if !reservationRoom.isEmpty {
-            let reservationCount = reservationRoom.count - 1
-            let roomTypeCount = roomTypes.count - 1
-            
-            for index in 0...roomTypeCount {
-                for roomIndex in 0...reservationCount where roomTypes[index].id == reservationRoom[roomIndex].id {
-                    roomTypes[index].roomQuantity = roomTypes[index].roomQuantity - reservationRoom[roomIndex].roomQuantity
-                }
-            }
-        }
-        printHelper.println(tag: self.TAG, line: #line, "roomTypes: \(roomTypes.count), reservationRoom: \(reservationRoom.count)")
-        self.getEvent(checkInDate: checkInDate)
     }
     
     func getEvent(checkInDate: String) {

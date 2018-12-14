@@ -200,10 +200,11 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
             
             for userDetail in resultObject {
                 if userDetail.roomReservationStatus == "1" {
+                    self.payDetailInfo.removeAll()
                     self.payDetailInfo.append(userDetail)
-                    print("Deubg >>> \(self.payDetailInfo)")
                 }
             }
+            print("Debug ServiceItems >>> \(self.payDetailInfo.count)")
             guard self.payDetailInfo.count == 1 else {
                 self.showAlert(message: "太多房間了！")
                 return

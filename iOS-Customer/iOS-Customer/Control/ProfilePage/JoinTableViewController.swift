@@ -45,7 +45,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         hideKeyboard()
         switch pageNumber {
         case 0:
-            checkBtn.title = "Join"
+            checkBtn.title = "加入"
             navigationTitle.title = "會員註冊"
             birthdayLable.isUserInteractionEnabled = true
             genderSegmented.isEnabled = true
@@ -53,7 +53,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
             
         case 2:
             navigationTitle.title = "會員資料修改"
-            checkBtn.title = "Editing"
+            checkBtn.title = "編輯"
             showCustomerInfo()
         default:
             break

@@ -23,13 +23,6 @@ class RoomTypeCommunicator {
     }
     
     // MARK: - Gate data from servser.
-    func doPostAllRoomType(completion: @escaping DoneHandler) {
-        let parameters: [String: String] = [ACTION: "getAll"]
-        
-        doPost(urlString: ROOMTYPE_URL, parameters: parameters,
-               completion: completion)
-    }
-    
     func doPostRoomType(checkInDate: String, checkOutDate: String, completion: @escaping DoneHandler) {
         let parameters: [String: String] = [ACTION: "getReservation", "checkInDate": checkInDate, "checkOutDate": checkOutDate]
         

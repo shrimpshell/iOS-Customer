@@ -46,6 +46,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var roomNumberLabel: UILabel!
     @IBOutlet weak var checkInfomation: UIStackView!
     @IBOutlet weak var serviceBtn: UIButton!
+    @IBOutlet weak var roomNumberTitleLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -214,7 +215,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 return
             }
-            print("\(checkInInfo)")
+            
             switch checkInInfo.roomReservationStatus {
             case "1":
                 self.checkInTitleLabel.isHidden = false
@@ -223,6 +224,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
                 let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
                 self.checkInDateLabel.text = "\(firstSentence)"
+                self.roomNumberTitleLabel.text = "房號"
                 self.roomNumberLabel.text = checkInInfo.roomNumber
                 self.serviceBtn.isEnabled = true
                 break
@@ -231,8 +233,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.checkInTitleLabel.isHidden = false
                 self.checkInfomation.isHidden = false
                     self.checkInTitleLabel.text = "預約入住資訊"
-                    self.checkInDateLabel.text = checkInInfo.checkInDate
-                    self.roomNumberLabel.text = ""
+                let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
+                let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
+                self.checkInDateLabel.text = "\(firstSentence)"
+                self.checkInDateLabel.textColor = .red
+                    self.roomNumberTitleLabel.text = "期待您的入住"
+                self.roomNumberLabel.text = ""
                     self.serviceBtn.isEnabled = false
                 break
                 

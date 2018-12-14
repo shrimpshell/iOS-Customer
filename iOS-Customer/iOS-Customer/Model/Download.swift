@@ -111,6 +111,12 @@ struct DownloadAuth {
         doPost(urlString: PAYDETAIL_SERVLET, parameters: parameters, completion: completion)
     }
     
+    func getUserRoomReservationStatus(idCustomer: Int, completion: @escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION: "getRoomReservationStatus", ID_CUSTOMER: idCustomer]
+        
+        doPost(urlString: CUSTOMER_SERVLET, parameters: parameters, completion: completion)
+    }
+    
     
     fileprivate func doPost(urlString: String,
                             parameters: [String: Any],

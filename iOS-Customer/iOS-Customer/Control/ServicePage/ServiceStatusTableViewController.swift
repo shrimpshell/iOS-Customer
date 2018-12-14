@@ -220,9 +220,11 @@ class ServiceStatusTableViewController: UITableViewController, WebSocketDelegate
             
             for userDetail in resultObject {
                 if userDetail.roomReservationStatus == "1" {
+                    self.payDetailInfo.removeAll()
                     self.payDetailInfo.append(userDetail)
                 }
             }
+            print("Debug ServiceStatus >>> \(self.payDetailInfo.count)")
             guard self.payDetailInfo.count == 1 else {
                 self.showAlert(message: "太多房間了！")
                 return

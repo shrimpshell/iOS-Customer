@@ -225,6 +225,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
                 self.checkInDateLabel.text = "\(firstSentence)"
                 self.roomNumberTitleLabel.text = "房號"
+                self.checkInDateLabel.textColor = .black
                 self.roomNumberLabel.text = checkInInfo.roomNumber
                 self.serviceBtn.isEnabled = true
                 break

@@ -12,6 +12,7 @@ import Cosmos
 class AllRatingDetailViewController: UIViewController {
     
     var rating: Rating?
+    var pageNumber = 0
 
     @IBOutlet weak var customerNameLabel: UILabel!
     @IBOutlet weak var idRoomReservationLabel: UILabel!
@@ -25,6 +26,7 @@ class AllRatingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 showDetail()
+        print("pageNumber: \(pageNumber)")
         
     }
     
@@ -40,8 +42,13 @@ showDetail()
             idRoomReservationLabel.text = ""
         }
         
-        if rating?.name != nil {
-            customerNameLabel.text = rating?.name
+        if pageNumber == 1 {
+            if rating?.name != nil {
+                customerNameLabel.isHidden = false
+                customerNameLabel.text = rating?.name
+            }
+        }else {
+            customerNameLabel.isHidden = true
         }
         
         if rating?.ratingStar != nil {

@@ -34,7 +34,6 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
 
     override func viewWillAppear(_ animated: Bool) {
         
-        
         guard let userId = customerInt?.description else {
             return
         }
@@ -183,8 +182,13 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
                 return
             }
         
-            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: (self.payDetailInfo.first?.idRoomStatus)!, roomNumber: (self.payDetailInfo.first?.roomNumber)!)
+            guard let roomNumber = self.payDetailInfo.first?.roomNumber, let idRoomStatus = self.payDetailInfo.first?.idRoomStatus else {
+                self.showAlert(message: "房號出現錯誤")
+                return
+            }
             
+            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: idRoomStatus, roomNumber: roomNumber)
+           
             
             
             // 新增物件到 server 端，必先要把物件轉成 String
@@ -198,6 +202,8 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
                 print("InsertInstant text OK: \(result!)")
                 self.showAlert(title: "已成功送出需求", message: "馬上為您服務")
                 self.tableView.reloadData()
+                // 輸入後清空textField
+                cell.itemTextField.text = ""
                 self.socket.write(string: socketString)
             }
             
@@ -216,6 +222,10 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
         return true
     }
     
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        textField.reloadInputViews()
+        return true
+    }
     
 
     func socketConnect(userId: String, groupId: String) {

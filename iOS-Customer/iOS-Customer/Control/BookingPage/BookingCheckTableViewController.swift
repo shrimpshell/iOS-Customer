@@ -197,17 +197,22 @@ extension BookingCheckTableViewController: BookingCheckTableViewCellDelegate {
     }
     
     func extraBedSwitchPressed(_ sender: BookingCheckTableViewCell) {
+        guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
         guard let price = Int((sender.priceLabel.text?.replace(target: "NT$ ", withString: ""))!) else {
             return
         }
         guard let quaintity = Int((sender.roomQuantityLabel.text?.replace(target: " 間", withString: ""))!) else { return }
-        
+        var extraPrice = 0
         if sender.extraBedSwitch.isOn {
             extraBed = 1
-            sender.priceLabel.text = "NT$ \(price + 1000 * quaintity)"
+            extraPrice = price + 1000 * quaintity
+            sender.priceLabel.text = "NT$ \(extraPrice)"
+            roomReservation[tappedIndexPath.row].price = extraPrice
         } else {
             extraBed = 0
+            extraPrice = price - 1000 * quaintity
             sender.priceLabel.text = "NT$ \(price - 1000 * quaintity)"
+            roomReservation[tappedIndexPath.row].price = extraPrice
         }
     }
 }

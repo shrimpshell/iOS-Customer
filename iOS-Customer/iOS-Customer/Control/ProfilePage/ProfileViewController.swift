@@ -216,8 +216,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 return
             }
             
-            switch checkInInfo.roomReservationStatus {
-            case "1":
+            if checkInInfo.roomReservationStatus == "1" {
                 self.checkInTitleLabel.isHidden = false
                 self.checkInfomation.isHidden = false
                 self.checkInTitleLabel.text = "入住資訊"
@@ -228,24 +227,49 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.checkInDateLabel.textColor = .black
                 self.roomNumberLabel.text = checkInInfo.roomNumber
                 self.serviceBtn.isEnabled = true
-                break
-            
-            case "0":
+            } else {
                 self.checkInTitleLabel.isHidden = false
                 self.checkInfomation.isHidden = false
-                    self.checkInTitleLabel.text = "預約入住資訊"
+                self.checkInTitleLabel.text = "預約入住資訊"
                 let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
                 let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
                 self.checkInDateLabel.text = "\(firstSentence)"
                 self.checkInDateLabel.textColor = .red
-                    self.roomNumberTitleLabel.text = "期待您的入住"
+                self.roomNumberTitleLabel.text = "期待您的入住"
                 self.roomNumberLabel.text = ""
-                    self.serviceBtn.isEnabled = false
-                break
-                
-            default:
-                break
+                self.serviceBtn.isEnabled = false
+
             }
+//            switch checkInInfo.roomReservationStatus {
+//            case "1":
+//                self.checkInTitleLabel.isHidden = false
+//                self.checkInfomation.isHidden = false
+//                self.checkInTitleLabel.text = "入住資訊"
+//                let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
+//                let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
+//                self.checkInDateLabel.text = "\(firstSentence)"
+//                self.roomNumberTitleLabel.text = "房號"
+//                self.checkInDateLabel.textColor = .black
+//                self.roomNumberLabel.text = checkInInfo.roomNumber
+//                self.serviceBtn.isEnabled = true
+//                break
+//
+//            case "0":
+//                self.checkInTitleLabel.isHidden = false
+//                self.checkInfomation.isHidden = false
+//                    self.checkInTitleLabel.text = "預約入住資訊"
+//                let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
+//                let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
+//                self.checkInDateLabel.text = "\(firstSentence)"
+//                self.checkInDateLabel.textColor = .red
+//                    self.roomNumberTitleLabel.text = "期待您的入住"
+//                self.roomNumberLabel.text = ""
+//                    self.serviceBtn.isEnabled = false
+//                break
+            
+//            default:
+//                break
+//            }
         }
     }
     

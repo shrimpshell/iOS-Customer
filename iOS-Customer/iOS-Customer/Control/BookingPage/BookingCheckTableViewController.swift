@@ -87,7 +87,7 @@ class BookingCheckTableViewController: UITableViewController {
     }
     
     @IBAction func unwindToBookingCheck(_ segue: UIStoryboardSegue) {
-        
+        tabBarController?.tabBar.isHidden = true
     }
     
     // MARK: - Table view data source
@@ -112,7 +112,7 @@ class BookingCheckTableViewController: UITableViewController {
         // Configure the cell...
         cell.delegate = self
         cell.roomTypeNameLabel.text = roomReservation[indexPath.row].roomTypeName
-        cell.checkInDateLabel.text = "入住日期： \(checkOutDate)"
+        cell.checkInDateLabel.text = "入住日期： \(checkInDate)"
         cell.checkOutDateLabel.text = "退房日期： \(checkOutDate)"
         cell.totalDaysLabel.text = "共 \(totalDays) 晚"
         cell.extraBedLabel.text = "是否要加床:"

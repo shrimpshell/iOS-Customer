@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -227,20 +228,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iid-Ww-fe8"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="0Jc-OI-V3e">
                             <size key="itemSize" width="355" height="580"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_detail_background" id="erM-Sv-fcp">
                             <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookingChooseCollectionViewCell" id="hQi-3c-phd" customClass="BookingChooseCollectionViewCell" customModule="iOS_Customer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="11.5" width="355" height="580"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="BookingChooseCollectionViewCell" id="hQi-3c-phd" customClass="BookingChooseCollectionViewCell" customModule="iOS_Customer" customModuleProvider="target">
+                                <rect key="frame" x="10" y="11.5" width="355" height="580"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="355" height="580"/>
                                     <autoresizingMask key="autoresizingMask"/>
@@ -369,23 +371,34 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOR-NX-frq" customClass="CosmosView" customModule="Cosmos">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WqC-dN-uUZ">
                                                     <rect key="frame" x="0.0" y="318" width="313" height="34.5"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="ic_roomtype_roomsize2"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="ic_roomtype_roomsize1"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                                            <real key="value" value="0.0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
-                                                            <integer key="value" value="3"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                            <real key="value" value="40"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8f-wZ-Zfb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="154" height="32.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WTP-JM-NCo">
+                                                            <rect key="frame" x="159" y="0.0" width="154" height="29"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6iq-bH-8Cs">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="29"/>
+                                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" autorepeat="NO" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="377-EK-LHn">
+                                                                    <rect key="frame" x="46" y="0.0" width="94" height="29"/>
+                                                                    <connections>
+                                                                        <action selector="chooseRoomStepper:" destination="hQi-3c-phd" eventType="valueChanged" id="cwS-Yr-pcP"/>
+                                                                    </connections>
+                                                                </stepper>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -413,7 +426,9 @@
                                     <outlet property="peopleQuantityLabel" destination="AXH-Fp-Usw" id="mCc-pr-vL9"/>
                                     <outlet property="priceLabel" destination="YcT-89-y5A" id="G2f-cA-ckF"/>
                                     <outlet property="remainingRoomsLabel" destination="zSW-Ir-mOG" id="qeb-Ck-mgx"/>
-                                    <outlet property="reservationRoomView" destination="nOR-NX-frq" id="YiR-zc-dbL"/>
+                                    <outlet property="reservationQuantity" destination="f8f-wZ-Zfb" id="IB5-6W-9kh"/>
+                                    <outlet property="reservationStepper" destination="377-EK-LHn" id="rqt-gV-0J2"/>
+                                    <outlet property="roomQuantityTextField" destination="6iq-bH-8Cs" id="vxX-6f-Hsj"/>
                                     <outlet property="roomSizeImageViwe" destination="fFf-rk-LV6" id="emG-BM-CDV"/>
                                     <outlet property="roomSizeLabel" destination="oKX-IT-2oy" id="4Rb-DF-J5q"/>
                                     <outlet property="roomTypeImageView" destination="fHh-sn-gBk" id="DhB-kE-udw"/>
@@ -438,7 +453,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cellLayout" destination="0Jc-OI-V3e" id="r6n-hY-eiW"/>
+                        <outlet property="bookingChooseRoomCollectionView" destination="Dp3-FA-yq9" id="ofw-Cn-IcJ"/>
+                        <outlet property="bookingChooseRoomCollectionViewFlowLayout" destination="0Jc-OI-V3e" id="ECN-zV-zsB"/>
                         <segue destination="u8u-9V-5ke" kind="show" identifier="checkBooking" id="14T-B8-2zg"/>
                     </connections>
                 </collectionViewController>
@@ -644,8 +660,6 @@
         <image name="ic_roomtype_nosmoking" width="38" height="38"/>
         <image name="ic_roomtype_people" width="38" height="35"/>
         <image name="ic_roomtype_roomsize" width="38" height="37"/>
-        <image name="ic_roomtype_roomsize1" width="82" height="79"/>
-        <image name="ic_roomtype_roomsize2" width="82" height="79"/>
         <image name="ic_roomtype_wifi" width="38" height="28"/>
         <image name="man_2x" width="76" height="160"/>
         <image name="man_selector2x" width="72" height="160"/>

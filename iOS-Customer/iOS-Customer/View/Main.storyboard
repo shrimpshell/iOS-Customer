@@ -170,7 +170,7 @@
                                         <rect key="frame" x="59" y="400" width="256" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqV-Kd-7ua">
-                                                <rect key="frame" x="0.0" y="0.0" width="65" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="30"/>
                                                 <state key="normal" title="即時服務"/>
                                                 <connections>
                                                     <segue destination="thQ-U8-QyH" kind="showDetail" identifier="toInstantServicePage" id="r8o-RR-0bp"/>
@@ -184,7 +184,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1t-3D-zQ0">
-                                                <rect key="frame" x="200" y="0.0" width="65" height="30"/>
+                                                <rect key="frame" x="194" y="0.0" width="62" height="30"/>
                                                 <state key="normal" title="客戶評論"/>
                                                 <connections>
                                                     <segue destination="O24-hz-q3t" kind="show" identifier="toRatingList" id="NkR-JI-TG6"/>
@@ -403,6 +403,7 @@
                         <outlet property="phoneCustomer" destination="Wrz-uR-f3Q" id="b7I-jQ-TkS"/>
                         <outlet property="profilePageView" destination="7Yy-d7-nKU" id="uZ3-Sb-hh9"/>
                         <outlet property="roomNumberLabel" destination="aPf-mS-fhP" id="p1q-Ig-8W0"/>
+                        <outlet property="roomNumberTitleLabel" destination="bqF-vq-ZQh" id="2Fs-Hh-MTb"/>
                         <outlet property="serviceBtn" destination="bqV-Kd-7ua" id="1W0-qL-dad"/>
                         <outlet property="settingItemBtn" destination="dLi-HH-1Ap" id="KuE-3b-1dz"/>
                         <outlet property="titleNavigationItem" destination="iWE-hZ-M7t" id="O0Z-5e-PSr"/>

@@ -42,7 +42,7 @@ class WritingRatingViewController: UIViewController {
         let dateFormat: DateFormatter = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd"
         let dateString: String = dateFormat.string(from: now)
-        print("“現在時間：\(dateString)”")
+        print("現在時間：\(dateString)")
         
         let ratingStar = Float(ratingStarView.rating)
         if opinionText.text != nil {

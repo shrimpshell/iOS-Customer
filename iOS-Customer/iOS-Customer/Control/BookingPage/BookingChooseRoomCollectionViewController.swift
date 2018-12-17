@@ -211,7 +211,11 @@ extension BookingChooseRoomCollectionViewController {
             shoppingCar.id == id
         }) {
             for index in 0...(shoppingCar.count - 1) where id == self.shoppingCar[index].id {
-                self.shoppingCar[index].roomQuantity = reservationQuantity
+                if reservationQuantity == 0 {
+                    self.shoppingCar.remove(at: index)
+                } else {
+                   self.shoppingCar[index].roomQuantity = reservationQuantity
+                }
             }
         } else {
             self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: price))

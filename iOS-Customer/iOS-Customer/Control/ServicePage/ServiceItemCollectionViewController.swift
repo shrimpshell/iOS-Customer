@@ -26,15 +26,12 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
     var instantDetailInfo = [Instant]()
     var payDetailInfo = [OrderRoomDetailForSocket]()
     var socket: WebSocket!
-    let userID = UserDefaults()
+    let userDefaultsForRoomNumber = UserDefaults()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let a = userID.object(forKey: "roomNumber")  //userDefaults取資料範例範例，請自行修改
-        
-        
-        
+//        let getRoomNumber = userDefaultsForRoomNumber.object(forKey: "roomNumber")  //userDefaults取資料範例範例，請自行修改
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,8 +44,6 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
-        
         
         customerInt = customer?.idCustomer
 
@@ -57,10 +52,9 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
         }
         socketConnect(userId: userId, groupId: "0")
         
+        updateUserServiceStatus()
 
-
-
-        getUserRoomNumberForInstant()
+        //getUserRoomNumberForInstant()
     }
     
     
@@ -138,16 +132,19 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
 
     // get user service status
     func updateUserServiceStatus() {
-        guard payDetailInfo.first?.roomReservationStatus == "1" else {
-            let alert = UIAlertController(title: "無法使用此功能", message: "入住後啟用此功能", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-                self.performSegue(withIdentifier: "noRoomNumberItem", sender: nil)
-                }
-            alert.addAction(ok)
-            present(alert, animated: true)
-            return
-        }
-        download.getCustomerStatus(roomNumber: (payDetailInfo.first?.roomNumber)!) { (result, error) in
+//        guard payDetailInfo.first?.roomReservationStatus == "1" else {
+//            let alert = UIAlertController(title: "無法使用此功能", message: "入住後啟用此功能", preferredStyle: .alert)
+//            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+//                self.performSegue(withIdentifier: "noRoomNumberItem", sender: nil)
+//                }
+//            alert.addAction(ok)
+//            present(alert, animated: true)
+//            return
+//        }
+        
+        let getRoomNumber = userDefaultsForRoomNumber.string(forKey: "roomNumber")!
+        
+        download.getCustomerStatus(roomNumber: getRoomNumber) { (result, error) in
             if let error = error {
                 print("updateUserServiceStatus error: \(error)")
                 return
@@ -175,47 +172,47 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
         }
     }
     
-    func getUserRoomNumberForInstant() {
-        guard let customer = customerInt else {
-            assertionFailure("error")
-            return
-        }
-        download.getUserRoomNumber(idCustomer: String(customer)) { (result, error) in
-            if let error = error {
-                print("getUserRoomNumberForInstant error: \(error)")
-                return
-            }
-            guard let result = result else {
-                print("getUserRoomNumberForInstant result is nil.")
-                return
-            }
-            print("getUserRoomNumberForInstant Info is OK.")
-            // Decode as [PayDetail]. 解碼下載下來的 json
-            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
-                print("getUserRoomNumberForInstant Fail to generate jsonData.")
-                return
-            }
-            let decoder = JSONDecoder()
-            guard let resultObject = try? decoder.decode([OrderRoomDetailForSocket].self, from: jsonData) else {
-                print("getUserRoomNumberForInstant Fail to decode jsonData.")
-                return
-            }
-            print("getUserRoomNumberForInstant resultObject: \(resultObject)")
-            
-            for userDetail in resultObject {
-                if userDetail.roomReservationStatus == "1" {
-                    self.payDetailInfo.removeAll()
-                    self.payDetailInfo.append(userDetail)
-                }
-            }
-            print("Debug ServiceItems >>> \(self.payDetailInfo.count)")
-            guard self.payDetailInfo.count == 1 else {
-                self.showAlert(message: "太多房間了！")
-                return
-            }
-            self.updateUserServiceStatus()
-        }
-    }
+//    func getUserRoomNumberForInstant() {
+//        guard let customer = customerInt else {
+//            assertionFailure("error")
+//            return
+//        }
+//        download.getUserRoomNumber(idCustomer: String(customer)) { (result, error) in
+//            if let error = error {
+//                print("getUserRoomNumberForInstant error: \(error)")
+//                return
+//            }
+//            guard let result = result else {
+//                print("getUserRoomNumberForInstant result is nil.")
+//                return
+//            }
+//            print("getUserRoomNumberForInstant Info is OK.")
+//            // Decode as [PayDetail]. 解碼下載下來的 json
+//            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else {
+//                print("getUserRoomNumberForInstant Fail to generate jsonData.")
+//                return
+//            }
+//            let decoder = JSONDecoder()
+//            guard let resultObject = try? decoder.decode([OrderRoomDetailForSocket].self, from: jsonData) else {
+//                print("getUserRoomNumberForInstant Fail to decode jsonData.")
+//                return
+//            }
+//            print("getUserRoomNumberForInstant resultObject: \(resultObject)")
+//
+//            for userDetail in resultObject {
+//                if userDetail.roomReservationStatus == "1" {
+//                    self.payDetailInfo.removeAll()
+//                    self.payDetailInfo.append(userDetail)
+//                }
+//            }
+//            print("Debug ServiceItems >>> \(self.payDetailInfo.count)")
+//            guard self.payDetailInfo.count == 1 else {
+//                self.showAlert(message: "太多房間了！")
+//                return
+//            }
+//            self.updateUserServiceStatus()
+//        }
+//    }
     
     func socketConnect(userId: String, groupId: String) {
         socket = WebSocket(url: URL(string: Common.SOCKET_URL + userId + "/" + groupId)!)

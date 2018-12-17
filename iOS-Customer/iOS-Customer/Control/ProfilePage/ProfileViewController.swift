@@ -176,7 +176,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     self.imageCustomer.image = UIImage(data: data!)
                 }
             } else {
-                self.imageCustomer.image = UIImage(named: "person128.png")
+                self.imageCustomer.image = UIImage(named: "picture")
                 self.imageCustomer.backgroundColor = .white
             }
             }.catch { (error) in

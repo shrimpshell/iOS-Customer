@@ -12,12 +12,20 @@ import Foundation
 import PromiseKit
 
 
-struct OrderRoomDetail {
+struct OrderRoomDetail: Equatable {
     var checkInDate: String, checkOuntDate: String, roomNumber: String? = nil, price: String, roomQuantity: String, roomTypeName: String, roomReservationStatus: String, roomGroup: String, ratingStatus: String? = nil, idRoomReservation: Int
+    
+    static func == (lhs: OrderRoomDetail, rhs: OrderRoomDetail) -> Bool {
+        return lhs.checkInDate == rhs.checkInDate && lhs.checkOuntDate == rhs.checkOuntDate && lhs.idRoomReservation == rhs.idRoomReservation && lhs.price == rhs.price && lhs.roomGroup == rhs.roomGroup && lhs.roomQuantity == rhs.roomQuantity && lhs.roomTypeName == rhs.roomTypeName
+    }
 }
 
-struct OrderInstantDetail: Codable {
+struct OrderInstantDetail: Codable, Equatable {
     var instantTypeName: String?, quantity: String?, instantPrice: String?, roomGroup: String
+    
+    static func == (lhs: OrderInstantDetail, rhs: OrderInstantDetail) -> Bool {
+        return lhs.roomGroup == rhs.roomGroup && lhs.instantPrice == rhs.instantPrice && lhs.instantTypeName == rhs.instantTypeName && lhs.quantity == rhs.quantity
+    }
 }
 
 struct OrderRoomDictionary {

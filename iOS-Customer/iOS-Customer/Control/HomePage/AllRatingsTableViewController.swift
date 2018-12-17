@@ -199,7 +199,9 @@ func personalRatingList() {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let rating = ratingItems[indexPath.row]
                 let controller = segue.destination as!  AllRatingDetailViewController
+                controller.pageNumber = pageNumber
                 controller.rating = rating
+                
                 
             }
         }

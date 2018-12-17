@@ -18,6 +18,10 @@ struct Common {
     // Websocket
 //    static let SOCKET_URL: String = "ws://192.168.50.188:8080/ShellService/WsServer/"
     static let SOCKET_URL: String = "ws://172.20.10.3:8080/ShellService/WsServer/"
+=======
+    static let SOCKET_URL: String = "ws://192.168.50.188:8080/ShellService/WsServer/"
+//    static let SOCKET_URL: String = "ws://192.168.43.199:8080/ShellService/WsServer/"
+>>>>>>> Stashed changes
 }
 
 

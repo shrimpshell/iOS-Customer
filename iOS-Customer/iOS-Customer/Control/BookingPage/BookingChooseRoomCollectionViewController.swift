@@ -103,7 +103,8 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         cell.peopleQuantityLabel.text = "最多可住 \(adult) 位大人"
         cell.remainingRoomsLabel.text = "剩 \(quantity) 間"
         cell.reservationQuantity.text = "訂房數量"
-        cell.roomQuantityTextField.text = String(roomTypes[indexPath.row].reservationQuantity!)
+        cell.roomQuantityLabel.text = String(roomTypes[indexPath.row].reservationQuantity!)
+        cell.reservationStepper.value = 0
         cell.delegate = self
         
         if discount == 1 {
@@ -211,7 +212,11 @@ extension BookingChooseRoomCollectionViewController {
             shoppingCar.id == id
         }) {
             for index in 0...(shoppingCar.count - 1) where id == self.shoppingCar[index].id {
-                self.shoppingCar[index].roomQuantity = reservationQuantity
+                if reservationQuantity == 0 {
+                    self.shoppingCar.remove(at: index)
+                } else {
+                   self.shoppingCar[index].roomQuantity = reservationQuantity
+                }
             }
         } else {
             self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: price))
@@ -232,7 +237,7 @@ extension BookingChooseRoomCollectionViewController: BookingChooseCollectionView
         
         stepper?.minimumValue = 0
         stepper?.maximumValue = Double(roomTypes[tappedIndexPath.row].roomQuantity)
-        sender.roomQuantityTextField.text = String(textValue)
+        sender.roomQuantityLabel.text = String(textValue)
         roomTypes[tappedIndexPath.row].reservationQuantity = textValue
         
         if self.discount == 1 {

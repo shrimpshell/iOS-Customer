@@ -339,7 +339,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let tableViewController = NAVController?.viewControllers.first as! RoomOrderTableViewController
             tableViewController.orders = self.orderRoomDetails!
             tableViewController.instants = self.orderInstantDetails!
-            
+            tableViewController.idCustomer = self.idCustomer
         case "toRatingList":
             let NAVController = segue.destination as? UINavigationController
             let ratingListPage = NAVController?.viewControllers.first as! AllRatingsTableViewController

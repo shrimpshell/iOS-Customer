@@ -104,6 +104,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         cell.remainingRoomsLabel.text = "剩 \(quantity) 間"
         cell.reservationQuantity.text = "訂房數量"
         cell.roomQuantityLabel.text = String(roomTypes[indexPath.row].reservationQuantity!)
+        cell.reservationStepper.value = 0
         cell.delegate = self
         
         if discount == 1 {
@@ -211,7 +212,11 @@ extension BookingChooseRoomCollectionViewController {
             shoppingCar.id == id
         }) {
             for index in 0...(shoppingCar.count - 1) where id == self.shoppingCar[index].id {
-                self.shoppingCar[index].roomQuantity = reservationQuantity
+                if reservationQuantity == 0 {
+                    self.shoppingCar.remove(at: index)
+                } else {
+                   self.shoppingCar[index].roomQuantity = reservationQuantity
+                }
             }
         } else {
             self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: price))

@@ -15,6 +15,7 @@ private let reuseIdentifier = "Cell"
 var customerInt: Int?
 
 
+
 class ServiceItemCollectionViewController: UICollectionViewController, WebSocketDelegate {
     
     
@@ -25,10 +26,13 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
     var instantDetailInfo = [Instant]()
     var payDetailInfo = [OrderRoomDetailForSocket]()
     var socket: WebSocket!
+    let userID = UserDefaults()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let a = userID.object(forKey: "roomNumber")  //userDefaults取資料範例範例，請自行修改
+        
         
         
         

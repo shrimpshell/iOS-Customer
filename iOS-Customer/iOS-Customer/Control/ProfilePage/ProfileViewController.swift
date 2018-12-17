@@ -219,115 +219,115 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             assertionFailure("Login Error: \(error)")
         }
         
-//        customerAuth.getCustomerInfoById(idCustomer: idCustomer as! Int) { (result, error) in
-//            if let error = error {
-//                print("Customer Info download error: \(error)")
-//                return
-//            }
-//            guard let result = result else {
-//                print("result is nil.")
-//                return
-//            }
-//            print("Retrive customer Info is OK.")
-//
-//            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
-//                else  {
-//                    printHelper.println(tag: self.TAG, line: #line, "Fail to generate jsonData.")
-//                    return
-//            }
-//            let decoder = JSONDecoder()
-//            guard let resultObject = try? decoder.decode(Customer.self, from: jsonData) else {
-//                printHelper.println(tag: self.TAG, line: #line, "Fail to decoder jsonData.")
-//                return
-//            }
-//            self.customer = resultObject
-//            print(self.customer)
-//            guard let reFreshidCustmoer = self.customer?.idCustomer else {
-//                printHelper.println(tag: self.TAG, line: #line, "idCustomer解包錯誤")
-//                return
-//            }
-//            self.userID.synchronize()
-//            self.idCustomerLabel.text = "\(reFreshidCustmoer)"
-//            self.nameCustomer.text = self.customer?.name
-//            self.emailCustomer.text = self.customer?.email
-//            self.phoneCustomer.text = self.customer?.phone
-//        }
+        customerAuth.getCustomerInfoById(idCustomer: idCustomer as! Int) { (result, error) in
+            if let error = error {
+                print("Customer Info download error: \(error)")
+                return
+            }
+            guard let result = result else {
+                print("result is nil.")
+                return
+            }
+            print("Retrive customer Info is OK.")
+
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
+                else  {
+                    printHelper.println(tag: self.TAG, line: #line, "Fail to generate jsonData.")
+                    return
+            }
+            let decoder = JSONDecoder()
+            guard let resultObject = try? decoder.decode(Customer.self, from: jsonData) else {
+                printHelper.println(tag: self.TAG, line: #line, "Fail to decoder jsonData.")
+                return
+            }
+            self.customer = resultObject
+            print(self.customer)
+            guard let reFreshidCustmoer = self.customer?.idCustomer else {
+                printHelper.println(tag: self.TAG, line: #line, "idCustomer解包錯誤")
+                return
+            }
+            self.userID.synchronize()
+            self.idCustomerLabel.text = "\(reFreshidCustmoer)"
+            self.nameCustomer.text = self.customer?.name
+            self.emailCustomer.text = self.customer?.email
+            self.phoneCustomer.text = self.customer?.phone
+        }
         
-//        let getCustomerImage: [String : Any] = ["action": "getImage", "IdCustomer": idCustomer]
-//        customerTask.getCustomerImage(getCustomerImage).done { (data) in
-//            if (data?.count)! > 0 {
-//                DispatchQueue.main.async() {
-//                    self.imageCustomer.image = UIImage(data: data!)
-//                }
-//            } else {
-//                self.imageCustomer.image = UIImage(named: "person128.png")
-//                self.imageCustomer.backgroundColor = .white
-//            }
-//            }.catch { (error) in
-//                assertionFailure("CheckoutTableViewController Error: \(error)")
-//        }
+        let getCustomerImage: [String : Any] = ["action": "getImage", "IdCustomer": idCustomer]
+        customerTask.getCustomerImage(getCustomerImage).done { (data) in
+            if (data?.count)! > 0 {
+                DispatchQueue.main.async() {
+                    self.imageCustomer.image = UIImage(data: data!)
+                }
+            } else {
+                self.imageCustomer.image = UIImage(named: "person128.png")
+                self.imageCustomer.backgroundColor = .white
+            }
+            }.catch { (error) in
+                assertionFailure("CheckoutTableViewController Error: \(error)")
+        }
     
-//        customerAuth.getUserRoomReservationStatus(idCustomer: idCustomer as! Int) {
-//            (result, error) in
-//            if let error = error {
-//                printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse error: \(error)")
-//                return
-//            }
-//            guard var result = result else {
-//                assertionFailure("ProfielViewController - RoomReservationStatuse result is nil")
-//                return
-//            }
-//
-//            if result  is NSNull {
-//                self.checkInTitleLabel.isHidden = false
-//                self.checkInTitleLabel.text = "你沒有訂房紀錄喔\n快加入我們吧～！"
-//                self.checkInfomation.isHidden = true
-//                self.serviceBtn.isEnabled = false
-//                return
-//            }
-//            printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse Info is OK.")
-//
-//            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else  {
-//                    assertionFailure("ProfielViewController - Fail to generate jsonData")
-//                    return
-//            }
-//            let decoder = JSONDecoder()
-//            guard let resultObject = try? decoder.decode(CheckInInfo?.self, from: jsonData) else {
-//                print("ProfielViewController - Download RoomReservationStatuse - Fail to decoder jsonData.")
-//                return
-//            }
-//
-//            guard let checkInInfo = resultObject else {
-//                return
-//            }
-//
-//            if checkInInfo.roomReservationStatus == "1" {
-//                self.checkInTitleLabel.isHidden = false
-//                self.checkInfomation.isHidden = false
-//                self.checkInTitleLabel.text = "入住資訊"
-//                let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
-//                let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
-//                self.checkInDateLabel.text = "\(firstSentence)"
-//                self.roomNumberTitleLabel.text = "房號"
-//                self.checkInDateLabel.textColor = .black
-//                self.roomNumberLabel.text = checkInInfo.roomNumber
-//                let roomNumber = checkInInfo.roomNumber as! String
-//                self.userID.set(roomNumber, forKey: "roomNumber")
-//                print(roomNumber)
-//                self.serviceBtn.isEnabled = true
-//            } else {
-//                self.checkInTitleLabel.isHidden = false
-//                self.checkInfomation.isHidden = false
-//                self.checkInTitleLabel.text = "預約入住資訊"
-//                let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
-//                let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
-//                self.checkInDateLabel.text = "\(firstSentence)"
-//                self.checkInDateLabel.textColor = .red
-//                self.roomNumberTitleLabel.text = "期待您的入住"
-//                self.roomNumberLabel.text = ""
-//                self.serviceBtn.isEnabled = false
-//            }
-//        }
+        customerAuth.getUserRoomReservationStatus(idCustomer: idCustomer as! Int) {
+            (result, error) in
+            if let error = error {
+                printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse error: \(error)")
+                return
+            }
+            guard var result = result else {
+                assertionFailure("ProfielViewController - RoomReservationStatuse result is nil")
+                return
+            }
+
+            if result  is NSNull {
+                self.checkInTitleLabel.isHidden = false
+                self.checkInTitleLabel.text = "你沒有訂房紀錄喔\n快加入我們吧～！"
+                self.checkInfomation.isHidden = true
+                self.serviceBtn.isEnabled = false
+                return
+            }
+            printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse Info is OK.")
+
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else  {
+                    assertionFailure("ProfielViewController - Fail to generate jsonData")
+                    return
+            }
+            let decoder = JSONDecoder()
+            guard let resultObject = try? decoder.decode(CheckInInfo?.self, from: jsonData) else {
+                print("ProfielViewController - Download RoomReservationStatuse - Fail to decoder jsonData.")
+                return
+            }
+
+            guard let checkInInfo = resultObject else {
+                return
+            }
+
+            if checkInInfo.roomReservationStatus == "1" {
+                self.checkInTitleLabel.isHidden = false
+                self.checkInfomation.isHidden = false
+                self.checkInTitleLabel.text = "入住資訊"
+                let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
+                let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
+                self.checkInDateLabel.text = "\(firstSentence)"
+                self.roomNumberTitleLabel.text = "房號"
+                self.checkInDateLabel.textColor = .black
+                self.roomNumberLabel.text = checkInInfo.roomNumber
+                let roomNumber = checkInInfo.roomNumber as! String
+                self.userID.set(roomNumber, forKey: "roomNumber")
+                print(roomNumber)
+                self.serviceBtn.isEnabled = true
+            } else {
+                self.checkInTitleLabel.isHidden = false
+                self.checkInfomation.isHidden = false
+                self.checkInTitleLabel.text = "預約入住資訊"
+                let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
+                let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
+                self.checkInDateLabel.text = "\(firstSentence)"
+                self.checkInDateLabel.textColor = .red
+                self.roomNumberTitleLabel.text = "期待您的入住"
+                self.roomNumberLabel.text = ""
+                self.serviceBtn.isEnabled = false
+            }
+        }
     }
     
     

@@ -104,6 +104,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         cell.remainingRoomsLabel.text = "剩 \(quantity) 間"
         cell.reservationQuantity.text = "訂房數量"
         cell.roomQuantityLabel.text = String(roomTypes[indexPath.row].reservationQuantity!)
+        cell.reservationStepper.value = 0
         cell.delegate = self
         
         if discount == 1 {

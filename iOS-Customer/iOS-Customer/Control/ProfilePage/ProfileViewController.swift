@@ -29,6 +29,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     
+    
     @IBOutlet weak var profilePageView: UIScrollView!
     @IBOutlet weak var loginPageView: UIScrollView!
     @IBOutlet weak var logInView: UIScrollView!
@@ -46,6 +47,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var roomNumberLabel: UILabel!
     @IBOutlet weak var checkInfomation: UIStackView!
     @IBOutlet weak var serviceBtn: UIButton!
+    @IBOutlet weak var roomNumberTitleLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -90,6 +92,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let customerValid =  ["action": "userValid", "email": email, "password": password] as [String : String]
         customerTask.isCorrectUser(customerValid).then { (idCustomer) -> Promise<Customer?> in
+            let id = Int((idCustomer as? String)!)
+            self.userID.set(id, forKey: "userID")
             let customerProfile = ["action": "findById", "IdCustomer": idCustomer] as [String : String]
             guard idCustomer.count > 0 || idCustomer != "0" || (Int(idCustomer) != nil)  else {
                 self.showAlert(message: "帳號或密碼不正確，請重新輸入")
@@ -127,11 +131,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func showCustomerInfo() {
-        guard let idCustomer = customer?.idCustomer else {
+        guard let idCustomer = userID.object(forKey: "userID") else {
             print("idCustomer 解包錯誤")
             return
         }
-        customerAuth.getCustomerInfoById(idCustomer: idCustomer) { (result, error) in
+        customerAuth.getCustomerInfoById(idCustomer: idCustomer as! Int) { (result, error) in
             if let error = error {
                 print("Customer Info download error: \(error)")
                 return
@@ -158,7 +162,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 printHelper.println(tag: self.TAG, line: #line, "idCustomer解包錯誤")
                 return
             }
-            self.userID.set(idCustomer, forKey: "userID")
             self.userID.synchronize()
             self.idCustomerLabel.text = "\(reFreshidCustmoer)"
             self.nameCustomer.text = self.customer?.name
@@ -180,7 +183,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 assertionFailure("CheckoutTableViewController Error: \(error)")
         }
     
-        customerAuth.getUserRoomReservationStatus(idCustomer: idCustomer) { (result, error) in
+        customerAuth.getUserRoomReservationStatus(idCustomer: idCustomer as! Int) { (result, error) in
             if let error = error {
                 printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse error: \(error)")
                 return
@@ -214,30 +217,33 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 return
             }
-            print("\(checkInInfo)")
-            switch checkInInfo.roomReservationStatus {
-            case "1":
+            
+            if checkInInfo.roomReservationStatus == "1" {
                 self.checkInTitleLabel.isHidden = false
                 self.checkInfomation.isHidden = false
                 self.checkInTitleLabel.text = "入住資訊"
                 let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
                 let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
                 self.checkInDateLabel.text = "\(firstSentence)"
+                self.roomNumberTitleLabel.text = "房號"
+                self.checkInDateLabel.textColor = .black
                 self.roomNumberLabel.text = checkInInfo.roomNumber
+                let roomNumber = checkInInfo.roomNumber as! String
+                self.userID.set(roomNumber, forKey: "roomNumber")
+                print(roomNumber)
                 self.serviceBtn.isEnabled = true
-                break
-            
-            case "0":
+            } else {
                 self.checkInTitleLabel.isHidden = false
                 self.checkInfomation.isHidden = false
-                    self.checkInTitleLabel.text = "預約入住資訊"
-                    self.checkInDateLabel.text = checkInInfo.checkInDate
-                    self.roomNumberLabel.text = ""
-                    self.serviceBtn.isEnabled = false
-                break
-                
-            default:
-                break
+                self.checkInTitleLabel.text = "預約入住資訊"
+                let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
+                let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
+                self.checkInDateLabel.text = "\(firstSentence)"
+                self.checkInDateLabel.textColor = .red
+                self.roomNumberTitleLabel.text = "期待您的入住"
+                self.roomNumberLabel.text = ""
+                self.serviceBtn.isEnabled = false
+
             }
         }
     }

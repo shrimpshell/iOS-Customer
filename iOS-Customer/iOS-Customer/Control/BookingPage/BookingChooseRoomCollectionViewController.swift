@@ -12,7 +12,9 @@ private let reuseIdentifier = "BookingChooseCollectionViewCell"
 
 class BookingChooseRoomCollectionViewController: UICollectionViewController {
     
-    @IBOutlet weak var cellLayout: UICollectionViewFlowLayout!
+    @IBOutlet var bookingChooseRoomCollectionView: UICollectionView!
+    @IBOutlet weak var bookingChooseRoomCollectionViewFlowLayout: UICollectionViewFlowLayout!
+    
     
     let TAG = "BookingChooseRoomCollectionViewController"
     let communicator = RoomTypeCommunicator.shared
@@ -24,14 +26,22 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
     var checkOutDate = ""
     var discount: Float = 1.0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.contentInset = collectionView.adjustedContentInset
+        
+        let navigationHeight = UIApplication.shared.statusBarFrame.height +
+            self.navigationController!.navigationBar.frame.height
+        let cellHeight =  UIScreen.main.bounds.height - navigationHeight
+        let cellWidth = bookingChooseRoomCollectionView.frame.width
+        
+        printHelper.println(tag: self.TAG, line: #line, "width: \(cellWidth), height: \(cellHeight), navigationHeight: \(navigationHeight)")
+        bookingChooseRoomCollectionViewFlowLayout.itemSize = CGSize(width: cellWidth, height: cellHeight)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        shoppingCar = [ShoppingCar]()
+        shoppingCar.removeAll()
         collectionView.reloadData()
         getRoomType(checkInDate: checkInDate, checkOutDate: checkOutDate)
     }
@@ -92,39 +102,9 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         cell.bedQuantityLabel.text = bed
         cell.peopleQuantityLabel.text = "最多可住 \(adult) 位大人"
         cell.remainingRoomsLabel.text = "剩 \(quantity) 間"
-        
-        // Set quantity that user chooses.
-        cell.reservationRoomView.settings.totalStars = quantity
-        cell.reservationRoomView.didFinishTouchingCosmos = {
-            rating in
-            let reservationQuantity = Int(cell.reservationRoomView.rating)
-            let alert = UIAlertController(title: "房間選擇", message: "確定要選擇\"\(name)\" \(reservationQuantity) 間", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "取消", style: .default, handler: { (cancel) in
-                if self.shoppingCar.contains(where: { (shoppingCar) -> Bool in
-                    shoppingCar.id == id
-                }) {
-                    cell.reservationRoomView.rating = 0
-                }
-            })
-            let ok = UIAlertAction(title: "確認", style: .destructive, handler: { (ok) in
-                if self.discount == 1 {
-                    self.getReservationQuantity(id: id, name: name, reservationQuantity: reservationQuantity, price: price)
-                } else {
-                    cell.eventLabel.isHidden = false
-                    let price = Float(price) * self.discount
-                    self.getReservationQuantity(id: id, name: name, reservationQuantity: reservationQuantity, eventId: self.event.eventId, price: Int(price))
-                    printHelper.println(tag: self.TAG, line: #line, "\(self.shoppingCar)")
-                }
-                if self.shoppingCar.contains(where: { (shoppingCar) -> Bool in
-                    shoppingCar.id == id
-                }) {
-                    cell.reservationRoomView.rating = Double(reservationQuantity)
-                }
-            })
-            alert.addAction(cancel)
-            alert.addAction(ok)
-            self.present(alert, animated: true)
-        }
+        cell.reservationQuantity.text = "訂房數量"
+        cell.roomQuantityTextField.text = String(roomTypes[indexPath.row].reservationQuantity!)
+        cell.delegate = self
         
         if discount == 1 {
             cell.eventLabel.isHidden = true
@@ -223,6 +203,7 @@ extension BookingChooseRoomCollectionViewController {
         })
     }
     
+    // Calculate booking rooms.
     func getReservationQuantity(id: Int, name: String, reservationQuantity: Int, eventId: Int = 0, price: Int) {
         if shoppingCar.isEmpty {
             self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: price))
@@ -234,6 +215,32 @@ extension BookingChooseRoomCollectionViewController {
             }
         } else {
             self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: price))
+        }
+    }
+}
+
+// MARK: - Choose booking room.
+extension BookingChooseRoomCollectionViewController: BookingChooseCollectionViewCellDelegate {
+    func chooseRoomStepper(_ sender: BookingChooseCollectionViewCell) {
+        guard let tappedIndexPath = collectionView.indexPath(for: sender) else { return }
+        let stepper = sender.reservationStepper
+        let textValue = Int(sender.reservationStepper.value)
+        let room = roomTypes[tappedIndexPath.row]
+        let id = room.id
+        let name = room.name
+        let price = room.price
+        
+        stepper?.minimumValue = 0
+        stepper?.maximumValue = Double(roomTypes[tappedIndexPath.row].roomQuantity)
+        sender.roomQuantityTextField.text = String(textValue)
+        roomTypes[tappedIndexPath.row].reservationQuantity = textValue
+        
+        if self.discount == 1 {
+            self.getReservationQuantity(id: id, name: name, reservationQuantity: textValue, price: price)
+        } else {
+            let price = Float(price) * self.discount
+            self.getReservationQuantity(id: id, name: name, reservationQuantity: textValue, eventId: self.event.eventId, price: Int(price))
+            printHelper.println(tag: self.TAG, line: #line, "\(self.shoppingCar)")
         }
     }
 }

@@ -9,6 +9,10 @@
 import UIKit
 import Cosmos
 
+protocol BookingChooseCollectionViewCellDelegate: class{
+    func chooseRoomStepper(_ sender: BookingChooseCollectionViewCell)
+}
+
 class BookingChooseCollectionViewCell: UICollectionViewCell {
     
 //    var roomType: RoomType?
@@ -30,5 +34,13 @@ class BookingChooseCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var wifiImageView: UIImageView!
     @IBOutlet weak var breakfastImageVIew: UIImageView!
     @IBOutlet weak var adultImageView: UIImageView!
-    @IBOutlet weak var reservationRoomView: CosmosView!
+    @IBOutlet weak var reservationQuantity: UILabel!
+    @IBOutlet weak var roomQuantityTextField: UITextField!
+    @IBOutlet weak var reservationStepper: UIStepper!
+    
+    weak var delegate: BookingChooseCollectionViewCellDelegate?
+    
+    @IBAction func chooseRoomStepper(_ sender: UIStepper) {
+        delegate?.chooseRoomStepper(self)
+    }
 }

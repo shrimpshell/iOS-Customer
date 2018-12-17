@@ -380,17 +380,17 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WTP-JM-NCo">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WTP-JM-NCo">
                                                             <rect key="frame" x="159" y="0.0" width="154" height="29"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6iq-bH-8Cs">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="29"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDM-Mp-7E4">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="29"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                </textField>
-                                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" autorepeat="NO" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="377-EK-LHn">
-                                                                    <rect key="frame" x="46" y="0.0" width="94" height="29"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" autorepeat="NO" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="377-EK-LHn">
+                                                                    <rect key="frame" x="60" y="0.0" width="94" height="29"/>
                                                                     <connections>
                                                                         <action selector="chooseRoomStepper:" destination="hQi-3c-phd" eventType="valueChanged" id="cwS-Yr-pcP"/>
                                                                     </connections>
@@ -428,7 +428,7 @@
                                     <outlet property="remainingRoomsLabel" destination="zSW-Ir-mOG" id="qeb-Ck-mgx"/>
                                     <outlet property="reservationQuantity" destination="f8f-wZ-Zfb" id="IB5-6W-9kh"/>
                                     <outlet property="reservationStepper" destination="377-EK-LHn" id="rqt-gV-0J2"/>
-                                    <outlet property="roomQuantityTextField" destination="6iq-bH-8Cs" id="vxX-6f-Hsj"/>
+                                    <outlet property="roomQuantityLabel" destination="WDM-Mp-7E4" id="0z8-A5-ptt"/>
                                     <outlet property="roomSizeImageViwe" destination="fFf-rk-LV6" id="emG-BM-CDV"/>
                                     <outlet property="roomSizeLabel" destination="oKX-IT-2oy" id="4Rb-DF-J5q"/>
                                     <outlet property="roomTypeImageView" destination="fHh-sn-gBk" id="DhB-kE-udw"/>

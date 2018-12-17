@@ -35,7 +35,7 @@ class BookingChooseCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var breakfastImageVIew: UIImageView!
     @IBOutlet weak var adultImageView: UIImageView!
     @IBOutlet weak var reservationQuantity: UILabel!
-    @IBOutlet weak var roomQuantityTextField: UITextField!
+    @IBOutlet weak var roomQuantityLabel: UILabel!
     @IBOutlet weak var reservationStepper: UIStepper!
     
     weak var delegate: BookingChooseCollectionViewCellDelegate?

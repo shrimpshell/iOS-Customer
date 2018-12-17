@@ -24,7 +24,7 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
     let arrayItemLabels = ["點餐服務","接送服務","房務服務"]
     let download = DownloadAuth.shared
     var instantDetailInfo = [Instant]()
-    var payDetailInfo = [OrderRoomDetailForSocket]()
+    //var payDetailInfo = [OrderRoomDetailForSocket]()
     var socket: WebSocket!
     let userDefaultsForRoomNumber = UserDefaults()
     
@@ -85,7 +85,7 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
                 return
             }
         
-            targetVC.payDetailInfo = payDetailInfo
+            //targetVC.payDetailInfo = payDetailInfo
             targetVC.targetIndex = selectedIndexPath.row
         
         } 

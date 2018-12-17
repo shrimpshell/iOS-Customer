@@ -11,7 +11,7 @@ import Foundation
 
 
 struct RoomType: Codable {
-    var id: Int
+    var id: Int = 0
     var name: String = ""
     var roomSize: String = ""
     var bed: String = ""
@@ -19,6 +19,19 @@ struct RoomType: Codable {
     var childQuantity: Int = 0
     var roomQuantity: Int
     var price: Int = 0
+    var reservationQuantity: Int?
+    
+    init(id: Int = 0, name: String = "", roomSize: String = "", bed: String = "", adultQuantity: Int = 0, childQuantity: Int = 0, roomQuantity: Int, price: Int = 0, reservationQuantity: Int = 0) {
+        self.id = id
+        self.name = name
+        self.roomSize = roomSize
+        self.bed = bed
+        self.adultQuantity = adultQuantity
+        self.childQuantity = childQuantity
+        self.roomQuantity = roomQuantity
+        self.price = price
+        self.reservationQuantity = reservationQuantity
+    }
 }
 
 struct Reservation: Codable {
@@ -33,9 +46,9 @@ struct Reservation: Codable {
     var eventId: Int = 0
     var roomGroup: String = ""
     var price: Int = 0
-    var reservationQuantity: Int = 0
     
-    init(reservationDate: String = "", checkInDate: String = "", checkOutDate: String = "", extraBed: Int = 0, quantity: Int = 0, reservationStatus: String = "0", customerId: Int = 0, roomTypeId: Int = 0, eventId: Int = 0, roomGroup: String = "", price: Int = 0, reservationQuantity: Int = 0) {
+    
+    init(reservationDate: String = "", checkInDate: String = "", checkOutDate: String = "", extraBed: Int = 0, quantity: Int = 0, reservationStatus: String = "0", customerId: Int = 0, roomTypeId: Int = 0, eventId: Int = 0, roomGroup: String = "", price: Int = 0) {
         self.reservationDate = reservationDate
         self.checkInDate = checkInDate
         self.checkOutDate = checkOutDate
@@ -47,7 +60,6 @@ struct Reservation: Codable {
         self.eventId = eventId
         self.roomGroup = roomGroup
         self.price = price
-        self.reservationQuantity = reservationQuantity
     }
 }
 

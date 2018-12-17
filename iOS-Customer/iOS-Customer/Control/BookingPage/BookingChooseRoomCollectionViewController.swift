@@ -103,7 +103,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         cell.peopleQuantityLabel.text = "最多可住 \(adult) 位大人"
         cell.remainingRoomsLabel.text = "剩 \(quantity) 間"
         cell.reservationQuantity.text = "訂房數量"
-        cell.roomQuantityTextField.text = String(roomTypes[indexPath.row].reservationQuantity!)
+        cell.roomQuantityLabel.text = String(roomTypes[indexPath.row].reservationQuantity!)
         cell.delegate = self
         
         if discount == 1 {
@@ -232,7 +232,7 @@ extension BookingChooseRoomCollectionViewController: BookingChooseCollectionView
         
         stepper?.minimumValue = 0
         stepper?.maximumValue = Double(roomTypes[tappedIndexPath.row].roomQuantity)
-        sender.roomQuantityTextField.text = String(textValue)
+        sender.roomQuantityLabel.text = String(textValue)
         roomTypes[tappedIndexPath.row].reservationQuantity = textValue
         
         if self.discount == 1 {

@@ -67,11 +67,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         checkInTitleLabel.isHidden = true
         checkInfomation.isHidden = true
         if ProfileViewController.isLogin == true {
-            showCustomerInfo()
+            showCustomerInfo(idCustomer: self.idCustomer)
         }
-        
-        
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -91,50 +88,137 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         let customerValid =  ["action": "userValid", "email": email, "password": password] as [String : String]
-        customerTask.isCorrectUser(customerValid).then { (idCustomer) -> Promise<Customer?> in
-            let id = Int((idCustomer as? String)!)
+        customerTask.isCorrectUser(customerValid).done { (idCustomer) in
+            let id = Int(idCustomer)
             self.userID.set(id, forKey: "userID")
-            let customerProfile = ["action": "findById", "IdCustomer": idCustomer] as [String : String]
             guard idCustomer.count > 0 || idCustomer != "0" || (Int(idCustomer) != nil)  else {
                 self.showAlert(message: "帳號或密碼不正確，請重新輸入")
-                return customerTask.getCustomerInfo(["action": "findById", "IdCustomer": "0"])
+                return
             }
             self.idCustomer = Int(idCustomer)!
             self.idCustomerLabel.text = "\(idCustomer)"
-            return customerTask.getCustomerInfo(customerProfile)
-            }.then { (customer) -> Promise<[OrderRoomDetail]> in
-                guard let customer = customer else {
-                    self.showAlert(message: "帳號或密碼不正確 \n請重新輸入")
-                    return orderDetails.getRoomPayDetailById(["":""])
-                }
-                self.customer = customer
-                if customer.idCustomer != 0 {
-                    ProfileViewController.isLogin = true
-                }
-                self.userlogin()
-                self.nameCustomer.text = customer.name
-                self.emailCustomer.text = customer.email
-                self.phoneCustomer.text = customer.phone
-                let parameters = ["action":"getRoomPayDetailById", "idCustomer":"\(self.idCustomer)"]
-                return orderDetails.getRoomPayDetailById(parameters)
-            }.then { rooms -> Promise<[OrderInstantDetail]> in
-                self.orderRoomDetails = rooms
-                let parameters = ["action":"getInstantPayDetail", "idCustomer":"\(self.idCustomer)"]
-                return orderDetails.getInstantPayDetail(parameters)
-            }.done { instants in
-                ProfileViewController.isLogin = true
-                self.showCustomerInfo()
-                self.orderInstantDetails = instants
-            }.catch { (error) in
-                assertionFailure("Login Error: \(error)")
+            DispatchQueue.main.async {
+                self.showCustomerInfo(idCustomer: self.idCustomer)
+            }
+        }.catch { (error) in
+            assertionFailure("Login Error: \(error)")
         }
     }
     
-    func showCustomerInfo() {
+    func showCustomerInfo(idCustomer: Int) {
+        let customerTask = CustomerAuth()
+        let orderDetails = OrderRoomDB()
         guard let idCustomer = userID.object(forKey: "userID") else {
             print("idCustomer 解包錯誤")
             return
         }
+        
+        let customerProfile = ["action": "findById", "IdCustomer": "\(idCustomer)"]
+        customerTask.getCustomerInfo(customerProfile).then {
+            (customer) -> Promise<[OrderRoomDetail]> in
+            guard let customer = customer else {
+                self.showAlert(message: "帳號或密碼不正確 \n請重新輸入")
+                return orderDetails.getRoomPayDetailById(["":""])
+            }
+            self.customer = customer
+            if customer.idCustomer != 0 {
+                ProfileViewController.isLogin = true
+            }
+            
+            self.userlogin()
+            self.userID.synchronize()
+            self.idCustomerLabel.text = "\(customer.idCustomer!)"
+            self.nameCustomer.text = customer.name
+            self.emailCustomer.text = customer.email
+            self.phoneCustomer.text = customer.phone
+            let parameters = ["action":"getRoomPayDetailById", "idCustomer":"\(self.idCustomer)"]
+            return orderDetails.getRoomPayDetailById(parameters)
+        }.then { rooms -> Promise<[OrderInstantDetail]> in
+            self.orderRoomDetails = rooms
+            let parameters = ["action":"getInstantPayDetail", "idCustomer":"\(self.idCustomer)"]
+            return orderDetails.getInstantPayDetail(parameters)
+        }.then {
+            instants -> Promise<Data?> in
+            self.orderInstantDetails = instants
+            ProfileViewController.isLogin = true
+            let getCustomerImage: [String : Any] = ["action": "getImage", "IdCustomer": idCustomer]
+            return customerTask.getCustomerImage(getCustomerImage)
+        }.done {
+            data in
+            if (data?.count)! > 0 {
+                DispatchQueue.main.async() {
+                    self.imageCustomer.image = UIImage(data: data!)
+                }
+            } else {
+                self.imageCustomer.image = UIImage(named: "person128.png")
+                self.imageCustomer.backgroundColor = .white
+            }
+            
+            self.customerAuth.getUserRoomReservationStatus(idCustomer: idCustomer as! Int) {
+                (result, error) in
+                if let error = error {
+                    printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse error: \(error)")
+                    return
+                }
+                guard var result = result else {
+                    assertionFailure("ProfielViewController - RoomReservationStatuse result is nil")
+                    return
+                }
+                
+                if result  is NSNull {
+                    self.checkInTitleLabel.isHidden = false
+                    self.checkInTitleLabel.text = "你沒有訂房紀錄喔\n快加入我們吧～！"
+                    self.checkInfomation.isHidden = true
+                    self.serviceBtn.isEnabled = false
+                    return
+                }
+                printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse Info is OK.")
+                
+                guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else  {
+                    assertionFailure("ProfielViewController - Fail to generate jsonData")
+                    return
+                }
+                let decoder = JSONDecoder()
+                guard let resultObject = try? decoder.decode(CheckInInfo?.self, from: jsonData) else {
+                    print("ProfielViewController - Download RoomReservationStatuse - Fail to decoder jsonData.")
+                    return
+                }
+                
+                guard let checkInInfo = resultObject else {
+                    return
+                }
+                
+                if checkInInfo.roomReservationStatus == "1" {
+                    self.checkInTitleLabel.isHidden = false
+                    self.checkInfomation.isHidden = false
+                    self.checkInTitleLabel.text = "入住資訊"
+                    let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
+                    let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
+                    self.checkInDateLabel.text = "\(firstSentence)"
+                    self.roomNumberTitleLabel.text = "房號"
+                    self.checkInDateLabel.textColor = .black
+                    self.roomNumberLabel.text = checkInInfo.roomNumber
+                    let roomNumber = checkInInfo.roomNumber as! String
+                    self.userID.set(roomNumber, forKey: "roomNumber")
+                    print(roomNumber)
+                    self.serviceBtn.isEnabled = true
+                } else {
+                    self.checkInTitleLabel.isHidden = false
+                    self.checkInfomation.isHidden = false
+                    self.checkInTitleLabel.text = "預約入住資訊"
+                    let endOfSentence = checkInInfo.checkInDate!.firstIndex(of: " ")!
+                    let firstSentence =  checkInInfo.checkInDate![...endOfSentence]
+                    self.checkInDateLabel.text = "\(firstSentence)"
+                    self.checkInDateLabel.textColor = .red
+                    self.roomNumberTitleLabel.text = "期待您的入住"
+                    self.roomNumberLabel.text = ""
+                    self.serviceBtn.isEnabled = false
+                }
+            }
+        }.catch { (error) in
+            assertionFailure("Login Error: \(error)")
+        }
+        
         customerAuth.getCustomerInfoById(idCustomer: idCustomer as! Int) { (result, error) in
             if let error = error {
                 print("Customer Info download error: \(error)")
@@ -145,7 +229,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 return
             }
             print("Retrive customer Info is OK.")
-            
+
             guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
                 else  {
                     printHelper.println(tag: self.TAG, line: #line, "Fail to generate jsonData.")
@@ -183,7 +267,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 assertionFailure("CheckoutTableViewController Error: \(error)")
         }
     
-        customerAuth.getUserRoomReservationStatus(idCustomer: idCustomer as! Int) { (result, error) in
+        customerAuth.getUserRoomReservationStatus(idCustomer: idCustomer as! Int) {
+            (result, error) in
             if let error = error {
                 printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse error: \(error)")
                 return
@@ -201,23 +286,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 return
             }
             printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse Info is OK.")
-           
-            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
-                else  {
+
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: .prettyPrinted) else  {
                     assertionFailure("ProfielViewController - Fail to generate jsonData")
                     return
-        }
+            }
             let decoder = JSONDecoder()
             guard let resultObject = try? decoder.decode(CheckInInfo?.self, from: jsonData) else {
                 print("ProfielViewController - Download RoomReservationStatuse - Fail to decoder jsonData.")
                 return
-    }
-            
+            }
+
             guard let checkInInfo = resultObject else {
-                
                 return
             }
-            
+
             if checkInInfo.roomReservationStatus == "1" {
                 self.checkInTitleLabel.isHidden = false
                 self.checkInfomation.isHidden = false
@@ -243,7 +326,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.roomNumberTitleLabel.text = "期待您的入住"
                 self.roomNumberLabel.text = ""
                 self.serviceBtn.isEnabled = false
-
             }
         }
     }
@@ -345,7 +427,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let tableViewController = NAVController?.viewControllers.first as! RoomOrderTableViewController
             tableViewController.orders = self.orderRoomDetails!
             tableViewController.instants = self.orderInstantDetails!
-            
+            tableViewController.idCustomer = self.idCustomer
         case "toRatingList":
             let NAVController = segue.destination as? UINavigationController
             let ratingListPage = NAVController?.viewControllers.first as! AllRatingsTableViewController
@@ -413,7 +495,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 return orderDetails.getInstantPayDetail(detailParameters)
             }.done {
                 instants in
-                self.showCustomerInfo()
+                self.showCustomerInfo(idCustomer: self.idCustomer)
                 self.orderInstantDetails = instants
             }.catch {
                 (error) in

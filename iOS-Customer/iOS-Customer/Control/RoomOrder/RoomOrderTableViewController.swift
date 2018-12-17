@@ -17,11 +17,18 @@ class RoomOrderTableViewController: UITableViewController {
     var targetInstants = [OrderInstantDetail]()
     var detailDictionary = [OrderRoomDictionary]()
     var roomGroup: String?
+    var refresh = UIRefreshControl()
+    var idCustomer: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        
+        refresh.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresh.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
+//        tableView.addSubview(refresh)
+        tableView.refreshControl = refresh
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -43,22 +50,24 @@ class RoomOrderTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        // Configure the cell...
-        let status = detailDictionary[indexPath.row].orderRoomDetails[0].roomReservationStatus
-        var statusString: String
-        
-        switch status {
-        case "3":
-            statusString = "已付款"
-        case "2":
-            statusString = "待付款"
-        case "1":
-            statusString = "未付款"
-        default:
-            statusString = "已訂房"
+        if !self.refresh.isRefreshing {
+            // Configure the cell...
+            let status = detailDictionary[indexPath.row].orderRoomDetails[0].roomReservationStatus
+            var statusString: String
+            
+            switch status {
+            case "3":
+                statusString = "已付款"
+            case "2":
+                statusString = "待付款"
+            case "1":
+                statusString = "未付款"
+            default:
+                statusString = "已訂房"
+            }
+            cell.textLabel!.text = "\(orders[indexPath.row].roomGroup) - \(statusString)"
+            cell.detailTextLabel!.text = "預定入住日期：\(orders[indexPath.row].checkInDate)"
         }
-        cell.textLabel!.text = "\(orders[indexPath.row].roomGroup) - \(statusString)"
-        cell.detailTextLabel!.text = "預定入住日期：\(orders[indexPath.row].checkInDate)"
 
         return cell
     }
@@ -141,6 +150,40 @@ class RoomOrderTableViewController: UITableViewController {
                     detailDictionary[index].orderInstantDetails.append(instant)
                 }
             }
+        }
+    }
+    
+    @objc func refreshData() {
+        let orderDetails = OrderRoomDB()
+        let roomParameters = ["action":"getRoomPayDetailById", "idCustomer":"\(String(describing: self.idCustomer!))"]
+        orderDetails.getRoomPayDetailById(roomParameters).then {
+            rooms -> Promise<String> in
+            for (index, _) in self.detailDictionary.enumerated() {
+                self.detailDictionary[index].orderRoomDetails.removeAll()
+                for room in rooms {
+                    if room.roomGroup == self.detailDictionary[index].id {
+                        self.detailDictionary[index].orderRoomDetails.append(room)
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                print(self.detailDictionary)
+                self.refactorData()
+            }
+            return Promise {
+                result in
+                result.resolve("done", nil)
+            }
+        }.done {
+            _ in
+            DispatchQueue.main.async {
+                print(self.detailDictionary)
+                self.tableView.reloadData()
+                self.refresh.endRefreshing()
+            }
+        }.catch {
+            error in
+            assertionFailure("Login Error: \(error)")
         }
     }
     

@@ -22,6 +22,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
     var reservationRoom = [RoomType]()
     var event = Events()
     var shoppingCar = [ShoppingCar]()
+    var pic = [UIImage?]()
     var checkInDate = ""
     var checkOutDate = ""
     var discount: Float = 1.0
@@ -74,8 +75,8 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> BookingChooseCollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookingChooseCollectionViewCell
+        
         let room = roomTypes[indexPath.row]
-        let id = room.id
         let name = room.name
         let size = room.roomSize
         let bed = room.bed
@@ -85,18 +86,8 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         
         // Configure the cell
         // Download room picture.
-        cell.roomTypeImageView.image = UIImage(named: "picture")
         
-        defer {
-            let imageUrl = Common.SERVER_URL + "/RoomTypeServlet?action=getImage&imageId=\(id)"
-            
-            let url = URL(string: imageUrl)
-            
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                cell.roomTypeImageView.image = UIImage(data: data!)
-            }
-        }
+        cell.roomTypeImageView.image = pic[indexPath.row]
         cell.roomTypeLabel.text = name
         cell.roomSizeLabel.text = size
         cell.bedQuantityLabel.text = bed
@@ -166,6 +157,9 @@ extension BookingChooseRoomCollectionViewController {
             }
             printHelper.println(tag: self.TAG, line: #line, "resultObject: \(resultsObject)")
             self.roomTypes = resultsObject
+            for roomType in self.roomTypes {
+                self.getPic(id: roomType.id)
+            }
             self.getEvent(checkInDate: checkInDate)
         })
     }
@@ -221,6 +215,15 @@ extension BookingChooseRoomCollectionViewController {
         } else {
             self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: price))
         }
+    }
+    
+    func getPic(id: Int) {
+        let imageUrl = Common.SERVER_URL + "/RoomTypeServlet?action=getImage&imageId=\(id)"
+        
+        let url = URL(string: imageUrl)
+        
+        let data = try? Data(contentsOf: url!)
+        pic.append(UIImage(data: data!))
     }
 }
 

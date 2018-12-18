@@ -15,7 +15,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
    
     let download = DownloadAuth.shared
     var targetIndex: Int = -1
-    //var payDetailInfo = [OrderRoomDetailForSocket]()
+    var payDetailInfo = [OrderRoomDetailForSocket]()
     let userDefaultsForRoomNumber = UserDefaults()
     
     let itemImageForDinling = ["icon_dinling_a","icon_dinling_b","icon_dinling_c"]
@@ -187,7 +187,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
                 return
             }
             
-            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: 1, roomNumber: roomNumber)
+            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: (self.payDetailInfo.first?.idRoomStatus)!, roomNumber: roomNumber)
            
             
             

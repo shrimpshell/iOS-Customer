@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CJC-XX-8Ff">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--訂房紀錄-->
+        <scene sceneID="cZg-WY-hqY">
+            <objects>
+                <tableViewController id="mLu-Zd-2b6" customClass="RoomOrderTableViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Pm-XR-BaU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="nU7-sa-rVo" detailTextLabel="X24-Ml-V5X" style="IBUITableViewCellStyleSubtitle" id="e3o-aS-qQt">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e3o-aS-qQt" id="9LV-V0-HWO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nU7-sa-rVo">
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X24-Ml-V5X">
+                                            <rect key="frame" x="16" y="25.5" width="33" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mLu-Zd-2b6" id="hWO-IH-Np1"/>
+                            <outlet property="delegate" destination="mLu-Zd-2b6" id="sj3-Gy-quQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="訂房紀錄" id="Cv7-MV-0ej">
+                        <barButtonItem key="leftBarButtonItem" title="上一頁" id="V8I-lR-ChM">
+                            <connections>
+                                <segue destination="6n4-1U-JvP" kind="unwind" identifier="toProfilePage" unwindAction="unwindToProfilePage:" id="Rh7-iL-Wf8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="LET-g6-eph" kind="presentation" identifier="toDetailPage" id="xdu-jJ-Atj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eol-1N-xp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6n4-1U-JvP" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4286" y="2078"/>
+        </scene>
+        <!--Room Order Detail View Controller-->
+        <scene sceneID="dh9-KN-w4Y">
+            <objects>
+                <viewController id="LET-g6-eph" customClass="RoomOrderDetailViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gZV-gk-ERr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer_detail_background" translatesAutoresizingMaskIntoConstraints="NO" id="Jlh-Po-z6G">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="603" id="aRu-Hp-qGT"/>
+                                </constraints>
+                            </imageView>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hni-FJ-GfV">
+                                <rect key="frame" x="40" y="156" width="295" height="354"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="訂單編號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00v-N7-tqC">
+                                        <rect key="frame" x="8" y="8" width="62" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="入住日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XK-ak-wjE">
+                                        <rect key="frame" x="8" y="34" width="82" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.20415809750556946" green="0.47127145528793335" blue="0.9647560715675354" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5t-5W-3eN">
+                                        <rect key="frame" x="238" y="310" width="41" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="評論"/>
+                                        <connections>
+                                            <segue destination="WgC-Hh-sRh" kind="show" identifier="toWritingRatingPage" id="cvv-ra-CJr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obc-gW-BrI">
+                                        <rect key="frame" x="189" y="310" width="41" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="入住"/>
+                                        <connections>
+                                            <action selector="checkStatusBUttonPressed:" destination="LET-g6-eph" eventType="touchUpInside" id="xFx-ZX-FVq"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBe-bb-JpU">
+                                        <rect key="frame" x="16" y="281.5" width="263" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cs-Fk-wcu">
+                                        <rect key="frame" x="16" y="254" width="263" height="2"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rooms" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xj7-y6-JGX">
+                                        <rect key="frame" x="8" y="66" width="279" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discounts" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqE-SZ-CfP">
+                                        <rect key="frame" x="16" y="260" width="263" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instants" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVS-rY-N4A">
+                                        <rect key="frame" x="8" y="84" width="279" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="xj7-y6-JGX" firstAttribute="leading" secondItem="hni-FJ-GfV" secondAttribute="leading" constant="8" id="2mm-XZ-3mP"/>
+                                    <constraint firstAttribute="trailing" secondItem="TBe-bb-JpU" secondAttribute="trailing" constant="16" id="4M0-Db-Vkj"/>
+                                    <constraint firstAttribute="trailing" secondItem="2cs-Fk-wcu" secondAttribute="trailing" constant="16" id="85E-N8-Uvy"/>
+                                    <constraint firstItem="0XK-ak-wjE" firstAttribute="top" secondItem="00v-N7-tqC" secondAttribute="bottom" constant="8" id="9nK-I6-8yI"/>
+                                    <constraint firstAttribute="bottom" secondItem="B5t-5W-3eN" secondAttribute="bottom" constant="8" id="Bfr-cB-jku"/>
+                                    <constraint firstItem="bqE-SZ-CfP" firstAttribute="top" secondItem="2cs-Fk-wcu" secondAttribute="bottom" constant="4" id="BsP-Mt-IPm"/>
+                                    <constraint firstItem="xj7-y6-JGX" firstAttribute="top" secondItem="0XK-ak-wjE" secondAttribute="bottom" constant="8" id="C4L-hc-TUf"/>
+                                    <constraint firstAttribute="trailing" secondItem="dVS-rY-N4A" secondAttribute="trailing" constant="8" id="FhZ-dH-sVT"/>
+                                    <constraint firstItem="dVS-rY-N4A" firstAttribute="top" secondItem="xj7-y6-JGX" secondAttribute="bottom" id="HbE-d2-6he"/>
+                                    <constraint firstItem="00v-N7-tqC" firstAttribute="top" secondItem="hni-FJ-GfV" secondAttribute="top" constant="8" id="L0B-cn-xUa"/>
+                                    <constraint firstItem="dVS-rY-N4A" firstAttribute="leading" secondItem="hni-FJ-GfV" secondAttribute="leading" constant="8" id="O5z-TH-p5P"/>
+                                    <constraint firstAttribute="trailing" secondItem="B5t-5W-3eN" secondAttribute="trailing" constant="16" id="UUJ-xv-BwF"/>
+                                    <constraint firstItem="2cs-Fk-wcu" firstAttribute="leading" secondItem="hni-FJ-GfV" secondAttribute="leading" constant="16" id="WU8-86-CCx"/>
+                                    <constraint firstAttribute="trailing" secondItem="bqE-SZ-CfP" secondAttribute="trailing" constant="16" id="b2F-fl-xbt"/>
+                                    <constraint firstAttribute="trailing" secondItem="xj7-y6-JGX" secondAttribute="trailing" constant="8" id="bWu-eo-2sX"/>
+                                    <constraint firstItem="TBe-bb-JpU" firstAttribute="top" secondItem="bqE-SZ-CfP" secondAttribute="bottom" constant="3.5" id="dlC-qG-to1"/>
+                                    <constraint firstItem="B5t-5W-3eN" firstAttribute="top" secondItem="TBe-bb-JpU" secondAttribute="bottom" constant="8" id="ez6-uK-dwP"/>
+                                    <constraint firstItem="TBe-bb-JpU" firstAttribute="leading" secondItem="hni-FJ-GfV" secondAttribute="leading" constant="16" id="nBq-Fp-Sd3"/>
+                                    <constraint firstItem="00v-N7-tqC" firstAttribute="leading" secondItem="hni-FJ-GfV" secondAttribute="leading" constant="8" id="tJ0-Ac-bMg"/>
+                                    <constraint firstItem="bqE-SZ-CfP" firstAttribute="leading" secondItem="hni-FJ-GfV" secondAttribute="leading" constant="16" id="tg6-ym-QlZ"/>
+                                    <constraint firstItem="0XK-ak-wjE" firstAttribute="leading" secondItem="hni-FJ-GfV" secondAttribute="leading" constant="8" id="vfr-hs-zVG"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLi-6j-Rlc">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="訂房紀錄" id="OBg-Nm-IWC">
+                                        <barButtonItem key="leftBarButtonItem" title="上一頁" id="P2E-Yg-pDS">
+                                            <connections>
+                                                <segue destination="cbA-V4-0rT" kind="unwind" identifier="toTableView" unwindAction="unwindToRoomOrderTableView:" id="dvs-Ao-mui"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明細" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ck7-Qj-krL">
+                                <rect key="frame" x="16" y="95" width="51" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Jlh-Po-z6G" firstAttribute="trailing" secondItem="xDb-vy-s9A" secondAttribute="trailing" id="7Pn-aV-i54"/>
+                            <constraint firstItem="hni-FJ-GfV" firstAttribute="leading" secondItem="xDb-vy-s9A" secondAttribute="leading" constant="40" id="YTm-hp-y09"/>
+                            <constraint firstItem="xDb-vy-s9A" firstAttribute="trailing" secondItem="hni-FJ-GfV" secondAttribute="trailing" constant="40" id="avx-yj-jXK"/>
+                            <constraint firstItem="xDb-vy-s9A" firstAttribute="bottom" secondItem="hni-FJ-GfV" secondAttribute="bottom" constant="157" id="dXk-yl-jrq"/>
+                            <constraint firstItem="rLi-6j-Rlc" firstAttribute="trailing" secondItem="xDb-vy-s9A" secondAttribute="trailing" id="fKu-va-twl"/>
+                            <constraint firstItem="rLi-6j-Rlc" firstAttribute="leading" secondItem="xDb-vy-s9A" secondAttribute="leading" id="kcO-aT-psZ"/>
+                            <constraint firstItem="Ck7-Qj-krL" firstAttribute="top" secondItem="rLi-6j-Rlc" secondAttribute="bottom" constant="31" id="oL6-Lk-L8c"/>
+                            <constraint firstItem="Jlh-Po-z6G" firstAttribute="leading" secondItem="xDb-vy-s9A" secondAttribute="leading" id="rXp-Ya-6Wl"/>
+                            <constraint firstItem="Jlh-Po-z6G" firstAttribute="top" secondItem="rLi-6j-Rlc" secondAttribute="bottom" id="smn-3Y-3wo"/>
+                            <constraint firstItem="Ck7-Qj-krL" firstAttribute="leading" secondItem="xDb-vy-s9A" secondAttribute="leading" constant="16" id="tRB-WY-CEt"/>
+                            <constraint firstItem="rLi-6j-Rlc" firstAttribute="top" secondItem="xDb-vy-s9A" secondAttribute="top" id="vf3-3v-8D3"/>
+                            <constraint firstItem="hni-FJ-GfV" firstAttribute="top" secondItem="Ck7-Qj-krL" secondAttribute="bottom" constant="31" id="xhT-0Q-13P"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xDb-vy-s9A"/>
+                    </view>
+                    <connections>
+                        <outlet property="amountLabel" destination="TBe-bb-JpU" id="lcm-R2-sSy"/>
+                        <outlet property="checkStatusButton" destination="Obc-gW-BrI" id="VqM-3Z-z3U"/>
+                        <outlet property="checkinLabel" destination="0XK-ak-wjE" id="U5t-x6-UFS"/>
+                        <outlet property="discountLabel" destination="bqE-SZ-CfP" id="TqD-ql-44y"/>
+                        <outlet property="instantLabel" destination="dVS-rY-N4A" id="4OL-X1-8H0"/>
+                        <outlet property="rateBUtton" destination="B5t-5W-3eN" id="s8T-T7-tEu"/>
+                        <outlet property="roomGroupLabel" destination="00v-N7-tqC" id="vbF-th-elb"/>
+                        <outlet property="roomsLabel" destination="xj7-y6-JGX" id="nOj-Mz-wNz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RIh-2i-brA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cbA-V4-0rT" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5229.6000000000004" y="2077.5112443778112"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xsx-wL-lS5">
+            <objects>
+                <navigationController id="CJC-XX-8Ff" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ppS-2l-rlP">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mLu-Zd-2b6" kind="relationship" relationship="rootViewController" id="Qc5-ML-BgE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="af3-xM-F0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3254" y="2078"/>
+        </scene>
+        <!--Writing Rating View Controller-->
+        <scene sceneID="Mfz-sk-Jim">
+            <objects>
+                <viewController id="WgC-Hh-sRh" customClass="WritingRatingViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TGf-1Y-bGe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K1Z-wv-3Fn" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="90" y="84" width="195" height="35"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                        <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                        <color key="value" red="0.77553022599999999" green="0.53077310460000005" blue="0.29550152540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="GoldStarEmpty"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dbh-EG-m4V">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="撰寫評論" id="DFn-Qa-mkC">
+                                        <barButtonItem key="leftBarButtonItem" title="取消" id="dYf-Bu-3we">
+                                            <connections>
+                                                <action selector="cancelBtnPressed:" destination="WgC-Hh-sRh" id="zCy-Bg-jfM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="送出" id="AN9-wN-BWj">
+                                            <connections>
+                                                <action selector="sendRatingBtnPressed:" destination="WgC-Hh-sRh" id="BCl-xb-tDT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mq8-0q-Ahf">
+                                <rect key="frame" x="25" y="144" width="325" height="488"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ptP-VB-rJZ">
+                                        <rect key="frame" x="10" y="10" width="305" height="468"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85041906599999995" green="0.85041906599999995" blue="0.85041906599999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="ptP-VB-rJZ" firstAttribute="leading" secondItem="Mq8-0q-Ahf" secondAttribute="leading" constant="10" id="GB4-Ug-Yat"/>
+                                    <constraint firstAttribute="trailing" secondItem="ptP-VB-rJZ" secondAttribute="trailing" constant="10" id="N5e-HC-cnk"/>
+                                    <constraint firstAttribute="bottom" secondItem="ptP-VB-rJZ" secondAttribute="bottom" constant="10" id="QH1-Pu-aHd"/>
+                                    <constraint firstItem="ptP-VB-rJZ" firstAttribute="top" secondItem="Mq8-0q-Ahf" secondAttribute="top" constant="10" id="pRc-hC-ETs"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vst-7n-mXy" firstAttribute="bottom" secondItem="Mq8-0q-Ahf" secondAttribute="bottom" constant="35" id="4SX-9v-u6d"/>
+                            <constraint firstItem="K1Z-wv-3Fn" firstAttribute="leading" secondItem="Vst-7n-mXy" secondAttribute="leading" constant="90" id="E7P-a1-NXj"/>
+                            <constraint firstItem="Mq8-0q-Ahf" firstAttribute="leading" secondItem="Vst-7n-mXy" secondAttribute="leading" constant="25" id="JoL-jC-BaW"/>
+                            <constraint firstAttribute="bottom" secondItem="K1Z-wv-3Fn" secondAttribute="bottom" constant="548" id="RKh-1k-cwd"/>
+                            <constraint firstItem="Vst-7n-mXy" firstAttribute="trailing" secondItem="Mq8-0q-Ahf" secondAttribute="trailing" constant="25" id="hVc-6d-r1e"/>
+                            <constraint firstItem="Mq8-0q-Ahf" firstAttribute="top" secondItem="K1Z-wv-3Fn" secondAttribute="bottom" constant="25" id="hwz-W1-cFv"/>
+                            <constraint firstItem="K1Z-wv-3Fn" firstAttribute="centerX" secondItem="Dbh-EG-m4V" secondAttribute="centerX" id="kqC-XB-ERp"/>
+                            <constraint firstItem="Dbh-EG-m4V" firstAttribute="leading" secondItem="TGf-1Y-bGe" secondAttribute="leading" id="lxf-4o-17a"/>
+                            <constraint firstItem="K1Z-wv-3Fn" firstAttribute="centerX" secondItem="Mq8-0q-Ahf" secondAttribute="centerX" id="nVw-eG-cPy"/>
+                            <constraint firstItem="Mq8-0q-Ahf" firstAttribute="centerX" secondItem="TGf-1Y-bGe" secondAttribute="centerX" id="quF-cu-2ie"/>
+                            <constraint firstItem="K1Z-wv-3Fn" firstAttribute="top" secondItem="Dbh-EG-m4V" secondAttribute="bottom" constant="20" id="ufK-Wb-D6T"/>
+                            <constraint firstItem="K1Z-wv-3Fn" firstAttribute="top" secondItem="TGf-1Y-bGe" secondAttribute="top" constant="84" id="xvM-nk-rvb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vst-7n-mXy"/>
+                    </view>
+                    <connections>
+                        <outlet property="opinionText" destination="ptP-VB-rJZ" id="VPR-Yj-V06"/>
+                        <outlet property="ratingStarView" destination="K1Z-wv-3Fn" id="Wp9-5d-hQW"/>
+                        <segue destination="4R3-zK-UcZ" kind="unwind" identifier="toPayDetailPage" unwindAction="unwindToDetailPage:" id="gVf-Aw-Nm3"/>
+                        <segue destination="4R3-zK-UcZ" kind="unwind" identifier="toRoomOrderTable" unwindAction="unwindToRoomOrderTableView:" id="o5c-le-l9p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LcS-aK-Re1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4R3-zK-UcZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6271" y="2078"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="GoldStar" width="53" height="51"/>
+        <image name="GoldStarEmpty" width="53" height="51"/>
+        <image name="customer_detail_background" width="455" height="717"/>
+    </resources>
+</document>

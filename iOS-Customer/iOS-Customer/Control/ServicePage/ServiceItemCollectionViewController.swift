@@ -144,7 +144,7 @@ class ServiceItemCollectionViewController: UICollectionViewController, WebSocket
         
         let getRoomNumber = userDefaultsForRoomNumber.string(forKey: "roomNumber")!
         
-        download.getCustomerStatus(roomNumber: getRoomNumber) { (result, error) in
+        download.getCustomerStatus(roomNumber: getRoomNumber, idCustomer: customerInt! ) { (result, error) in
             if let error = error {
                 print("updateUserServiceStatus error: \(error)")
                 return

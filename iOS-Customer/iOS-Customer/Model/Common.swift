@@ -13,11 +13,11 @@ struct Common {
 
     // Server
 //    static let SERVER_URL: String = "http://192.168.50.188:8080/ShellService"
-    static let SERVER_URL: String = "http://192.168.50.105:8080/ShellService"
+    static let SERVER_URL: String = "http://192.168.196.215:8080/ShellService"
 
     // Websocket
 //    static let SOCKET_URL: String = "ws://192.168.50.188:8080/ShellService/WsServer/"
-    static let SOCKET_URL: String = "ws://192.168.50.105:8080/ShellService/WsServer/"
+    static let SOCKET_URL: String = "ws://192.168.196.215:8080/ShellService/WsServer/"
 }
 
 

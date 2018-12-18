@@ -15,7 +15,8 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
    
     let download = DownloadAuth.shared
     var targetIndex: Int = -1
-    var payDetailInfo = [OrderRoomDetailForSocket]()
+    //var payDetailInfo = [OrderRoomDetailForSocket]()
+    let userDefaultsForRoomNumber = UserDefaults()
     
     let itemImageForDinling = ["icon_dinling_a","icon_dinling_b","icon_dinling_c"]
     let itemLabelForDinling = ["A餐","B餐","C餐"]
@@ -182,12 +183,12 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
                 return
             }
         
-            guard let roomNumber = self.payDetailInfo.first?.roomNumber, let idRoomStatus = self.payDetailInfo.first?.idRoomStatus else {
+            guard let roomNumber = self.userDefaultsForRoomNumber.string(forKey: "roomNumber") else {
                 self.showAlert(message: "房號出現錯誤")
                 return
             }
             
-            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: idRoomStatus, roomNumber: roomNumber)
+            let instant = Instant(idInstantDetail: 0, idInstantService: self.serviceInstantService!, status: 1, quantity: self.serviceQuantity!, idInstantType: self.serviceType!, idRoomStatus: 1, roomNumber: roomNumber)
            
             
             
@@ -222,9 +223,9 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
         return true
     }
     
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        textField.reloadInputViews()
-        return true
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 

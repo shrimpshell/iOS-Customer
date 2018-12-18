@@ -50,15 +50,15 @@
 		72D917C7219D188A0008D90C /* ServiceItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917C6219D188A0008D90C /* ServiceItemCollectionViewCell.swift */; };
 		72D917C9219D1AA90008D90C /* ItemDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917C8219D1AA90008D90C /* ItemDetailTableViewController.swift */; };
 		72D917CB219D26110008D90C /* ItemDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D917CA219D26110008D90C /* ItemDetailTableViewCell.swift */; };
+		72D9820A21C77C65000E215B /* RoomOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E2421941466002E065A /* RoomOrderTableViewController.swift */; };
+		72D9820B21C77C65000E215B /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
 		781DEB522198095A00AED03E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781DEB512198095A00AED03E /* Download.swift */; };
-		7828D15621C37FDD00B3E430 /* CheckInInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828D15521C37FDD00B3E430 /* CheckInInfo.swift */; };
 		78390532219BFC740059BC5B /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78390531219BFC740059BC5B /* PrintHelper.swift */; };
 		7857F5722192B2EE00641030 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857F5712192B2EE00641030 /* Common.swift */; };
 		788AE3A92193DD7C008B3C0F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE3A82193DD7C008B3C0F /* Alert.swift */; };
 		78955BAD219EAF6A0092FD42 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78955BAC219EAF6A0092FD42 /* UIImage+Resize.swift */; };
 		789B07D221A4438300B764C2 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B07D121A4438300B764C2 /* CornerRadius.swift */; };
 		78AB949D216E286C00045C95 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB949C216E286C00045C95 /* Rating.swift */; };
-		78AB94A1216E2A7900045C95 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB94A0216E2A7900045C95 /* Customer.swift */; };
 		78F088B121C2497C000CBE93 /* CheckInInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F088B021C2497C000CBE93 /* CheckInInfo.swift */; };
 		D110437521B93CB700C8ACC3 /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110437121B93CB700C8ACC3 /* RoomTableViewController.swift */; };
 		D110437621B93CB700C8ACC3 /* RoomDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110437221B93CB700C8ACC3 /* RoomDetailTableViewCell.swift */; };
@@ -68,7 +68,6 @@
 		D13405A42166699300E72B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13405A32166699300E72B67 /* AppDelegate.swift */; };
 		D13405AB2166699500E72B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D13405AA2166699500E72B67 /* Assets.xcassets */; };
 		D13405AE2166699500E72B67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13405AC2166699500E72B67 /* LaunchScreen.storyboard */; };
-		D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E2421941466002E065A /* RoomOrderTableViewController.swift */; };
 		D1918E2921951426002E065A /* RoomOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1918E2821951426002E065A /* RoomOrderDetailViewController.swift */; };
 		D76C7F7D6E8B8BF07E7B5BC8 /* Pods_iOS_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB724A95E3AF927AE6FDE13F /* Pods_iOS_Customer.framework */; };
 /* End PBXBuildFile section */
@@ -379,7 +378,7 @@
 				D134059C2166699300E72B67 /* Sources */,
 				D134059D2166699300E72B67 /* Frameworks */,
 				D134059E2166699300E72B67 /* Resources */,
-				B764ABA7937F6E242B0D8466 /* [CP] Embed Pods Frameworks */,
+				F90BF8B68B74148456E2FA7D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -397,7 +396,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Hsin Hwang";
 				TargetAttributes = {
 					D134059F2166699300E72B67 = {
@@ -472,7 +471,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B764ABA7937F6E242B0D8466 /* [CP] Embed Pods Frameworks */ = {
+		F90BF8B68B74148456E2FA7D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -514,20 +513,19 @@
 				2B1EF1C221C2424E007A7D51 /* Helper.swift in Sources */,
 				720A2E5321B6A79200EF44ED /* WritingRatingViewController.swift in Sources */,
 				789B07D221A4438300B764C2 /* CornerRadius.swift in Sources */,
-				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
+				72D9820B21C77C65000E215B /* Customer.swift in Sources */,
 				2B21F4CA21B92FB100534049 /* BookingChooseRoomCollectionViewController.swift in Sources */,
 				720A2E5521B6A79200EF44ED /* EditingTableViewController.swift in Sources */,
 				78F088B121C2497C000CBE93 /* CheckInInfo.swift in Sources */,
 				D110437721B93CB700C8ACC3 /* RoomTableViewCell.swift in Sources */,
 				78955BAD219EAF6A0092FD42 /* UIImage+Resize.swift in Sources */,
 				D110437521B93CB700C8ACC3 /* RoomTableViewController.swift in Sources */,
-				D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */,
+				72D9820A21C77C65000E215B /* RoomOrderTableViewController.swift in Sources */,
 				D110437621B93CB700C8ACC3 /* RoomDetailTableViewCell.swift in Sources */,
 				72D917C7219D188A0008D90C /* ServiceItemCollectionViewCell.swift in Sources */,
 				7230157A21B0F8F400FD89D7 /* AllRatingsTableViewCell.swift in Sources */,
 				72D917C9219D1AA90008D90C /* ItemDetailTableViewController.swift in Sources */,
 				72615962219DA77100EB43FB /* ServiceStatusTableViewCell.swift in Sources */,
-				78AB94A1216E2A7900045C95 /* Customer.swift in Sources */,
 				D110437821B93CB700C8ACC3 /* RoomDetailViewController.swift in Sources */,
 				72615960219DA6E100EB43FB /* ServiceStatusTableViewController.swift in Sources */,
 				720A2E4921B6A77D00EF44ED /* AllRatingDetailViewController.swift in Sources */,
@@ -539,13 +537,11 @@
 				2B4EECC221B929160059EE3F /* Communicator.swift in Sources */,
 				2B21F4C921B92FB100534049 /* BookingChooseCollectionViewCell.swift in Sources */,
 				72D917C5219D185E0008D90C /* ServiceItemCollectionViewController.swift in Sources */,
-				7828D15621C37FDD00B3E430 /* CheckInInfo.swift in Sources */,
 				72C35FB521AE753C006BD1A7 /* Socket.swift in Sources */,
 				2B1EF1BA21C239E0007A7D51 /* EventTableViewController.swift in Sources */,
 				D13405A42166699300E72B67 /* AppDelegate.swift in Sources */,
 				729527B221A3EE8200E9E839 /* OrderRoomDetail.swift in Sources */,
 				2B21F4D021B92FE700534049 /* RoomType.swift in Sources */,
-				D1918E2521941466002E065A /* RoomOrderTableViewController.swift in Sources */,
 				2B1EF1BC21C23A84007A7D51 /* EventTableViewCell.swift in Sources */,
 				720A2E5221B6A79200EF44ED /* JoinTableViewController.swift in Sources */,
 				D1918E2921951426002E065A /* RoomOrderDetailViewController.swift in Sources */,
@@ -697,13 +693,13 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS-Customer/iOS-Customer.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 85Z3N82V35;
+				DEVELOPMENT_TEAM = 378NT6B6N9;
 				INFOPLIST_FILE = "iOS-Customer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "una.lee.iOS-Customer";
+				PRODUCT_BUNDLE_IDENTIFIER = "hhl.com.iOS-Customer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -717,13 +713,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "iOS-Customer/iOS-Customer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 85Z3N82V35;
+				DEVELOPMENT_TEAM = 378NT6B6N9;
 				INFOPLIST_FILE = "iOS-Customer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "una.lee.iOS-Customer";
+				PRODUCT_BUNDLE_IDENTIFIER = "hhl.com.iOS-Customer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

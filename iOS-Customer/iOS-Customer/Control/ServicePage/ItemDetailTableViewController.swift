@@ -31,8 +31,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
     var serviceInstantService: Int?
     var idRoomStatus: Int? = nil
     var socket: WebSocket!
-    
-
+   
     override func viewWillAppear(_ animated: Bool) {
         
         guard let userId = customerInt?.description else {
@@ -201,6 +200,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate,
                     return
                 }
                 print("InsertInstant text OK: \(result!)")
+                
                 self.showAlert(title: "已成功送出需求", message: "馬上為您服務")
                 self.tableView.reloadData()
                 // 輸入後清空textField

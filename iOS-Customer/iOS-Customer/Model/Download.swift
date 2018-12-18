@@ -77,8 +77,8 @@ struct DownloadAuth {
     
     // MARK: - InstantService
     // get user InstantService status
-    func getCustomerStatus(roomNumber: String, completion: @escaping DoneHandler) {
-        let parameters: [String : Any] = [ACTION: "getCustomerStatus", ROOMNUMBER_KEY: roomNumber]
+    func getCustomerStatus(roomNumber: String, idCustomer: Int, completion: @escaping DoneHandler) {
+        let parameters: [String : Any] = [ACTION: "getCustomerStatus", ROOMNUMBER_KEY: roomNumber, ID_CUSTOMER_KEY: idCustomer]
         
         doPost(urlString: INSTANT_SERVLET, parameters: parameters, completion: completion)
     }

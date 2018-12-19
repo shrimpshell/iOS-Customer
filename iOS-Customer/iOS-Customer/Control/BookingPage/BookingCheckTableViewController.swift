@@ -109,6 +109,18 @@ class BookingCheckTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookingCheckTableViewCell
 
+        cell.subView.layer.cornerRadius = 8
+        cell.subView.layer.masksToBounds = true
+        cell.shadowView.layer.masksToBounds = false
+        cell.shadowView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        cell.shadowView.layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        cell.shadowView.layer.shadowOpacity = 0.23
+        cell.shadowView.layer.cornerRadius = 8
+        cell.shadowView.layer.shadowPath = UIBezierPath(roundedRect: cell.shadowView.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 3, height: 3)).cgPath
+        cell.shadowView.layer.shouldRasterize = true
+        cell.shadowView.layer.rasterizationScale = UIScreen.main.scale
+
+        
         // Configure the cell...
         cell.delegate = self
         cell.roomTypeNameLabel.text = roomReservation[indexPath.row].roomTypeName
@@ -150,8 +162,8 @@ class BookingCheckTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         // Change to isFromCheckBooking = true, which means coming from the CheckBooking page.
+        let profileVC = segue.destination as! ProfileViewController
         if segue.identifier == "goToLogin" {
-            let profileVC = segue.destination as! ProfileViewController
             profileVC.isFromCheckBooking = true
         }
     }

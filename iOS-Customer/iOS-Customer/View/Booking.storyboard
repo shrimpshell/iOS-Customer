@@ -466,7 +466,7 @@
         <scene sceneID="0tf-qr-GeA">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="u8u-9V-5ke" customClass="BookingCheckTableViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Um0-sX-UWM">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="Um0-sX-UWM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -478,6 +478,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXG-qQ-0Ut">
+                                            <rect key="frame" x="5" y="5" width="365" height="190"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qE7-W5-SID">
+                                            <rect key="frame" x="5" y="5" width="365" height="190"/>
+                                            <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zoD-Fg-sV9">
                                             <rect key="frame" x="16" y="11" width="343" height="178"/>
                                             <subviews>
@@ -578,13 +585,25 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="qE7-W5-SID" firstAttribute="centerX" secondItem="noN-99-0Vn" secondAttribute="centerX" id="2Mv-1G-m49"/>
+                                        <constraint firstAttribute="bottom" secondItem="qE7-W5-SID" secondAttribute="bottom" constant="5" id="Bdy-sJ-NVR"/>
+                                        <constraint firstAttribute="trailing" secondItem="qE7-W5-SID" secondAttribute="trailing" constant="5" id="LJn-tV-Kas"/>
+                                        <constraint firstAttribute="trailing" secondItem="wXG-qQ-0Ut" secondAttribute="trailing" constant="5" id="M66-ca-UsU"/>
+                                        <constraint firstItem="qE7-W5-SID" firstAttribute="top" secondItem="noN-99-0Vn" secondAttribute="top" constant="5" id="RJc-XN-77E"/>
+                                        <constraint firstItem="qE7-W5-SID" firstAttribute="leading" secondItem="noN-99-0Vn" secondAttribute="leading" constant="5" id="S60-QP-AwO"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="zoD-Fg-sV9" secondAttribute="bottom" id="SoS-61-sne"/>
                                         <constraint firstItem="zoD-Fg-sV9" firstAttribute="leading" secondItem="noN-99-0Vn" secondAttribute="leadingMargin" id="bqs-hy-Uze"/>
+                                        <constraint firstItem="wXG-qQ-0Ut" firstAttribute="top" secondItem="noN-99-0Vn" secondAttribute="top" constant="5" id="cUz-VW-8T8"/>
+                                        <constraint firstItem="wXG-qQ-0Ut" firstAttribute="centerY" secondItem="noN-99-0Vn" secondAttribute="centerY" id="e44-Wd-pdl"/>
+                                        <constraint firstItem="wXG-qQ-0Ut" firstAttribute="centerX" secondItem="noN-99-0Vn" secondAttribute="centerX" id="fpY-eu-TE4"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="zoD-Fg-sV9" secondAttribute="trailing" id="hSF-qg-ziA"/>
+                                        <constraint firstAttribute="bottom" secondItem="wXG-qQ-0Ut" secondAttribute="bottom" constant="5" id="mAV-tt-bZ5"/>
+                                        <constraint firstItem="wXG-qQ-0Ut" firstAttribute="leading" secondItem="noN-99-0Vn" secondAttribute="leading" constant="5" id="mpG-mh-G9d"/>
+                                        <constraint firstItem="qE7-W5-SID" firstAttribute="centerY" secondItem="noN-99-0Vn" secondAttribute="centerY" id="tmL-Xg-QEW"/>
                                         <constraint firstItem="zoD-Fg-sV9" firstAttribute="top" secondItem="noN-99-0Vn" secondAttribute="topMargin" id="ygQ-wD-XcL"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="checkInDateLabel" destination="wj4-Os-GY7" id="tsz-SQ-Mto"/>
                                     <outlet property="checkOutDateLabel" destination="exq-9Z-1a8" id="P6x-fi-boR"/>
@@ -595,6 +614,8 @@
                                     <outlet property="priceLabel" destination="rhq-DV-wrD" id="q2e-dz-QpT"/>
                                     <outlet property="roomQuantityLabel" destination="9V2-he-ORN" id="oTP-Yw-kgD"/>
                                     <outlet property="roomTypeNameLabel" destination="2fP-cl-bD2" id="6UH-rs-cn6"/>
+                                    <outlet property="shadowView" destination="qE7-W5-SID" id="cTd-yo-oJV"/>
+                                    <outlet property="subView" destination="wXG-qQ-0Ut" id="5lk-w6-blx"/>
                                     <outlet property="totalDaysLabel" destination="0TA-aN-uek" id="QVR-dg-rta"/>
                                 </connections>
                             </tableViewCell>
@@ -621,7 +642,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zB-dB-5BY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1YY-Vq-9wA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3135" y="1128"/>
+            <point key="canvasLocation" x="3133.5999999999999" y="1127.5862068965519"/>
         </scene>
         <!--profile-->
         <scene sceneID="KHq-bV-BOf">

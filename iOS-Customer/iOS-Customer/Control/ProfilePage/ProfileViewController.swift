@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var orderRoomDetails: [OrderRoomDetail]?
     var orderInstantDetails: [OrderInstantDetail]?
     let userID = UserDefaults()
+    var joinSuccess = false
     
     
     
@@ -73,10 +74,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         if ProfileViewController.isLogin == true {
             showCustomerInfo(idCustomer: idCustomer as! Int)
         }
+        if isFromCheckBooking == true {
+            tabBarController?.tabBar.isHidden = true
+            print(isFromCheckBooking)
+        }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if joinSuccess == true {
+            showToast(message: "會員加入成功")
+            joinSuccess = false
+        }
     }
     
     
@@ -458,7 +467,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         case "toJoinPage":
             let NAVController = segue.destination as? UINavigationController
             let joinPage = NAVController?.viewControllers.first as! JoinTableViewController
-            joinPage.pageNumber = 1
+            if isFromCheckBooking == true {
+                let joinVC = segue.destination as! JoinTableViewController
+                joinVC.pageNumber = 1
+            }
             print("goto Join")
             
         case "toInstantServicePage":

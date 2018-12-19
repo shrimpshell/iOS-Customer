@@ -635,7 +635,7 @@
                     <connections>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="backToChooseBooking" unwindAction="unwindToChooseRoom:" id="HZT-Za-25V"/>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="goToProfilePage" unwindAction="unwindToProfilePage:" id="LkF-dd-82x"/>
-                        <segue destination="bNV-S8-kyi" kind="show" identifier="goToLogin" id="Z3q-Uj-nhl"/>
+                        <segue destination="bNV-S8-kyi" kind="presentation" identifier="goToLogin" id="Z3q-Uj-nhl"/>
                         <segue destination="1YY-Vq-9wA" kind="unwind" identifier="backToBooking" unwindAction="unwindBackToBooking:" id="Dzl-P3-gMU"/>
                     </connections>
                 </tableViewController>

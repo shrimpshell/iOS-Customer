@@ -35,6 +35,7 @@ class AllRatingsTableViewController: UITableViewController {
             rightBtnItem.isEnabled = true
         case 2:
             personalRatingList()
+            refreshRatings()
             rightBtnItem.isEnabled = false
             rightBtnItem.title = ""
         default:

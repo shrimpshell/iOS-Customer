@@ -203,7 +203,7 @@ extension BookingChooseRoomCollectionViewController {
     
     // Calculate booking rooms.
     func getReservationQuantity(id: Int, name: String, reservationQuantity: Int, eventId: Int = 0, price: Int) {
-        let totalPrice = price * reservationQuantity
+        let totalPrice = price * reservationQuantity * days
         print(totalPrice)
         if shoppingCar.isEmpty {
             self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: totalPrice))
@@ -215,7 +215,7 @@ extension BookingChooseRoomCollectionViewController {
                     self.shoppingCar.remove(at: index)
                 } else {
                    self.shoppingCar[index].roomQuantity = reservationQuantity
-                    self.shoppingCar[index].price = price * reservationQuantity
+                    self.shoppingCar[index].price = price * reservationQuantity * days
                 }
             }
         } else {

@@ -692,13 +692,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S7MGGJ4QC3;
+				DEVELOPMENT_TEAM = 85Z3N82V35;
 				INFOPLIST_FILE = "iOS-Customer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "hwanghsin.iOS-Customer";
+				PRODUCT_BUNDLE_IDENTIFIER = "una.com.iOS-Customer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -711,13 +711,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S7MGGJ4QC3;
+				DEVELOPMENT_TEAM = 85Z3N82V35;
 				INFOPLIST_FILE = "iOS-Customer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "hwanghsin.iOS-Customer";
+				PRODUCT_BUNDLE_IDENTIFIER = "una.com.iOS-Customer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -25,7 +25,7 @@ class WritingRatingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHight), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+//         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHight), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     // 把TabBar藏起來

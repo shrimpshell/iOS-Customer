@@ -24,6 +24,8 @@ class WritingRatingViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+//         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHight), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     // 把TabBar藏起來
@@ -77,5 +79,21 @@ class WritingRatingViewController: UIViewController {
         alert.addAction(ok)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    //彈出鍵盤時提高畫面
+    @objc
+    func keyboardHight(_ notification:Notification){
+        let info = notification.userInfo
+        let kbRect = (info?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let offsetY = kbRect.origin.y - UIScreen.main.bounds.height
+        UIView.animate(withDuration: 0.1) {
+            print("\(offsetY)")
+            if offsetY == 0 {
+                self.view.transform = CGAffineTransform(translationX: 0, y: 0)
+            }else{
+                self.view.transform = CGAffineTransform(translationX: 0, y: offsetY)
+            }
+        }
     }
 }

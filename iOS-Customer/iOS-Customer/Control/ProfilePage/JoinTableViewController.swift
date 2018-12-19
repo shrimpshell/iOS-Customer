@@ -16,6 +16,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     var name = "", email = "", phone = "", password = "", rePassword = "", birthday = "", address = ""
     
     var isNameOK = false, isEmailOK = false, isPasswordOK = false, isPhoneOK = false
+    var joinSuccess = false
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -170,6 +171,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         switch pageNumber {
         case 0:
             phoneField.resignFirstResponder()
+            print("\(isNameOK), \(isEmailOK), \(isPasswordOK), \(isPhoneOK)")
             if isNameOK == true && isEmailOK == true && isPasswordOK == true && isPhoneOK == true {
                 var gender: String
                 if genderSegmented.selectedSegmentIndex == 0   {
@@ -194,6 +196,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
                     (result) in
                     if result != "0" {
                         print("加入成功 \(result)")
+                        self.joinSuccess = true
                         self.performSegue(withIdentifier: "goToProfilePage", sender: self.joinButton)
                         
                     } else {
@@ -335,5 +338,16 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         addressField.delegate = self
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "goToProfilePage":
+            let profilePage = segue.destination as! ProfileViewController
+            profilePage.joinSuccess = joinSuccess
+            break
+            
+        
+        default:
+            break
+        }
+    }
 }

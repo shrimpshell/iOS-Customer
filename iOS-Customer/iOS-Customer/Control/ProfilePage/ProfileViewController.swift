@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var orderRoomDetails: [OrderRoomDetail]?
     var orderInstantDetails: [OrderInstantDetail]?
     let userID = UserDefaults()
+    var joinSuccess = false
     
     
     
@@ -75,8 +76,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if joinSuccess == true {
+            showToast(message: "會員加入成功")
+            joinSuccess = false
+        }
     }
     
     

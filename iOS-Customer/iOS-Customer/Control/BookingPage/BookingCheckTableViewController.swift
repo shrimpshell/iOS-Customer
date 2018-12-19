@@ -162,8 +162,8 @@ class BookingCheckTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         // Change to isFromCheckBooking = true, which means coming from the CheckBooking page.
-        let profileVC = segue.destination as! ProfileViewController
         if segue.identifier == "goToLogin" {
+            let profileVC = segue.destination as! ProfileViewController
             profileVC.isFromCheckBooking = true
         }
     }

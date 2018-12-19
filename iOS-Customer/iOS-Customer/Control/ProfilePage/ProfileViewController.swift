@@ -26,7 +26,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var orderRoomDetails: [OrderRoomDetail]?
     var orderInstantDetails: [OrderInstantDetail]?
     let userID = UserDefaults()
-    var joinSuccess = false
+    var joinSuccess = 0
+    var number = 0
     
     
     
@@ -63,16 +64,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(true)
-        guard let idCustomer = userID.object(forKey: "userID") else {
-            print("idCustomer 解包錯誤")
-            return
-        }
+        idCustomer = userID.integer(forKey: "userID")
         self.tabBarController?.tabBar.isHidden = false
         hideKeyboard()
         checkInTitleLabel.isHidden = true
         checkInfomation.isHidden = true
         if ProfileViewController.isLogin == true {
-            showCustomerInfo(idCustomer: idCustomer as! Int)
+            showCustomerInfo(idCustomer: idCustomer)
         }
         if isFromCheckBooking == true {
             tabBarController?.tabBar.isHidden = true
@@ -82,9 +80,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if joinSuccess == true {
+        if joinSuccess != 0 {
             showToast(message: "會員加入成功")
-            joinSuccess = false
         }
     }
     
@@ -146,7 +143,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.nameCustomer.text = customer.name
             self.emailCustomer.text = customer.email
             self.phoneCustomer.text = customer.phone
-            self.customerAuth.getUserRoomReservationStatus(idCustomer: idCustomer as! Int) {
+            self.customerAuth.getUserRoomReservationStatus(idCustomer: self.idCustomer) {
                 (result, error) in
                 if let error = error {
                     printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse error: \(error)")
@@ -237,7 +234,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             assertionFailure("Login Error: \(error)")
         }
         
-        customerAuth.getCustomerInfoById(idCustomer: idCustomer as! Int) { (result, error) in
+        customerAuth.getCustomerInfoById(idCustomer: self.idCustomer) { (result, error) in
             if let error = error {
                 print("Customer Info download error: \(error)")
                 return
@@ -285,7 +282,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 assertionFailure("CheckoutTableViewController Error: \(error)")
         }
     
-        customerAuth.getUserRoomReservationStatus(idCustomer: idCustomer as! Int) {
+        customerAuth.getUserRoomReservationStatus(idCustomer: self.idCustomer) {
             (result, error) in
             if let error = error {
                 printHelper.println(tag: "ProfileViewController", line: #line, "RoomReservationStatuse error: \(error)")
@@ -349,6 +346,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     
+    @IBAction func join(_ sender: UIButton) {
+        if isFromCheckBooking == true {
+            number = 1
+            print(isFromCheckBooking)
+        }
+    }
     
     @IBAction func chungPicBtnPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Please choose source:", message: nil, preferredStyle: .actionSheet)
@@ -467,10 +470,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         case "toJoinPage":
             let NAVController = segue.destination as? UINavigationController
             let joinPage = NAVController?.viewControllers.first as! JoinTableViewController
-            if isFromCheckBooking == true {
-                let joinVC = segue.destination as! JoinTableViewController
-                joinVC.pageNumber = 1
-            }
             print("goto Join")
             
         case "toInstantServicePage":

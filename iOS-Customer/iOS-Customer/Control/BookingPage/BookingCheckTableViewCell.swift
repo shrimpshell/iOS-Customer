@@ -26,6 +26,8 @@ class BookingCheckTableViewCell: UITableViewCell {
     @IBOutlet weak var totalDaysLabel: UILabel!
     @IBOutlet weak var minusBtn: UIButton!
     @IBOutlet weak var plusBtn: UIButton!
+    @IBOutlet weak var subView: UIView!
+    @IBOutlet weak var shadowView: UIView!
     
     weak var delegate: BookingCheckTableViewCellDelegate?
     

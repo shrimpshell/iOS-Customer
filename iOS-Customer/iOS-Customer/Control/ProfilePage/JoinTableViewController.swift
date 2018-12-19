@@ -16,7 +16,8 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     var name = "", email = "", phone = "", password = "", rePassword = "", birthday = "", address = ""
     
     var isNameOK = false, isEmailOK = false, isPasswordOK = false, isPhoneOK = false
-    var joinSuccess = false
+    var joinSuccess = 0
+    let userID = UserDefaults()
     let now = Date()
     
     @IBOutlet weak var nameField: UITextField!
@@ -202,7 +203,8 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
                     (result) in
                     if result != "0" {
                         print("加入成功 \(result)")
-                        self.joinSuccess = true
+                        self.joinSuccess = Int(result)!
+                        self.userID.set(result, forKey: "userID")
                         self.performSegue(withIdentifier: "goToProfilePage", sender: self.joinButton)
                         
                     } else {
@@ -212,6 +214,10 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
             } else {
                 showAlert(message: "資料輸入不完整，請再次確認")
             }
+            
+        case 1:
+            performSegue(withIdentifier: "goToLogin", sender: nil)
+            tabBarController?.tabBar.isHidden = true
             
         case 2:
             guard  let idCustomer = customer?.idCustomer else {
@@ -349,6 +355,10 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         case "goToProfilePage":
             let profilePage = segue.destination as! ProfileViewController
             profilePage.joinSuccess = joinSuccess
+            if joinSuccess != 0 {
+                ProfileViewController.isLogin = true
+                profilePage.isFromCheckBooking = true
+            }
             break
             
         

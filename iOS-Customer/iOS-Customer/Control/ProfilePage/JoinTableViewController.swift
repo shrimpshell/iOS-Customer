@@ -16,6 +16,9 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     var name = "", email = "", phone = "", password = "", rePassword = "", birthday = "", address = ""
     
     var isNameOK = false, isEmailOK = false, isPasswordOK = false, isPhoneOK = false
+    var joinSuccess = 0
+    let userID = UserDefaults()
+    let now = Date()
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -58,6 +61,11 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         default:
             break
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        birthdayDatePicker.maximumDate = now
     }
     
     //BirthdayPicker Hidden Change
@@ -170,6 +178,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         switch pageNumber {
         case 0:
             phoneField.resignFirstResponder()
+            print("\(isNameOK), \(isEmailOK), \(isPasswordOK), \(isPhoneOK)")
             if isNameOK == true && isEmailOK == true && isPasswordOK == true && isPhoneOK == true {
                 var gender: String
                 if genderSegmented.selectedSegmentIndex == 0   {
@@ -194,6 +203,8 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
                     (result) in
                     if result != "0" {
                         print("加入成功 \(result)")
+                        self.joinSuccess = Int(result)!
+                        self.userID.set(result, forKey: "userID")
                         self.performSegue(withIdentifier: "goToProfilePage", sender: self.joinButton)
                         
                     } else {
@@ -203,6 +214,10 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
             } else {
                 showAlert(message: "資料輸入不完整，請再次確認")
             }
+            
+        case 1:
+            performSegue(withIdentifier: "goToLogin", sender: nil)
+            tabBarController?.tabBar.isHidden = true
             
         case 2:
             guard  let idCustomer = customer?.idCustomer else {
@@ -335,5 +350,20 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         addressField.delegate = self
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "goToProfilePage":
+            let profilePage = segue.destination as! ProfileViewController
+            profilePage.joinSuccess = joinSuccess
+            if joinSuccess != 0 {
+                ProfileViewController.isLogin = true
+                profilePage.isFromCheckBooking = true
+            }
+            break
+            
+        
+        default:
+            break
+        }
+    }
 }

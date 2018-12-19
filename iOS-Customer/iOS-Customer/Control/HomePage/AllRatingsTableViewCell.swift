@@ -17,9 +17,11 @@ class AllRatingsTableViewCell: UITableViewCell {
     @IBOutlet weak var ratingStarCosmosView: CosmosView!
     @IBOutlet weak var opinionLabel: UILabel!
     @IBOutlet weak var customrServiceResponse: UILabel!
+    @IBOutlet weak var ratingCellView: UIView!
     
     var allRating: Rating? {
         didSet {
+            
             guard  let idRoomReservation = allRating?.idRoomReservation else {
                 printHelper.println(tag: "ProfileViewController", line: #line, "Rating idRoomReservation is nil")
                 return

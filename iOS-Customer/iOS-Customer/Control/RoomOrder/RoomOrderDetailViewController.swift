@@ -89,6 +89,8 @@ class RoomOrderDetailViewController: UIViewController {
     }
 
     private func showRoomDetails() {
+        self.roomsLabel.text = ""
+        
         guard let rooms = self.rooms else {
             return
         }
@@ -113,6 +115,7 @@ class RoomOrderDetailViewController: UIViewController {
         var aMeal: Int = 0
         var bMeal: Int = 0
         var cMeal: Int = 0
+        self.instantLabel.text = ""
         guard let instants = self.instants, let instantTypeName = instants[0].instantTypeName else {
             return
         }

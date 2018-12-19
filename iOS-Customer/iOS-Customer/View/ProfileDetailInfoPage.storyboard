@@ -11,7 +11,7 @@
         <!--註冊會員-->
         <scene sceneID="H6X-lH-5j2">
             <objects>
-                <tableViewController storyboardIdentifier="JoinPage" id="eYn-bM-RTx" customClass="JoinTableViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="eYn-bM-RTx" customClass="JoinTableViewController" customModule="iOS_Customer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ci2-xF-3mo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,7 +304,7 @@
         <!--Navigation Controller-->
         <scene sceneID="R4v-4r-w8E">
             <objects>
-                <navigationController storyboardIdentifier="UINavigationController-9ng-AT-kfY" automaticallyAdjustsScrollViewInsets="NO" id="9ng-AT-kfY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="JoinPage" automaticallyAdjustsScrollViewInsets="NO" id="9ng-AT-kfY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DgQ-uD-nfq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

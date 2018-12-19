@@ -17,6 +17,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     
     var isNameOK = false, isEmailOK = false, isPasswordOK = false, isPhoneOK = false
     var joinSuccess = false
+    let now = Date()
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -59,6 +60,11 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         default:
             break
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        birthdayDatePicker.maximumDate = now
     }
     
     //BirthdayPicker Hidden Change

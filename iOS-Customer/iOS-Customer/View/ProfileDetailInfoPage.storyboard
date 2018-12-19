@@ -197,6 +197,7 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="560768047.90047896">
                                                         <!--2018-10-09 08:54:07 +0000-->
                                                     </date>
+                                                    <locale key="locale" localeIdentifier="yue-Hant"/>
                                                     <connections>
                                                         <action selector="birthdayPicker:" destination="eYn-bM-RTx" eventType="valueChanged" id="d27-wq-71g"/>
                                                     </connections>

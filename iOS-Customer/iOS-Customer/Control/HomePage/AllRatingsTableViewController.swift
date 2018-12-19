@@ -67,7 +67,7 @@ class AllRatingsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "allRatingCell", for: indexPath) as! AllRatingsTableViewCell
 
         let rating = ratingItems[indexPath.row]
-        cell.ratingCellView.layer.borderColor = UIColor.brown.cgColor
+        cell.ratingCellView.layer.borderColor = #colorLiteral(red: 0.3941470385, green: 0.745052278, blue: 0.9777091146, alpha: 1)
         cell.ratingCellView.layer.borderWidth = 1
         cornerRadius(view: cell.ratingCellView)
         cell.allRating = rating

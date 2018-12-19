@@ -207,6 +207,10 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
                 showAlert(message: "資料輸入不完整，請再次確認")
             }
             
+        case 1:
+            performSegue(withIdentifier: "goToLogin", sender: nil)
+            tabBarController?.tabBar.isHidden = true
+            
         case 2:
             guard  let idCustomer = customer?.idCustomer else {
                 print("idCustomer 解包錯誤")

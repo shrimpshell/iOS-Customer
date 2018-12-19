@@ -74,6 +74,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         if ProfileViewController.isLogin == true {
             showCustomerInfo(idCustomer: idCustomer as! Int)
         }
+        if isFromCheckBooking == true {
+            tabBarController?.tabBar.isHidden = true
+            print(isFromCheckBooking)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -463,7 +467,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         case "toJoinPage":
             let NAVController = segue.destination as? UINavigationController
             let joinPage = NAVController?.viewControllers.first as! JoinTableViewController
-            joinPage.pageNumber = 1
+            if isFromCheckBooking == true {
+                let joinVC = segue.destination as! JoinTableViewController
+                joinVC.pageNumber = 1
+            }
             print("goto Join")
             
         case "toInstantServicePage":

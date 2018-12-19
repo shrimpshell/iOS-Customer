@@ -18,6 +18,7 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
     
     let TAG = "BookingChooseRoomCollectionViewController"
     let communicator = RoomTypeCommunicator.shared
+    var days = 0
     var roomTypes = [RoomType]()
     var reservationRoom = [RoomType]()
     var event = Events()
@@ -36,8 +37,9 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         let cellHeight =  UIScreen.main.bounds.height - navigationHeight
         let cellWidth = bookingChooseRoomCollectionView.frame.width
         
-        printHelper.println(tag: self.TAG, line: #line, "width: \(cellWidth), height: \(cellHeight), navigationHeight: \(navigationHeight)")
         bookingChooseRoomCollectionViewFlowLayout.itemSize = CGSize(width: cellWidth, height: cellHeight)
+        
+        days = checkInDate.getStringToDate().daysBetweenDate(toDate: checkOutDate.getStringToDate())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,8 +123,9 @@ class BookingChooseRoomCollectionViewController: UICollectionViewController {
         }
         let checkIn = checkInDate
         let checkOut = checkOutDate
-        let days = checkIn.getStringToDate().daysBetweenDate(toDate: checkOut.getStringToDate())
+        
         printHelper.println(tag: self.TAG, line: #line, "checkIn: \(checkIn), checkOut: \(checkOut)")
+        print(shoppingCar)
         checkRoomVC.roomReservation = shoppingCar
         checkRoomVC.totalDays = days
         checkRoomVC.checkInDate = checkIn
@@ -200,8 +203,10 @@ extension BookingChooseRoomCollectionViewController {
     
     // Calculate booking rooms.
     func getReservationQuantity(id: Int, name: String, reservationQuantity: Int, eventId: Int = 0, price: Int) {
+        let totalPrice = price * reservationQuantity
+        print(totalPrice)
         if shoppingCar.isEmpty {
-            self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: price))
+            self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: totalPrice))
         } else if shoppingCar.contains(where: { (shoppingCar) -> Bool in
             shoppingCar.id == id
         }) {
@@ -210,10 +215,11 @@ extension BookingChooseRoomCollectionViewController {
                     self.shoppingCar.remove(at: index)
                 } else {
                    self.shoppingCar[index].roomQuantity = reservationQuantity
+                    self.shoppingCar[index].price = price * reservationQuantity
                 }
             }
         } else {
-            self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: price))
+            self.shoppingCar.append(ShoppingCar(id: id ,roomTypeName: name, checkInDate: self.checkInDate, checkOutDate: self.checkOutDate, roomQuantity: reservationQuantity, eventId: eventId, price: totalPrice))
         }
     }
     
@@ -246,9 +252,9 @@ extension BookingChooseRoomCollectionViewController: BookingChooseCollectionView
         if self.discount == 1 {
             self.getReservationQuantity(id: id, name: name, reservationQuantity: textValue, price: price)
         } else {
-            let price = Float(price) * self.discount
-            self.getReservationQuantity(id: id, name: name, reservationQuantity: textValue, eventId: self.event.eventId, price: Int(price))
-            printHelper.println(tag: self.TAG, line: #line, "\(self.shoppingCar)")
+            let discountPrice = Float(price) * self.discount
+            self.getReservationQuantity(id: id, name: name, reservationQuantity: textValue, eventId: self.event.eventId, price: Int(discountPrice))
+            printHelper.println(tag: self.TAG, line: #line, "\(shoppingCar)")
         }
     }
 }

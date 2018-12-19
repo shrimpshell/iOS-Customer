@@ -16,7 +16,8 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
     var name = "", email = "", phone = "", password = "", rePassword = "", birthday = "", address = ""
     
     var isNameOK = false, isEmailOK = false, isPasswordOK = false, isPhoneOK = false
-    var joinSuccess = false
+    var joinSuccess = 0
+    let userID = UserDefaults()
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -196,7 +197,8 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
                     (result) in
                     if result != "0" {
                         print("加入成功 \(result)")
-                        self.joinSuccess = true
+                        self.joinSuccess = Int(result)!
+                        self.userID.set(result, forKey: "userID")
                         self.performSegue(withIdentifier: "goToProfilePage", sender: self.joinButton)
                         
                     } else {
@@ -347,6 +349,10 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         case "goToProfilePage":
             let profilePage = segue.destination as! ProfileViewController
             profilePage.joinSuccess = joinSuccess
+            if joinSuccess != 0 {
+                ProfileViewController.isLogin = true
+                profilePage.isFromCheckBooking = true
+            }
             break
             
         

@@ -15,6 +15,7 @@ class EditingTableViewController: UITableViewController {
     var phone: String = ""
     let customerAuth = DownloadAuth.shared
     let customerTask = CustomerAuth()
+    let userID = UserDefaults()
     
     
     @IBOutlet weak var nameField: UITextField!
@@ -39,10 +40,7 @@ class EditingTableViewController: UITableViewController {
     }
 
     @IBAction func checkEditing(_ sender: Any) {
-        guard  let idCustomer = customer?.idCustomer else {
-            print("idCustomer 解包錯誤")
-            return
-        }
+        let idCustomer = userID.integer(forKey: "userID") 
         let email = customer?.email
         
         var name = nameField.text

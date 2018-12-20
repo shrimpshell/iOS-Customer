@@ -159,6 +159,7 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
         } else {
             isPasswordOK = true
             passwordField.layer.borderColor = UIColor.clear.cgColor
+            rePasswordField.layer.borderColor = UIColor.clear.cgColor
             print("isPasswordOK")
         }
     }
@@ -247,7 +248,8 @@ class JoinTableViewController: UITableViewController, UITextFieldDelegate {
             }
             let editCustomer = Customer(idCustomer: idCustomer, customerID: email!, name: name!, email: email!, password: password!, gender: gender!, birthday: birthday!, phone: phone, address: address!)
             customer = editCustomer
-            let editCustomerData = try! JSONEncoder().encode(editCustomer)
+            print("customer: \(customer)")
+            let editCustomerData = try! JSONEncoder().encode(customer)
             let customerString = String(data: editCustomerData, encoding: .utf8)
             let joinCustomer = ["action": "update", "customer": customerString] as! [String:Any]
             customerTask.joinCustomer(joinCustomer).done {

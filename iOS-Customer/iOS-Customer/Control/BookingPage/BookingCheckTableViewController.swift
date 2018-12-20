@@ -12,6 +12,7 @@ class BookingCheckTableViewController: UITableViewController {
 
     let TAG = "BookingCheckTableViewController"
     var roomReservation = [ShoppingCar]()
+    var rooms = [ShoppingCar]()
     var reservationRoom = [RoomType]()
     var checkInDate = ""
     var checkOutDate = ""
@@ -33,11 +34,13 @@ class BookingCheckTableViewController: UITableViewController {
         
         // 開啟 Cell 自動列高
         tableView.estimatedRowHeight = 200
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tableView.reloadData()
+        
+        rooms = roomReservation
         if roomReservation.count == 0 {
             performSegue(withIdentifier: "backToBooking", sender: nil)
         }
@@ -108,7 +111,20 @@ class BookingCheckTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookingCheckTableViewCell
+        
+        // Set customer cell.
+        cell.subView.layer.cornerRadius = 8
+        cell.subView.layer.masksToBounds = true
+        cell.shadowView.layer.masksToBounds = false
+        cell.shadowView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        cell.shadowView.layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        cell.shadowView.layer.shadowOpacity = 0.23
+        cell.shadowView.layer.cornerRadius = 8
+        cell.shadowView.layer.shadowPath = UIBezierPath(roundedRect: cell.shadowView.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 3, height: 3)).cgPath
+        cell.shadowView.layer.shouldRasterize = true
+        cell.shadowView.layer.rasterizationScale = UIScreen.main.scale
 
+        
         // Configure the cell...
         cell.delegate = self
         cell.roomTypeNameLabel.text = roomReservation[indexPath.row].roomTypeName
@@ -117,7 +133,7 @@ class BookingCheckTableViewController: UITableViewController {
         cell.totalDaysLabel.text = "共 \(totalDays) 晚"
         cell.extraBedLabel.text = "是否要加床:"
         cell.roomQuantityLabel.text = "\(roomReservation[indexPath.row].roomQuantity) 間"
-        cell.priceLabel.text = "NT$ \(roomReservation[indexPath.row].price * roomReservation[indexPath.row].roomQuantity)"
+        cell.priceLabel.text = "NT$ \(roomReservation[indexPath.row].price)"
         return cell
     }
     
@@ -166,53 +182,69 @@ extension BookingCheckTableViewController: BookingCheckTableViewCellDelegate {
     // Minus room quantity.
     func minusRoomQuantity(_ sender: BookingCheckTableViewCell) {
         guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
-        guard let roomQuantity = sender.roomQuantityLabel.text?.replace(target: " 間", withString: "") else {
-            return
+        guard let totalPrice = Int((sender.priceLabel.text?.replace(target: "NT$ ", withString: ""))!) else { return }
+        var quantity = roomReservation[tappedIndexPath.row].roomQuantity
+        let price = rooms[tappedIndexPath.row].price / rooms[tappedIndexPath.row].roomQuantity * totalDays
+        
+        // Get extra bed price.
+        var extraPrice: Int {
+            if sender.extraBedSwitch.isOn {
+                return 1000 * totalDays
+            } else {
+                return 0
+            }
         }
-        var quantity = Int(roomQuantity)!
-        print(quantity)
-        if quantity > 1 {
+        
+        if roomReservation[tappedIndexPath.row].roomQuantity > 1 {
             quantity -= 1
+            print(quantity)
             sender.roomQuantityLabel.text = "\(quantity) 間"
+            roomReservation[tappedIndexPath.row].roomQuantity = quantity
+            
+            sender.priceLabel.text = "NT$ \(totalPrice - price - extraPrice)"
+            roomReservation[tappedIndexPath.row].price = totalPrice - price - extraPrice
         }
-        let price = roomReservation[tappedIndexPath.row].price
-        sender.priceLabel.text = "NT$ \(price * quantity)"
     }
     
     // Plus room quantity.
     func plusRoomQuantity(_ sender: BookingCheckTableViewCell) {
         guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
-        guard let roomQuantity = sender.roomQuantityLabel.text?.replace(target: " 間", withString: "") else {
-            return
+        guard let totalPrice = Int((sender.priceLabel.text?.replace(target: "NT$ ", withString: ""))!) else { return }
+        var quantity = roomReservation[tappedIndexPath.row].roomQuantity
+        let price = rooms[tappedIndexPath.row].price / rooms[tappedIndexPath.row].roomQuantity * totalDays
+        
+        // Get extra bed price.
+        var extraPrice: Int {
+            if sender.extraBedSwitch.isOn {
+                return 1000 * totalDays
+            } else {
+                return 0
+            }
         }
-        var quantity = Int(roomQuantity)!
-        print(quantity)
-        let labelQuantity = roomReservation[tappedIndexPath.row].roomQuantity
-        if quantity < labelQuantity {
+        
+        if roomReservation[tappedIndexPath.row].roomQuantity < rooms[tappedIndexPath.row].roomQuantity {
             quantity += 1
+            print(quantity)
             sender.roomQuantityLabel.text = "\(quantity) 間"
+            roomReservation[tappedIndexPath.row].roomQuantity = quantity
+            sender.priceLabel.text = "NT$ \(totalPrice + price + extraPrice)"
+            roomReservation[tappedIndexPath.row].price = totalPrice + price + extraPrice
         }
-        let price = roomReservation[tappedIndexPath.row].price
-        sender.priceLabel.text = "NT$ \(price * quantity)"
     }
     
     func extraBedSwitchPressed(_ sender: BookingCheckTableViewCell) {
         guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
-        guard let price = Int((sender.priceLabel.text?.replace(target: "NT$ ", withString: ""))!) else {
-            return
-        }
-        guard let quaintity = Int((sender.roomQuantityLabel.text?.replace(target: " 間", withString: ""))!) else { return }
-        var extraPrice = 0
+        guard let totalPrice = Int((sender.priceLabel.text?.replace(target: "NT$ ", withString: ""))!) else { return }
+        let quaintity = roomReservation[tappedIndexPath.row].roomQuantity
+        let extraPrice = 1000 * totalDays * quaintity
         if sender.extraBedSwitch.isOn {
-            extraBed = 1
-            extraPrice = price + 1000 * quaintity
-            sender.priceLabel.text = "NT$ \(extraPrice)"
-            roomReservation[tappedIndexPath.row].price = extraPrice
+            extraBed = 1 * quaintity
+            sender.priceLabel.text = "NT$ \(totalPrice + extraPrice)"
+            roomReservation[tappedIndexPath.row].price = totalPrice + extraPrice
         } else {
             extraBed = 0
-            extraPrice = price - 1000 * quaintity
-            sender.priceLabel.text = "NT$ \(price - 1000 * quaintity)"
-            roomReservation[tappedIndexPath.row].price = extraPrice
+            sender.priceLabel.text = "NT$ \(totalPrice - extraPrice)"
+            roomReservation[tappedIndexPath.row].price = totalPrice - extraPrice
         }
     }
 }

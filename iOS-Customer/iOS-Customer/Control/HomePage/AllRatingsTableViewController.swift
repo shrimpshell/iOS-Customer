@@ -25,6 +25,8 @@ class AllRatingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        allCustomerRatiingsTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        
         switch pageNumber {
         case 1:
             showAllCustomerRatings(key: "getAll")
@@ -33,6 +35,7 @@ class AllRatingsTableViewController: UITableViewController {
             rightBtnItem.isEnabled = true
         case 2:
             personalRatingList()
+            refreshRatings()
             rightBtnItem.isEnabled = false
             rightBtnItem.title = ""
         default:
@@ -65,10 +68,15 @@ class AllRatingsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "allRatingCell", for: indexPath) as! AllRatingsTableViewCell
 
         let rating = ratingItems[indexPath.row]
+        cell.ratingCellView.layer.borderColor = #colorLiteral(red: 0.3941470385, green: 0.745052278, blue: 0.9777091146, alpha: 1)
+        cell.ratingCellView.layer.borderWidth = 1
+        cornerRadius(view: cell.ratingCellView)
         cell.allRating = rating
+        
 
         return cell
     }
+    
  
     @IBAction func changeSearchBtnPressered(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: nil, message: "排序方式", preferredStyle: .actionSheet)

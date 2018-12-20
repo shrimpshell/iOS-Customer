@@ -166,10 +166,6 @@ class RoomOrderTableViewController: UITableViewController {
                     }
                 }
             }
-            DispatchQueue.main.async {
-                print(self.detailDictionary)
-                self.refactorData()
-            }
             return Promise {
                 result in
                 result.resolve("done", nil)
@@ -177,7 +173,6 @@ class RoomOrderTableViewController: UITableViewController {
         }.done {
             _ in
             DispatchQueue.main.async {
-                print(self.detailDictionary)
                 self.tableView.reloadData()
                 self.refresh.endRefreshing()
             }
@@ -189,7 +184,7 @@ class RoomOrderTableViewController: UITableViewController {
     
     @IBAction func unwindToRoomOrderTableView(_ segue: UIStoryboardSegue){
         guard let roomOrderDetailView = segue.source as? RoomOrderDetailViewController, let rooms = roomOrderDetailView.rooms else {
-            printHelper.println(tag: "RoomOrderTableViewController", line: #line, "error")
+//            printHelper.println(tag: "RoomOrderTableViewController", line: #line, "error")
             return
         }
         for (index, _) in self.detailDictionary.enumerated() {
